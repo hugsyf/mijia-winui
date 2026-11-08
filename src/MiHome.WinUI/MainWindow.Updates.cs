@@ -34,7 +34,7 @@ public sealed partial class MainWindow
             finally{downloading=false;progress.Hide();await shown;}
             var confirm=new Dialogs.InstallUpdateDialog {XamlRoot=Root.XamlRoot,RequestedTheme=Root.ActualTheme};
             if(await confirm.ShowAsync()!=ContentDialogResult.Primary)return;
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(installer){UseShellExecute=true});Close();
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(installer){UseShellExecute=true});App.ExitDesktop();
         }
         catch(OperationCanceledException) when(userCancelled){aboutPage.SetUpdateStatus(UiText.Get("UpdateCancelled"));}
         catch(Exception error){aboutPage.SetUpdateStatus(UiText.Get("UpdateFailed")+" "+error.Message);}

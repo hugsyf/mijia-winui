@@ -1,0 +1,14 @@
+<Window x:Class="MiHome.WinUI.TrayMenuWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <Grid x:Name="Anchor" Background="Transparent">
+  <Grid.Resources>
+   <MenuFlyout x:Key="TrayMenu">
+    <MenuFlyoutItem x:Uid="TrayMenuOpen" Click="OnOpen"><MenuFlyoutItem.Icon><FontIcon Glyph="&#xE80F;"/></MenuFlyoutItem.Icon></MenuFlyoutItem>
+    <MenuFlyoutItem x:Uid="TrayMenuSettings" Click="OnSettings"><MenuFlyoutItem.Icon><FontIcon Glyph="&#xE713;"/></MenuFlyoutItem.Icon></MenuFlyoutItem>
+    <MenuFlyoutSeparator/>
+    <MenuFlyoutItem x:Uid="TrayMenuExit" Click="OnExit"><MenuFlyoutItem.Icon><FontIcon Glyph="&#xE8BB;"/></MenuFlyoutItem.Icon></MenuFlyoutItem>
+   </MenuFlyout>
+  </Grid.Resources>
+ </Grid>
+</Window>

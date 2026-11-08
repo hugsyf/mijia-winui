@@ -17,12 +17,13 @@ namespace MiHome.WinUI;
 
 public sealed partial class MainWindow : Window
 {
-    private readonly BackendClient backend = new();
+    private BackendClient backend => App.Session.Backend;
     private readonly PanelRegistry panels = new();
     private readonly GenericPanelProvider generic = new();
     private readonly DispatcherTimer timer = new() { Interval = TimeSpan.FromSeconds(15) };
-    private readonly DeviceBrowserViewModel browser = new();
-    private bool ready, authenticated, busy, active = true, closing;
+    private DeviceBrowserViewModel browser => App.Session.Browser;
+    private bool authenticated { get => App.Session.Authenticated; set => App.Session.Authenticated = value; }
+    private bool ready, busy, active = true, closing;
     private int viewGeneration;
     private int refreshingDetailGeneration = -1;
     private long loginSession;
@@ -69,22 +70,58 @@ public sealed partial class MainWindow : Window
         panels.Register(generic);
         panels.Register(new DeviceExperienceProvider());
         backend.EventReceived += message => DispatcherQueue.TryEnqueue(() => HandleEvent(message));
-        backend.Disconnected += () => DispatcherQueue.TryEnqueue(() => { if (!closing) { Restart.Visibility = Visibility.Visible; ShowMessage(MiHome.WinUI.Infrastructure.UiText.Get("S0bf618e12dda")); } });
+        backend.Disconnected += () => DispatcherQueue.TryEnqueue(() => { if (!closing) { browser.SetCardStates([]); ApplyFilter(); Restart.Visibility = Visibility.Visible; ShowMessage(MiHome.WinUI.Infrastructure.UiText.Get("S0bf618e12dda")); } });
         timer.Tick += async (_, _) => { if (active && !busy && detailOpen && (DevicesView.Visibility == Visibility.Visible || OverviewView.Visibility == Visibility.Visible)) await RefreshDetailAsync(); };
         Activated += (_, e) =>
         {
             var wasActive = active;
             active = e.WindowActivationState != WindowActivationState.Deactivated;
+            if (active && !wasActive && ready && !App.StartupDiagnostic) LoadDesktopPreferences();
             if (active && !wasActive && ready && !busy && detailOpen && (DevicesView.Visibility == Visibility.Visible || OverviewView.Visibility == Visibility.Visible))
                 _ = RefreshDetailAsync();
         };
-        Closed += (_, _) => { closing = true; themeSettings.Changed -= OnSystemThemeChanged; timer.Stop(); backend.Dispose(); };
-        Root.Loaded += async (_, _) => { if (ready || App.StartupDiagnostic) return; ready = true; LoadTheme(); Navigation.SelectedItem = Navigation.MenuItems[0]; await RunAsync(StartAsync); if(preferences.CheckUpdates)_=CheckForUpdatesAsync(true); };
+        Closed += (_, _) => { closing = true; themeSettings.Changed -= OnSystemThemeChanged; timer.Stop(); };
+        App.Session.Updated += OnSharedStateUpdated;
+        App.Session.AuthenticationLost += OnSharedAuthenticationLost;
+        App.Session.OpenDeviceRequested += OnTrayDeviceRequested;
+        App.Session.HomeRequested += OnTrayHomeRequested;
+        Root.Loaded += async (_, _) => { if (!App.StartupDiagnostic) await InitializeDesktopAsync(); };
+    }
+    private Task? desktopInitialization;
+    internal Task InitializeDesktopAsync() => desktopInitialization ??= InitializeDesktopCoreAsync();
+    private async Task InitializeDesktopCoreAsync()
+    {
+        ready = true; LoadTheme(); Navigation.SelectedItem = Navigation.MenuItems[0];
+        await RunAsync(StartAsync);
+        if (preferences.CheckUpdates) _ = CheckForUpdatesAsync(true);
+    }
+    private void OnSharedStateUpdated() { if (!closing) ApplyFilter(); }
+    private async void OnSharedAuthenticationLost()
+    {
+        ResetSession();
+        try { await backend.CallAsync("Logout"); } catch { }
+    }
+    private void OnTrayDeviceRequested(DeviceTile tile)
+    {
+        if (busy) return;
+        App.ShowMainWindow();
+        Navigation.SelectedItem = Navigation.MenuItems[1];
+        _ = RunAsync(() => OpenDeviceAsync(tile.Device));
+    }
+    private async void OnTrayHomeRequested(string id)
+    {
+        if (busy) return;
+        await RunAsync(async () =>
+        {
+            Homes.SelectedItem = (Homes.ItemsSource as List<Home>)?.FirstOrDefault(h => h.Id == id);
+            await LoadDevicesAsync();
+        });
     }
     private async Task RunAsync(Func<Task> action)
     {
         if (busy || closing) return;
         busy = true;
+        App.Session.MainBusy = true; App.Session.Notify();
         Progress.Visibility = sessionChecking ? Visibility.Collapsed : Visibility.Visible;
         SetInputsEnabled(false);
         LoginButton.IsEnabled = false;
@@ -96,7 +133,7 @@ public sealed partial class MainWindow : Window
             ShowMessage(e.Message);
         }
         catch (Exception e) { ShowMessage(e.Message); if (!backend.Running) Restart.Visibility = Visibility.Visible; }
-        finally { busy = false; Progress.Visibility = Visibility.Collapsed; SetInputsEnabled(true); LoginButton.IsEnabled = true; UpdateLoginPresentation(); }
+        finally { busy = false; App.Session.MainBusy = false; App.Session.Notify(); Progress.Visibility = Visibility.Collapsed; SetInputsEnabled(true); LoginButton.IsEnabled = true; UpdateLoginPresentation(); }
     }
     private void SetInputsEnabled(bool enabled)
     {
@@ -138,6 +175,7 @@ public sealed partial class MainWindow : Window
     private async Task LoadDevicesAsync()
     {
         if (Homes.SelectedItem is not Home home) return;
+        await App.Session.SetHomeAsync(home, (Homes.ItemsSource as List<Home>) ?? []);
         Back();
         homeLightingFilter=false;
         homePreferences=(await backend.CallAsync("GetHomePreferences",new{homeId=home.Id})).Deserialize<HomePreferences>(BackendClient.Json)??new([],[]);
@@ -179,6 +217,7 @@ public sealed partial class MainWindow : Window
         var room = overview ? "*" : (Rooms.SelectedItem?.Tag as Room)?.Id;
         browser.Filter(search, room, overview||!homeLightingFilter?null:"light");
         UpdateHome();
+        App.Session.Notify();
         Empty.Visibility = browser.Devices.Count == 0 && !detailOpen ? Visibility.Visible : Visibility.Collapsed;
         if (detailOpen && !browser.IsEditing) DeviceList.SelectedItem = browser.Tiles.FirstOrDefault(t => t.Device.Id == selectedDevice?.Id);
         ShowCurrentView();
@@ -530,6 +569,7 @@ public sealed partial class MainWindow : Window
     private void OnBack(object sender, RoutedEventArgs e) => Back();
     private void ResetSession()
     {
+        App.Session.Clear();
         authenticated = false;
         settingsSelected = false;
         Navigation.SelectedItem = Navigation.MenuItems[0];
@@ -562,13 +602,14 @@ public sealed partial class MainWindow : Window
         appearancePage.ThemeIndex = preferences.Theme;
         appearancePage.RefreshIndex = preferences.RefreshSeconds switch { 10 => 0, 60 => 2, 0 => 3, _ => 1 };
         loadingPreferences = false;
+        if (!App.StartupDiagnostic) LoadDesktopPreferences();
         ApplyPreferences();
     }
     private void OnTheme(object sender, SelectionChangedEventArgs e)
     {
         if (!ready || loadingPreferences) return;
-        preferences = new AppPreferences(Math.Max(0, appearancePage.ThemeIndex), 0, false, "overlay",
-            appearancePage.RefreshIndex switch { 0 => 10, 2 => 60, 3 => 0, _ => 30 },preferences.Language,preferences.CheckUpdates);
+        preferences = preferences with { Theme = Math.Max(0, appearancePage.ThemeIndex),
+            RefreshSeconds = appearancePage.RefreshIndex switch { 0 => 10, 2 => 60, 3 => 0, _ => 30 } };
         ApplyPreferences();
         try { if (!App.StartupDiagnostic) preferences.Save(DataDirectory); }
         catch { ShowMessage(MiHome.WinUI.Infrastructure.UiText.Get("S41d27d68e150")); }

@@ -17,5 +17,19 @@
 
    </ComboBox>
   </controls:SettingsRow>
+  <TextBlock x:Uid="DesktopSection" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,20,0,8"/>
+  <controls:SettingsRow x:Uid="DesktopStartup" x:Name="StartupRow">
+   <ToggleSwitch x:Uid="DesktopStartupToggle" x:Name="StartupSwitch" OnContent="" OffContent="" MinWidth="0" Toggled="OnStartupChanged"/>
+  </controls:SettingsRow>
+  <HyperlinkButton x:Uid="DesktopStartupSettings" x:Name="StartupSettings" Visibility="Collapsed" NavigateUri="ms-settings:startupapps"/>
+  <controls:SettingsRow x:Uid="DesktopHidden">
+   <ToggleSwitch x:Uid="DesktopHiddenToggle" x:Name="HiddenSwitch" OnContent="" OffContent="" MinWidth="0" Toggled="OnDesktopChanged"/>
+  </controls:SettingsRow>
+  <controls:SettingsRow x:Uid="DesktopClose">
+   <ToggleSwitch x:Uid="DesktopCloseToggle" x:Name="CloseSwitch" OnContent="" OffContent="" MinWidth="0" Toggled="OnDesktopChanged"/>
+  </controls:SettingsRow>
+  <controls:SettingsRow x:Uid="DesktopDevices">
+   <Button x:Uid="DesktopChoose" Click="OnChooseTrayDevices"/>
+  </controls:SettingsRow>
  </StackPanel>
 </UserControl>

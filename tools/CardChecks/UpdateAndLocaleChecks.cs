@@ -41,8 +41,20 @@ internal static class UpdateAndLocaleChecks
             checker=new UpdateService(Path.Combine(folder,"limited"),limited);
             for(var i=0;i<2;i++)try{await checker.CheckAsync(true);throw new Exception("Rate-limit failure treated as success");}catch(HttpRequestException){}
             Check(limited.Calls==1,"Failed automatic checks also have a daily cooldown");
+            var settings=Path.Combine(folder,"desktop-preferences");
+            new AppPreferences(StartHidden:true,CloseToTray:true).Save(settings);
+            var restored=AppPreferences.Load(settings);
+            Check(restored.StartHidden&&restored.CloseToTray,"Desktop startup and close preferences survive a restart");
+            File.WriteAllText(Path.Combine(settings,"settings.json"),"{\"theme\":2,\"refreshSeconds\":60}");
+            restored=AppPreferences.Load(settings);
+            Check(!restored.StartHidden&&!restored.CloseToTray&&restored.Theme==2,"Legacy settings retain opt-in desktop defaults");
         }
-        finally{if(Directory.Exists(folder))Directory.Delete(folder,true);}
+        finally
+        {
+            var temporaryRoot=Path.GetFullPath(Path.GetTempPath()).TrimEnd(Path.DirectorySeparatorChar)+Path.DirectorySeparatorChar;
+            if(!Path.GetFullPath(folder).StartsWith(temporaryRoot,StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Unexpected check directory.");
+            if(Directory.Exists(folder))Directory.Delete(folder,true);
+        }
         UiText.Configure("zh-CN");Check(PropertyPresentation.Unit("minutes")=="分钟","Localized time unit");
         UiText.Configure("en-US");Check(PropertyPresentation.Unit("minutes")=="min","English time unit");
         var property=new PropertySchema(2,1,"play-control","Playback","uint8","",true,false,[],[new(JsonSerializer.SerializeToElement(0),"Stop")]){PropertyType="urn:miot-spec-v2:property:playing-state:1:1"};

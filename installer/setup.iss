@@ -1,7 +1,7 @@
 ﻿[Setup]
 AppId={{2D61CB27-737E-4480-B74E-9341D9838F23}
 AppName=米家 WinUI
-AppVersion=0.20.0
+AppVersion=0.21.0
 DefaultDirName={localappdata}\Programs\MiHomeWinUI
 DefaultGroupName=米家 WinUI
 PrivilegesRequired=lowest
@@ -9,7 +9,7 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 MinVersion=10.0.22000
 OutputDir=..\artifacts
-OutputBaseFilename=MiHomeWinUI-0.20.0-x64-Setup
+OutputBaseFilename=MiHomeWinUI-0.21.0-x64-Setup
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
@@ -36,6 +36,8 @@ Filename: "{app}\MiHome.WinUI.exe"; Description: "启动米家 WinUI"; Flags: no
 [Code]
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
+  if CurUninstallStep = usUninstall then
+    RegDeleteValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Run', 'MiHomeWinUI');
   if CurUninstallStep = usPostUninstall then
     if MsgBox('Delete account data, settings and cache?', mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES then
       DelTree(ExpandConstant('{localappdata}\MiHomeWinUI'), True, True, True);

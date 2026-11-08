@@ -1994,5 +1994,185 @@
   "InstallUpdateBody.Text": {
     "zh-CN": "安装包已下载并校验。应用将退出，随后由安装器完成更新。",
     "en-US": "The installer has been downloaded and verified. The application will exit so the installer can update it."
+  },
+  "DesktopSection.Text": {
+    "zh-CN": "启动与托盘",
+    "en-US": "Startup and system tray"
+  },
+  "DesktopStartup.Header": {
+    "zh-CN": "登录 Windows 时启动",
+    "en-US": "Launch at Windows sign-in"
+  },
+  "DesktopHidden.Header": {
+    "zh-CN": "登录后隐藏到托盘",
+    "en-US": "Start in the system tray at sign-in"
+  },
+  "DesktopClose.Header": {
+    "zh-CN": "关闭窗口后保留托盘",
+    "en-US": "Keep running in the tray when the window closes"
+  },
+  "DesktopDevices.Header": {
+    "zh-CN": "托盘快捷设备",
+    "en-US": "System tray devices"
+  },
+  "DesktopChoose.Content": {
+    "zh-CN": "选择设备",
+    "en-US": "Choose devices"
+  },
+  "DesktopStartupSettings.Content": {
+    "zh-CN": "打开 Windows 启动设置",
+    "en-US": "Open Windows startup settings"
+  },
+  "StartupBlocked": {
+    "zh-CN": "已在 Windows 中禁用。",
+    "en-US": "Disabled in Windows settings."
+  },
+  "DesktopSaveFailed": {
+    "zh-CN": "无法保存启动或托盘设置。",
+    "en-US": "Could not save startup or tray settings."
+  },
+  "TrayTitle.Text": {
+    "zh-CN": "快捷控制",
+    "en-US": "Quick controls"
+  },
+  "TrayFamily.AutomationProperties.Name": {
+    "zh-CN": "家庭",
+    "en-US": "Home"
+  },
+  "TrayOpenMain": {
+    "zh-CN": "打开米家 WinUI",
+    "en-US": "Open 米家 WinUI"
+  },
+  "TraySignIn": {
+    "zh-CN": "请先登录米家",
+    "en-US": "Sign in to Mi Home"
+  },
+  "TrayEmpty": {
+    "zh-CN": "选择要在这里控制的设备",
+    "en-US": "Choose devices to control here"
+  },
+  "TrayLoading": {
+    "zh-CN": "正在连接米家…",
+    "en-US": "Connecting to Mi Home…"
+  },
+  "TrayChooseDevices": {
+    "zh-CN": "选择设备",
+    "en-US": "Choose devices"
+  },
+  "TrayPinLimit": {
+    "zh-CN": "最多选择 12 台设备。",
+    "en-US": "Choose up to 12 devices."
+  },
+  "TrayBusy": {
+    "zh-CN": "请等待当前操作完成。",
+    "en-US": "Wait for the current operation to finish."
+  },
+  "TrayUnavailable": {
+    "zh-CN": "托盘暂不可用，已显示主窗口。",
+    "en-US": "The system tray is unavailable. The main window is open."
+  },
+  "TrayDeviceDetails": {
+    "zh-CN": "查看 {0} 的快捷控制",
+    "en-US": "View quick controls for {0}"
+  },
+  "TrayMenuOpen.Text": {
+    "zh-CN": "打开米家 WinUI",
+    "en-US": "Open 米家 WinUI"
+  },
+  "TrayMenuSettings.Text": {
+    "zh-CN": "设置",
+    "en-US": "Settings"
+  },
+  "TrayMenuExit.Text": {
+    "zh-CN": "退出",
+    "en-US": "Exit"
+  },
+  "TrayDevicesDialog.Title": {
+    "zh-CN": "选择托盘设备",
+    "en-US": "Choose tray devices"
+  },
+  "TrayDevicesDialog.PrimaryButtonText": {
+    "zh-CN": "保存",
+    "en-US": "Save"
+  },
+  "TrayDevicesDialog.CloseButtonText": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "DesktopStartupToggle.AutomationProperties.Name": {
+    "zh-CN": "登录 Windows 时启动",
+    "en-US": "Launch at Windows sign-in"
+  },
+  "DesktopHiddenToggle.AutomationProperties.Name": {
+    "zh-CN": "登录后隐藏到托盘",
+    "en-US": "Start in the tray at sign-in"
+  },
+  "DesktopCloseToggle.AutomationProperties.Name": {
+    "zh-CN": "关闭窗口后保留托盘",
+    "en-US": "Keep running when the window closes"
+  },
+  "TrayDetails.ToolTipService.ToolTip": {
+    "zh-CN": "快捷控制",
+    "en-US": "Quick controls"
+  },
+  "TrayDetails.AutomationProperties.Name": {
+    "zh-CN": "快捷控制",
+    "en-US": "Quick controls"
+  },
+  "TrayBack.ToolTipService.ToolTip": {
+    "zh-CN": "返回设备",
+    "en-US": "Back to devices"
+  },
+  "TrayBack.AutomationProperties.Name": {
+    "zh-CN": "返回设备",
+    "en-US": "Back to devices"
+  },
+  "TrayEdit.ToolTipService.ToolTip": {
+    "zh-CN": "编辑设备与顺序",
+    "en-US": "Edit devices and order"
+  },
+  "TrayEdit.AutomationProperties.Name": {
+    "zh-CN": "编辑设备与顺序",
+    "en-US": "Edit devices and order"
+  },
+  "TrayChoose.ToolTipService.ToolTip": {
+    "zh-CN": "选择设备",
+    "en-US": "Choose devices"
+  },
+  "TrayChoose.AutomationProperties.Name": {
+    "zh-CN": "选择设备",
+    "en-US": "Choose devices"
+  },
+  "TrayRefresh.ToolTipService.ToolTip": {
+    "zh-CN": "刷新",
+    "en-US": "Refresh"
+  },
+  "TrayRefresh.AutomationProperties.Name": {
+    "zh-CN": "刷新",
+    "en-US": "Refresh"
+  },
+  "TrayOpenApp.ToolTipService.ToolTip": {
+    "zh-CN": "打开米家 WinUI",
+    "en-US": "Open 米家 WinUI"
+  },
+  "TrayOpenApp.AutomationProperties.Name": {
+    "zh-CN": "打开米家 WinUI",
+    "en-US": "Open 米家 WinUI"
+  },
+  "TraySettings.AutomationProperties.Name": {
+    "zh-CN": "设置",
+    "en-US": "Settings"
+  },
+  "TraySettings.ToolTipService.ToolTip": {
+    "zh-CN": "设置",
+    "en-US": "Settings"
+  },
+  "TrayContextChanged": {
+    "zh-CN": "设备已切换，请重新打开快捷控制。",
+    "en-US": "The device selection has changed. Reopen quick controls."
+  },
+  "TrayNoHome": {
+    "zh-CN": "家庭尚未加载，请打开主窗口重试。",
+    "en-US": "Homes have not loaded. Open the main window to try again."
   }
 }

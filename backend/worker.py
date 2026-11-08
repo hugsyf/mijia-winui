@@ -279,6 +279,30 @@ def card_preferences():
         return {}
 
 
+def tray_preferences(params, save=False):
+    home = params["homeId"]
+    if not isinstance(home, str) or not home or len(home) > 512:
+        raise ValueError("家庭标识不正确。")
+    path = cache_dir() / ("tray-" + hashlib.sha256(home.encode()).hexdigest() + ".json")
+    if save:
+        pins = params.get("pins")
+        if (not isinstance(pins, list) or len(pins) > 12 or
+                any(not isinstance(ident, str) for ident in pins) or len(set(pins)) != len(pins)):
+            raise ValueError("最多选择 12 台设备，且不能重复。")
+        if any(ident not in devices or devices[ident]["homeId"] != home for ident in pins):
+            raise ValueError("设备不属于当前家庭。")
+        atomic_json(path, {"pins": pins})
+        return {"pins": pins}
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+        pins = value["pins"]
+        if not isinstance(pins, list) or len(pins) > 12 or any(not isinstance(ident, str) for ident in pins):
+            raise ValueError("托盘设置不正确。")
+        return {"pins": list(dict.fromkeys(pins))}
+    except (OSError, ValueError, KeyError, TypeError):
+        return {"pins": []}
+
+
 def read_card_states(device_ids):
     if not isinstance(device_ids, list) or len(device_ids) > 200:
         raise ValueError("卡片请求数量不正确。")
@@ -395,6 +419,9 @@ def run_declared_action(params):
 
 
 def dispatch(method, params):
+    if method in ("GetTrayPreferences", "SetTrayPreferences"):
+        require_auth()
+        return tray_preferences(params, method == "SetTrayPreferences")
     if method == "RunAction":
         require_auth()
         return run_declared_action(params)
@@ -405,7 +432,7 @@ def dispatch(method, params):
         return home_preferences(params,method=="SetHomePreferences")
     global generation, api, account_dir
     if method == "Hello":
-        return {"protocol": PROTOCOL, "backend": "0.19.0"}
+        return {"protocol": PROTOCOL, "backend": "0.21.0"}
     if method == "GetSessionStatus":
         if not api.auth_data:
             return {"authenticated": False}

@@ -18,6 +18,7 @@ public partial class App : Application
     {
         try
         {
+            if (!StartupDiagnostic && !await RegisterInstanceAsync()) { Exit(); return; }
             RecordStartupStage("Creating window");
             window = new MainWindow();
             if (StartupDiagnostic)
@@ -69,7 +70,12 @@ public partial class App : Application
                 return;
             }
             RecordStartupStage("Activating window");
-            window.Activate();
+            var main = (MainWindow)window;
+            var trayReady = InitializeTray(main);
+            var hidden = Environment.GetCommandLineArgs().Contains("--startup") &&
+                Infrastructure.AppPreferences.Load(SettingsDirectory).StartHidden && trayReady && !pendingActivation;
+            if (!hidden) ShowMainWindow();
+            await main.InitializeDesktopAsync();
             RecordStartupStage("Window activated");
         }
         catch (Exception exception)

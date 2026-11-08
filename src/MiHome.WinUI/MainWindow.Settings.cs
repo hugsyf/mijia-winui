@@ -25,6 +25,15 @@ public sealed partial class MainWindow
         settingsNavigation.SelectionChanged += (_, _) => { if (!choosingSettings && settingsNavigation.SelectedItem is ListViewItem item) SelectSettings(item.Tag.ToString()!); };
         settingsTabs.SelectionChanged += (_, _) => { if (!choosingSettings && settingsTabs.SelectedItem is { } item) SelectSettings(item.Tag.ToString()!); };
         appearancePage.Changed += () => OnTheme(this, null!);
+        appearancePage.DesktopChanged += OnDesktopPreferencesChanged;
+        appearancePage.StartupChanged += enabled =>
+        {
+            if (loadingPreferences || !ready || App.StartupDiagnostic) return;
+            try { StartupRegistration.SetEnabled(enabled); }
+            catch { ShowMessage(UiText.Get("DesktopSaveFailed")); }
+            LoadDesktopPreferences();
+        };
+        appearancePage.TrayDevicesRequested += () => App.OpenQuickPanel(true);
         accountPage.SyncRequested += async () => await RunAsync(LoadHomesAsync);
         accountPage.LogoutRequested += OnLogout;
         var about=aboutPage;
@@ -51,6 +60,7 @@ public sealed partial class MainWindow
     private void SelectSettings(string section)
     {
         settingsSection = section; licensesOpen = false;
+        if (section == "appearance" && ready && !App.StartupDiagnostic) LoadDesktopPreferences();
         settingsToolbar.Visibility=Visibility.Collapsed;settingsToolbar.Content=null;
         choosingSettings = true;
         settingsNavigation.SelectedItem = settingsNavigation.Items.Cast<ListViewItem>().First(i => i.Tag.ToString() == section);
@@ -77,6 +87,32 @@ public sealed partial class MainWindow
         if (preferences.RefreshSeconds == 0) timer.Stop(); else if (detailOpen) timer.Start();
         browser.CompactLayout = false;
         if (ready) { ApplyFilter(); ApplyDetailPresentation(); UpdateTitleBarTheme(); }
+    }
+    internal void OpenDesktopSettings()
+    {
+        Navigation.SelectedItem = Navigation.SettingsItem;
+        SelectSettings("appearance");
+    }
+    internal void ShowDesktopMessage(string text) => ShowMessage(text);
+    private void OnDesktopPreferencesChanged()
+    {
+        if (loadingPreferences || !ready || App.StartupDiagnostic) return;
+        try
+        {
+            preferences = preferences with { StartHidden = appearancePage.StartHidden, CloseToTray = appearancePage.CloseToTray };
+            preferences.Save(DataDirectory);
+        }
+        catch { ShowMessage(UiText.Get("DesktopSaveFailed")); }
+        LoadDesktopPreferences();
+    }
+    private void LoadDesktopPreferences()
+    {
+        loadingPreferences = true;
+        appearancePage.StartupEnabled = StartupRegistration.Enabled;
+        appearancePage.StartHidden = preferences.StartHidden;
+        appearancePage.CloseToTray = preferences.CloseToTray;
+        appearancePage.SetStartupBlocked(StartupRegistration.DisabledByWindows);
+        loadingPreferences = false;
     }
     private ScrollViewer DialogContent(UIElement content,double maximumHeight=560) =>
         DeviceUi.Scroll(content,Math.Max(120,Math.Min(maximumHeight,Root.XamlRoot.Size.Height-220)));

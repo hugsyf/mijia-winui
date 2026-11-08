@@ -51,7 +51,7 @@ internal sealed class UpdateService(string directory,HttpMessageHandler? handler
         if(automatic&&attempted is {} last&&DateTimeOffset.UtcNow-last<TimeSpan.FromDays(1))throw new HttpRequestException(UiText.Get("UpdateFailed"));
         try {Directory.CreateDirectory(directory);await File.WriteAllTextAsync(AttemptPath,JsonSerializer.Serialize(DateTimeOffset.UtcNow),cancellation);}catch(Exception e)when(e is IOException or UnauthorizedAccessException){}
         using var request=new HttpRequestMessage(HttpMethod.Get,"https://api.github.com/repos/"+Repository+"/releases/latest");
-        request.Headers.UserAgent.ParseAdd("MiHomeWinUI/0.20.0");request.Headers.Accept.ParseAdd("application/vnd.github+json");
+        request.Headers.UserAgent.ParseAdd("MiHomeWinUI/0.21.0");request.Headers.Accept.ParseAdd("application/vnd.github+json");
         if(cached?.ETag is {} etag)request.Headers.TryAddWithoutValidation("If-None-Match",etag);
         using var response=await client.SendAsync(request,HttpCompletionOption.ResponseHeadersRead,cancellation);
         if(response.StatusCode is HttpStatusCode.Forbidden or HttpStatusCode.TooManyRequests)throw new HttpRequestException(UiText.Get("UpdateLimited"));
@@ -84,7 +84,7 @@ internal sealed class UpdateService(string directory,HttpMessageHandler? handler
         for(var redirect=0;redirect<5;redirect++)
         {
             if(!DownloadHost(address))throw new InvalidDataException(UiText.Get("UpdateInvalid"));
-            using var request=new HttpRequestMessage(HttpMethod.Get,address);request.Headers.UserAgent.ParseAdd("MiHomeWinUI/0.20.0");
+            using var request=new HttpRequestMessage(HttpMethod.Get,address);request.Headers.UserAgent.ParseAdd("MiHomeWinUI/0.21.0");
             using var response=await client.SendAsync(request,HttpCompletionOption.ResponseHeadersRead,deadline.Token);
             if((int)response.StatusCode is 301 or 302 or 303 or 307 or 308)
             {if(response.Headers.Location is not {} location)break;address=location.IsAbsoluteUri?location:new Uri(address,location);continue;}
