@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 适配包开发指南
+    url: https://github.com/hugsyf/mijia-winui/blob/main/backend/adapter-agent-guide.md
+    about: 编写、打包和校验设备适配包。

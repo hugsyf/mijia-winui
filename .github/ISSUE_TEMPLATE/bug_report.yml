@@ -1,0 +1,42 @@
+name: 故障反馈
+description: 报告启动、登录、界面或设备操作问题
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: 请勿提交登录凭据、设备 ID 或家庭信息。截图中如有私人内容，请先遮挡。
+  - type: input
+    id: version
+    attributes:
+      label: 应用版本
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows 版本
+  - type: input
+    id: model
+    attributes:
+      label: 设备型号
+      description: 设备相关问题请填写型号，例如 xiaomi.humidifier.600。
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 截图或补充信息

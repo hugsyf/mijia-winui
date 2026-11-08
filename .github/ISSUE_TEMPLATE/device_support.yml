@@ -1,0 +1,35 @@
+name: 设备适配
+description: 请求支持设备或完善现有适配
+labels: [device-support]
+body:
+  - type: markdown
+    attributes:
+      value: 请勿提交登录凭据、设备 ID 或家庭信息。附件如含私人内容，请先移除。
+  - type: input
+    id: model
+    attributes:
+      label: 设备型号
+      placeholder: xiaomi.humidifier.600
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 应用版本
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: 设备固件版本
+  - type: textarea
+    id: request
+    attributes:
+      label: 需要适配的功能
+    validations:
+      required: true
+  - type: textarea
+    id: spec
+    attributes:
+      label: 规格资料或截图
+      description: 可附上公开 MIOT Spec 链接，或从应用导出并检查过的适配资料。

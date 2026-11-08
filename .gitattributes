@@ -1,0 +1,12 @@
+# XAML defines the application's UI and is part of its source code.
+*.xaml linguist-language=XML linguist-detectable=true
+
+# Imported material and generated resources do not represent authored code.
+src/MiHome.WinUI/Assets/Licenses/** linguist-vendored=true
+src/MiHome.WinUI/Assets/Devices/*.json linguist-generated=true
+src/MiHome.WinUI/Strings/*/Resources.resw linguist-generated=true
+src/MiHome.WinUI/Strings/*/Ui.json linguist-generated=true
+**/packages.lock.json linguist-generated=true
+backend/requirements.lock.txt linguist-generated=true
+tools/fixtures/qrcoder-1.7.0-LICENSE.txt linguist-vendored=true
+.github/** linguist-documentation=true
