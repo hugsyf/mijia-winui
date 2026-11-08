@@ -1,0 +1,440 @@
+{
+  "model": "xiaomi.humidifier.600",
+  "specType": "urn:miot-spec-v2:device:humidifier:0000A00E:xiaomi-600:2:0000D061",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "Humidifier",
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-600:1:0000D061",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Humidifier",
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:xiaomi-600:1:0000D061",
+        "name": "mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Constant Humidity",
+            "comment": "恒湿"
+          },
+          {
+            "value": 1,
+            "description": "Sleep",
+            "comment": "睡眠"
+          },
+          {
+            "value": 2,
+            "description": "Strong",
+            "comment": "强力"
+          },
+          {
+            "value": 3,
+            "description": "Air-dry",
+            "comment": "风干"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 5,
+        "service": "Humidifier",
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:target-humidity:00000022:xiaomi-600:1:0000D061",
+        "name": "target humidity",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          40,
+          70,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "Humidifier",
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:fault:00000009:xiaomi-600:1:0000D061",
+        "name": "Device Fault",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "No Faults",
+            "comment": "正常"
+          },
+          {
+            "value": 1,
+            "description": "Moto Fault",
+            "comment": "电机故障"
+          },
+          {
+            "value": 2,
+            "description": "Pump Fault",
+            "comment": "水泵异常"
+          },
+          {
+            "value": 3,
+            "description": "Pump Fail",
+            "comment": "水泵故障"
+          },
+          {
+            "value": 4,
+            "description": "Lack Of Water",
+            "comment": "缺水"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 10,
+        "service": "Humidifier",
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:air-dry-remain-time:00000189:xiaomi-600:1:0000D061",
+        "name": "air-dry remain time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          180,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 11,
+        "service": "Humidifier",
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:overwet-protect:00000187:xiaomi-600:1",
+        "name": "Overwet Protect",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 1,
+        "service": "environment",
+        "serviceType": "urn:miot-spec-v2:service:environment:0000780A:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:relative-humidity:0000000C:xiaomi-600:1:0000D061",
+        "name": "relative humidity",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 4,
+        "piid": 1,
+        "service": "filter",
+        "serviceType": "urn:miot-spec-v2:service:filter:0000780B:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:filter-life-level:0000001E:xiaomi-600:1:0000D061",
+        "name": "filter life level",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 6,
+        "piid": 1,
+        "service": "screen",
+        "serviceType": "urn:miot-spec-v2:service:screen:00007806:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-600:1:0000D061",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 6,
+        "piid": 2,
+        "service": "screen",
+        "serviceType": "urn:miot-spec-v2:service:screen:00007806:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:brightness:0000000D:xiaomi-600:1:0000D061",
+        "name": "screen brightness",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Dim",
+            "comment": "微亮"
+          },
+          {
+            "value": 1,
+            "description": "Normal",
+            "comment": "正常"
+          }
+        ]
+      },
+      {
+        "siid": 7,
+        "piid": 1,
+        "service": "alarm",
+        "serviceType": "urn:miot-spec-v2:service:alarm:00000012:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:alarm:00007804:xiaomi-600:1:0000D061",
+        "name": "alarm",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 8,
+        "piid": 1,
+        "service": "child-lock",
+        "serviceType": "urn:miot-spec-v2:service:physical-controls-locked:00007807:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:physical-controls-locked:0000001D:xiaomi-600:1:0000D061",
+        "name": "child lcok",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 9,
+        "piid": 1,
+        "service": "delay",
+        "serviceType": "urn:miot-spec-v2:service:delay:0000014F:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:delay:0000014F:xiaomi-600:1:0000D061",
+        "name": "delay",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 9,
+        "piid": 4,
+        "service": "delay",
+        "serviceType": "urn:miot-spec-v2:service:delay:0000014F:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:delay-time:00000150:xiaomi-600:1",
+        "name": "Delay Time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          0,
+          480,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 9,
+        "piid": 5,
+        "service": "delay",
+        "serviceType": "urn:miot-spec-v2:service:delay:0000014F:xiaomi-600:1:0000D061",
+        "propertyType": "urn:miot-spec-v2:property:delay-remain-time:00000151:xiaomi-600:1",
+        "name": "Delay Remain Time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          480,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 10,
+        "piid": 1,
+        "service": "Clean",
+        "serviceType": "urn:miot-spec-v2:service:clean:00007911:xiaomi-600:1",
+        "propertyType": "urn:miot-spec-v2:property:self-clean:000003E9:xiaomi-600:1",
+        "name": "Self Clean",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "Ready"
+          },
+          {
+            "value": 2,
+            "description": "In Progress"
+          },
+          {
+            "value": 3,
+            "description": "Finished"
+          }
+        ]
+      },
+      {
+        "siid": 10,
+        "piid": 2,
+        "service": "Clean",
+        "serviceType": "urn:miot-spec-v2:service:clean:00007911:xiaomi-600:1",
+        "propertyType": "urn:miot-spec-v2:property:clean-left-time:000001E9:xiaomi-600:1",
+        "name": "Clean Left Time",
+        "type": "uint8",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          30,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 11,
+        "piid": 1,
+        "service": "dm-service",
+        "serviceType": "urn:xiaomi-spec:service:dm-service:00007801:xiaomi-600:1",
+        "propertyType": "urn:xiaomi-spec:property:set-filter-level:00000001:xiaomi-600:1",
+        "name": "",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": false,
+        "writable": true,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 11,
+        "piid": 2,
+        "service": "dm-service",
+        "serviceType": "urn:xiaomi-spec:service:dm-service:00007801:xiaomi-600:1",
+        "propertyType": "urn:xiaomi-spec:property:filter-clean:00000002:xiaomi-600:1",
+        "name": "",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "None",
+            "comment": "None"
+          },
+          {
+            "value": 1,
+            "description": "Clean",
+            "comment": "Clean"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "siid": 2,
+        "aiid": 1,
+        "serviceType": "urn:miot-spec-v2:service:humidifier:00007818:xiaomi-600:1:0000D061",
+        "actionType": "urn:miot-spec-v2:action:toggle:00002811:xiaomi-600:1:0000D061",
+        "name": "toggle",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 4,
+        "aiid": 1,
+        "serviceType": "urn:miot-spec-v2:service:filter:0000780B:xiaomi-600:1:0000D061",
+        "actionType": "urn:miot-spec-v2:action:reset-filter-life:00002803:xiaomi-600:1:0000D061",
+        "name": "reset filter life",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 10,
+        "aiid": 1,
+        "serviceType": "urn:miot-spec-v2:service:clean:00007911:xiaomi-600:1",
+        "actionType": "urn:miot-spec-v2:action:start-self-clean:0000284F:xiaomi-600:1",
+        "name": "Start Self Clean",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 10,
+        "aiid": 2,
+        "serviceType": "urn:miot-spec-v2:service:clean:00007911:xiaomi-600:1",
+        "actionType": "urn:miot-spec-v2:action:stop-self-clean:00002850:xiaomi-600:1",
+        "name": "Stop Self Clean",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 11,
+        "aiid": 1,
+        "serviceType": "urn:xiaomi-spec:service:dm-service:00007801:xiaomi-600:1",
+        "actionType": "urn:xiaomi-spec:action:loop-mode:00002801:xiaomi-600:1",
+        "name": "loop-mode",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,734 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MiHome Adapter SDK 0.20.0",
+  "description": "Editor assistance. Run adapter_tool.py validate for semantic, device-Spec and package validation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "id",
+    "name",
+    "version",
+    "models",
+    "category",
+    "bindings",
+    "views"
+  ],
+  "properties": {
+    "formatVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9.-]{1,78}[a-z0-9]$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "sdkVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "requires": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "actions.v1",
+          "controls.choice",
+          "controls.indicator",
+          "controls.lighting",
+          "controls.numeric",
+          "controls.text",
+          "controls.time",
+          "labels.options",
+          "layout.cardExpanded",
+          "layout.readings",
+          "conditions.enabled",
+          "labels.localized"
+        ]
+      }
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+){2,4}$"
+      }
+    },
+    "specType": {
+      "type": "string",
+      "pattern": "^urn:miot-spec-v2:device:"
+    },
+    "category": {
+      "enum": [
+        "air-purifier",
+        "appliance",
+        "curtain",
+        "fan",
+        "humidifier",
+        "light",
+        "occupancy-sensor",
+        "outlet",
+        "router",
+        "speaker",
+        "switch",
+        "temperature-humidity-sensor"
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "pattern": "^assets/.+[.]png$"
+    },
+    "bindings": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 40,
+      "items": {
+        "$ref": "#/$defs/binding"
+      }
+    },
+    "views": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "card",
+        "drawer",
+        "full"
+      ],
+      "properties": {
+        "card": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/widget"
+              },
+              {
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "metric",
+                      "status",
+                      "toggle"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "drawer": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/widget"
+          }
+        },
+        "full": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/widget"
+          }
+        },
+        "cardExpanded": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/widget"
+              },
+              {
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "metric",
+                      "status",
+                      "toggle",
+                      "slider",
+                      "brightness",
+                      "colorTemperature",
+                      "choice",
+                      "select",
+                      "level",
+                      "duration",
+                      "countdown",
+                      "action"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "service",
+          "action"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,39}$"
+          },
+          "service": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "action": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "siid": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "serviceType": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "actionType": {
+            "type": "string",
+            "maxLength": 240
+          }
+        }
+      }
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "defaultLocale",
+        "resources"
+      ],
+      "properties": {
+        "defaultLocale": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "object",
+          "maxProperties": 12,
+          "additionalProperties": {
+            "type": "object",
+            "maxProperties": 300,
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 100
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "service",
+        "property",
+        "type",
+        "access"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,39}$"
+        },
+        "service": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,79}$"
+        },
+        "property": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,79}$"
+        },
+        "type": {
+          "enum": [
+            "bool",
+            "double",
+            "float",
+            "int16",
+            "int32",
+            "int64",
+            "int8",
+            "string",
+            "uint16",
+            "uint32",
+            "uint64",
+            "uint8"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "access": {
+          "enum": [
+            "read",
+            "readWrite"
+          ]
+        },
+        "siid": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "capability": {
+          "enum": [
+            "temperature",
+            "humidity",
+            "battery",
+            "filter",
+            "power",
+            "electricPower",
+            "connected",
+            "download",
+            "upload"
+          ]
+        },
+        "serviceType": {
+          "type": "string",
+          "maxLength": 240
+        },
+        "propertyType": {
+          "type": "string",
+          "maxLength": 240
+        }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "binding",
+        "equals"
+      ],
+      "properties": {
+        "binding": {
+          "type": "string"
+        },
+        "equals": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "widget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "label"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "action",
+            "brightness",
+            "choice",
+            "color",
+            "colorTemperature",
+            "countdown",
+            "duration",
+            "gauge",
+            "group",
+            "indicator",
+            "level",
+            "metric",
+            "number",
+            "progress",
+            "readings",
+            "select",
+            "slider",
+            "status",
+            "text",
+            "textInput",
+            "toggle"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "binding": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "$ref": "#/$defs/widget"
+          }
+        },
+        "when": {
+          "$ref": "#/$defs/condition"
+        },
+        "presentation": {
+          "enum": [
+            "auto",
+            "segmented",
+            "dropdown"
+          ]
+        },
+        "activeBinding": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "value",
+              "label"
+            ],
+            "properties": {
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "labelKey": {
+                "type": "string",
+                "maxLength": 80
+              }
+            }
+          }
+        },
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "value",
+              "label",
+              "tone"
+            ],
+            "properties": {
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "tone": {
+                "enum": [
+                  "neutral",
+                  "success",
+                  "warning",
+                  "critical"
+                ]
+              },
+              "labelKey": {
+                "type": "string",
+                "maxLength": 80
+              }
+            }
+          }
+        },
+        "maxLength": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256,
+          "default": 128
+        },
+        "action": {
+          "type": "string"
+        },
+        "arguments": {
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "enabledWhen": {
+          "$ref": "#/$defs/condition"
+        },
+        "labelKey": {
+          "type": "string",
+          "maxLength": 80
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "group",
+                  "readings"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "children"
+            ],
+            "not": {
+              "required": [
+                "binding"
+              ]
+            }
+          },
+          "else": {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "action"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "action"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "binding"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "children"
+                    ]
+                  }
+                ]
+              }
+            },
+            "else": {
+              "required": [
+                "binding"
+              ],
+              "not": {
+                "required": [
+                  "children"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "presentation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "choice",
+                  "select",
+                  "level"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "activeBinding"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "const": "countdown"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "options"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "choice",
+                  "select",
+                  "status"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "states"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "indicator"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "maxLength"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "textInput"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "readings"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "children": {
+                "minItems": 1,
+                "maxItems": 6,
+                "items": {
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "metric",
+                        "status",
+                        "gauge",
+                        "text",
+                        "indicator"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "const": "action"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "arguments"
+            ]
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "const": "action"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "bindings": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "actions"
+          ],
+          "properties": {
+            "actions": {
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

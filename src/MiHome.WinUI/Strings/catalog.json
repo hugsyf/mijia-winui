@@ -1,0 +1,1998 @@
+{
+  "All": {
+    "zh-CN": "全部",
+    "en-US": "All"
+  },
+  "Enabled": {
+    "zh-CN": "已启用",
+    "en-US": "Enabled"
+  },
+  "Disabled": {
+    "zh-CN": "已停用",
+    "en-US": "Disabled"
+  },
+  "NoReadme": {
+    "zh-CN": "未提供 README。",
+    "en-US": "No README provided."
+  },
+  "Unspecified": {
+    "zh-CN": "未声明",
+    "en-US": "Not specified"
+  },
+  "ConditionDisabled": {
+    "zh-CN": "当前设备状态不允许此操作。",
+    "en-US": "The current device state does not allow this operation."
+  },
+  "Stopped": {
+    "zh-CN": "已停止",
+    "en-US": "Stopped"
+  },
+  "Playing": {
+    "zh-CN": "播放中",
+    "en-US": "Playing"
+  },
+  "Paused": {
+    "zh-CN": "已暂停",
+    "en-US": "Paused"
+  },
+  "UpdateInvalid": {
+    "zh-CN": "更新资料或安装包不完整。",
+    "en-US": "The update information or installer is invalid."
+  },
+  "UpdateLimited": {
+    "zh-CN": "更新服务暂时限制访问，请稍后再试。",
+    "en-US": "The update service is temporarily rate limited. Try again later."
+  },
+  "UpdateHashFailed": {
+    "zh-CN": "安装包校验失败，请重新下载。",
+    "en-US": "Installer verification failed. Download it again."
+  },
+  "UpdateChecking": {
+    "zh-CN": "正在检查更新…",
+    "en-US": "Checking for updates…"
+  },
+  "UpdateNoRelease": {
+    "zh-CN": "暂无可用的公开发布版本。",
+    "en-US": "No public release is available."
+  },
+  "UpdateCurrent": {
+    "zh-CN": "已是最新版本。",
+    "en-US": "You have the latest version."
+  },
+  "UpdateAvailable": {
+    "zh-CN": "发现新版本 {0}",
+    "en-US": "Version {0} is available"
+  },
+  "CheckUpdates": {
+    "zh-CN": "检查更新",
+    "en-US": "Check for updates"
+  },
+  "DownloadPage": {
+    "zh-CN": "前往下载页面",
+    "en-US": "Open download page"
+  },
+  "DownloadInstall": {
+    "zh-CN": "下载并安装",
+    "en-US": "Download and install"
+  },
+  "Later": {
+    "zh-CN": "稍后",
+    "en-US": "Later"
+  },
+  "InstallUpdate": {
+    "zh-CN": "安装更新？",
+    "en-US": "Install update?"
+  },
+  "InstallExit": {
+    "zh-CN": "退出并安装",
+    "en-US": "Exit and install"
+  },
+  "InstallUpdateDescription": {
+    "zh-CN": "安装包已下载并校验。应用将退出，随后由安装器完成更新。",
+    "en-US": "The installer has been downloaded and verified. The application will exit so the installer can update it."
+  },
+  "UpdateCancelled": {
+    "zh-CN": "已取消下载。",
+    "en-US": "Download cancelled."
+  },
+  "UpdateFailed": {
+    "zh-CN": "检查或下载更新失败。",
+    "en-US": "The update check or download failed."
+  },
+  "RestartLanguage": {
+    "zh-CN": "重新打开应用后生效。",
+    "en-US": "Reopen the application to apply this language."
+  },
+  "VersionLabel": {
+    "zh-CN": "版本 {0}",
+    "en-US": "Version {0}"
+  },
+  "SelectedCount": {
+    "zh-CN": "已选 {0} / {1}",
+    "en-US": "Selected {0} / {1}"
+  },
+  "AdapterCount": {
+    "zh-CN": "{0} 个适配包",
+    "en-US": "{0} adapters"
+  },
+  "NoAdapters": {
+    "zh-CN": "暂无适配包",
+    "en-US": "No adapters installed"
+  },
+  "OnCount": {
+    "zh-CN": "{0} 盏灯开启",
+    "en-US": "{0} lights on"
+  },
+  "UnknownCount": {
+    "zh-CN": "{0} 盏状态未知",
+    "en-US": "{0} lights unknown"
+  },
+  "AttentionCount": {
+    "zh-CN": "{0} 项需关注",
+    "en-US": "{0} items need attention"
+  },
+  "UpdatedAt": {
+    "zh-CN": "{0} 更新",
+    "en-US": "Updated {0}"
+  },
+  "HumidityValue": {
+    "zh-CN": "湿度 {0}%",
+    "en-US": "Humidity {0}%"
+  },
+  "HumidityMissing": {
+    "zh-CN": "湿度 —",
+    "en-US": "Humidity —"
+  },
+  "LightCount": {
+    "zh-CN": "{0} / {1} 盏开启",
+    "en-US": "{0} / {1} lights on"
+  },
+  "LightUnknown": {
+    "zh-CN": "{0} 盏开启 · {1} 盏未知",
+    "en-US": "{0} on · {1} unknown"
+  },
+  "ConnectedCount": {
+    "zh-CN": "{0} 台设备已连接",
+    "en-US": "{0} devices connected"
+  },
+  "AllLightsOn": {
+    "zh-CN": "开启{0}所有灯",
+    "en-US": "Turn on all lights in {0}"
+  },
+  "AllLightsOff": {
+    "zh-CN": "关闭{0}所有灯",
+    "en-US": "Turn off all lights in {0}"
+  },
+  "WholeHome": {
+    "zh-CN": "全屋",
+    "en-US": "this home"
+  },
+  "PresenceDuration": {
+    "zh-CN": "设备报告持续 {0} 分钟",
+    "en-US": "Device-reported duration: {0} min"
+  },
+  "PowerOnDevice": {
+    "zh-CN": "开启 {0}",
+    "en-US": "Turn on {0}"
+  },
+  "PowerOffDevice": {
+    "zh-CN": "关闭 {0}",
+    "en-US": "Turn off {0}"
+  },
+  "CloudReadAt": {
+    "zh-CN": "读取于 {0}",
+    "en-US": "Read at {0}"
+  },
+  "NoTimestamp": {
+    "zh-CN": "设备上报时间未提供。",
+    "en-US": "Device report time is unavailable."
+  },
+  "L171cf72ede26.AutomationProperties.Name": {
+    "zh-CN": "米家 WinUI 图标",
+    "en-US": "米家 WinUI icon"
+  },
+  "L3dbb017d5c17.Text": {
+    "zh-CN": "米家 WinUI",
+    "en-US": "米家 WinUI"
+  },
+  "L90ce7bbcd9ec.Content": {
+    "zh-CN": "首页",
+    "en-US": "Home"
+  },
+  "L07e577291437.Content": {
+    "zh-CN": "设备",
+    "en-US": "Devices"
+  },
+  "Lf3b2aeb762cb.Text": {
+    "zh-CN": "欢迎回家",
+    "en-US": "Welcome home"
+  },
+  "Ld75ecb6f6471.Text": {
+    "zh-CN": "连接你的米家设备",
+    "en-US": "Connect your Mi Home devices"
+  },
+  "L985a9b8aae44.AutomationProperties.Name": {
+    "zh-CN": "选择家庭",
+    "en-US": "Choose a home"
+  },
+  "Le81c5e52e509.Content": {
+    "zh-CN": "编辑",
+    "en-US": "Edit"
+  },
+  "Le81c5e52e509.ToolTipService.ToolTip": {
+    "zh-CN": "排序和调整卡片",
+    "en-US": "Arrange and resize cards"
+  },
+  "La75c4c856bd1.AutomationProperties.Name": {
+    "zh-CN": "刷新设备",
+    "en-US": "Refresh devices"
+  },
+  "La75c4c856bd1.ToolTipService.ToolTip": {
+    "zh-CN": "刷新",
+    "en-US": "Refresh"
+  },
+  "L03aec91d140d.Content": {
+    "zh-CN": "重新连接",
+    "en-US": "Reconnect"
+  },
+  "L2be3157cfecb.Content": {
+    "zh-CN": "照明 ×",
+    "en-US": "Lighting ×"
+  },
+  "L781a9cc10c1b.AutomationProperties.Name": {
+    "zh-CN": "筛选房间",
+    "en-US": "Filter rooms"
+  },
+  "Lf88a241cf46c.AutomationProperties.Name": {
+    "zh-CN": "搜索设备",
+    "en-US": "Search devices"
+  },
+  "Lf88a241cf46c.ToolTipService.ToolTip": {
+    "zh-CN": "搜索设备",
+    "en-US": "Search devices"
+  },
+  "Ld8d4dbd61e05.PlaceholderText": {
+    "zh-CN": "搜索设备",
+    "en-US": "Search devices"
+  },
+  "Ld8d4dbd61e05.AutomationProperties.Name": {
+    "zh-CN": "搜索设备",
+    "en-US": "Search devices"
+  },
+  "L1c13381850ca.Text": {
+    "zh-CN": "正在连接米家…",
+    "en-US": "Connecting to Mi Home…"
+  },
+  "L0f5079592f1a.Text": {
+    "zh-CN": "登录米家",
+    "en-US": "Sign in to Mi Home"
+  },
+  "L371637c01ef4.Text": {
+    "zh-CN": "使用米家 App 扫码登录",
+    "en-US": "Scan with the Mi Home app"
+  },
+  "Lc796fe66f8bf.AutomationProperties.Name": {
+    "zh-CN": "米家登录二维码",
+    "en-US": "Mi Home sign-in QR code"
+  },
+  "L7be192903699.Content": {
+    "zh-CN": "扫码登录",
+    "en-US": "Sign in with QR code"
+  },
+  "L92d41698396b.Content": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "L863abdbc6302.Text": {
+    "zh-CN": "未找到设备",
+    "en-US": "No devices found"
+  },
+  "L247811eaf701.AutomationProperties.Name": {
+    "zh-CN": "更多设备选项",
+    "en-US": "More device options"
+  },
+  "Lcfaf41f48a9f.Text": {
+    "zh-CN": "设备适配",
+    "en-US": "Device adapters"
+  },
+  "L7e1e5b915cf6.Text": {
+    "zh-CN": "导出适配资料",
+    "en-US": "Export adapter context"
+  },
+  "L6b502d9f183a.Text": {
+    "zh-CN": "刷新状态",
+    "en-US": "Refresh status"
+  },
+  "L9537f0266c9e.Text": {
+    "zh-CN": "智能开关设置",
+    "en-US": "Switch settings"
+  },
+  "Ld09927c83bb3.Text": {
+    "zh-CN": "卡片设置",
+    "en-US": "Card settings"
+  },
+  "L7cc1e8730280.Text": {
+    "zh-CN": "设备信息",
+    "en-US": "Device information"
+  },
+  "L6063b139a260.AutomationProperties.Name": {
+    "zh-CN": "展开为整页",
+    "en-US": "Expand to full page"
+  },
+  "L6063b139a260.ToolTipService.ToolTip": {
+    "zh-CN": "展开为整页",
+    "en-US": "Expand to full page"
+  },
+  "L9233a699b51f.AutomationProperties.Name": {
+    "zh-CN": "关闭详情",
+    "en-US": "Close details"
+  },
+  "L9233a699b51f.ToolTipService.ToolTip": {
+    "zh-CN": "关闭 (Esc)",
+    "en-US": "Close (Esc)"
+  },
+  "L2e249a6ce648.Header": {
+    "zh-CN": "全部设备设置",
+    "en-US": "All device settings"
+  },
+  "L9689cbb99254.Header": {
+    "zh-CN": "卡片设置",
+    "en-US": "Card settings"
+  },
+  "Lae0c48d37834.Header": {
+    "zh-CN": "大小",
+    "en-US": "Size"
+  },
+  "L5e7858b5ae96.Header": {
+    "zh-CN": "显示为",
+    "en-US": "Appearance"
+  },
+  "Lb791e8180dbd.Text": {
+    "zh-CN": "仅在本机生效",
+    "en-US": "Applies on this computer"
+  },
+  "La49bbb282af8.Header": {
+    "zh-CN": "设备信息",
+    "en-US": "Device information"
+  },
+  "L3a9cd34c20a5.Text": {
+    "zh-CN": "房间",
+    "en-US": "Room"
+  },
+  "Lecf3d8d2b6d3.Text": {
+    "zh-CN": "型号",
+    "en-US": "Model"
+  },
+  "L1ada9e908652.Text": {
+    "zh-CN": "连接方式",
+    "en-US": "Connection"
+  },
+  "L24cc93fcb952.Text": {
+    "zh-CN": "米家云端",
+    "en-US": "Mi Home cloud"
+  },
+  "L0365bf3bed38.Content": {
+    "zh-CN": "模拟执行",
+    "en-US": "Simulate"
+  },
+  "Lc57863e01eac.Text": {
+    "zh-CN": "正常",
+    "en-US": "Normal"
+  },
+  "Ld1f8fd71ae29.Text": {
+    "zh-CN": "关闭",
+    "en-US": "Close"
+  },
+  "L7c0f6cb38778.Text": {
+    "zh-CN": "离线",
+    "en-US": "Offline"
+  },
+  "L29933f619965.Text": {
+    "zh-CN": "缺失读数",
+    "en-US": "Missing readings"
+  },
+  "La8043864fc25.Text": {
+    "zh-CN": "卡片",
+    "en-US": "Card"
+  },
+  "Lb5027b3df41e.Text": {
+    "zh-CN": "抽屉",
+    "en-US": "Drawer"
+  },
+  "L0c85e9d2ce0a.Text": {
+    "zh-CN": "整页",
+    "en-US": "Full page"
+  },
+  "L89e404eeaa98.Text": {
+    "zh-CN": "展开卡片",
+    "en-US": "Expanded card"
+  },
+  "L3808cf1e4dfa.Content": {
+    "zh-CN": "应用",
+    "en-US": "Apply"
+  },
+  "L9d9c44596bf4.AutomationProperties.Name": {
+    "zh-CN": "切换亮度或色温",
+    "en-US": "Switch brightness or color temperature"
+  },
+  "L9d9c44596bf4.ToolTipService.ToolTip": {
+    "zh-CN": "切换亮度／色温",
+    "en-US": "Switch brightness / color temperature"
+  },
+  "L2df190ebdca8.AutomationProperties.Name": {
+    "zh-CN": "复制代码",
+    "en-US": "Copy code"
+  },
+  "L2df190ebdca8.ToolTipService.ToolTip": {
+    "zh-CN": "复制代码",
+    "en-US": "Copy code"
+  },
+  "L73ed7a8ada13.AutomationProperties.Name": {
+    "zh-CN": "选择颜色",
+    "en-US": "Choose color"
+  },
+  "Ld5e97e906097.Text": {
+    "zh-CN": "颜色",
+    "en-US": "Color"
+  },
+  "L2aa21dd75144.AutomationProperties.Name": {
+    "zh-CN": "返回设备适配",
+    "en-US": "Back to device adapters"
+  },
+  "L2aa21dd75144.ToolTipService.ToolTip": {
+    "zh-CN": "返回设备适配",
+    "en-US": "Back to device adapters"
+  },
+  "L5080d05f7e83.Text": {
+    "zh-CN": "适配开发指南",
+    "en-US": "Adapter developer guide"
+  },
+  "L307f3f8c3ac8.AutomationProperties.Name": {
+    "zh-CN": "复制指南原文（Markdown）",
+    "en-US": "Copy guide (Markdown)"
+  },
+  "L307f3f8c3ac8.ToolTipService.ToolTip": {
+    "zh-CN": "复制指南原文（Markdown）",
+    "en-US": "Copy guide (Markdown)"
+  },
+  "Lb4b3c41d48a9.Content": {
+    "zh-CN": "查看",
+    "en-US": "View"
+  },
+  "L287fbd284ad0.Text": {
+    "zh-CN": "环境",
+    "en-US": "Environment"
+  },
+  "L894512f05371.Text": {
+    "zh-CN": "选择主传感器",
+    "en-US": "Choose primary sensor"
+  },
+  "L7cf16a8bc661.Text": {
+    "zh-CN": "选择传感器",
+    "en-US": "Choose a sensor"
+  },
+  "La4749c74bfa5.Text": {
+    "zh-CN": "门窗与感应",
+    "en-US": "Doors and presence"
+  },
+  "L299477aec1b6.Text": {
+    "zh-CN": "常用",
+    "en-US": "Favorites"
+  },
+  "L6a2cfd62ea3d.Content": {
+    "zh-CN": "选择设备",
+    "en-US": "Choose devices"
+  },
+  "L5cc12ef3c66e.Content": {
+    "zh-CN": "选择常用设备",
+    "en-US": "Choose favorites"
+  },
+  "Lc03df689ff36.Text": {
+    "zh-CN": "照明",
+    "en-US": "Lighting"
+  },
+  "Lf237e9f0ed9c.Text": {
+    "zh-CN": "网络",
+    "en-US": "Network"
+  },
+  "La3cace553a7f.Content": {
+    "zh-CN": "返回开源许可",
+    "en-US": "Back to licenses"
+  },
+  "L9629448fa5e7.PlaceholderText": {
+    "zh-CN": "搜索组件",
+    "en-US": "Search components"
+  },
+  "L9629448fa5e7.AutomationProperties.Name": {
+    "zh-CN": "搜索开源组件及许可",
+    "en-US": "Search components and licenses"
+  },
+  "Lff6f0cc8c742.AutomationProperties.Name": {
+    "zh-CN": "组件",
+    "en-US": "Components"
+  },
+  "Lb0f9d0dacc7b.Text": {
+    "zh-CN": "没有找到组件",
+    "en-US": "No components found"
+  },
+  "L232a466ae3d7.Content": {
+    "zh-CN": "项目主页",
+    "en-US": "Project website"
+  },
+  "Le5748e4e4717.Content": {
+    "zh-CN": "复制许可",
+    "en-US": "Copy license"
+  },
+  "Le6090cd7ccdc.Text": {
+    "zh-CN": "电源",
+    "en-US": "Power"
+  },
+  "L9c5fc26bfbaf.Text": {
+    "zh-CN": "状态未知",
+    "en-US": "Unknown"
+  },
+  "L5fdad36dedfa.CloseButtonText": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "L5fdad36dedfa.Title": {
+    "zh-CN": "导入适配包",
+    "en-US": "Import adapters"
+  },
+  "L5fdad36dedfa.PrimaryButtonText": {
+    "zh-CN": "安装",
+    "en-US": "Install"
+  },
+  "L899edf631524.AutomationProperties.Name": {
+    "zh-CN": "选择要安装的适配包",
+    "en-US": "Choose adapters to install"
+  },
+  "L99dd240b7167.ToolTipService.ToolTip": {
+    "zh-CN": "预览",
+    "en-US": "Preview"
+  },
+  "L4b04045642fc.Header": {
+    "zh-CN": "用于匹配的型号",
+    "en-US": "Apply to matching models"
+  },
+  "Ldd5a7c7e3e40.CloseButtonText": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "L8f080c5b7e40.CloseButtonText": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "L8f080c5b7e40.PrimaryButtonText": {
+    "zh-CN": "保存",
+    "en-US": "Save"
+  },
+  "L67426c879d33.CloseButtonText": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "L67426c879d33.Title": {
+    "zh-CN": "导出适配资料",
+    "en-US": "Export adapter context"
+  },
+  "L67426c879d33.PrimaryButtonText": {
+    "zh-CN": "导出",
+    "en-US": "Export"
+  },
+  "Lc119e99be77a.Content": {
+    "zh-CN": "包含脱敏读数样本",
+    "en-US": "Include anonymized sample readings"
+  },
+  "Lda16dad32753.Title": {
+    "zh-CN": "下载更新",
+    "en-US": "Download update"
+  },
+  "Lda16dad32753.CloseButtonText": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "L31a744a623f1.Text": {
+    "zh-CN": "米家 WinUI",
+    "en-US": "米家 WinUI"
+  },
+  "Ledcdc8908919.Text": {
+    "zh-CN": "版本信息",
+    "en-US": "Version information"
+  },
+  "L310c7983458f.Header": {
+    "zh-CN": "应用更新",
+    "en-US": "App updates"
+  },
+  "Lf028e145f3c2.Content": {
+    "zh-CN": "检查更新",
+    "en-US": "Check for updates"
+  },
+  "L29bb312b69fc.Header": {
+    "zh-CN": "自动检查更新",
+    "en-US": "Check for updates automatically"
+  },
+  "Leaf2a3777a28.Header": {
+    "zh-CN": "运行环境",
+    "en-US": "Runtime"
+  },
+  "L22b5c9daa2be.Header": {
+    "zh-CN": "更新日志",
+    "en-US": "Release notes"
+  },
+  "Ldf9392a6e220.Content": {
+    "zh-CN": "查看",
+    "en-US": "View"
+  },
+  "Ldf9392a6e220.AutomationProperties.Name": {
+    "zh-CN": "查看更新日志",
+    "en-US": "View release notes"
+  },
+  "L6a268225be6a.Text": {
+    "zh-CN": "支持",
+    "en-US": "Support"
+  },
+  "L4d93ab128c02.Header": {
+    "zh-CN": "诊断信息",
+    "en-US": "Diagnostics"
+  },
+  "Lc4e070486a9d.Content": {
+    "zh-CN": "导出",
+    "en-US": "Export"
+  },
+  "Lc4e070486a9d.AutomationProperties.Name": {
+    "zh-CN": "导出诊断信息",
+    "en-US": "Export diagnostics"
+  },
+  "Lc4e070486a9d.ToolTipService.ToolTip": {
+    "zh-CN": "版本、系统与启动记录",
+    "en-US": "Version, system and startup records"
+  },
+  "L3e6d391f940f.Header": {
+    "zh-CN": "隐私说明",
+    "en-US": "Privacy notice"
+  },
+  "L46be5b4a8464.Content": {
+    "zh-CN": "查看",
+    "en-US": "View"
+  },
+  "L46be5b4a8464.AutomationProperties.Name": {
+    "zh-CN": "查看隐私说明",
+    "en-US": "View privacy notice"
+  },
+  "L8916ad168e66.Header": {
+    "zh-CN": "第三方组件",
+    "en-US": "Third-party components"
+  },
+  "Laf9071fea0aa.Content": {
+    "zh-CN": "查看许可",
+    "en-US": "View licenses"
+  },
+  "L952227103af3.Text": {
+    "zh-CN": "米家账号",
+    "en-US": "Mi Home account"
+  },
+  "L10825091c923.Text": {
+    "zh-CN": "已登录",
+    "en-US": "Signed in"
+  },
+  "L839f12b76da5.Text": {
+    "zh-CN": "服务",
+    "en-US": "Services"
+  },
+  "L6bbd1cc37e1e.Header": {
+    "zh-CN": "服务器区域",
+    "en-US": "Server region"
+  },
+  "Lbdde22e7f908.Text": {
+    "zh-CN": "中国大陆",
+    "en-US": "Mainland China"
+  },
+  "L9bedbb15b1da.Header": {
+    "zh-CN": "当前家庭",
+    "en-US": "Current home"
+  },
+  "Lf6cc09a2441f.Content": {
+    "zh-CN": "同步家庭",
+    "en-US": "Sync homes"
+  },
+  "Le46c61d088e2.Text": {
+    "zh-CN": "账号操作",
+    "en-US": "Account actions"
+  },
+  "L36d6283c441b.Header": {
+    "zh-CN": "退出登录",
+    "en-US": "Sign out"
+  },
+  "Lb0c6f9cbd29a.Content": {
+    "zh-CN": "退出登录",
+    "en-US": "Sign out"
+  },
+  "L7cdf6d5972fe.Label": {
+    "zh-CN": "导入适配包",
+    "en-US": "Import adapters"
+  },
+  "L7cdf6d5972fe.ToolTipService.ToolTip": {
+    "zh-CN": "导入",
+    "en-US": "Import"
+  },
+  "Lcf825f2b7ef1.Label": {
+    "zh-CN": "导出未适配资料",
+    "en-US": "Export unsupported devices"
+  },
+  "Lcf825f2b7ef1.ToolTipService.ToolTip": {
+    "zh-CN": "导出当前家庭使用默认面板的设备资料，按型号与规格去重",
+    "en-US": "Export default-panel devices in this home, grouped by model and specification"
+  },
+  "Le0bb11678145.Label": {
+    "zh-CN": "选择",
+    "en-US": "Select"
+  },
+  "Le0bb11678145.ToolTipService.ToolTip": {
+    "zh-CN": "选择适配包",
+    "en-US": "Select adapters"
+  },
+  "L4d7208c641a0.Label": {
+    "zh-CN": "排序",
+    "en-US": "Sort"
+  },
+  "L0dbbeb3e49bf.Text": {
+    "zh-CN": "名称",
+    "en-US": "Name"
+  },
+  "L2036b2d6aa8c.Text": {
+    "zh-CN": "启用状态",
+    "en-US": "Enabled state"
+  },
+  "Lbd11994f7a0c.Text": {
+    "zh-CN": "降序",
+    "en-US": "Descending"
+  },
+  "Lbb94250a82d2.Label": {
+    "zh-CN": "刷新",
+    "en-US": "Refresh"
+  },
+  "Lbb94250a82d2.ToolTipService.ToolTip": {
+    "zh-CN": "刷新",
+    "en-US": "Refresh"
+  },
+  "L739274d277f5.Label": {
+    "zh-CN": "开发指南",
+    "en-US": "Developer guide"
+  },
+  "Lff36b7ec5283.Text": {
+    "zh-CN": "全部",
+    "en-US": "All"
+  },
+  "L3407c48b4e34.Text": {
+    "zh-CN": "已启用",
+    "en-US": "Enabled"
+  },
+  "Lbba2f6052eb4.Text": {
+    "zh-CN": "已停用",
+    "en-US": "Disabled"
+  },
+  "Lba4704411d92.AutomationProperties.Name": {
+    "zh-CN": "全选",
+    "en-US": "Select all"
+  },
+  "Lba4704411d92.ToolTipService.ToolTip": {
+    "zh-CN": "全选",
+    "en-US": "Select all"
+  },
+  "L5afd6169a769.Content": {
+    "zh-CN": "完成",
+    "en-US": "Done"
+  },
+  "L02c76a0c30d7.Text": {
+    "zh-CN": "启用所选",
+    "en-US": "Enable selected"
+  },
+  "Lccaa357c28cb.AutomationProperties.Name": {
+    "zh-CN": "启用所选适配包",
+    "en-US": "Enable selected adapters"
+  },
+  "La11d3df705a0.AutomationProperties.Name": {
+    "zh-CN": "卸载所选适配包",
+    "en-US": "Uninstall selected adapters"
+  },
+  "La11d3df705a0.ToolTipService.ToolTip": {
+    "zh-CN": "卸载所选适配包",
+    "en-US": "Uninstall selected adapters"
+  },
+  "Ld57055da8c9a.AutomationProperties.Name": {
+    "zh-CN": "已安装的设备适配包",
+    "en-US": "Installed device adapters"
+  },
+  "L5e64a3e3e6f8.ToolTipService.ToolTip": {
+    "zh-CN": "启用适配包",
+    "en-US": "Enable adapter"
+  },
+  "Lc94598f64e45.Text": {
+    "zh-CN": "SDK 版本",
+    "en-US": "SDK version"
+  },
+  "Leca2f72e3bc0.Text": {
+    "zh-CN": "适配包版本",
+    "en-US": "Adapter version"
+  },
+  "Lcaaf0164d246.Text": {
+    "zh-CN": "作者",
+    "en-US": "Author"
+  },
+  "L274c95fa3930.ToolTipService.ToolTip": {
+    "zh-CN": "回退上一版本",
+    "en-US": "Roll back previous version"
+  },
+  "L274c95fa3930.AutomationProperties.Name": {
+    "zh-CN": "回退上一版本",
+    "en-US": "Roll back previous version"
+  },
+  "L618873d4672e.Text": {
+    "zh-CN": "回退",
+    "en-US": "Roll back"
+  },
+  "L47c7d259714d.ToolTipService.ToolTip": {
+    "zh-CN": "卸载适配包",
+    "en-US": "Uninstall adapter"
+  },
+  "L036ead5b89bf.Text": {
+    "zh-CN": "卸载",
+    "en-US": "Uninstall"
+  },
+  "L5dbf052eaab4.Text": {
+    "zh-CN": "外观",
+    "en-US": "Appearance"
+  },
+  "Lb914d4f137a0.Header": {
+    "zh-CN": "主题",
+    "en-US": "Theme"
+  },
+  "L267e7f1c18e3.Text": {
+    "zh-CN": "跟随系统",
+    "en-US": "Use system setting"
+  },
+  "Ld422a1ebdcb2.Text": {
+    "zh-CN": "浅色",
+    "en-US": "Light"
+  },
+  "L6ae5338fa64e.Text": {
+    "zh-CN": "深色",
+    "en-US": "Dark"
+  },
+  "Ldc6fc85fb123.Header": {
+    "zh-CN": "语言",
+    "en-US": "Language"
+  },
+  "L6bb125d5f23c.Content": {
+    "zh-CN": "跟随系统",
+    "en-US": "Use system setting"
+  },
+  "L9cb8e8cc26c9.Content": {
+    "zh-CN": "简体中文",
+    "en-US": "简体中文"
+  },
+  "Ld9a3af68023f.Text": {
+    "zh-CN": "数据",
+    "en-US": "Data"
+  },
+  "Lbce4ed01f302.Header": {
+    "zh-CN": "详情刷新频率",
+    "en-US": "Detail refresh interval"
+  },
+  "Ld68b49229875.Text": {
+    "zh-CN": "外观与行为",
+    "en-US": "Appearance and behavior"
+  },
+  "L5fafc29f345f.Text": {
+    "zh-CN": "账号",
+    "en-US": "Account"
+  },
+  "L05ee5805802d.Text": {
+    "zh-CN": "关于软件",
+    "en-US": "About"
+  },
+  "L5e809212d777.Text": {
+    "zh-CN": "开源许可",
+    "en-US": "Open-source licenses"
+  },
+  "L990cc190e36a.Header": {
+    "zh-CN": "高级设置",
+    "en-US": "Advanced settings"
+  },
+  "Ld8d2b3de0285.Text": {
+    "zh-CN": "暂不支持控制此设备。",
+    "en-US": "Controls are not available for this device."
+  },
+  "Lcc0c587857c1.Header": {
+    "zh-CN": "更多设置",
+    "en-US": "More settings"
+  },
+  "Lb511e332c6ae.Text": {
+    "zh-CN": "尚未读取",
+    "en-US": "Not read yet"
+  },
+  "Leac332137a53.Content": {
+    "zh-CN": "取消修改",
+    "en-US": "Cancel changes"
+  },
+  "Leac332137a53.ToolTipService.ToolTip": {
+    "zh-CN": "恢复为最近读取的值；不向设备发送指令。",
+    "en-US": "Restore the last reading without sending a device command"
+  },
+  "S8a99be840844": {
+    "zh-CN": "正在停止…",
+    "en-US": "Stopping…"
+  },
+  "Sd9f0cd172d82": {
+    "zh-CN": "正在完成当前项…",
+    "en-US": "Finishing the current item…"
+  },
+  "S06bc14b60f35": {
+    "zh-CN": "卸载",
+    "en-US": "Uninstall"
+  },
+  "Scdb70be0681a": {
+    "zh-CN": "导出未适配资料",
+    "en-US": "Export unsupported devices"
+  },
+  "S66e5a1c5807e": {
+    "zh-CN": "导入适配包",
+    "en-US": "Import adapters"
+  },
+  "S30ada4bf5edd": {
+    "zh-CN": "设备适配",
+    "en-US": "Device adapters"
+  },
+  "S63c73c4730f4": {
+    "zh-CN": "应用",
+    "en-US": "Apply"
+  },
+  "S5c55a67935af": {
+    "zh-CN": "全部",
+    "en-US": "All"
+  },
+  "Sde6811e73d40": {
+    "zh-CN": "更新日志",
+    "en-US": "Release notes"
+  },
+  "S9d06d61ee41f": {
+    "zh-CN": "隐私说明",
+    "en-US": "Privacy notice"
+  },
+  "S3fd47edce45b": {
+    "zh-CN": "关闭",
+    "en-US": "Close"
+  },
+  "S0bf618e12dda": {
+    "zh-CN": "连接已中断，请重新连接。",
+    "en-US": "Connection lost. Reconnect to continue."
+  },
+  "S051836569928": {
+    "zh-CN": "编辑",
+    "en-US": "Edit"
+  },
+  "S3ab8cc15939f": {
+    "zh-CN": "退出登录",
+    "en-US": "Sign out"
+  },
+  "S41d27d68e150": {
+    "zh-CN": "无法保存应用设置。",
+    "en-US": "Application settings could not be saved."
+  },
+  "Sbda050585a00": {
+    "zh-CN": "—",
+    "en-US": "—"
+  },
+  "S93e474c68ed5": {
+    "zh-CN": "状态未知",
+    "en-US": "Unknown"
+  },
+  "S30a0132ed5d2": {
+    "zh-CN": "只写属性，无法读取确认。",
+    "en-US": "Write-only property; readback is unavailable."
+  },
+  "S8992a8bd7eb2": {
+    "zh-CN": "导出当前家庭使用默认面板的设备资料，按型号与规格去重",
+    "en-US": "Export default-panel devices in this home, grouped by model and specification"
+  },
+  "S1b255ec87517": {
+    "zh-CN": "恢复为最近读取的值；不向设备发送指令。",
+    "en-US": "Restore the last reading without sending a device command"
+  },
+  "Sa6feae70905b": {
+    "zh-CN": "复制指南原文（Markdown）",
+    "en-US": "Copy guide (Markdown)"
+  },
+  "S42168edefc6b": {
+    "zh-CN": "米家 WinUI",
+    "en-US": "米家 WinUI"
+  },
+  "S6ffa4182fa54": {
+    "zh-CN": "使用米家 App 扫码登录",
+    "en-US": "Scan with the Mi Home app"
+  },
+  "S32ad039003dc": {
+    "zh-CN": "未提供 README。",
+    "en-US": "No README provided."
+  },
+  "S0378946ed6d1": {
+    "zh-CN": "暂不支持控制此设备。",
+    "en-US": "Controls are not available for this device."
+  },
+  "S6291cbcdab3f": {
+    "zh-CN": "版本、系统与启动记录",
+    "en-US": "Version, system and startup records"
+  },
+  "S6ec237f592d0": {
+    "zh-CN": "已安装的设备适配包",
+    "en-US": "Installed device adapters"
+  },
+  "Sc0a2e97c00b1": {
+    "zh-CN": "搜索开源组件及许可",
+    "en-US": "Search components and licenses"
+  },
+  "Sf5ee5b84f4bd": {
+    "zh-CN": "选择要安装的适配包",
+    "en-US": "Choose adapters to install"
+  },
+  "S7c61bb8e7b76": {
+    "zh-CN": "关闭 (Esc)",
+    "en-US": "Close (Esc)"
+  },
+  "Sb8b7560f738c": {
+    "zh-CN": "包含脱敏读数样本",
+    "en-US": "Include anonymized sample readings"
+  },
+  "S776fef2a50e9": {
+    "zh-CN": "客户端与版本信息",
+    "en-US": "Application and version"
+  },
+  "Saf06706db79e": {
+    "zh-CN": "连接你的米家设备",
+    "en-US": "Connect your Mi Home devices"
+  },
+  "S0813ada497a0": {
+    "zh-CN": "状态未知，请刷新",
+    "en-US": "Unknown; refresh to read"
+  },
+  "S7aa57109eee1": {
+    "zh-CN": "切换亮度或色温",
+    "en-US": "Switch brightness or color temperature"
+  },
+  "S7c98da78b74e": {
+    "zh-CN": "切换亮度／色温",
+    "en-US": "Switch brightness / color temperature"
+  },
+  "Sd8cb633ab9a5": {
+    "zh-CN": "卸载所选适配包",
+    "en-US": "Uninstall selected adapters"
+  },
+  "S548cc76b755b": {
+    "zh-CN": "启用所选适配包",
+    "en-US": "Enable selected adapters"
+  },
+  "S6fb00a77d1a9": {
+    "zh-CN": "排序和调整卡片",
+    "en-US": "Arrange and resize cards"
+  },
+  "S9ffe98a30fb7": {
+    "zh-CN": "正在连接米家…",
+    "en-US": "Connecting to Mi Home…"
+  },
+  "S72e91c5b0e0d": {
+    "zh-CN": "用于匹配的型号",
+    "en-US": "Apply to matching models"
+  },
+  "Sa87789ead63a": {
+    "zh-CN": "米家登录二维码",
+    "en-US": "Mi Home sign-in QR code"
+  },
+  "S6b593fef5694": {
+    "zh-CN": "离线或状态未知",
+    "en-US": "Offline or unknown"
+  },
+  "S1030511860e4": {
+    "zh-CN": "延时关闭倒计时",
+    "en-US": "Power-off countdown"
+  },
+  "S12d9430d30be": {
+    "zh-CN": "仅在本机生效",
+    "en-US": "Applies on this computer"
+  },
+  "S71caf54ae62e": {
+    "zh-CN": "全部设备设置",
+    "en-US": "All device settings"
+  },
+  "S0eba22d6ad3e": {
+    "zh-CN": "回退上一版本",
+    "en-US": "Roll back previous version"
+  },
+  "Sdccc0cb87d8a": {
+    "zh-CN": "导出诊断信息",
+    "en-US": "Export diagnostics"
+  },
+  "Sf8780b8a912f": {
+    "zh-CN": "导出适配资料",
+    "en-US": "Export adapter context"
+  },
+  "Sb40869d49948": {
+    "zh-CN": "智能开关设置",
+    "en-US": "Switch settings"
+  },
+  "S2729085701cf": {
+    "zh-CN": "更多设备选项",
+    "en-US": "More device options"
+  },
+  "Sbd50eff4af46": {
+    "zh-CN": "查看更新日志",
+    "en-US": "View release notes"
+  },
+  "S85a70e206e9e": {
+    "zh-CN": "查看隐私说明",
+    "en-US": "View privacy notice"
+  },
+  "Scee892960fc7": {
+    "zh-CN": "没有找到组件",
+    "en-US": "No components found"
+  },
+  "S17f4ef49254e": {
+    "zh-CN": "米家 WinUI 图标",
+    "en-US": "米家 WinUI icon"
+  },
+  "S33444ce1ab88": {
+    "zh-CN": "详情刷新频率",
+    "en-US": "Detail refresh interval"
+  },
+  "S15f52a0d3085": {
+    "zh-CN": "返回开源许可",
+    "en-US": "Back to licenses"
+  },
+  "S5b6f774264e3": {
+    "zh-CN": "返回设备适配",
+    "en-US": "Back to device adapters"
+  },
+  "S4ae43144f113": {
+    "zh-CN": "适配开发指南",
+    "en-US": "Adapter developer guide"
+  },
+  "Sa8f1d262979e": {
+    "zh-CN": "选择主传感器",
+    "en-US": "Choose primary sensor"
+  },
+  "S5537e48f965f": {
+    "zh-CN": "选择常用设备",
+    "en-US": "Choose favorites"
+  },
+  "S5fcfa8332fae": {
+    "zh-CN": "SDK 版本",
+    "en-US": "SDK version"
+  },
+  "Sc42a3dd9c2e4": {
+    "zh-CN": "自动检查更新",
+    "en-US": "Check for updates automatically"
+  },
+  "S69194bd7c9fd": {
+    "zh-CN": "每 10 秒",
+    "en-US": "Every 10 seconds"
+  },
+  "S7928ca287c7a": {
+    "zh-CN": "每 30 秒",
+    "en-US": "Every 30 seconds"
+  },
+  "S12532dbccf5f": {
+    "zh-CN": "状态暂不可用",
+    "en-US": "State unavailable"
+  },
+  "S303a06eaded5": {
+    "zh-CN": "滤芯剩余寿命",
+    "en-US": "Filter life"
+  },
+  "S7e9a89cc74b0": {
+    "zh-CN": "尚未选择家庭",
+    "en-US": "No home selected"
+  },
+  "Sa42a5899b9fb": {
+    "zh-CN": "卸载适配包",
+    "en-US": "Uninstall adapter"
+  },
+  "Sc7c009fe7aa8": {
+    "zh-CN": "启用适配包",
+    "en-US": "Enable adapter"
+  },
+  "S0371f8eadcaa": {
+    "zh-CN": "外观与行为",
+    "en-US": "Appearance and behavior"
+  },
+  "S460a76736d27": {
+    "zh-CN": "展开为整页",
+    "en-US": "Expand to full page"
+  },
+  "Sf040e5a301f7": {
+    "zh-CN": "未找到设备",
+    "en-US": "No devices found"
+  },
+  "S788ef5156b41": {
+    "zh-CN": "第三方组件",
+    "en-US": "Third-party components"
+  },
+  "S1ba1347c4503": {
+    "zh-CN": "适配包详情",
+    "en-US": "Adapter details"
+  },
+  "S7c14dbda08bd": {
+    "zh-CN": "选择传感器",
+    "en-US": "Choose a sensor"
+  },
+  "S76ef71ab2f00": {
+    "zh-CN": "选择适配包",
+    "en-US": "Select adapters"
+  },
+  "Sd99d86926cc6": {
+    "zh-CN": "门窗与感应",
+    "en-US": "Doors and presence"
+  },
+  "Se9f1e4057101": {
+    "zh-CN": "适配包版本",
+    "en-US": "Adapter version"
+  },
+  "S26ef00b7d061": {
+    "zh-CN": "正在提交…",
+    "en-US": "Submitting…"
+  },
+  "S51536645bb38": {
+    "zh-CN": "中国大陆",
+    "en-US": "Mainland China"
+  },
+  "S8745995bee00": {
+    "zh-CN": "关于软件",
+    "en-US": "About"
+  },
+  "S9071cfe7cd01": {
+    "zh-CN": "关闭详情",
+    "en-US": "Close details"
+  },
+  "S802a407c7743": {
+    "zh-CN": "刷新状态",
+    "en-US": "Refresh status"
+  },
+  "Sdc54091453cc": {
+    "zh-CN": "刷新设备",
+    "en-US": "Refresh devices"
+  },
+  "S30d7549be8d2": {
+    "zh-CN": "卡片设置",
+    "en-US": "Card settings"
+  },
+  "Sfada4dfc38e3": {
+    "zh-CN": "取消修改",
+    "en-US": "Cancel changes"
+  },
+  "S909884cfddc1": {
+    "zh-CN": "同步家庭",
+    "en-US": "Sync homes"
+  },
+  "S26008950621f": {
+    "zh-CN": "启用所选",
+    "en-US": "Enable selected"
+  },
+  "Sd334c402ead1": {
+    "zh-CN": "启用状态",
+    "en-US": "Enabled state"
+  },
+  "S420c20dd9fcc": {
+    "zh-CN": "复制代码",
+    "en-US": "Copy code"
+  },
+  "S6b9d21a7a109": {
+    "zh-CN": "复制许可",
+    "en-US": "Copy license"
+  },
+  "Sc4cf69f358b6": {
+    "zh-CN": "尚未读取",
+    "en-US": "Not read yet"
+  },
+  "S3a3389c6987d": {
+    "zh-CN": "展开卡片",
+    "en-US": "Expanded card"
+  },
+  "Sef21d172859b": {
+    "zh-CN": "开发指南",
+    "en-US": "Developer guide"
+  },
+  "S038ad816c53f": {
+    "zh-CN": "开源许可",
+    "en-US": "Open-source licenses"
+  },
+  "Sedf7665eee4c": {
+    "zh-CN": "当前家庭",
+    "en-US": "Current home"
+  },
+  "S378eaca774bb": {
+    "zh-CN": "扫码登录",
+    "en-US": "Sign in with QR code"
+  },
+  "Sf2cd55057df5": {
+    "zh-CN": "搜索组件",
+    "en-US": "Search components"
+  },
+  "Sc21e12d69e05": {
+    "zh-CN": "搜索设备",
+    "en-US": "Search devices"
+  },
+  "S6e1f103f1c28": {
+    "zh-CN": "查看许可",
+    "en-US": "View licenses"
+  },
+  "S1307cf619a2e": {
+    "zh-CN": "模拟执行",
+    "en-US": "Simulate"
+  },
+  "S6c816b52536c": {
+    "zh-CN": "欢迎回家",
+    "en-US": "Welcome home"
+  },
+  "Sedca0c36f8c1": {
+    "zh-CN": "照明 ×",
+    "en-US": "Lighting ×"
+  },
+  "S2da3906a24ee": {
+    "zh-CN": "版本信息",
+    "en-US": "Version information"
+  },
+  "S8308c1df7e40": {
+    "zh-CN": "登录米家",
+    "en-US": "Sign in to Mi Home"
+  },
+  "S2b7729d7ac40": {
+    "zh-CN": "筛选房间",
+    "en-US": "Filter rooms"
+  },
+  "S563f0148e543": {
+    "zh-CN": "米家云端",
+    "en-US": "Mi Home cloud"
+  },
+  "S7ce3a72007d6": {
+    "zh-CN": "米家账号",
+    "en-US": "Mi Home account"
+  },
+  "S9937e365aaf3": {
+    "zh-CN": "简体中文",
+    "en-US": "简体中文"
+  },
+  "S66a64e3c9bf8": {
+    "zh-CN": "缺失读数",
+    "en-US": "Missing readings"
+  },
+  "S6c07bb6fd4b6": {
+    "zh-CN": "设备信息",
+    "en-US": "Device information"
+  },
+  "S9167ee8b67db": {
+    "zh-CN": "诊断信息",
+    "en-US": "Diagnostics"
+  },
+  "Sdc9aed464cd8": {
+    "zh-CN": "账号操作",
+    "en-US": "Account actions"
+  },
+  "S217cfe7db1e3": {
+    "zh-CN": "跟随系统",
+    "en-US": "Use system setting"
+  },
+  "S423f51a28678": {
+    "zh-CN": "运行环境",
+    "en-US": "Runtime"
+  },
+  "S485a26050ce5": {
+    "zh-CN": "连接方式",
+    "en-US": "Connection"
+  },
+  "S68891ab35cab": {
+    "zh-CN": "重新连接",
+    "en-US": "Reconnect"
+  },
+  "Saaab0ef30c34": {
+    "zh-CN": "选择家庭",
+    "en-US": "Choose a home"
+  },
+  "S46f9ac7b9a39": {
+    "zh-CN": "选择设备",
+    "en-US": "Choose devices"
+  },
+  "S369b82fa0700": {
+    "zh-CN": "选择颜色",
+    "en-US": "Choose color"
+  },
+  "S553dc98d899f": {
+    "zh-CN": "部分成功",
+    "en-US": "Partially completed"
+  },
+  "S0cadb49096a3": {
+    "zh-CN": "项目主页",
+    "en-US": "Project website"
+  },
+  "S44455611b910": {
+    "zh-CN": "高级设置",
+    "en-US": "Advanced settings"
+  },
+  "S7f68ebad19ba": {
+    "zh-CN": "检查更新",
+    "en-US": "Check for updates"
+  },
+  "Sa78b542de282": {
+    "zh-CN": "下载更新",
+    "en-US": "Download update"
+  },
+  "S82b7cf40b5e6": {
+    "zh-CN": "当前状态",
+    "en-US": "Current state"
+  },
+  "S135d06c406b2": {
+    "zh-CN": "当前湿度",
+    "en-US": "Current humidity"
+  },
+  "Sef4cb5a826ac": {
+    "zh-CN": "目标湿度",
+    "en-US": "Target humidity"
+  },
+  "S87ed126f7bd1": {
+    "zh-CN": "运行模式",
+    "en-US": "Mode"
+  },
+  "S568c1e74fb06": {
+    "zh-CN": "剩余时间",
+    "en-US": "Remaining time"
+  },
+  "S4fa3708cafb1": {
+    "zh-CN": "播放状态",
+    "en-US": "Playback state"
+  },
+  "Sf2394a885adc": {
+    "zh-CN": "滤芯剩余",
+    "en-US": "Filter remaining"
+  },
+  "S08ce330f0975": {
+    "zh-CN": "无线模式",
+    "en-US": "Wireless mode"
+  },
+  "Sf36cac96220b": {
+    "zh-CN": "暂不可用",
+    "en-US": "Unavailable"
+  },
+  "S9b331be8923c": {
+    "zh-CN": "相对湿度",
+    "en-US": "Relative humidity"
+  },
+  "Sd8d84897679e": {
+    "zh-CN": "风速档位",
+    "en-US": "Fan level"
+  },
+  "Sfd20e18350d5": {
+    "zh-CN": "目标温度",
+    "en-US": "Target temperature"
+  },
+  "S6be6c8248ec6": {
+    "zh-CN": "当前位置",
+    "en-US": "Current position"
+  },
+  "S4a4f9c0beda1": {
+    "zh-CN": "目标位置",
+    "en-US": "Target position"
+  },
+  "S754cd3e2de17": {
+    "zh-CN": "屏幕亮度",
+    "en-US": "Screen brightness"
+  },
+  "S4fb3ea271d03": {
+    "zh-CN": "延迟时间",
+    "en-US": "Delay"
+  },
+  "Sfea4e98eb217": {
+    "zh-CN": "断电记忆",
+    "en-US": "Power recovery"
+  },
+  "S86ffbbfc5084": {
+    "zh-CN": "更多设置",
+    "en-US": "More settings"
+  },
+  "S34f7336d3983": {
+    "zh-CN": "全部关闭",
+    "en-US": "All off"
+  },
+  "S6dbaeff68e66": {
+    "zh-CN": "全部房间",
+    "en-US": "All rooms"
+  },
+  "S3051a776eaa5": {
+    "zh-CN": "校验通过",
+    "en-US": "Validated"
+  },
+  "S5c14e94e278d": {
+    "zh-CN": "默认面板",
+    "en-US": "Default panel"
+  },
+  "Sa8c3698b5b8c": {
+    "zh-CN": "已停用",
+    "en-US": "Disabled"
+  },
+  "Sdfb802238b38": {
+    "zh-CN": "已启用",
+    "en-US": "Enabled"
+  },
+  "S0a01eee1cd37": {
+    "zh-CN": "已登录",
+    "en-US": "Signed in"
+  },
+  "Sa7612226b2f7": {
+    "zh-CN": "显示为",
+    "en-US": "Appearance"
+  },
+  "S52a0cbef7917": {
+    "zh-CN": "每分钟",
+    "en-US": "Every minute"
+  },
+  "S46e152919d00": {
+    "zh-CN": "仅手动",
+    "en-US": "Manual only"
+  },
+  "Sea191e4d8486": {
+    "zh-CN": "我的家",
+    "en-US": "My home"
+  },
+  "S8a4ef3e48e4e": {
+    "zh-CN": "已开启",
+    "en-US": "On"
+  },
+  "S6744b4c6a9aa": {
+    "zh-CN": "已关闭",
+    "en-US": "Off"
+  },
+  "Sf006455e3baf": {
+    "zh-CN": "已停止",
+    "en-US": "Stopped"
+  },
+  "S663e1a1ed327": {
+    "zh-CN": "关闭中",
+    "en-US": "Turning off"
+  },
+  "Sf95ea7f4c063": {
+    "zh-CN": "未启用",
+    "en-US": "Inactive"
+  },
+  "S0035761a7414": {
+    "zh-CN": "耗电量",
+    "en-US": "Energy use"
+  },
+  "S55b734e846e0": {
+    "zh-CN": "温湿度",
+    "en-US": "Temperature and humidity"
+  },
+  "Sfdd8ff337f90": {
+    "zh-CN": "提示音",
+    "en-US": "Sound"
+  },
+  "S231fe2204265": {
+    "zh-CN": "未执行",
+    "en-US": "Not run"
+  },
+  "S788db1cfec2a": {
+    "zh-CN": "主题",
+    "en-US": "Theme"
+  },
+  "S7d4146ca0827": {
+    "zh-CN": "作者",
+    "en-US": "Author"
+  },
+  "S3a5040b68abf": {
+    "zh-CN": "全选",
+    "en-US": "Select all"
+  },
+  "Saee887434131": {
+    "zh-CN": "刷新",
+    "en-US": "Refresh"
+  },
+  "Sfb5640f8e12e": {
+    "zh-CN": "卡片",
+    "en-US": "Card"
+  },
+  "S2cd0f3be8738": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "Sd44e9b3d3b31": {
+    "zh-CN": "名称",
+    "en-US": "Name"
+  },
+  "S8771e3682df1": {
+    "zh-CN": "回退",
+    "en-US": "Roll back"
+  },
+  "S322408c53bed": {
+    "zh-CN": "型号",
+    "en-US": "Model"
+  },
+  "S86a63f23a076": {
+    "zh-CN": "外观",
+    "en-US": "Appearance"
+  },
+  "S50db7447b966": {
+    "zh-CN": "大小",
+    "en-US": "Size"
+  },
+  "Se8f88f51ccb0": {
+    "zh-CN": "安装",
+    "en-US": "Install"
+  },
+  "Sc0b3fbff51cc": {
+    "zh-CN": "完成",
+    "en-US": "Done"
+  },
+  "S576d81bb0631": {
+    "zh-CN": "导入",
+    "en-US": "Import"
+  },
+  "S76420433f22d": {
+    "zh-CN": "导出",
+    "en-US": "Export"
+  },
+  "S4563c57b5143": {
+    "zh-CN": "常用",
+    "en-US": "Favorites"
+  },
+  "Sd93373f81363": {
+    "zh-CN": "支持",
+    "en-US": "Support"
+  },
+  "Sa96c9a854190": {
+    "zh-CN": "排序",
+    "en-US": "Sort"
+  },
+  "S5440f7424f28": {
+    "zh-CN": "数据",
+    "en-US": "Data"
+  },
+  "Sec309ab207ef": {
+    "zh-CN": "服务",
+    "en-US": "Services"
+  },
+  "Sdb8db0530432": {
+    "zh-CN": "查看",
+    "en-US": "View"
+  },
+  "S296de0e31f8c": {
+    "zh-CN": "正常",
+    "en-US": "Normal"
+  },
+  "Saa0819dfc4d8": {
+    "zh-CN": "浅色",
+    "en-US": "Light"
+  },
+  "Sa6b75d068032": {
+    "zh-CN": "深色",
+    "en-US": "Dark"
+  },
+  "S098294eeccc2": {
+    "zh-CN": "照明",
+    "en-US": "Lighting"
+  },
+  "S99faf39f8dee": {
+    "zh-CN": "电源",
+    "en-US": "Power"
+  },
+  "S0f5785fff504": {
+    "zh-CN": "米家 WinUI",
+    "en-US": "米家 WinUI"
+  },
+  "S97b31b5d63f5": {
+    "zh-CN": "网络",
+    "en-US": "Network"
+  },
+  "Se1506406a5bd": {
+    "zh-CN": "设备",
+    "en-US": "Devices"
+  },
+  "S311bb313fdec": {
+    "zh-CN": "账号",
+    "en-US": "Account"
+  },
+  "Sc11330b85234": {
+    "zh-CN": "选择",
+    "en-US": "Select"
+  },
+  "S4b77c3546823": {
+    "zh-CN": "降序",
+    "en-US": "Descending"
+  },
+  "S13d61fea9f17": {
+    "zh-CN": "预览",
+    "en-US": "Preview"
+  },
+  "S070a8016fcc3": {
+    "zh-CN": "颜色",
+    "en-US": "Color"
+  },
+  "S203c08e0d44a": {
+    "zh-CN": "首页",
+    "en-US": "Home"
+  },
+  "S9f6fee1aba17": {
+    "zh-CN": "语言",
+    "en-US": "Language"
+  },
+  "S904dd029c768": {
+    "zh-CN": "环境",
+    "en-US": "Environment"
+  },
+  "S3732e264dfa9": {
+    "zh-CN": "温度",
+    "en-US": "Temperature"
+  },
+  "S82213712d6ae": {
+    "zh-CN": "湿度",
+    "en-US": "Humidity"
+  },
+  "S8e2f643ad160": {
+    "zh-CN": "亮度",
+    "en-US": "Brightness"
+  },
+  "S84ac609620e5": {
+    "zh-CN": "色温",
+    "en-US": "Color temperature"
+  },
+  "S960f5905aca2": {
+    "zh-CN": "恒湿",
+    "en-US": "Constant humidity"
+  },
+  "S01324e540d05": {
+    "zh-CN": "睡眠",
+    "en-US": "Sleep"
+  },
+  "Sc27aa1fce220": {
+    "zh-CN": "强力",
+    "en-US": "High"
+  },
+  "Sb3f3fc9bd352": {
+    "zh-CN": "风干",
+    "en-US": "Dry"
+  },
+  "S8bf8b9780d34": {
+    "zh-CN": "音量",
+    "en-US": "Volume"
+  },
+  "S1c69b1aa723a": {
+    "zh-CN": "电量",
+    "en-US": "Battery"
+  },
+  "Sbe1b4f3c6c1c": {
+    "zh-CN": "离线",
+    "en-US": "Offline"
+  },
+  "S8da97ddda990": {
+    "zh-CN": "开启",
+    "en-US": "On"
+  },
+  "Sbd957bc497aa": {
+    "zh-CN": "分钟",
+    "en-US": "min"
+  },
+  "S3b6fefc50feb": {
+    "zh-CN": "小时",
+    "en-US": "h"
+  },
+  "S92d9be0a0e94": {
+    "zh-CN": "开关",
+    "en-US": "Power"
+  },
+  "S3993e09bcbbe": {
+    "zh-CN": "功率",
+    "en-US": "Power"
+  },
+  "S38f7c7e22faf": {
+    "zh-CN": "体重",
+    "en-US": "Weight"
+  },
+  "S5a0cc6c04776": {
+    "zh-CN": "故障",
+    "en-US": "Fault"
+  },
+  "S0f68010bc429": {
+    "zh-CN": "童锁",
+    "en-US": "Child lock"
+  },
+  "Sa30f63625458": {
+    "zh-CN": "照度",
+    "en-US": "Illuminance"
+  },
+  "S3b579010a041": {
+    "zh-CN": "灯光",
+    "en-US": "Lighting"
+  },
+  "S17cb97521322": {
+    "zh-CN": "插座",
+    "en-US": "Outlet"
+  },
+  "S3e41bc3fa911": {
+    "zh-CN": "风扇",
+    "en-US": "Fan"
+  },
+  "S8a2fd55b0118": {
+    "zh-CN": "电池",
+    "en-US": "Battery"
+  },
+  "S04d4aba0ab5f": {
+    "zh-CN": "屏幕",
+    "en-US": "Display"
+  },
+  "Sf0c875bd7387": {
+    "zh-CN": "音箱",
+    "en-US": "Speaker"
+  },
+  "S9dcdc2b289b9": {
+    "zh-CN": "秒",
+    "en-US": "s"
+  },
+  "S7d58b6422cac": {
+    "zh-CN": "时",
+    "en-US": "h"
+  },
+  "Sb6a993c256ef": {
+    "zh-CN": "分",
+    "en-US": "min"
+  },
+  "Online": {
+    "zh-CN": "在线",
+    "en-US": "Online"
+  },
+  "NoState": {
+    "zh-CN": "尚未读取状态",
+    "en-US": "State not read yet"
+  },
+  "PinDevices": {
+    "zh-CN": "常用设备",
+    "en-US": "Favorites"
+  },
+  "TurnedOn": {
+    "zh-CN": "已开启",
+    "en-US": "On"
+  },
+  "TurnedOff": {
+    "zh-CN": "已关闭",
+    "en-US": "Off"
+  },
+  "UnknownState": {
+    "zh-CN": "状态未知",
+    "en-US": "Unknown"
+  },
+  "LightsOn": {
+    "zh-CN": "有灯开启",
+    "en-US": "Some lights are on"
+  },
+  "AllOff": {
+    "zh-CN": "全部关闭",
+    "en-US": "All off"
+  },
+  "ReadingTime": {
+    "zh-CN": "云端读取于 {0}",
+    "en-US": "Cloud reading at {0}"
+  },
+  "EnablePackage": {
+    "zh-CN": "启用 {0}",
+    "en-US": "Enable {0}"
+  },
+  "RemovePackage": {
+    "zh-CN": "卸载 {0}",
+    "en-US": "Uninstall {0}"
+  },
+  "HumidityLow": {
+    "zh-CN": "缺水",
+    "en-US": "Water empty"
+  },
+  "DeviceFault": {
+    "zh-CN": "设备异常，请查看详情",
+    "en-US": "Device fault; open details"
+  },
+  "PoweredOn": {
+    "zh-CN": "已通电",
+    "en-US": "Powered on"
+  },
+  "PoweredOff": {
+    "zh-CN": "已断电",
+    "en-US": "Powered off"
+  },
+  "LicenseTitle": {
+    "zh-CN": "开源组件及许可",
+    "en-US": "Components and licenses"
+  },
+  "SettingsTitle": {
+    "zh-CN": "设置",
+    "en-US": "Settings"
+  },
+  "HomeTitle": {
+    "zh-CN": "我的家",
+    "en-US": "My home"
+  },
+  "DevicesTitle": {
+    "zh-CN": "设备",
+    "en-US": "Devices"
+  },
+  "DeviceCount": {
+    "zh-CN": "{0} 台设备",
+    "en-US": "{0} devices"
+  },
+  "OfflineCount": {
+    "zh-CN": "{0} 台离线或状态未知",
+    "en-US": "{0} offline or unknown"
+  },
+  "SignIn": {
+    "zh-CN": "扫码登录",
+    "en-US": "Sign in with QR code"
+  },
+  "NewQr": {
+    "zh-CN": "重新获取",
+    "en-US": "Get a new code"
+  },
+  "GettingQr": {
+    "zh-CN": "正在获取二维码…",
+    "en-US": "Getting a QR code…"
+  },
+  "CompletedCount": {
+    "zh-CN": "{0} 项完成",
+    "en-US": "{0} completed"
+  },
+  "FailedCount": {
+    "zh-CN": "{0} 项失败",
+    "en-US": "{0} failed"
+  },
+  "SkippedCount": {
+    "zh-CN": "{0} 项跳过或未执行",
+    "en-US": "{0} skipped or not run"
+  },
+  "PackageOverlap": {
+    "zh-CN": "所选适配包包含相同型号。请减少选择，或关闭“用于匹配的型号”。",
+    "en-US": "Selected adapters cover the same model. Select fewer adapters or turn off Apply to matching models."
+  },
+  "InstallCount": {
+    "zh-CN": "安装 ({0})",
+    "en-US": "Install ({0})"
+  },
+  "BatteryValue": {
+    "zh-CN": "电量 {0}%",
+    "en-US": "Battery {0}%"
+  },
+  "FilterValue": {
+    "zh-CN": "滤芯剩余 {0}%",
+    "en-US": "Filter remaining {0}%"
+  },
+  "LanguageSystem.Text": {
+    "zh-CN": "跟随系统",
+    "en-US": "Use system setting"
+  },
+  "LanguageChinese.Text": {
+    "zh-CN": "简体中文",
+    "en-US": "简体中文"
+  },
+  "UpdateAvailableDialog.PrimaryButtonText": {
+    "zh-CN": "下载并安装",
+    "en-US": "Download and install"
+  },
+  "UpdateAvailableDialog.CloseButtonText": {
+    "zh-CN": "稍后",
+    "en-US": "Later"
+  },
+  "InstallUpdateDialog.Title": {
+    "zh-CN": "安装更新？",
+    "en-US": "Install update?"
+  },
+  "InstallUpdateDialog.PrimaryButtonText": {
+    "zh-CN": "退出并安装",
+    "en-US": "Exit and install"
+  },
+  "InstallUpdateDialog.CloseButtonText": {
+    "zh-CN": "稍后",
+    "en-US": "Later"
+  },
+  "InstallUpdateBody.Text": {
+    "zh-CN": "安装包已下载并校验。应用将退出，随后由安装器完成更新。",
+    "en-US": "The installer has been downloaded and verified. The application will exit so the installer can update it."
+  }
+}

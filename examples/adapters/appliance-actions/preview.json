@@ -1,0 +1,954 @@
+{
+  "model": "xiaomi.fryer.maf16",
+  "specType": "urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-maf16:2:0000D043",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:status:00000007:xiaomi-maf16:1:0000D043",
+        "name": "Status",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Off",
+            "comment": "关机中"
+          },
+          {
+            "value": 1,
+            "description": "Idle",
+            "comment": "待机中"
+          },
+          {
+            "value": 2,
+            "description": "Paused",
+            "comment": "暂停中"
+          },
+          {
+            "value": 3,
+            "description": "Delay",
+            "comment": "预约中"
+          },
+          {
+            "value": 4,
+            "description": "Cooking",
+            "comment": "烹饪中"
+          },
+          {
+            "value": 6,
+            "description": "Cooking Completed",
+            "comment": "烹饪完成"
+          },
+          {
+            "value": 9,
+            "description": "Turn Pot Paused",
+            "comment": "抽锅暂停"
+          },
+          {
+            "value": 10,
+            "description": "Keep Warm",
+            "comment": "保温中"
+          },
+          {
+            "value": 11,
+            "description": "Keep Warm Paused",
+            "comment": "保温暂停"
+          },
+          {
+            "value": 12,
+            "description": "Keep Warm Completed",
+            "comment": "保温完成"
+          },
+          {
+            "value": 13,
+            "description": "Quick Baking",
+            "comment": "速烤中"
+          },
+          {
+            "value": 14,
+            "description": "Degrease",
+            "comment": "脱脂中"
+          },
+          {
+            "value": 15,
+            "description": "Tender Roast",
+            "comment": "嫩烤中"
+          },
+          {
+            "value": 16,
+            "description": "During Refined Roasting",
+            "comment": "精烤中"
+          },
+          {
+            "value": 17,
+            "description": "Water Filling Tip",
+            "comment": "加水提醒"
+          },
+          {
+            "value": 18,
+            "description": "Testing",
+            "comment": "检测中"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:fault:00000009:xiaomi-maf16:1:0000D043",
+        "name": "Device Fault",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "No Faults ",
+            "comment": "无错误"
+          },
+          {
+            "value": 1,
+            "description": "NTC Disconnect",
+            "comment": "NTC断开"
+          },
+          {
+            "value": 2,
+            "description": "NTC Short Circuit  ",
+            "comment": "NTC短路"
+          },
+          {
+            "value": 3,
+            "description": "NTC Failure",
+            "comment": "NTC芯片失效"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 5,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:target-time:00000078:xiaomi-maf16:1:0000D043",
+        "name": "Target Time",
+        "type": "uint32",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          1440,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 7,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:target-temperature:00000021:xiaomi-maf16:1:0000D043",
+        "name": "Target Temperature",
+        "type": "float",
+        "unit": "celsius",
+        "readable": true,
+        "writable": true,
+        "range": [
+          40,
+          230,
+          5
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 22,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:left-time:0000003C:xiaomi-maf16:1",
+        "name": "Left Time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          1440,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 23,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:auto-keep-warm:0000002B:xiaomi-maf16:1",
+        "name": "Auto Keep Warm",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 24,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:current-keep-warm:00000215:xiaomi-maf16:1",
+        "name": "Current Keep Warm",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 25,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:xiaomi-maf16:1",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Manual",
+            "comment": "手动模式"
+          },
+          {
+            "value": 1,
+            "description": "French Fries",
+            "comment": "薯条"
+          },
+          {
+            "value": 2,
+            "description": "Chicken Wing",
+            "comment": "鸡翅"
+          },
+          {
+            "value": 3,
+            "description": "Sweet Potato",
+            "comment": "蜜薯"
+          },
+          {
+            "value": 4,
+            "description": "Egg Tart",
+            "comment": "蛋挞"
+          },
+          {
+            "value": 5,
+            "description": "Steak ",
+            "comment": "牛排"
+          },
+          {
+            "value": 6,
+            "description": "Pork Belly",
+            "comment": "五花肉"
+          },
+          {
+            "value": 7,
+            "description": "Shrimp",
+            "comment": "虾"
+          },
+          {
+            "value": 8,
+            "description": "Cake",
+            "comment": "蛋糕"
+          },
+          {
+            "value": 9,
+            "description": "Pizza",
+            "comment": "披萨"
+          },
+          {
+            "value": 10,
+            "description": "Dried Fruit",
+            "comment": "果干"
+          },
+          {
+            "value": 11,
+            "description": "Defrost",
+            "comment": "解冻"
+          },
+          {
+            "value": 12,
+            "description": "Reheat",
+            "comment": "复热"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 26,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:recipe-id:0000020F:xiaomi-maf16:1",
+        "name": "Recipe Id",
+        "type": "string",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 27,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:recipe-name:00000210:xiaomi-maf16:1",
+        "name": "Recipe Name",
+        "type": "string",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 28,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:recipe-sync:00000212:xiaomi-maf16:1",
+        "name": "Recipe Sync",
+        "type": "string",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 29,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:target-cooking-measure:00000104:xiaomi-maf16:1",
+        "name": "Target Cooking Measure",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Null",
+            "comment": "无"
+          },
+          {
+            "value": 1,
+            "description": "One Layer",
+            "comment": "单层"
+          },
+          {
+            "value": 2,
+            "description": "Double Layer",
+            "comment": "双层"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 30,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:turn-pot:00000211:xiaomi-maf16:1",
+        "name": "Turn Pot",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "No Need Turn Over Pot",
+            "comment": "No Need Turn Over Pot"
+          },
+          {
+            "value": 2,
+            "description": "Need Turn Over Pot",
+            "comment": "Need Turn Over Pot"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 31,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:turn-pot-config:00000213:xiaomi-maf16:1",
+        "name": "Turn Pot Config",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 32,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:texture:00000214:xiaomi-maf16:1",
+        "name": "Texture",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "Quick Roast",
+            "comment": "速烤"
+          },
+          {
+            "value": 2,
+            "description": "Fine Roast",
+            "comment": "精烤"
+          },
+          {
+            "value": 3,
+            "description": "Tender Roast",
+            "comment": "嫩烤"
+          },
+          {
+            "value": 4,
+            "description": "Degrease",
+            "comment": "脱脂"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 33,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:reservation-left-time:0000016E:xiaomi-maf16:1",
+        "name": "Reservation Left Time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          0,
+          1440,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 34,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:cooking-weight:00000287:xiaomi-maf16:1",
+        "name": "Cooking Weight",
+        "type": "uint16",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [
+          100,
+          1800,
+          100
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 35,
+        "service": "Air Fryer",
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "propertyType": "urn:miot-spec-v2:property:fine-roasting-stage:00000418:xiaomi-maf16:1",
+        "name": "Fine Roasting Stage",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Stage One",
+            "comment": "阶段一"
+          },
+          {
+            "value": 1,
+            "description": "Stage Two",
+            "comment": "阶段二"
+          },
+          {
+            "value": 2,
+            "description": "Stage Three",
+            "comment": "阶段三"
+          },
+          {
+            "value": 3,
+            "description": "Stage Four",
+            "comment": "阶段四"
+          }
+        ]
+      },
+      {
+        "siid": 6,
+        "piid": 1,
+        "service": "Self Check",
+        "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+        "propertyType": "urn:miot-spec-v2:property:self-check-items:0000020D:xiaomi-maf16:2",
+        "name": "Self Check Items",
+        "type": "uint8",
+        "unit": "",
+        "readable": false,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "E1",
+            "comment": "报错-E1"
+          },
+          {
+            "value": 2,
+            "description": "E2",
+            "comment": "报错-E2"
+          },
+          {
+            "value": 3,
+            "description": "Key",
+            "comment": "按键"
+          },
+          {
+            "value": 4,
+            "description": "Draw Pot",
+            "comment": "抽锅"
+          },
+          {
+            "value": 5,
+            "description": "Display",
+            "comment": "显示"
+          },
+          {
+            "value": 6,
+            "description": "Fan",
+            "comment": "风扇"
+          },
+          {
+            "value": 7,
+            "description": "Power On",
+            "comment": "通电"
+          },
+          {
+            "value": 8,
+            "description": "Abnormal Noise",
+            "comment": "异响"
+          }
+        ]
+      },
+      {
+        "siid": 6,
+        "piid": 2,
+        "service": "Self Check",
+        "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+        "propertyType": "urn:miot-spec-v2:property:self-check-results:0000020E:xiaomi-maf16:2",
+        "name": "Self Check Results",
+        "type": "string",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 6,
+        "piid": 3,
+        "service": "Self Check",
+        "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+        "propertyType": "urn:miot-spec-v2:property:manual-check-results:000002A3:xiaomi-maf16:2",
+        "name": "Manual Check Results",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "True",
+            "comment": "无异常"
+          },
+          {
+            "value": 1,
+            "description": "Flase",
+            "comment": "有异常"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "siid": 2,
+        "aiid": 1,
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "actionType": "urn:miot-spec-v2:action:start-cook:00002806:xiaomi-maf16:1:0000D043",
+        "name": "Start Cook",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 2,
+        "aiid": 6,
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "actionType": "urn:miot-spec-v2:action:cancel-cooking:00002807:xiaomi-maf16:1",
+        "name": "Cancel Cooking",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 2,
+        "aiid": 7,
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "actionType": "urn:miot-spec-v2:action:pause:0000280C:xiaomi-maf16:1",
+        "name": "Pause",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 2,
+        "aiid": 8,
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "actionType": "urn:miot-spec-v2:action:resume-cook:00002893:xiaomi-maf16:1",
+        "name": "Resume Cook",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 2,
+        "aiid": 9,
+        "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+        "actionType": "urn:miot-spec-v2:action:start-recipe-cook:00002844:xiaomi-maf16:1",
+        "name": "Start Recipe Cook",
+        "displayName": "",
+        "inputs": [
+          {
+            "siid": 2,
+            "piid": 5,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:target-time:00000078:xiaomi-maf16:1:0000D043",
+            "name": "Target Time",
+            "type": "uint32",
+            "unit": "minutes",
+            "readable": true,
+            "writable": true,
+            "range": [
+              1,
+              1440,
+              1
+            ],
+            "values": []
+          },
+          {
+            "siid": 2,
+            "piid": 7,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:target-temperature:00000021:xiaomi-maf16:1:0000D043",
+            "name": "Target Temperature",
+            "type": "float",
+            "unit": "celsius",
+            "readable": true,
+            "writable": true,
+            "range": [
+              40,
+              230,
+              5
+            ],
+            "values": []
+          },
+          {
+            "siid": 2,
+            "piid": 24,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:current-keep-warm:00000215:xiaomi-maf16:1",
+            "name": "Current Keep Warm",
+            "type": "bool",
+            "unit": "",
+            "readable": true,
+            "writable": true,
+            "range": [],
+            "values": []
+          },
+          {
+            "siid": 2,
+            "piid": 26,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:recipe-id:0000020F:xiaomi-maf16:1",
+            "name": "Recipe Id",
+            "type": "string",
+            "unit": "",
+            "readable": true,
+            "writable": true,
+            "range": [],
+            "values": []
+          },
+          {
+            "siid": 2,
+            "piid": 27,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:recipe-name:00000210:xiaomi-maf16:1",
+            "name": "Recipe Name",
+            "type": "string",
+            "unit": "",
+            "readable": true,
+            "writable": true,
+            "range": [],
+            "values": []
+          },
+          {
+            "siid": 2,
+            "piid": 29,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:target-cooking-measure:00000104:xiaomi-maf16:1",
+            "name": "Target Cooking Measure",
+            "type": "uint8",
+            "unit": "percentage",
+            "readable": true,
+            "writable": true,
+            "range": [],
+            "values": [
+              {
+                "value": 0,
+                "description": "Null",
+                "comment": "无"
+              },
+              {
+                "value": 1,
+                "description": "One Layer",
+                "comment": "单层"
+              },
+              {
+                "value": 2,
+                "description": "Double Layer",
+                "comment": "双层"
+              }
+            ]
+          },
+          {
+            "siid": 2,
+            "piid": 32,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:texture:00000214:xiaomi-maf16:1",
+            "name": "Texture",
+            "type": "uint8",
+            "unit": "",
+            "readable": true,
+            "writable": true,
+            "range": [],
+            "values": [
+              {
+                "value": 1,
+                "description": "Quick Roast",
+                "comment": "速烤"
+              },
+              {
+                "value": 2,
+                "description": "Fine Roast",
+                "comment": "精烤"
+              },
+              {
+                "value": 3,
+                "description": "Tender Roast",
+                "comment": "嫩烤"
+              },
+              {
+                "value": 4,
+                "description": "Degrease",
+                "comment": "脱脂"
+              }
+            ]
+          },
+          {
+            "siid": 2,
+            "piid": 33,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:reservation-left-time:0000016E:xiaomi-maf16:1",
+            "name": "Reservation Left Time",
+            "type": "uint16",
+            "unit": "minutes",
+            "readable": true,
+            "writable": true,
+            "range": [
+              0,
+              1440,
+              1
+            ],
+            "values": []
+          },
+          {
+            "siid": 2,
+            "piid": 34,
+            "service": "Air Fryer",
+            "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+            "propertyType": "urn:miot-spec-v2:property:cooking-weight:00000287:xiaomi-maf16:1",
+            "name": "Cooking Weight",
+            "type": "uint16",
+            "unit": "",
+            "readable": true,
+            "writable": true,
+            "range": [
+              100,
+              1800,
+              100
+            ],
+            "values": []
+          }
+        ],
+        "outputs": []
+      },
+      {
+        "siid": 6,
+        "aiid": 1,
+        "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+        "actionType": "urn:miot-spec-v2:action:start-check:00002891:xiaomi-maf16:2",
+        "name": "Start Check",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 6,
+        "aiid": 2,
+        "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+        "actionType": "urn:miot-spec-v2:action:stop-check:0000289E:xiaomi-maf16:2",
+        "name": "Stop Check",
+        "displayName": "",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "siid": 6,
+        "aiid": 3,
+        "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+        "actionType": "urn:miot-spec-v2:action:sync-manual-check:000028B9:xiaomi-maf16:2",
+        "name": "Sync Manual Check",
+        "displayName": "",
+        "inputs": [
+          {
+            "siid": 6,
+            "piid": 1,
+            "service": "Self Check",
+            "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+            "propertyType": "urn:miot-spec-v2:property:self-check-items:0000020D:xiaomi-maf16:2",
+            "name": "Self Check Items",
+            "type": "uint8",
+            "unit": "",
+            "readable": false,
+            "writable": false,
+            "range": [],
+            "values": [
+              {
+                "value": 1,
+                "description": "E1",
+                "comment": "报错-E1"
+              },
+              {
+                "value": 2,
+                "description": "E2",
+                "comment": "报错-E2"
+              },
+              {
+                "value": 3,
+                "description": "Key",
+                "comment": "按键"
+              },
+              {
+                "value": 4,
+                "description": "Draw Pot",
+                "comment": "抽锅"
+              },
+              {
+                "value": 5,
+                "description": "Display",
+                "comment": "显示"
+              },
+              {
+                "value": 6,
+                "description": "Fan",
+                "comment": "风扇"
+              },
+              {
+                "value": 7,
+                "description": "Power On",
+                "comment": "通电"
+              },
+              {
+                "value": 8,
+                "description": "Abnormal Noise",
+                "comment": "异响"
+              }
+            ]
+          },
+          {
+            "siid": 6,
+            "piid": 3,
+            "service": "Self Check",
+            "serviceType": "urn:miot-spec-v2:service:self-check:000078D7:xiaomi-maf16:2",
+            "propertyType": "urn:miot-spec-v2:property:manual-check-results:000002A3:xiaomi-maf16:2",
+            "name": "Manual Check Results",
+            "type": "uint8",
+            "unit": "",
+            "readable": true,
+            "writable": true,
+            "range": [],
+            "values": [
+              {
+                "value": 0,
+                "description": "True",
+                "comment": "无异常"
+              },
+              {
+                "value": 1,
+                "description": "Flase",
+                "comment": "有异常"
+              }
+            ]
+          }
+        ],
+        "outputs": []
+      }
+    ]
+  }
+}

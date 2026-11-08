@@ -1,0 +1,111 @@
+{
+  "formatVersion": 1,
+  "id": "example.numeric",
+  "name": "音箱数值控件示例",
+  "version": "1.2.0",
+  "sdkVersion": "0.17.0",
+  "requires": [
+    "controls.numeric",
+    "layout.cardExpanded",
+    "actions.v1"
+  ],
+  "models": [
+    "xiaomi.wifispeaker.l15a"
+  ],
+  "specType": "urn:miot-spec-v2:device:speaker:0000A015:xiaomi-l15a:2",
+  "category": "appliance",
+  "bindings": [
+    {
+      "id": "volume",
+      "siid": 2,
+      "service": "speaker",
+      "property": "volume",
+      "serviceType": "urn:miot-spec-v2:service:speaker:0000781C:xiaomi-l15a:1",
+      "propertyType": "urn:miot-spec-v2:property:volume:00000013:xiaomi-l15a:1",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "readWrite"
+    },
+    {
+      "id": "ringtone",
+      "siid": 6,
+      "service": "clock",
+      "property": "ringtone",
+      "serviceType": "urn:miot-spec-v2:service:clock:0000789A:xiaomi-l15a:1",
+      "propertyType": "urn:miot-spec-v2:property:ringtone:0000009D:xiaomi-l15a:1",
+      "type": "uint8",
+      "unit": "",
+      "access": "readWrite"
+    }
+  ],
+  "views": {
+    "card": [],
+    "drawer": [
+      {
+        "kind": "number",
+        "label": "音量",
+        "binding": "volume"
+      },
+      {
+        "kind": "level",
+        "label": "提示音编号",
+        "binding": "ringtone"
+      }
+    ],
+    "full": [
+      {
+        "kind": "action",
+        "label": "播放",
+        "action": "play"
+      },
+      {
+        "kind": "action",
+        "label": "暂停",
+        "action": "pause"
+      },
+      {
+        "kind": "action",
+        "label": "朗读文字",
+        "action": "speak"
+      }
+    ],
+    "cardExpanded": [
+      {
+        "kind": "slider",
+        "label": "音量",
+        "binding": "volume"
+      },
+      {
+        "kind": "action",
+        "label": "暂停播放",
+        "action": "pause"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "id": "play",
+      "service": "play-control",
+      "action": "play",
+      "siid": 3,
+      "serviceType": "urn:miot-spec-v2:service:play-control:0000781D:xiaomi-l15a:1",
+      "actionType": "urn:miot-spec-v2:action:play:0000280B:xiaomi-l15a:1"
+    },
+    {
+      "id": "pause",
+      "service": "play-control",
+      "action": "pause",
+      "siid": 3,
+      "serviceType": "urn:miot-spec-v2:service:play-control:0000781D:xiaomi-l15a:1",
+      "actionType": "urn:miot-spec-v2:action:pause:0000280C:xiaomi-l15a:1"
+    },
+    {
+      "id": "speak",
+      "service": "intelligent-speaker",
+      "action": "play-text",
+      "siid": 7,
+      "serviceType": "urn:miot-spec-v2:service:intelligent-speaker:0000789B:xiaomi-l15a:1",
+      "actionType": "urn:miot-spec-v2:action:play-text:00002841:xiaomi-l15a:1"
+    }
+  ]
+}

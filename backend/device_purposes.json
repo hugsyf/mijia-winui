@@ -1,0 +1,310 @@
+{
+  "1": {
+    "name": "筒灯",
+    "pluginType": "switch",
+    "rank": 1,
+    "category": "light",
+    "icon": "downlight"
+  },
+  "2": {
+    "name": "射灯",
+    "pluginType": "switch",
+    "rank": 2,
+    "category": "light",
+    "icon": "spotlight"
+  },
+  "3": {
+    "name": "灯带",
+    "pluginType": "switch",
+    "rank": 3,
+    "category": "light",
+    "icon": "light-strip"
+  },
+  "4": {
+    "name": "吊灯",
+    "pluginType": "switch",
+    "rank": 4,
+    "category": "light",
+    "icon": "pendant-light"
+  },
+  "5": {
+    "name": "吸顶灯",
+    "pluginType": "switch",
+    "rank": 5,
+    "category": "light",
+    "icon": "ceiling-light"
+  },
+  "6": {
+    "name": "壁灯",
+    "pluginType": "switch",
+    "rank": 6,
+    "category": "light",
+    "icon": "wall-light"
+  },
+  "7": {
+    "name": "床头灯",
+    "pluginType": "switch",
+    "rank": 7,
+    "category": "light",
+    "icon": "bedside-light"
+  },
+  "8": {
+    "name": "氛围灯",
+    "pluginType": "switch",
+    "rank": 8,
+    "category": "light",
+    "icon": "ambient-light"
+  },
+  "9": {
+    "name": "灯",
+    "pluginType": "switch",
+    "rank": 9,
+    "category": "light",
+    "icon": "light"
+  },
+  "10": {
+    "name": "排气扇",
+    "pluginType": "switch",
+    "rank": 10,
+    "category": "fan",
+    "icon": "exhaust-fan"
+  },
+  "11": {
+    "name": "凉霸",
+    "pluginType": "switch",
+    "rank": 11,
+    "category": "fan",
+    "icon": "cooling-panel"
+  },
+  "12": {
+    "name": "晾衣架",
+    "pluginType": "switch",
+    "rank": 12,
+    "category": "drying-rack",
+    "icon": "drying-rack"
+  },
+  "13": {
+    "name": "窗帘",
+    "pluginType": "switch",
+    "rank": 13,
+    "category": "curtain",
+    "icon": "curtain"
+  },
+  "14": {
+    "name": "其他",
+    "pluginType": "switch",
+    "rank": 14,
+    "category": "switch",
+    "icon": "switch"
+  },
+  "15": {
+    "name": "灯带",
+    "pluginType": "socket",
+    "rank": 4,
+    "category": "light",
+    "icon": "light-strip"
+  },
+  "16": {
+    "name": "床头灯",
+    "pluginType": "socket",
+    "rank": 3,
+    "category": "light",
+    "icon": "bedside-light"
+  },
+  "17": {
+    "name": "壁灯",
+    "pluginType": "socket",
+    "rank": 30,
+    "category": "light",
+    "icon": "wall-light"
+  },
+  "26": {
+    "name": "电脑",
+    "pluginType": "socket",
+    "rank": 6,
+    "category": "computer",
+    "icon": "computer"
+  },
+  "27": {
+    "name": "电视",
+    "pluginType": "socket",
+    "rank": 7,
+    "category": "television",
+    "icon": "television"
+  },
+  "28": {
+    "name": "风扇",
+    "pluginType": "socket",
+    "rank": 10,
+    "category": "fan",
+    "icon": "fan"
+  },
+  "29": {
+    "name": "落地灯",
+    "pluginType": "socket",
+    "rank": 2,
+    "category": "light",
+    "icon": "floor-light"
+  },
+  "30": {
+    "name": "电暖器",
+    "pluginType": "socket",
+    "rank": 11,
+    "category": "heater",
+    "icon": "heater"
+  },
+  "31": {
+    "name": "热水器",
+    "pluginType": "socket",
+    "rank": 8,
+    "category": "water-heater",
+    "icon": "water-heater"
+  },
+  "32": {
+    "name": "摄像头",
+    "pluginType": "socket",
+    "rank": 13,
+    "category": "camera",
+    "icon": "camera"
+  },
+  "33": {
+    "name": "台灯",
+    "pluginType": "socket",
+    "rank": 1,
+    "category": "light",
+    "icon": "desk-light"
+  },
+  "34": {
+    "name": "饮水机",
+    "pluginType": "socket",
+    "rank": 14,
+    "category": "water-dispenser",
+    "icon": "water-dispenser"
+  },
+  "35": {
+    "name": "灯泡",
+    "pluginType": "socket",
+    "rank": 5,
+    "category": "light",
+    "icon": "light"
+  },
+  "38": {
+    "name": "测试",
+    "pluginType": "socket",
+    "rank": 29,
+    "category": "appliance",
+    "icon": "appliance"
+  },
+  "39": {
+    "name": "鱼缸灯",
+    "pluginType": "socket",
+    "rank": 28,
+    "category": "light",
+    "icon": "aquarium-light"
+  },
+  "40": {
+    "name": "冰箱",
+    "pluginType": "socket",
+    "rank": 9,
+    "category": "refrigerator",
+    "icon": "refrigerator"
+  },
+  "41": {
+    "name": "电热毯",
+    "pluginType": "socket",
+    "rank": 12,
+    "category": "electric-blanket",
+    "icon": "electric-blanket"
+  },
+  "43": {
+    "name": "洗衣机",
+    "pluginType": "socket",
+    "rank": 15,
+    "category": "washer",
+    "icon": "washer"
+  },
+  "44": {
+    "name": "鱼缸",
+    "pluginType": "socket",
+    "rank": 16,
+    "category": "aquarium",
+    "icon": "aquarium"
+  },
+  "45": {
+    "name": "微波炉",
+    "pluginType": "socket",
+    "rank": 17,
+    "category": "microwave",
+    "icon": "microwave"
+  },
+  "46": {
+    "name": "烤箱",
+    "pluginType": "socket",
+    "rank": 18,
+    "category": "oven",
+    "icon": "oven"
+  },
+  "47": {
+    "name": "驱蚊器",
+    "pluginType": "socket",
+    "rank": 19,
+    "category": "mosquito-repellent",
+    "icon": "mosquito-repellent"
+  },
+  "48": {
+    "name": "电磁炉",
+    "pluginType": "socket",
+    "rank": 20,
+    "category": "induction-cooktop",
+    "icon": "induction-cooktop"
+  },
+  "49": {
+    "name": "电饭煲",
+    "pluginType": "socket",
+    "rank": 21,
+    "category": "rice-cooker",
+    "icon": "rice-cooker"
+  },
+  "50": {
+    "name": "洗碗机",
+    "pluginType": "socket",
+    "rank": 22,
+    "category": "dishwasher",
+    "icon": "dishwasher"
+  },
+  "51": {
+    "name": "加湿器",
+    "pluginType": "socket",
+    "rank": 23,
+    "category": "humidifier",
+    "icon": "humidifier"
+  },
+  "52": {
+    "name": "马桶",
+    "pluginType": "socket",
+    "rank": 24,
+    "category": "toilet",
+    "icon": "toilet"
+  },
+  "53": {
+    "name": "投影仪",
+    "pluginType": "socket",
+    "rank": 25,
+    "category": "projector",
+    "icon": "projector"
+  },
+  "54": {
+    "name": "吸油烟机",
+    "pluginType": "socket",
+    "rank": 26,
+    "category": "range-hood",
+    "icon": "range-hood"
+  },
+  "55": {
+    "name": "路由器",
+    "pluginType": "socket",
+    "rank": 27,
+    "category": "router",
+    "icon": "router"
+  }
+}

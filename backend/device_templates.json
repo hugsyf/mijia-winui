@@ -1,0 +1,454 @@
+[
+  {
+    "category": "light",
+    "deviceTypes": [
+      "light"
+    ],
+    "required": [
+      {
+        "service": "light",
+        "property": "on",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      }
+    ],
+    "optional": [
+      {
+        "service": "light",
+        "property": "brightness",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      },
+      {
+        "service": "light",
+        "property": "color-temperature",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "kelvin"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "temperature-humidity-sensor",
+    "deviceTypes": [
+      "temperature-humidity-sensor"
+    ],
+    "required": [
+      {
+        "service": "temperature-humidity-sensor",
+        "property": "temperature",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "celsius"
+        ]
+      },
+      {
+        "service": "temperature-humidity-sensor",
+        "property": "relative-humidity",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      }
+    ],
+    "optional": [
+      {
+        "service": "battery",
+        "property": "battery-level",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      },
+      {
+        "service": "single-use-battery",
+        "property": "battery-level",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "outlet",
+    "deviceTypes": [
+      "outlet"
+    ],
+    "required": [
+      {
+        "service": "switch",
+        "property": "on",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      }
+    ],
+    "optional": [
+      {
+        "service": "power-consumption",
+        "property": "electric-power",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "watt"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "fan",
+    "deviceTypes": [
+      "fan"
+    ],
+    "required": [
+      {
+        "service": "fan",
+        "property": "on",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      }
+    ],
+    "optional": [
+      {
+        "service": "fan",
+        "property": "fan-level",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      },
+      {
+        "service": "fan",
+        "property": "horizontal-swing",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      },
+      {
+        "service": "fan",
+        "property": "mode",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      },
+      {
+        "service": "fan",
+        "property": "fault",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      }
+    ]
+  },
+  {
+    "category": "air-purifier",
+    "deviceTypes": [
+      "air-purifier"
+    ],
+    "required": [
+      {
+        "service": "air-purifier",
+        "property": "on",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      }
+    ],
+    "optional": [
+      {
+        "service": "air-purifier",
+        "property": "fan-level",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      },
+      {
+        "service": "air-purifier",
+        "property": "horizontal-swing",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      },
+      {
+        "service": "air-purifier",
+        "property": "mode",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      },
+      {
+        "service": "air-purifier",
+        "property": "fault",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      }
+    ]
+  },
+  {
+    "category": "curtain",
+    "deviceTypes": [
+      "curtain"
+    ],
+    "required": [
+      {
+        "service": "curtain",
+        "property": "current-position",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      }
+    ],
+    "optional": [
+      {
+        "service": "curtain",
+        "property": "target-position",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      },
+      {
+        "service": "curtain",
+        "property": "motor-control",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      },
+      {
+        "service": "curtain",
+        "property": "fault",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": []
+      }
+    ]
+  },
+  {
+    "category": "speaker",
+    "deviceTypes": [
+      "speaker"
+    ],
+    "required": [
+      {
+        "service": "speaker",
+        "property": "volume",
+        "types": [
+          "uint8",
+          "uint16",
+          "uint32",
+          "uint64",
+          "int8",
+          "int16",
+          "int32",
+          "int64",
+          "float",
+          "double"
+        ],
+        "units": [
+          "percentage"
+        ]
+      }
+    ],
+    "optional": [
+      {
+        "service": "speaker",
+        "property": "mute",
+        "types": [
+          "bool"
+        ],
+        "units": []
+      }
+    ]
+  }
+]

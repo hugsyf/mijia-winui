@@ -1,0 +1,99 @@
+{
+  "model": "example.panel.demo",
+  "specType": "urn:miot-spec-v2:device:custom:0000A000:example-panel:1",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "Demo",
+        "serviceType": "urn:miot-spec-v2:service:custom:00007800:example-panel:1",
+        "propertyType": "urn:miot-spec-v2:property:name:00000001:example-panel:1",
+        "name": "name",
+        "type": "string",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "Demo",
+        "serviceType": "urn:miot-spec-v2:service:custom:00007800:example-panel:1",
+        "propertyType": "urn:miot-spec-v2:property:on:00000001:example-panel:1",
+        "name": "on",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Demo",
+        "serviceType": "urn:miot-spec-v2:service:custom:00007800:example-panel:1",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000001:example-panel:1",
+        "name": "mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 10,
+            "description": "Automatic"
+          },
+          {
+            "value": 20,
+            "description": "Quiet"
+          },
+          {
+            "value": 40,
+            "description": "Boost"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 4,
+        "service": "Demo",
+        "serviceType": "urn:miot-spec-v2:service:custom:00007800:example-panel:1",
+        "propertyType": "urn:miot-spec-v2:property:temperature:00000001:example-panel:1",
+        "name": "temperature",
+        "type": "float",
+        "unit": "celsius",
+        "readable": true,
+        "writable": false,
+        "range": [
+          -20,
+          80,
+          0.1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 5,
+        "service": "Demo",
+        "serviceType": "urn:miot-spec-v2:service:custom:00007800:example-panel:1",
+        "propertyType": "urn:miot-spec-v2:property:relative-humidity:00000001:example-panel:1",
+        "name": "relative-humidity",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      }
+    ]
+  }
+}

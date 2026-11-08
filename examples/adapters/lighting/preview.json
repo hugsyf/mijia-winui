@@ -1,0 +1,235 @@
+{
+  "model": "yeelink.light.bslamp2",
+  "specType": "urn:miot-spec-v2:device:light:0000A001:yeelink-bslamp2:2",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:yeelink-bslamp2:1",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:brightness:0000000D:yeelink-bslamp2:1",
+        "name": "Brightness",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:color-temperature:0000000F:yeelink-bslamp2:1",
+        "name": "Color Temperature",
+        "type": "uint32",
+        "unit": "kelvin",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1700,
+          6500,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 4,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:color:0000000E:yeelink-bslamp2:1",
+        "name": "Color",
+        "type": "uint32",
+        "unit": "rgb",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          16777215,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 5,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:yeelink-bslamp2:1",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "Color"
+          },
+          {
+            "value": 2,
+            "description": "Day"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 6,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:saturability:00000011:yeelink-bslamp2:1",
+        "name": "Saturability",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 7,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:count:000003BA:yeelink-bslamp2:2",
+        "name": "Count",
+        "type": "uint8",
+        "unit": "",
+        "readable": false,
+        "writable": false,
+        "range": [
+          0,
+          255,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 8,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:action-after-finish:000003BB:yeelink-bslamp2:2",
+        "name": "Action After Finish",
+        "type": "uint8",
+        "unit": "",
+        "readable": false,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Recover Before"
+          },
+          {
+            "value": 1,
+            "description": "Stay"
+          },
+          {
+            "value": 2,
+            "description": "Turn Off"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 9,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-bslamp2:1",
+        "propertyType": "urn:miot-spec-v2:property:common-params:00000278:yeelink-bslamp2:2",
+        "name": "Common Params",
+        "type": "string",
+        "unit": "",
+        "readable": false,
+        "writable": false,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 1,
+        "service": "Light Extension Feature",
+        "serviceType": "urn:yeelink-spec:service:light-extension:00000001:yeelink-bslamp2:1",
+        "propertyType": "urn:yeelink-spec:property:brightness-delta:00000002:yeelink-bslamp2:1",
+        "name": "Adjust brightness",
+        "type": "int8",
+        "unit": "percentage",
+        "readable": false,
+        "writable": true,
+        "range": [
+          -100,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 2,
+        "service": "Light Extension Feature",
+        "serviceType": "urn:yeelink-spec:service:light-extension:00000001:yeelink-bslamp2:1",
+        "propertyType": "urn:yeelink-spec:property:ct-delta:00000003:yeelink-bslamp2:1",
+        "name": "Adjust Color Temperature",
+        "type": "int8",
+        "unit": "percentage",
+        "readable": false,
+        "writable": true,
+        "range": [
+          -100,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 3,
+        "service": "Light Extension Feature",
+        "serviceType": "urn:yeelink-spec:service:light-extension:00000001:yeelink-bslamp2:1",
+        "propertyType": "urn:yeelink-spec:property:ct-adjust-alexa:00000004:yeelink-bslamp2:1",
+        "name": "Alexa Adjust Color Temperature",
+        "type": "uint8",
+        "unit": "",
+        "readable": false,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "Increase"
+          },
+          {
+            "value": 2,
+            "description": "Decrease"
+          }
+        ]
+      }
+    ]
+  }
+}

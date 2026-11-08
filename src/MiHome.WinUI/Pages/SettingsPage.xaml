@@ -1,0 +1,33 @@
+<UserControl HorizontalContentAlignment="Stretch" x:Class="MiHome.WinUI.Pages.SettingsPage"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+ xmlns:controls="using:MiHome.WinUI.Controls" MaxWidth="1000" HorizontalAlignment="Left">
+
+ <Grid x:Name="Layout" ColumnSpacing="28" SizeChanged="OnLayoutSizeChanged">
+  <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavigationColumn" Width="180"/><ColumnDefinition/></Grid.ColumnDefinitions>
+  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition/></Grid.RowDefinitions>
+  <ListView x:Name="Sections" Grid.Row="1" SelectionMode="Single">
+<ListViewItem Tag="appearance" Padding="12,9"><StackPanel Orientation="Horizontal" Spacing="10"><FontIcon Glyph="&#xE790;" FontSize="16"/><TextBlock x:Uid="Ld68b49229875" /></StackPanel></ListViewItem>
+<ListViewItem Tag="account" Padding="12,9"><StackPanel Orientation="Horizontal" Spacing="10"><FontIcon Glyph="&#xE77B;" FontSize="16"/><TextBlock x:Uid="L5fafc29f345f" /></StackPanel></ListViewItem>
+<ListViewItem Tag="adapters" Padding="12,9"><StackPanel Orientation="Horizontal" Spacing="10"><FontIcon Glyph="&#xE8A5;" FontSize="16"/><TextBlock x:Uid="Lcfaf41f48a9f" /></StackPanel></ListViewItem>
+<ListViewItem Tag="about" Padding="12,9"><StackPanel Orientation="Horizontal" Spacing="10"><FontIcon Glyph="&#xE946;" FontSize="16"/><TextBlock x:Uid="L05ee5805802d" /></StackPanel></ListViewItem>
+<ListViewItem Tag="licenses" Padding="12,9"><StackPanel Orientation="Horizontal" Spacing="10"><FontIcon Glyph="&#xE8A5;" FontSize="16"/><TextBlock x:Uid="L5e809212d777" /></StackPanel></ListViewItem>
+  </ListView>
+  <ScrollViewer x:Name="TabScroll" Grid.ColumnSpan="2" Visibility="Collapsed" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled">
+   <SelectorBar x:Name="Tabs">
+<SelectorBarItem x:Uid="Ld68b49229875" Tag="appearance" />
+<SelectorBarItem x:Uid="L5fafc29f345f" Tag="account" />
+<SelectorBarItem x:Uid="Lcfaf41f48a9f" Tag="adapters" />
+<SelectorBarItem x:Uid="L05ee5805802d" Tag="about" />
+<SelectorBarItem x:Uid="L5e809212d777" Tag="licenses" />
+   </SelectorBar>
+  </ScrollViewer>
+  <Grid Grid.Row="1" Grid.Column="1" RowSpacing="16">
+   <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition/></Grid.RowDefinitions>
+   <ContentControl x:Name="Toolbar" HorizontalContentAlignment="Stretch" Visibility="Collapsed"/>
+   <ScrollViewer x:Name="Scroller" Grid.Row="1" Padding="0,0,20,0" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top">
+    <ContentControl x:Name="Body" HorizontalContentAlignment="Stretch"/>
+   </ScrollViewer>
+  </Grid>
+ </Grid>
+</UserControl>

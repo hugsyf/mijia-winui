@@ -1,0 +1,1499 @@
+<root>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="NoReadme" xml:space="preserve">
+    <value>未提供 README。</value>
+  </data>
+  <data name="Unspecified" xml:space="preserve">
+    <value>未声明</value>
+  </data>
+  <data name="ConditionDisabled" xml:space="preserve">
+    <value>当前设备状态不允许此操作。</value>
+  </data>
+  <data name="Stopped" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>播放中</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>已暂停</value>
+  </data>
+  <data name="UpdateInvalid" xml:space="preserve">
+    <value>更新资料或安装包不完整。</value>
+  </data>
+  <data name="UpdateLimited" xml:space="preserve">
+    <value>更新服务暂时限制访问，请稍后再试。</value>
+  </data>
+  <data name="UpdateHashFailed" xml:space="preserve">
+    <value>安装包校验失败，请重新下载。</value>
+  </data>
+  <data name="UpdateChecking" xml:space="preserve">
+    <value>正在检查更新…</value>
+  </data>
+  <data name="UpdateNoRelease" xml:space="preserve">
+    <value>暂无可用的公开发布版本。</value>
+  </data>
+  <data name="UpdateCurrent" xml:space="preserve">
+    <value>已是最新版本。</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>发现新版本 {0}</value>
+  </data>
+  <data name="CheckUpdates" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="DownloadPage" xml:space="preserve">
+    <value>前往下载页面</value>
+  </data>
+  <data name="DownloadInstall" xml:space="preserve">
+    <value>下载并安装</value>
+  </data>
+  <data name="Later" xml:space="preserve">
+    <value>稍后</value>
+  </data>
+  <data name="InstallUpdate" xml:space="preserve">
+    <value>安装更新？</value>
+  </data>
+  <data name="InstallExit" xml:space="preserve">
+    <value>退出并安装</value>
+  </data>
+  <data name="InstallUpdateDescription" xml:space="preserve">
+    <value>安装包已下载并校验。应用将退出，随后由安装器完成更新。</value>
+  </data>
+  <data name="UpdateCancelled" xml:space="preserve">
+    <value>已取消下载。</value>
+  </data>
+  <data name="UpdateFailed" xml:space="preserve">
+    <value>检查或下载更新失败。</value>
+  </data>
+  <data name="RestartLanguage" xml:space="preserve">
+    <value>重新打开应用后生效。</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>版本 {0}</value>
+  </data>
+  <data name="SelectedCount" xml:space="preserve">
+    <value>已选 {0} / {1}</value>
+  </data>
+  <data name="AdapterCount" xml:space="preserve">
+    <value>{0} 个适配包</value>
+  </data>
+  <data name="NoAdapters" xml:space="preserve">
+    <value>暂无适配包</value>
+  </data>
+  <data name="OnCount" xml:space="preserve">
+    <value>{0} 盏灯开启</value>
+  </data>
+  <data name="UnknownCount" xml:space="preserve">
+    <value>{0} 盏状态未知</value>
+  </data>
+  <data name="AttentionCount" xml:space="preserve">
+    <value>{0} 项需关注</value>
+  </data>
+  <data name="UpdatedAt" xml:space="preserve">
+    <value>{0} 更新</value>
+  </data>
+  <data name="HumidityValue" xml:space="preserve">
+    <value>湿度 {0}%</value>
+  </data>
+  <data name="HumidityMissing" xml:space="preserve">
+    <value>湿度 —</value>
+  </data>
+  <data name="LightCount" xml:space="preserve">
+    <value>{0} / {1} 盏开启</value>
+  </data>
+  <data name="LightUnknown" xml:space="preserve">
+    <value>{0} 盏开启 · {1} 盏未知</value>
+  </data>
+  <data name="ConnectedCount" xml:space="preserve">
+    <value>{0} 台设备已连接</value>
+  </data>
+  <data name="AllLightsOn" xml:space="preserve">
+    <value>开启{0}所有灯</value>
+  </data>
+  <data name="AllLightsOff" xml:space="preserve">
+    <value>关闭{0}所有灯</value>
+  </data>
+  <data name="WholeHome" xml:space="preserve">
+    <value>全屋</value>
+  </data>
+  <data name="PresenceDuration" xml:space="preserve">
+    <value>设备报告持续 {0} 分钟</value>
+  </data>
+  <data name="PowerOnDevice" xml:space="preserve">
+    <value>开启 {0}</value>
+  </data>
+  <data name="PowerOffDevice" xml:space="preserve">
+    <value>关闭 {0}</value>
+  </data>
+  <data name="CloudReadAt" xml:space="preserve">
+    <value>读取于 {0}</value>
+  </data>
+  <data name="NoTimestamp" xml:space="preserve">
+    <value>设备上报时间未提供。</value>
+  </data>
+  <data name="L171cf72ede26.AutomationProperties.Name" xml:space="preserve">
+    <value>米家 WinUI 图标</value>
+  </data>
+  <data name="L3dbb017d5c17.Text" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="L90ce7bbcd9ec.Content" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="L07e577291437.Content" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="Lf3b2aeb762cb.Text" xml:space="preserve">
+    <value>欢迎回家</value>
+  </data>
+  <data name="Ld75ecb6f6471.Text" xml:space="preserve">
+    <value>连接你的米家设备</value>
+  </data>
+  <data name="L985a9b8aae44.AutomationProperties.Name" xml:space="preserve">
+    <value>选择家庭</value>
+  </data>
+  <data name="Le81c5e52e509.Content" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Le81c5e52e509.ToolTipService.ToolTip" xml:space="preserve">
+    <value>排序和调整卡片</value>
+  </data>
+  <data name="La75c4c856bd1.AutomationProperties.Name" xml:space="preserve">
+    <value>刷新设备</value>
+  </data>
+  <data name="La75c4c856bd1.ToolTipService.ToolTip" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="L03aec91d140d.Content" xml:space="preserve">
+    <value>重新连接</value>
+  </data>
+  <data name="L2be3157cfecb.Content" xml:space="preserve">
+    <value>照明 ×</value>
+  </data>
+  <data name="L781a9cc10c1b.AutomationProperties.Name" xml:space="preserve">
+    <value>筛选房间</value>
+  </data>
+  <data name="Lf88a241cf46c.AutomationProperties.Name" xml:space="preserve">
+    <value>搜索设备</value>
+  </data>
+  <data name="Lf88a241cf46c.ToolTipService.ToolTip" xml:space="preserve">
+    <value>搜索设备</value>
+  </data>
+  <data name="Ld8d4dbd61e05.PlaceholderText" xml:space="preserve">
+    <value>搜索设备</value>
+  </data>
+  <data name="Ld8d4dbd61e05.AutomationProperties.Name" xml:space="preserve">
+    <value>搜索设备</value>
+  </data>
+  <data name="L1c13381850ca.Text" xml:space="preserve">
+    <value>正在连接米家…</value>
+  </data>
+  <data name="L0f5079592f1a.Text" xml:space="preserve">
+    <value>登录米家</value>
+  </data>
+  <data name="L371637c01ef4.Text" xml:space="preserve">
+    <value>使用米家 App 扫码登录</value>
+  </data>
+  <data name="Lc796fe66f8bf.AutomationProperties.Name" xml:space="preserve">
+    <value>米家登录二维码</value>
+  </data>
+  <data name="L7be192903699.Content" xml:space="preserve">
+    <value>扫码登录</value>
+  </data>
+  <data name="L92d41698396b.Content" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="L863abdbc6302.Text" xml:space="preserve">
+    <value>未找到设备</value>
+  </data>
+  <data name="L247811eaf701.AutomationProperties.Name" xml:space="preserve">
+    <value>更多设备选项</value>
+  </data>
+  <data name="Lcfaf41f48a9f.Text" xml:space="preserve">
+    <value>设备适配</value>
+  </data>
+  <data name="L7e1e5b915cf6.Text" xml:space="preserve">
+    <value>导出适配资料</value>
+  </data>
+  <data name="L6b502d9f183a.Text" xml:space="preserve">
+    <value>刷新状态</value>
+  </data>
+  <data name="L9537f0266c9e.Text" xml:space="preserve">
+    <value>智能开关设置</value>
+  </data>
+  <data name="Ld09927c83bb3.Text" xml:space="preserve">
+    <value>卡片设置</value>
+  </data>
+  <data name="L7cc1e8730280.Text" xml:space="preserve">
+    <value>设备信息</value>
+  </data>
+  <data name="L6063b139a260.AutomationProperties.Name" xml:space="preserve">
+    <value>展开为整页</value>
+  </data>
+  <data name="L6063b139a260.ToolTipService.ToolTip" xml:space="preserve">
+    <value>展开为整页</value>
+  </data>
+  <data name="L9233a699b51f.AutomationProperties.Name" xml:space="preserve">
+    <value>关闭详情</value>
+  </data>
+  <data name="L9233a699b51f.ToolTipService.ToolTip" xml:space="preserve">
+    <value>关闭 (Esc)</value>
+  </data>
+  <data name="L2e249a6ce648.Header" xml:space="preserve">
+    <value>全部设备设置</value>
+  </data>
+  <data name="L9689cbb99254.Header" xml:space="preserve">
+    <value>卡片设置</value>
+  </data>
+  <data name="Lae0c48d37834.Header" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="L5e7858b5ae96.Header" xml:space="preserve">
+    <value>显示为</value>
+  </data>
+  <data name="Lb791e8180dbd.Text" xml:space="preserve">
+    <value>仅在本机生效</value>
+  </data>
+  <data name="La49bbb282af8.Header" xml:space="preserve">
+    <value>设备信息</value>
+  </data>
+  <data name="L3a9cd34c20a5.Text" xml:space="preserve">
+    <value>房间</value>
+  </data>
+  <data name="Lecf3d8d2b6d3.Text" xml:space="preserve">
+    <value>型号</value>
+  </data>
+  <data name="L1ada9e908652.Text" xml:space="preserve">
+    <value>连接方式</value>
+  </data>
+  <data name="L24cc93fcb952.Text" xml:space="preserve">
+    <value>米家云端</value>
+  </data>
+  <data name="L0365bf3bed38.Content" xml:space="preserve">
+    <value>模拟执行</value>
+  </data>
+  <data name="Lc57863e01eac.Text" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="Ld1f8fd71ae29.Text" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="L7c0f6cb38778.Text" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="L29933f619965.Text" xml:space="preserve">
+    <value>缺失读数</value>
+  </data>
+  <data name="La8043864fc25.Text" xml:space="preserve">
+    <value>卡片</value>
+  </data>
+  <data name="Lb5027b3df41e.Text" xml:space="preserve">
+    <value>抽屉</value>
+  </data>
+  <data name="L0c85e9d2ce0a.Text" xml:space="preserve">
+    <value>整页</value>
+  </data>
+  <data name="L89e404eeaa98.Text" xml:space="preserve">
+    <value>展开卡片</value>
+  </data>
+  <data name="L3808cf1e4dfa.Content" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="L9d9c44596bf4.AutomationProperties.Name" xml:space="preserve">
+    <value>切换亮度或色温</value>
+  </data>
+  <data name="L9d9c44596bf4.ToolTipService.ToolTip" xml:space="preserve">
+    <value>切换亮度／色温</value>
+  </data>
+  <data name="L2df190ebdca8.AutomationProperties.Name" xml:space="preserve">
+    <value>复制代码</value>
+  </data>
+  <data name="L2df190ebdca8.ToolTipService.ToolTip" xml:space="preserve">
+    <value>复制代码</value>
+  </data>
+  <data name="L73ed7a8ada13.AutomationProperties.Name" xml:space="preserve">
+    <value>选择颜色</value>
+  </data>
+  <data name="Ld5e97e906097.Text" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="L2aa21dd75144.AutomationProperties.Name" xml:space="preserve">
+    <value>返回设备适配</value>
+  </data>
+  <data name="L2aa21dd75144.ToolTipService.ToolTip" xml:space="preserve">
+    <value>返回设备适配</value>
+  </data>
+  <data name="L5080d05f7e83.Text" xml:space="preserve">
+    <value>适配开发指南</value>
+  </data>
+  <data name="L307f3f8c3ac8.AutomationProperties.Name" xml:space="preserve">
+    <value>复制指南原文（Markdown）</value>
+  </data>
+  <data name="L307f3f8c3ac8.ToolTipService.ToolTip" xml:space="preserve">
+    <value>复制指南原文（Markdown）</value>
+  </data>
+  <data name="Lb4b3c41d48a9.Content" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="L287fbd284ad0.Text" xml:space="preserve">
+    <value>环境</value>
+  </data>
+  <data name="L894512f05371.Text" xml:space="preserve">
+    <value>选择主传感器</value>
+  </data>
+  <data name="L7cf16a8bc661.Text" xml:space="preserve">
+    <value>选择传感器</value>
+  </data>
+  <data name="La4749c74bfa5.Text" xml:space="preserve">
+    <value>门窗与感应</value>
+  </data>
+  <data name="L299477aec1b6.Text" xml:space="preserve">
+    <value>常用</value>
+  </data>
+  <data name="L6a2cfd62ea3d.Content" xml:space="preserve">
+    <value>选择设备</value>
+  </data>
+  <data name="L5cc12ef3c66e.Content" xml:space="preserve">
+    <value>选择常用设备</value>
+  </data>
+  <data name="Lc03df689ff36.Text" xml:space="preserve">
+    <value>照明</value>
+  </data>
+  <data name="Lf237e9f0ed9c.Text" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="La3cace553a7f.Content" xml:space="preserve">
+    <value>返回开源许可</value>
+  </data>
+  <data name="L9629448fa5e7.PlaceholderText" xml:space="preserve">
+    <value>搜索组件</value>
+  </data>
+  <data name="L9629448fa5e7.AutomationProperties.Name" xml:space="preserve">
+    <value>搜索开源组件及许可</value>
+  </data>
+  <data name="Lff6f0cc8c742.AutomationProperties.Name" xml:space="preserve">
+    <value>组件</value>
+  </data>
+  <data name="Lb0f9d0dacc7b.Text" xml:space="preserve">
+    <value>没有找到组件</value>
+  </data>
+  <data name="L232a466ae3d7.Content" xml:space="preserve">
+    <value>项目主页</value>
+  </data>
+  <data name="Le5748e4e4717.Content" xml:space="preserve">
+    <value>复制许可</value>
+  </data>
+  <data name="Le6090cd7ccdc.Text" xml:space="preserve">
+    <value>电源</value>
+  </data>
+  <data name="L9c5fc26bfbaf.Text" xml:space="preserve">
+    <value>状态未知</value>
+  </data>
+  <data name="L5fdad36dedfa.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="L5fdad36dedfa.Title" xml:space="preserve">
+    <value>导入适配包</value>
+  </data>
+  <data name="L5fdad36dedfa.PrimaryButtonText" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="L899edf631524.AutomationProperties.Name" xml:space="preserve">
+    <value>选择要安装的适配包</value>
+  </data>
+  <data name="L99dd240b7167.ToolTipService.ToolTip" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="L4b04045642fc.Header" xml:space="preserve">
+    <value>用于匹配的型号</value>
+  </data>
+  <data name="Ldd5a7c7e3e40.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="L8f080c5b7e40.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="L8f080c5b7e40.PrimaryButtonText" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="L67426c879d33.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="L67426c879d33.Title" xml:space="preserve">
+    <value>导出适配资料</value>
+  </data>
+  <data name="L67426c879d33.PrimaryButtonText" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="Lc119e99be77a.Content" xml:space="preserve">
+    <value>包含脱敏读数样本</value>
+  </data>
+  <data name="Lda16dad32753.Title" xml:space="preserve">
+    <value>下载更新</value>
+  </data>
+  <data name="Lda16dad32753.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="L31a744a623f1.Text" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="Ledcdc8908919.Text" xml:space="preserve">
+    <value>版本信息</value>
+  </data>
+  <data name="L310c7983458f.Header" xml:space="preserve">
+    <value>应用更新</value>
+  </data>
+  <data name="Lf028e145f3c2.Content" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="L29bb312b69fc.Header" xml:space="preserve">
+    <value>自动检查更新</value>
+  </data>
+  <data name="Leaf2a3777a28.Header" xml:space="preserve">
+    <value>运行环境</value>
+  </data>
+  <data name="L22b5c9daa2be.Header" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
+  <data name="Ldf9392a6e220.Content" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="Ldf9392a6e220.AutomationProperties.Name" xml:space="preserve">
+    <value>查看更新日志</value>
+  </data>
+  <data name="L6a268225be6a.Text" xml:space="preserve">
+    <value>支持</value>
+  </data>
+  <data name="L4d93ab128c02.Header" xml:space="preserve">
+    <value>诊断信息</value>
+  </data>
+  <data name="Lc4e070486a9d.Content" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="Lc4e070486a9d.AutomationProperties.Name" xml:space="preserve">
+    <value>导出诊断信息</value>
+  </data>
+  <data name="Lc4e070486a9d.ToolTipService.ToolTip" xml:space="preserve">
+    <value>版本、系统与启动记录</value>
+  </data>
+  <data name="L3e6d391f940f.Header" xml:space="preserve">
+    <value>隐私说明</value>
+  </data>
+  <data name="L46be5b4a8464.Content" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="L46be5b4a8464.AutomationProperties.Name" xml:space="preserve">
+    <value>查看隐私说明</value>
+  </data>
+  <data name="L8916ad168e66.Header" xml:space="preserve">
+    <value>第三方组件</value>
+  </data>
+  <data name="Laf9071fea0aa.Content" xml:space="preserve">
+    <value>查看许可</value>
+  </data>
+  <data name="L952227103af3.Text" xml:space="preserve">
+    <value>米家账号</value>
+  </data>
+  <data name="L10825091c923.Text" xml:space="preserve">
+    <value>已登录</value>
+  </data>
+  <data name="L839f12b76da5.Text" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="L6bbd1cc37e1e.Header" xml:space="preserve">
+    <value>服务器区域</value>
+  </data>
+  <data name="Lbdde22e7f908.Text" xml:space="preserve">
+    <value>中国大陆</value>
+  </data>
+  <data name="L9bedbb15b1da.Header" xml:space="preserve">
+    <value>当前家庭</value>
+  </data>
+  <data name="Lf6cc09a2441f.Content" xml:space="preserve">
+    <value>同步家庭</value>
+  </data>
+  <data name="Le46c61d088e2.Text" xml:space="preserve">
+    <value>账号操作</value>
+  </data>
+  <data name="L36d6283c441b.Header" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="Lb0c6f9cbd29a.Content" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="L7cdf6d5972fe.Label" xml:space="preserve">
+    <value>导入适配包</value>
+  </data>
+  <data name="L7cdf6d5972fe.ToolTipService.ToolTip" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="Lcf825f2b7ef1.Label" xml:space="preserve">
+    <value>导出未适配资料</value>
+  </data>
+  <data name="Lcf825f2b7ef1.ToolTipService.ToolTip" xml:space="preserve">
+    <value>导出当前家庭使用默认面板的设备资料，按型号与规格去重</value>
+  </data>
+  <data name="Le0bb11678145.Label" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Le0bb11678145.ToolTipService.ToolTip" xml:space="preserve">
+    <value>选择适配包</value>
+  </data>
+  <data name="L4d7208c641a0.Label" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="L0dbbeb3e49bf.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="L2036b2d6aa8c.Text" xml:space="preserve">
+    <value>启用状态</value>
+  </data>
+  <data name="Lbd11994f7a0c.Text" xml:space="preserve">
+    <value>降序</value>
+  </data>
+  <data name="Lbb94250a82d2.Label" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Lbb94250a82d2.ToolTipService.ToolTip" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="L739274d277f5.Label" xml:space="preserve">
+    <value>开发指南</value>
+  </data>
+  <data name="Lff36b7ec5283.Text" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="L3407c48b4e34.Text" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Lbba2f6052eb4.Text" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Lba4704411d92.AutomationProperties.Name" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="Lba4704411d92.ToolTipService.ToolTip" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="L5afd6169a769.Content" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="L02c76a0c30d7.Text" xml:space="preserve">
+    <value>启用所选</value>
+  </data>
+  <data name="Lccaa357c28cb.AutomationProperties.Name" xml:space="preserve">
+    <value>启用所选适配包</value>
+  </data>
+  <data name="La11d3df705a0.AutomationProperties.Name" xml:space="preserve">
+    <value>卸载所选适配包</value>
+  </data>
+  <data name="La11d3df705a0.ToolTipService.ToolTip" xml:space="preserve">
+    <value>卸载所选适配包</value>
+  </data>
+  <data name="Ld57055da8c9a.AutomationProperties.Name" xml:space="preserve">
+    <value>已安装的设备适配包</value>
+  </data>
+  <data name="L5e64a3e3e6f8.ToolTipService.ToolTip" xml:space="preserve">
+    <value>启用适配包</value>
+  </data>
+  <data name="Lc94598f64e45.Text" xml:space="preserve">
+    <value>SDK 版本</value>
+  </data>
+  <data name="Leca2f72e3bc0.Text" xml:space="preserve">
+    <value>适配包版本</value>
+  </data>
+  <data name="Lcaaf0164d246.Text" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="L274c95fa3930.ToolTipService.ToolTip" xml:space="preserve">
+    <value>回退上一版本</value>
+  </data>
+  <data name="L274c95fa3930.AutomationProperties.Name" xml:space="preserve">
+    <value>回退上一版本</value>
+  </data>
+  <data name="L618873d4672e.Text" xml:space="preserve">
+    <value>回退</value>
+  </data>
+  <data name="L47c7d259714d.ToolTipService.ToolTip" xml:space="preserve">
+    <value>卸载适配包</value>
+  </data>
+  <data name="L036ead5b89bf.Text" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="L5dbf052eaab4.Text" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Lb914d4f137a0.Header" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="L267e7f1c18e3.Text" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="Ld422a1ebdcb2.Text" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="L6ae5338fa64e.Text" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="Ldc6fc85fb123.Header" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="L6bb125d5f23c.Content" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="L9cb8e8cc26c9.Content" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="Ld9a3af68023f.Text" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="Lbce4ed01f302.Header" xml:space="preserve">
+    <value>详情刷新频率</value>
+  </data>
+  <data name="Ld68b49229875.Text" xml:space="preserve">
+    <value>外观与行为</value>
+  </data>
+  <data name="L5fafc29f345f.Text" xml:space="preserve">
+    <value>账号</value>
+  </data>
+  <data name="L05ee5805802d.Text" xml:space="preserve">
+    <value>关于软件</value>
+  </data>
+  <data name="L5e809212d777.Text" xml:space="preserve">
+    <value>开源许可</value>
+  </data>
+  <data name="L990cc190e36a.Header" xml:space="preserve">
+    <value>高级设置</value>
+  </data>
+  <data name="Ld8d2b3de0285.Text" xml:space="preserve">
+    <value>暂不支持控制此设备。</value>
+  </data>
+  <data name="Lcc0c587857c1.Header" xml:space="preserve">
+    <value>更多设置</value>
+  </data>
+  <data name="Lb511e332c6ae.Text" xml:space="preserve">
+    <value>尚未读取</value>
+  </data>
+  <data name="Leac332137a53.Content" xml:space="preserve">
+    <value>取消修改</value>
+  </data>
+  <data name="Leac332137a53.ToolTipService.ToolTip" xml:space="preserve">
+    <value>恢复为最近读取的值；不向设备发送指令。</value>
+  </data>
+  <data name="S8a99be840844" xml:space="preserve">
+    <value>正在停止…</value>
+  </data>
+  <data name="Sd9f0cd172d82" xml:space="preserve">
+    <value>正在完成当前项…</value>
+  </data>
+  <data name="S06bc14b60f35" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="Scdb70be0681a" xml:space="preserve">
+    <value>导出未适配资料</value>
+  </data>
+  <data name="S66e5a1c5807e" xml:space="preserve">
+    <value>导入适配包</value>
+  </data>
+  <data name="S30ada4bf5edd" xml:space="preserve">
+    <value>设备适配</value>
+  </data>
+  <data name="S63c73c4730f4" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="S5c55a67935af" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Sde6811e73d40" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
+  <data name="S9d06d61ee41f" xml:space="preserve">
+    <value>隐私说明</value>
+  </data>
+  <data name="S3fd47edce45b" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="S0bf618e12dda" xml:space="preserve">
+    <value>连接已中断，请重新连接。</value>
+  </data>
+  <data name="S051836569928" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="S3ab8cc15939f" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="S41d27d68e150" xml:space="preserve">
+    <value>无法保存应用设置。</value>
+  </data>
+  <data name="Sbda050585a00" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="S93e474c68ed5" xml:space="preserve">
+    <value>状态未知</value>
+  </data>
+  <data name="S30a0132ed5d2" xml:space="preserve">
+    <value>只写属性，无法读取确认。</value>
+  </data>
+  <data name="S8992a8bd7eb2" xml:space="preserve">
+    <value>导出当前家庭使用默认面板的设备资料，按型号与规格去重</value>
+  </data>
+  <data name="S1b255ec87517" xml:space="preserve">
+    <value>恢复为最近读取的值；不向设备发送指令。</value>
+  </data>
+  <data name="Sa6feae70905b" xml:space="preserve">
+    <value>复制指南原文（Markdown）</value>
+  </data>
+  <data name="S42168edefc6b" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="S6ffa4182fa54" xml:space="preserve">
+    <value>使用米家 App 扫码登录</value>
+  </data>
+  <data name="S32ad039003dc" xml:space="preserve">
+    <value>未提供 README。</value>
+  </data>
+  <data name="S0378946ed6d1" xml:space="preserve">
+    <value>暂不支持控制此设备。</value>
+  </data>
+  <data name="S6291cbcdab3f" xml:space="preserve">
+    <value>版本、系统与启动记录</value>
+  </data>
+  <data name="S6ec237f592d0" xml:space="preserve">
+    <value>已安装的设备适配包</value>
+  </data>
+  <data name="Sc0a2e97c00b1" xml:space="preserve">
+    <value>搜索开源组件及许可</value>
+  </data>
+  <data name="Sf5ee5b84f4bd" xml:space="preserve">
+    <value>选择要安装的适配包</value>
+  </data>
+  <data name="S7c61bb8e7b76" xml:space="preserve">
+    <value>关闭 (Esc)</value>
+  </data>
+  <data name="Sb8b7560f738c" xml:space="preserve">
+    <value>包含脱敏读数样本</value>
+  </data>
+  <data name="S776fef2a50e9" xml:space="preserve">
+    <value>客户端与版本信息</value>
+  </data>
+  <data name="Saf06706db79e" xml:space="preserve">
+    <value>连接你的米家设备</value>
+  </data>
+  <data name="S0813ada497a0" xml:space="preserve">
+    <value>状态未知，请刷新</value>
+  </data>
+  <data name="S7aa57109eee1" xml:space="preserve">
+    <value>切换亮度或色温</value>
+  </data>
+  <data name="S7c98da78b74e" xml:space="preserve">
+    <value>切换亮度／色温</value>
+  </data>
+  <data name="Sd8cb633ab9a5" xml:space="preserve">
+    <value>卸载所选适配包</value>
+  </data>
+  <data name="S548cc76b755b" xml:space="preserve">
+    <value>启用所选适配包</value>
+  </data>
+  <data name="S6fb00a77d1a9" xml:space="preserve">
+    <value>排序和调整卡片</value>
+  </data>
+  <data name="S9ffe98a30fb7" xml:space="preserve">
+    <value>正在连接米家…</value>
+  </data>
+  <data name="S72e91c5b0e0d" xml:space="preserve">
+    <value>用于匹配的型号</value>
+  </data>
+  <data name="Sa87789ead63a" xml:space="preserve">
+    <value>米家登录二维码</value>
+  </data>
+  <data name="S6b593fef5694" xml:space="preserve">
+    <value>离线或状态未知</value>
+  </data>
+  <data name="S1030511860e4" xml:space="preserve">
+    <value>延时关闭倒计时</value>
+  </data>
+  <data name="S12d9430d30be" xml:space="preserve">
+    <value>仅在本机生效</value>
+  </data>
+  <data name="S71caf54ae62e" xml:space="preserve">
+    <value>全部设备设置</value>
+  </data>
+  <data name="S0eba22d6ad3e" xml:space="preserve">
+    <value>回退上一版本</value>
+  </data>
+  <data name="Sdccc0cb87d8a" xml:space="preserve">
+    <value>导出诊断信息</value>
+  </data>
+  <data name="Sf8780b8a912f" xml:space="preserve">
+    <value>导出适配资料</value>
+  </data>
+  <data name="Sb40869d49948" xml:space="preserve">
+    <value>智能开关设置</value>
+  </data>
+  <data name="S2729085701cf" xml:space="preserve">
+    <value>更多设备选项</value>
+  </data>
+  <data name="Sbd50eff4af46" xml:space="preserve">
+    <value>查看更新日志</value>
+  </data>
+  <data name="S85a70e206e9e" xml:space="preserve">
+    <value>查看隐私说明</value>
+  </data>
+  <data name="Scee892960fc7" xml:space="preserve">
+    <value>没有找到组件</value>
+  </data>
+  <data name="S17f4ef49254e" xml:space="preserve">
+    <value>米家 WinUI 图标</value>
+  </data>
+  <data name="S33444ce1ab88" xml:space="preserve">
+    <value>详情刷新频率</value>
+  </data>
+  <data name="S15f52a0d3085" xml:space="preserve">
+    <value>返回开源许可</value>
+  </data>
+  <data name="S5b6f774264e3" xml:space="preserve">
+    <value>返回设备适配</value>
+  </data>
+  <data name="S4ae43144f113" xml:space="preserve">
+    <value>适配开发指南</value>
+  </data>
+  <data name="Sa8f1d262979e" xml:space="preserve">
+    <value>选择主传感器</value>
+  </data>
+  <data name="S5537e48f965f" xml:space="preserve">
+    <value>选择常用设备</value>
+  </data>
+  <data name="S5fcfa8332fae" xml:space="preserve">
+    <value>SDK 版本</value>
+  </data>
+  <data name="Sc42a3dd9c2e4" xml:space="preserve">
+    <value>自动检查更新</value>
+  </data>
+  <data name="S69194bd7c9fd" xml:space="preserve">
+    <value>每 10 秒</value>
+  </data>
+  <data name="S7928ca287c7a" xml:space="preserve">
+    <value>每 30 秒</value>
+  </data>
+  <data name="S12532dbccf5f" xml:space="preserve">
+    <value>状态暂不可用</value>
+  </data>
+  <data name="S303a06eaded5" xml:space="preserve">
+    <value>滤芯剩余寿命</value>
+  </data>
+  <data name="S7e9a89cc74b0" xml:space="preserve">
+    <value>尚未选择家庭</value>
+  </data>
+  <data name="Sa42a5899b9fb" xml:space="preserve">
+    <value>卸载适配包</value>
+  </data>
+  <data name="Sc7c009fe7aa8" xml:space="preserve">
+    <value>启用适配包</value>
+  </data>
+  <data name="S0371f8eadcaa" xml:space="preserve">
+    <value>外观与行为</value>
+  </data>
+  <data name="S460a76736d27" xml:space="preserve">
+    <value>展开为整页</value>
+  </data>
+  <data name="Sf040e5a301f7" xml:space="preserve">
+    <value>未找到设备</value>
+  </data>
+  <data name="S788ef5156b41" xml:space="preserve">
+    <value>第三方组件</value>
+  </data>
+  <data name="S1ba1347c4503" xml:space="preserve">
+    <value>适配包详情</value>
+  </data>
+  <data name="S7c14dbda08bd" xml:space="preserve">
+    <value>选择传感器</value>
+  </data>
+  <data name="S76ef71ab2f00" xml:space="preserve">
+    <value>选择适配包</value>
+  </data>
+  <data name="Sd99d86926cc6" xml:space="preserve">
+    <value>门窗与感应</value>
+  </data>
+  <data name="Se9f1e4057101" xml:space="preserve">
+    <value>适配包版本</value>
+  </data>
+  <data name="S26ef00b7d061" xml:space="preserve">
+    <value>正在提交…</value>
+  </data>
+  <data name="S51536645bb38" xml:space="preserve">
+    <value>中国大陆</value>
+  </data>
+  <data name="S8745995bee00" xml:space="preserve">
+    <value>关于软件</value>
+  </data>
+  <data name="S9071cfe7cd01" xml:space="preserve">
+    <value>关闭详情</value>
+  </data>
+  <data name="S802a407c7743" xml:space="preserve">
+    <value>刷新状态</value>
+  </data>
+  <data name="Sdc54091453cc" xml:space="preserve">
+    <value>刷新设备</value>
+  </data>
+  <data name="S30d7549be8d2" xml:space="preserve">
+    <value>卡片设置</value>
+  </data>
+  <data name="Sfada4dfc38e3" xml:space="preserve">
+    <value>取消修改</value>
+  </data>
+  <data name="S909884cfddc1" xml:space="preserve">
+    <value>同步家庭</value>
+  </data>
+  <data name="S26008950621f" xml:space="preserve">
+    <value>启用所选</value>
+  </data>
+  <data name="Sd334c402ead1" xml:space="preserve">
+    <value>启用状态</value>
+  </data>
+  <data name="S420c20dd9fcc" xml:space="preserve">
+    <value>复制代码</value>
+  </data>
+  <data name="S6b9d21a7a109" xml:space="preserve">
+    <value>复制许可</value>
+  </data>
+  <data name="Sc4cf69f358b6" xml:space="preserve">
+    <value>尚未读取</value>
+  </data>
+  <data name="S3a3389c6987d" xml:space="preserve">
+    <value>展开卡片</value>
+  </data>
+  <data name="Sef21d172859b" xml:space="preserve">
+    <value>开发指南</value>
+  </data>
+  <data name="S038ad816c53f" xml:space="preserve">
+    <value>开源许可</value>
+  </data>
+  <data name="Sedf7665eee4c" xml:space="preserve">
+    <value>当前家庭</value>
+  </data>
+  <data name="S378eaca774bb" xml:space="preserve">
+    <value>扫码登录</value>
+  </data>
+  <data name="Sf2cd55057df5" xml:space="preserve">
+    <value>搜索组件</value>
+  </data>
+  <data name="Sc21e12d69e05" xml:space="preserve">
+    <value>搜索设备</value>
+  </data>
+  <data name="S6e1f103f1c28" xml:space="preserve">
+    <value>查看许可</value>
+  </data>
+  <data name="S1307cf619a2e" xml:space="preserve">
+    <value>模拟执行</value>
+  </data>
+  <data name="S6c816b52536c" xml:space="preserve">
+    <value>欢迎回家</value>
+  </data>
+  <data name="Sedca0c36f8c1" xml:space="preserve">
+    <value>照明 ×</value>
+  </data>
+  <data name="S2da3906a24ee" xml:space="preserve">
+    <value>版本信息</value>
+  </data>
+  <data name="S8308c1df7e40" xml:space="preserve">
+    <value>登录米家</value>
+  </data>
+  <data name="S2b7729d7ac40" xml:space="preserve">
+    <value>筛选房间</value>
+  </data>
+  <data name="S563f0148e543" xml:space="preserve">
+    <value>米家云端</value>
+  </data>
+  <data name="S7ce3a72007d6" xml:space="preserve">
+    <value>米家账号</value>
+  </data>
+  <data name="S9937e365aaf3" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="S66a64e3c9bf8" xml:space="preserve">
+    <value>缺失读数</value>
+  </data>
+  <data name="S6c07bb6fd4b6" xml:space="preserve">
+    <value>设备信息</value>
+  </data>
+  <data name="S9167ee8b67db" xml:space="preserve">
+    <value>诊断信息</value>
+  </data>
+  <data name="Sdc9aed464cd8" xml:space="preserve">
+    <value>账号操作</value>
+  </data>
+  <data name="S217cfe7db1e3" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="S423f51a28678" xml:space="preserve">
+    <value>运行环境</value>
+  </data>
+  <data name="S485a26050ce5" xml:space="preserve">
+    <value>连接方式</value>
+  </data>
+  <data name="S68891ab35cab" xml:space="preserve">
+    <value>重新连接</value>
+  </data>
+  <data name="Saaab0ef30c34" xml:space="preserve">
+    <value>选择家庭</value>
+  </data>
+  <data name="S46f9ac7b9a39" xml:space="preserve">
+    <value>选择设备</value>
+  </data>
+  <data name="S369b82fa0700" xml:space="preserve">
+    <value>选择颜色</value>
+  </data>
+  <data name="S553dc98d899f" xml:space="preserve">
+    <value>部分成功</value>
+  </data>
+  <data name="S0cadb49096a3" xml:space="preserve">
+    <value>项目主页</value>
+  </data>
+  <data name="S44455611b910" xml:space="preserve">
+    <value>高级设置</value>
+  </data>
+  <data name="S7f68ebad19ba" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="Sa78b542de282" xml:space="preserve">
+    <value>下载更新</value>
+  </data>
+  <data name="S82b7cf40b5e6" xml:space="preserve">
+    <value>当前状态</value>
+  </data>
+  <data name="S135d06c406b2" xml:space="preserve">
+    <value>当前湿度</value>
+  </data>
+  <data name="Sef4cb5a826ac" xml:space="preserve">
+    <value>目标湿度</value>
+  </data>
+  <data name="S87ed126f7bd1" xml:space="preserve">
+    <value>运行模式</value>
+  </data>
+  <data name="S568c1e74fb06" xml:space="preserve">
+    <value>剩余时间</value>
+  </data>
+  <data name="S4fa3708cafb1" xml:space="preserve">
+    <value>播放状态</value>
+  </data>
+  <data name="Sf2394a885adc" xml:space="preserve">
+    <value>滤芯剩余</value>
+  </data>
+  <data name="S08ce330f0975" xml:space="preserve">
+    <value>无线模式</value>
+  </data>
+  <data name="Sf36cac96220b" xml:space="preserve">
+    <value>暂不可用</value>
+  </data>
+  <data name="S9b331be8923c" xml:space="preserve">
+    <value>相对湿度</value>
+  </data>
+  <data name="Sd8d84897679e" xml:space="preserve">
+    <value>风速档位</value>
+  </data>
+  <data name="Sfd20e18350d5" xml:space="preserve">
+    <value>目标温度</value>
+  </data>
+  <data name="S6be6c8248ec6" xml:space="preserve">
+    <value>当前位置</value>
+  </data>
+  <data name="S4a4f9c0beda1" xml:space="preserve">
+    <value>目标位置</value>
+  </data>
+  <data name="S754cd3e2de17" xml:space="preserve">
+    <value>屏幕亮度</value>
+  </data>
+  <data name="S4fb3ea271d03" xml:space="preserve">
+    <value>延迟时间</value>
+  </data>
+  <data name="Sfea4e98eb217" xml:space="preserve">
+    <value>断电记忆</value>
+  </data>
+  <data name="S86ffbbfc5084" xml:space="preserve">
+    <value>更多设置</value>
+  </data>
+  <data name="S34f7336d3983" xml:space="preserve">
+    <value>全部关闭</value>
+  </data>
+  <data name="S6dbaeff68e66" xml:space="preserve">
+    <value>全部房间</value>
+  </data>
+  <data name="S3051a776eaa5" xml:space="preserve">
+    <value>校验通过</value>
+  </data>
+  <data name="S5c14e94e278d" xml:space="preserve">
+    <value>默认面板</value>
+  </data>
+  <data name="Sa8c3698b5b8c" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Sdfb802238b38" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="S0a01eee1cd37" xml:space="preserve">
+    <value>已登录</value>
+  </data>
+  <data name="Sa7612226b2f7" xml:space="preserve">
+    <value>显示为</value>
+  </data>
+  <data name="S52a0cbef7917" xml:space="preserve">
+    <value>每分钟</value>
+  </data>
+  <data name="S46e152919d00" xml:space="preserve">
+    <value>仅手动</value>
+  </data>
+  <data name="Sea191e4d8486" xml:space="preserve">
+    <value>我的家</value>
+  </data>
+  <data name="S8a4ef3e48e4e" xml:space="preserve">
+    <value>已开启</value>
+  </data>
+  <data name="S6744b4c6a9aa" xml:space="preserve">
+    <value>已关闭</value>
+  </data>
+  <data name="Sf006455e3baf" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="S663e1a1ed327" xml:space="preserve">
+    <value>关闭中</value>
+  </data>
+  <data name="Sf95ea7f4c063" xml:space="preserve">
+    <value>未启用</value>
+  </data>
+  <data name="S0035761a7414" xml:space="preserve">
+    <value>耗电量</value>
+  </data>
+  <data name="S55b734e846e0" xml:space="preserve">
+    <value>温湿度</value>
+  </data>
+  <data name="Sfdd8ff337f90" xml:space="preserve">
+    <value>提示音</value>
+  </data>
+  <data name="S231fe2204265" xml:space="preserve">
+    <value>未执行</value>
+  </data>
+  <data name="S788db1cfec2a" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="S7d4146ca0827" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="S3a5040b68abf" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="Saee887434131" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Sfb5640f8e12e" xml:space="preserve">
+    <value>卡片</value>
+  </data>
+  <data name="S2cd0f3be8738" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Sd44e9b3d3b31" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="S8771e3682df1" xml:space="preserve">
+    <value>回退</value>
+  </data>
+  <data name="S322408c53bed" xml:space="preserve">
+    <value>型号</value>
+  </data>
+  <data name="S86a63f23a076" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="S50db7447b966" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Se8f88f51ccb0" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="Sc0b3fbff51cc" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="S576d81bb0631" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="S76420433f22d" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="S4563c57b5143" xml:space="preserve">
+    <value>常用</value>
+  </data>
+  <data name="Sd93373f81363" xml:space="preserve">
+    <value>支持</value>
+  </data>
+  <data name="Sa96c9a854190" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="S5440f7424f28" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="Sec309ab207ef" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Sdb8db0530432" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="S296de0e31f8c" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="Saa0819dfc4d8" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Sa6b75d068032" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="S098294eeccc2" xml:space="preserve">
+    <value>照明</value>
+  </data>
+  <data name="S99faf39f8dee" xml:space="preserve">
+    <value>电源</value>
+  </data>
+  <data name="S0f5785fff504" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="S97b31b5d63f5" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="Se1506406a5bd" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="S311bb313fdec" xml:space="preserve">
+    <value>账号</value>
+  </data>
+  <data name="Sc11330b85234" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="S4b77c3546823" xml:space="preserve">
+    <value>降序</value>
+  </data>
+  <data name="S13d61fea9f17" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="S070a8016fcc3" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="S203c08e0d44a" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="S9f6fee1aba17" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="S904dd029c768" xml:space="preserve">
+    <value>环境</value>
+  </data>
+  <data name="S3732e264dfa9" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="S82213712d6ae" xml:space="preserve">
+    <value>湿度</value>
+  </data>
+  <data name="S8e2f643ad160" xml:space="preserve">
+    <value>亮度</value>
+  </data>
+  <data name="S84ac609620e5" xml:space="preserve">
+    <value>色温</value>
+  </data>
+  <data name="S960f5905aca2" xml:space="preserve">
+    <value>恒湿</value>
+  </data>
+  <data name="S01324e540d05" xml:space="preserve">
+    <value>睡眠</value>
+  </data>
+  <data name="Sc27aa1fce220" xml:space="preserve">
+    <value>强力</value>
+  </data>
+  <data name="Sb3f3fc9bd352" xml:space="preserve">
+    <value>风干</value>
+  </data>
+  <data name="S8bf8b9780d34" xml:space="preserve">
+    <value>音量</value>
+  </data>
+  <data name="S1c69b1aa723a" xml:space="preserve">
+    <value>电量</value>
+  </data>
+  <data name="Sbe1b4f3c6c1c" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="S8da97ddda990" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="Sbd957bc497aa" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="S3b6fefc50feb" xml:space="preserve">
+    <value>小时</value>
+  </data>
+  <data name="S92d9be0a0e94" xml:space="preserve">
+    <value>开关</value>
+  </data>
+  <data name="S3993e09bcbbe" xml:space="preserve">
+    <value>功率</value>
+  </data>
+  <data name="S38f7c7e22faf" xml:space="preserve">
+    <value>体重</value>
+  </data>
+  <data name="S5a0cc6c04776" xml:space="preserve">
+    <value>故障</value>
+  </data>
+  <data name="S0f68010bc429" xml:space="preserve">
+    <value>童锁</value>
+  </data>
+  <data name="Sa30f63625458" xml:space="preserve">
+    <value>照度</value>
+  </data>
+  <data name="S3b579010a041" xml:space="preserve">
+    <value>灯光</value>
+  </data>
+  <data name="S17cb97521322" xml:space="preserve">
+    <value>插座</value>
+  </data>
+  <data name="S3e41bc3fa911" xml:space="preserve">
+    <value>风扇</value>
+  </data>
+  <data name="S8a2fd55b0118" xml:space="preserve">
+    <value>电池</value>
+  </data>
+  <data name="S04d4aba0ab5f" xml:space="preserve">
+    <value>屏幕</value>
+  </data>
+  <data name="Sf0c875bd7387" xml:space="preserve">
+    <value>音箱</value>
+  </data>
+  <data name="S9dcdc2b289b9" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="S7d58b6422cac" xml:space="preserve">
+    <value>时</value>
+  </data>
+  <data name="Sb6a993c256ef" xml:space="preserve">
+    <value>分</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>在线</value>
+  </data>
+  <data name="NoState" xml:space="preserve">
+    <value>尚未读取状态</value>
+  </data>
+  <data name="PinDevices" xml:space="preserve">
+    <value>常用设备</value>
+  </data>
+  <data name="TurnedOn" xml:space="preserve">
+    <value>已开启</value>
+  </data>
+  <data name="TurnedOff" xml:space="preserve">
+    <value>已关闭</value>
+  </data>
+  <data name="UnknownState" xml:space="preserve">
+    <value>状态未知</value>
+  </data>
+  <data name="LightsOn" xml:space="preserve">
+    <value>有灯开启</value>
+  </data>
+  <data name="AllOff" xml:space="preserve">
+    <value>全部关闭</value>
+  </data>
+  <data name="ReadingTime" xml:space="preserve">
+    <value>云端读取于 {0}</value>
+  </data>
+  <data name="EnablePackage" xml:space="preserve">
+    <value>启用 {0}</value>
+  </data>
+  <data name="RemovePackage" xml:space="preserve">
+    <value>卸载 {0}</value>
+  </data>
+  <data name="HumidityLow" xml:space="preserve">
+    <value>缺水</value>
+  </data>
+  <data name="DeviceFault" xml:space="preserve">
+    <value>设备异常，请查看详情</value>
+  </data>
+  <data name="PoweredOn" xml:space="preserve">
+    <value>已通电</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>已断电</value>
+  </data>
+  <data name="LicenseTitle" xml:space="preserve">
+    <value>开源组件及许可</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>我的家</value>
+  </data>
+  <data name="DevicesTitle" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="DeviceCount" xml:space="preserve">
+    <value>{0} 台设备</value>
+  </data>
+  <data name="OfflineCount" xml:space="preserve">
+    <value>{0} 台离线或状态未知</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>扫码登录</value>
+  </data>
+  <data name="NewQr" xml:space="preserve">
+    <value>重新获取</value>
+  </data>
+  <data name="GettingQr" xml:space="preserve">
+    <value>正在获取二维码…</value>
+  </data>
+  <data name="CompletedCount" xml:space="preserve">
+    <value>{0} 项完成</value>
+  </data>
+  <data name="FailedCount" xml:space="preserve">
+    <value>{0} 项失败</value>
+  </data>
+  <data name="SkippedCount" xml:space="preserve">
+    <value>{0} 项跳过或未执行</value>
+  </data>
+  <data name="PackageOverlap" xml:space="preserve">
+    <value>所选适配包包含相同型号。请减少选择，或关闭“用于匹配的型号”。</value>
+  </data>
+  <data name="InstallCount" xml:space="preserve">
+    <value>安装 ({0})</value>
+  </data>
+  <data name="BatteryValue" xml:space="preserve">
+    <value>电量 {0}%</value>
+  </data>
+  <data name="FilterValue" xml:space="preserve">
+    <value>滤芯剩余 {0}%</value>
+  </data>
+  <data name="LanguageSystem.Text" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="LanguageChinese.Text" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="UpdateAvailableDialog.PrimaryButtonText" xml:space="preserve">
+    <value>下载并安装</value>
+  </data>
+  <data name="UpdateAvailableDialog.CloseButtonText" xml:space="preserve">
+    <value>稍后</value>
+  </data>
+  <data name="InstallUpdateDialog.Title" xml:space="preserve">
+    <value>安装更新？</value>
+  </data>
+  <data name="InstallUpdateDialog.PrimaryButtonText" xml:space="preserve">
+    <value>退出并安装</value>
+  </data>
+  <data name="InstallUpdateDialog.CloseButtonText" xml:space="preserve">
+    <value>稍后</value>
+  </data>
+  <data name="InstallUpdateBody.Text" xml:space="preserve">
+    <value>安装包已下载并校验。应用将退出，随后由安装器完成更新。</value>
+  </data>
+</root>

@@ -1,0 +1,24 @@
+<UserControl x:Class="MiHome.WinUI.Controls.DeviceCardView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="164"
+ xmlns:controls="using:MiHome.WinUI.Controls" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsTabStop="False">
+
+ <Grid x:Name="CardRoot">
+  <Border x:Name="CardSurface" Style="{ThemeResource DeviceSurfaceStyle}">
+   <Grid x:Name="CardBody" RowSpacing="12">
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition/></Grid.RowDefinitions>
+    <Grid ColumnSpacing="10"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+     <controls:ProductIconView x:Name="CardIcon"/>
+     <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+      <TextBlock x:Name="CardName" d:Text="设备名称" Style="{ThemeResource BodyStrongTextBlockStyle}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
+      <TextBlock x:Name="CardSubtitle" d:Text="客厅" Style="{ThemeResource DeviceSecondaryTextStyle}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
+     </StackPanel>
+     <ToggleButton x:Name="CardPower" Grid.Column="2" Visibility="Collapsed" Width="36" Height="36" MinWidth="36" Padding="0" CornerRadius="18" VerticalAlignment="Center" Click="OnPowerClick"><FontIcon Glyph="&#xE7E8;" FontSize="16"/></ToggleButton>
+    </Grid>
+    <ContentControl x:Name="CardDetail" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom"/>
+   </Grid>
+  </Border>
+  <ContentControl x:Name="ExpandedHost" Visibility="Collapsed" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+  <ContentControl x:Name="ResizeHost" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+ </Grid>
+</UserControl>

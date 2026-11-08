@@ -1,0 +1,629 @@
+{
+  "model": "yeelink.light.lamp27",
+  "specType": "urn:miot-spec-v2:device:light:0000A001:yeelink-lamp27:1",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-lamp27:1",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:yeelink-lamp27:1",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-lamp27:1",
+        "propertyType": "urn:miot-spec-v2:property:brightness:0000000D:yeelink-lamp27:1",
+        "name": "Brightness",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-lamp27:1",
+        "propertyType": "urn:miot-spec-v2:property:color-temperature:0000000F:yeelink-lamp27:1",
+        "name": "Color Temperature",
+        "type": "uint32",
+        "unit": "kelvin",
+        "readable": true,
+        "writable": true,
+        "range": [
+          2600,
+          5100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 4,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-lamp27:1",
+        "propertyType": "urn:miot-spec-v2:property:default-power-on-state:00000105:yeelink-lamp27:1",
+        "name": "Default Power On State",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 5,
+        "service": "Light",
+        "serviceType": "urn:miot-spec-v2:service:light:00007802:yeelink-lamp27:1",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:yeelink-lamp27:1",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 5,
+            "description": "Computer",
+            "comment": "电脑模式"
+          },
+          {
+            "value": 6,
+            "description": "Warmth",
+            "comment": "温馨"
+          },
+          {
+            "value": 7,
+            "description": "Leisure",
+            "comment": "休闲模式"
+          },
+          {
+            "value": 8,
+            "description": "Office",
+            "comment": "办公模式"
+          },
+          {
+            "value": 9,
+            "description": "Reading",
+            "comment": "阅读模式"
+          },
+          {
+            "value": 10,
+            "description": "Entertainment",
+            "comment": "娱乐模式"
+          },
+          {
+            "value": 0,
+            "description": "Free",
+            "comment": "自由调节模式"
+          },
+          {
+            "value": 1,
+            "description": "MyMode1",
+            "comment": "我的模式1"
+          },
+          {
+            "value": 2,
+            "description": "MyMode2",
+            "comment": "我的模式2"
+          },
+          {
+            "value": 3,
+            "description": "MyMode3",
+            "comment": "我的模式3"
+          },
+          {
+            "value": 4,
+            "description": "MyMode4",
+            "comment": "我的模式4"
+          }
+        ]
+      },
+      {
+        "siid": 3,
+        "piid": 1,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:save-state:00000001:yeelink-lamp27:1",
+        "name": "save-state",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 2,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:delay-time:00000002:yeelink-lamp27:1",
+        "name": "delay-time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          60,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 3,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:delay-off-countdown:00000003:yeelink-lamp27:1",
+        "name": "delay-off-countdown",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          60,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 4,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:delay-off-enable:00000004:yeelink-lamp27:1",
+        "name": "delay-off-enable",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 5,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:kid-mode:00000005:yeelink-lamp27:1",
+        "name": "kid-mode",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 6,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:double-click-enable:00000006:yeelink-lamp27:1",
+        "name": "double-click-enable",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 7,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:double-click:00000007:yeelink-lamp27:1",
+        "name": "double-click",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Start Pomodoro Mode",
+            "comment": "Start Pomodoro Mode"
+          },
+          {
+            "value": 1,
+            "description": "Start Delay Off",
+            "comment": "Start Delay Off"
+          },
+          {
+            "value": 2,
+            "description": "Start Mode",
+            "comment": "Start Mode"
+          }
+        ]
+      },
+      {
+        "siid": 3,
+        "piid": 8,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:scene-mode:00000008:yeelink-lamp27:1",
+        "name": "scene-mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Free Mode",
+            "comment": "Free Mode"
+          },
+          {
+            "value": 1,
+            "description": "My Mode 1",
+            "comment": "My Mode 1"
+          },
+          {
+            "value": 2,
+            "description": "My Mode 2",
+            "comment": "My Mode 2"
+          },
+          {
+            "value": 3,
+            "description": "My Mode 3",
+            "comment": "My Mode 3"
+          },
+          {
+            "value": 4,
+            "description": "My Mode 4",
+            "comment": "My Mode 4"
+          },
+          {
+            "value": 5,
+            "description": "Computer",
+            "comment": "Computer"
+          },
+          {
+            "value": 6,
+            "description": "Warmth",
+            "comment": "Warmth"
+          },
+          {
+            "value": 7,
+            "description": "Leisure",
+            "comment": "Leisure"
+          },
+          {
+            "value": 8,
+            "description": "Office",
+            "comment": "Office"
+          },
+          {
+            "value": 9,
+            "description": "Reading",
+            "comment": "Reading"
+          },
+          {
+            "value": 10,
+            "description": "Entertainment",
+            "comment": "Entertainment"
+          }
+        ]
+      },
+      {
+        "siid": 3,
+        "piid": 9,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:pomodoro-enable:00000009:yeelink-lamp27:1",
+        "name": "pomodoro-enable",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 10,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:work-minutes:0000000a:yeelink-lamp27:1",
+        "name": "work-minutes",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          120,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 11,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:break-minutes:0000000b:yeelink-lamp27:1",
+        "name": "break-minutes",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          120,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 12,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:work-countdown-sec:0000000c:yeelink-lamp27:1",
+        "name": "work-countdown-sec",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          120,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 13,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:break-countdown-sec:0000000d:yeelink-lamp27:1",
+        "name": "break-countdown-sec",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          120,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 14,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-one-bright:0000000e:yeelink-lamp27:1",
+        "name": "mode-one-bright",
+        "type": "uint16",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 15,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-one-ct:0000000f:yeelink-lamp27:1",
+        "name": "mode-one-ct",
+        "type": "uint16",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [
+          2600,
+          5100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 16,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-two-bright:00000010:yeelink-lamp27:1",
+        "name": "mode-two-bright",
+        "type": "uint16",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 17,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-two-ct:00000011:yeelink-lamp27:1",
+        "name": "mode-two-ct",
+        "type": "uint16",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [
+          2600,
+          5100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 18,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-three-bright:00000012:yeelink-lamp27:1",
+        "name": "mode-three-bright",
+        "type": "uint16",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 19,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-three-ct:00000013:yeelink-lamp27:1",
+        "name": "mode-three-ct",
+        "type": "uint16",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [
+          2600,
+          5100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 20,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-four-bright:00000014:yeelink-lamp27:1",
+        "name": "mode-four-bright",
+        "type": "uint16",
+        "unit": "percentage",
+        "readable": true,
+        "writable": true,
+        "range": [
+          1,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 21,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:mode-four-ct:00000015:yeelink-lamp27:1",
+        "name": "mode-four-ct",
+        "type": "uint16",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [
+          2600,
+          5100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 22,
+        "service": "yeelight",
+        "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+        "propertyType": "urn:yeelink-spec:property:double-click-mode:00000016:yeelink-lamp27:1",
+        "name": "double-click-mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "My Mode 1",
+            "comment": "My Mode 1"
+          },
+          {
+            "value": 2,
+            "description": "My Mode 2",
+            "comment": "My Mode 2"
+          },
+          {
+            "value": 3,
+            "description": "My Mode 3",
+            "comment": "My Mode 3"
+          },
+          {
+            "value": 4,
+            "description": "My Mode 4",
+            "comment": "My Mode 4"
+          },
+          {
+            "value": 5,
+            "description": "Computer",
+            "comment": "Computer"
+          },
+          {
+            "value": 6,
+            "description": "Warmth",
+            "comment": "Warmth"
+          },
+          {
+            "value": 7,
+            "description": "Leisure",
+            "comment": "Leisure"
+          },
+          {
+            "value": 8,
+            "description": "Office",
+            "comment": "Office"
+          },
+          {
+            "value": 9,
+            "description": "Reading",
+            "comment": "Reading"
+          },
+          {
+            "value": 10,
+            "description": "Entertainment",
+            "comment": "Entertainment"
+          }
+        ]
+      }
+    ]
+  }
+}

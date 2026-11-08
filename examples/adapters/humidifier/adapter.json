@@ -1,0 +1,158 @@
+{
+  "formatVersion": 1,
+  "id": "example.humidifier",
+  "name": "加湿器示例",
+  "version": "1.2.0",
+  "models": [
+    "xiaomi.humidifier.600"
+  ],
+  "specType": "urn:miot-spec-v2:device:humidifier:0000A00E:xiaomi-600:2:0000D061",
+  "category": "humidifier",
+  "bindings": [
+    {
+      "id": "power",
+      "service": "humidifier",
+      "property": "on",
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite",
+      "capability": "power"
+    },
+    {
+      "id": "humidity",
+      "service": "environment",
+      "property": "relative-humidity",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "read",
+      "capability": "humidity"
+    },
+    {
+      "id": "target",
+      "service": "humidifier",
+      "property": "target-humidity",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "readWrite"
+    },
+    {
+      "id": "mode",
+      "service": "humidifier",
+      "property": "mode",
+      "type": "uint8",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "filter",
+      "service": "filter",
+      "property": "filter-life-level",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "read",
+      "capability": "filter"
+    }
+  ],
+  "views": {
+    "card": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power"
+      },
+      {
+        "kind": "metric",
+        "label": "湿度",
+        "binding": "humidity"
+      }
+    ],
+    "drawer": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power"
+      },
+      {
+        "kind": "metric",
+        "label": "湿度",
+        "binding": "humidity"
+      },
+      {
+        "kind": "choice",
+        "label": "模式",
+        "binding": "mode"
+      },
+      {
+        "kind": "slider",
+        "label": "目标湿度",
+        "binding": "target"
+      }
+    ],
+    "full": [
+      {
+        "kind": "progress",
+        "label": "滤芯剩余",
+        "binding": "filter"
+      },
+      {
+        "kind": "action",
+        "label": "开始自清洁",
+        "action": "clean"
+      },
+      {
+        "kind": "action",
+        "label": "停止自清洁",
+        "action": "stopClean"
+      },
+      {
+        "kind": "action",
+        "label": "重置滤芯寿命",
+        "action": "resetFilter"
+      }
+    ],
+    "cardExpanded": [
+      {
+        "kind": "slider",
+        "label": "目标湿度",
+        "binding": "target"
+      },
+      {
+        "kind": "choice",
+        "label": "运行模式",
+        "binding": "mode"
+      }
+    ]
+  },
+  "sdkVersion": "0.17.0",
+  "requires": [
+    "layout.cardExpanded",
+    "controls.choice",
+    "actions.v1"
+  ],
+  "actions": [
+    {
+      "id": "clean",
+      "service": "clean",
+      "action": "start-self-clean",
+      "siid": 10,
+      "serviceType": "urn:miot-spec-v2:service:clean:00007911:xiaomi-600:1",
+      "actionType": "urn:miot-spec-v2:action:start-self-clean:0000284F:xiaomi-600:1"
+    },
+    {
+      "id": "stopClean",
+      "service": "clean",
+      "action": "stop-self-clean",
+      "siid": 10,
+      "serviceType": "urn:miot-spec-v2:service:clean:00007911:xiaomi-600:1",
+      "actionType": "urn:miot-spec-v2:action:stop-self-clean:00002850:xiaomi-600:1"
+    },
+    {
+      "id": "resetFilter",
+      "service": "filter",
+      "action": "reset-filter-life",
+      "siid": 4,
+      "serviceType": "urn:miot-spec-v2:service:filter:0000780B:xiaomi-600:1:0000D061",
+      "actionType": "urn:miot-spec-v2:action:reset-filter-life:00002803:xiaomi-600:1:0000D061"
+    }
+  ]
+}

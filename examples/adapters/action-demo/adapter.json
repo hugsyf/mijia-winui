@@ -1,0 +1,49 @@
+{
+  "formatVersion": 1,
+  "id": "example.action-demo",
+  "name": "动作参数演示（虚构设备）",
+  "version": "1.2.0",
+  "models": [
+    "example.actions.demo"
+  ],
+  "specType": "urn:miot-spec-v2:device:custom:0000A000:example-actions:1",
+  "category": "appliance",
+  "bindings": [],
+  "requires": [
+    "actions.v1",
+    "layout.cardExpanded"
+  ],
+  "actions": [
+    {
+      "id": "run",
+      "service": "demo",
+      "action": "run-demo",
+      "siid": 2
+    },
+    {
+      "id": "pause",
+      "service": "demo",
+      "action": "pause",
+      "siid": 2
+    }
+  ],
+  "views": {
+    "card": [],
+    "drawer": [
+      {
+        "kind": "action",
+        "label": "执行演示",
+        "action": "run"
+      }
+    ],
+    "full": [],
+    "cardExpanded": [
+      {
+        "kind": "action",
+        "label": "暂停演示",
+        "action": "pause"
+      }
+    ]
+  },
+  "sdkVersion": "0.17.0"
+}

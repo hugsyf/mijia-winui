@@ -1,0 +1,110 @@
+{
+  "formatVersion": 1,
+  "id": "example.appliance-actions",
+  "name": "空气炸锅动作示例",
+  "version": "1.2.0",
+  "models": [
+    "xiaomi.fryer.maf16"
+  ],
+  "specType": "urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-maf16:2:0000D043",
+  "category": "appliance",
+  "bindings": [
+    {
+      "id": "status",
+      "service": "air-fryer",
+      "property": "status",
+      "type": "uint8",
+      "unit": "",
+      "access": "read"
+    },
+    {
+      "id": "remaining",
+      "service": "air-fryer",
+      "property": "left-time",
+      "type": "uint16",
+      "unit": "minutes",
+      "access": "read"
+    }
+  ],
+  "requires": [
+    "actions.v1",
+    "layout.cardExpanded"
+  ],
+  "views": {
+    "card": [
+      {
+        "kind": "status",
+        "label": "烹饪状态",
+        "binding": "status"
+      }
+    ],
+    "drawer": [
+      {
+        "kind": "status",
+        "label": "烹饪状态",
+        "binding": "status"
+      },
+      {
+        "kind": "countdown",
+        "label": "剩余时间",
+        "binding": "remaining"
+      },
+      {
+        "kind": "action",
+        "label": "暂停烹饪",
+        "action": "pause"
+      }
+    ],
+    "full": [
+      {
+        "kind": "action",
+        "label": "继续烹饪",
+        "action": "resume"
+      },
+      {
+        "kind": "action",
+        "label": "开始烹饪",
+        "action": "start"
+      }
+    ],
+    "cardExpanded": [
+      {
+        "kind": "countdown",
+        "label": "剩余时间",
+        "binding": "remaining"
+      },
+      {
+        "kind": "action",
+        "label": "暂停烹饪",
+        "action": "pause"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "id": "pause",
+      "service": "air-fryer",
+      "action": "pause",
+      "siid": 2,
+      "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+      "actionType": "urn:miot-spec-v2:action:pause:0000280C:xiaomi-maf16:1"
+    },
+    {
+      "id": "resume",
+      "service": "air-fryer",
+      "action": "resume-cook",
+      "siid": 2,
+      "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+      "actionType": "urn:miot-spec-v2:action:resume-cook:00002893:xiaomi-maf16:1"
+    },
+    {
+      "id": "start",
+      "service": "air-fryer",
+      "action": "start-cook",
+      "siid": 2,
+      "serviceType": "urn:miot-spec-v2:service:air-fryer:00007897:xiaomi-maf16:1:0000D043",
+      "actionType": "urn:miot-spec-v2:action:start-cook:00002806:xiaomi-maf16:1:0000D043"
+    }
+  ],
+  "sdkVersion": "0.17.0"
+}

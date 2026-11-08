@@ -1,0 +1,77 @@
+{
+  "formatVersion": 1,
+  "id": "example.thermometer",
+  "name": "温湿度计示例",
+  "version": "1.1.0",
+  "models": [
+    "miaomiaoce.sensor_ht.t9"
+  ],
+  "specType": "urn:miot-spec-v2:device:temperature-humidity-sensor:0000A00A:miaomiaoce-t9:1",
+  "category": "temperature-humidity-sensor",
+  "bindings": [
+    {
+      "id": "temperature",
+      "service": "temperature-humidity-sensor",
+      "property": "temperature",
+      "type": "float",
+      "unit": "celsius",
+      "access": "read",
+      "capability": "temperature"
+    },
+    {
+      "id": "humidity",
+      "service": "temperature-humidity-sensor",
+      "property": "relative-humidity",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "read",
+      "capability": "humidity"
+    },
+    {
+      "id": "battery",
+      "service": "battery",
+      "property": "battery-level",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "read",
+      "capability": "battery"
+    }
+  ],
+  "views": {
+    "card": [
+      {
+        "kind": "metric",
+        "label": "温度",
+        "binding": "temperature"
+      },
+      {
+        "kind": "metric",
+        "label": "湿度",
+        "binding": "humidity"
+      }
+    ],
+    "drawer": [
+      {
+        "kind": "metric",
+        "label": "温度",
+        "binding": "temperature"
+      },
+      {
+        "kind": "metric",
+        "label": "湿度",
+        "binding": "humidity"
+      }
+    ],
+    "full": [
+      {
+        "kind": "gauge",
+        "label": "电量",
+        "binding": "battery"
+      }
+    ]
+  },
+  "sdkVersion": "0.15.0",
+  "requires": [
+    "controls.numeric"
+  ]
+}

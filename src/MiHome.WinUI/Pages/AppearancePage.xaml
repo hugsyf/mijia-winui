@@ -1,0 +1,21 @@
+<UserControl HorizontalContentAlignment="Stretch" x:Class="MiHome.WinUI.Pages.AppearancePage"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="760" d:DesignHeight="560"
+ xmlns:controls="using:MiHome.WinUI.Controls" >
+
+ <StackPanel Spacing="4">
+  <TextBlock x:Uid="L5dbf052eaab4"  Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,0,0,8"/>
+  <controls:SettingsRow x:Uid="Lb914d4f137a0" >
+   <SelectorBar x:Name="ThemeOptions" SelectionChanged="OnThemeChanged">
+    <SelectorBarItem x:Uid="L267e7f1c18e3" /><SelectorBarItem x:Uid="Ld422a1ebdcb2" /><SelectorBarItem x:Uid="L6ae5338fa64e" />
+   </SelectorBar>
+  </controls:SettingsRow>
+  <controls:SettingsRow x:Uid="Ldc6fc85fb123" ><SelectorBar x:Name="LanguageOptions" SelectionChanged="OnLanguageChanged"><SelectorBarItem x:Uid="LanguageSystem" Tag="system"/><SelectorBarItem x:Uid="LanguageChinese" Tag="zh-CN"/><SelectorBarItem Text="English" Tag="en-US"/></SelectorBar></controls:SettingsRow>
+  <TextBlock x:Uid="Ld9a3af68023f"  Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,20,0,8"/>
+  <controls:SettingsRow x:Uid="Lbce4ed01f302" >
+   <ComboBox x:Name="RefreshOptions" MinWidth="140" SelectionChanged="OnRefreshChanged">
+
+   </ComboBox>
+  </controls:SettingsRow>
+ </StackPanel>
+</UserControl>

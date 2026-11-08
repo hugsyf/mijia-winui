@@ -1,0 +1,274 @@
+[
+  {
+    "name": "米家 WinUI",
+    "version": "0.20.0",
+    "license": "GPL-3.0-or-later",
+    "source": "",
+    "file": "license_6680df3cd831c1fa.txt",
+    "group": "应用"
+  },
+  {
+    "name": "CPython",
+    "version": "3.14.0",
+    "license": "PSF-2.0 及附带声明",
+    "source": "https://www.python.org/",
+    "file": "license_fa83ae42dd320e3e.txt",
+    "group": "Python"
+  },
+  {
+    "name": "certifi",
+    "version": "2026.10.23",
+    "license": "MPL-2.0",
+    "source": "https://github.com/certifi/python-certifi",
+    "file": "license_78ae46fa5d1c2657.txt",
+    "group": "Python"
+  },
+  {
+    "name": "charset-normalizer",
+    "version": "3.5.2",
+    "license": "MIT",
+    "source": "",
+    "file": "license_4fc50459d541859c.txt",
+    "group": "Python"
+  },
+  {
+    "name": "colorama",
+    "version": "0.4.6",
+    "license": "见许可全文",
+    "source": "https://github.com/tartley/colorama",
+    "file": "license_7f930ee0859e3993.txt",
+    "group": "Python"
+  },
+  {
+    "name": "idna",
+    "version": "3.20",
+    "license": "BSD-3-Clause",
+    "source": "https://github.com/kjd/idna",
+    "file": "license_de30d2f3e9e48193.txt",
+    "group": "Python"
+  },
+  {
+    "name": "mijiaAPI",
+    "version": "5.0.0",
+    "license": "GPL-3.0-or-later",
+    "source": "https://mijia-api.do1e.com/",
+    "file": "license_e0c8e302277169ee.txt",
+    "group": "Python"
+  },
+  {
+    "name": "pillow",
+    "version": "13.0.0",
+    "license": "MIT-CMU",
+    "source": "https://python-pillow.org",
+    "file": "license_f6000d4ef895fd96.txt",
+    "group": "Python"
+  },
+  {
+    "name": "pycryptodome",
+    "version": "4.2.0",
+    "license": "BSD-2-Clause AND Unlicense AND MIT",
+    "source": "https://www.pycryptodome.org",
+    "file": "license_e27a288120bbd0d6.txt",
+    "group": "Python"
+  },
+  {
+    "name": "qrcode",
+    "version": "8.2",
+    "license": "BSD",
+    "source": "https://github.com/lincolnloop/python-qrcode",
+    "file": "license_6cbf40494f64db72.txt",
+    "group": "Python"
+  },
+  {
+    "name": "requests",
+    "version": "2.34.2",
+    "license": "Apache-2.0",
+    "source": "https://github.com/psf/requests",
+    "file": "license_ec72420df5dfbdce.txt",
+    "group": "Python"
+  },
+  {
+    "name": "tzdata",
+    "version": "2026.6",
+    "license": "Apache-2.0",
+    "source": "https://github.com/python/tzdata",
+    "file": "license_572d4fe95e2cfd34.txt",
+    "group": "Python"
+  },
+  {
+    "name": "tzlocal",
+    "version": "5.4.5",
+    "license": "MIT",
+    "source": "https://github.com/regebro/tzlocal",
+    "file": "license_b0be802d8617657e.txt",
+    "group": "Python"
+  },
+  {
+    "name": "urllib3",
+    "version": "2.8.0",
+    "license": "MIT",
+    "source": "",
+    "file": "license_4e08df8645a52a3f.txt",
+    "group": "Python"
+  },
+  {
+    "name": "CommunityToolkit.Mvvm",
+    "version": "8.4.0",
+    "license": "MIT",
+    "source": "https://github.com/CommunityToolkit/dotnet",
+    "file": "license_3f5b6b00e4052325.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.Web.WebView2",
+    "version": "1.0.3719.77",
+    "license": "见许可全文",
+    "source": "https://aka.ms/webview",
+    "file": "license_c11e92b608d5f309.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.Win32.SystemEvents",
+    "version": "6.0.0",
+    "license": "MIT",
+    "source": "https://github.com/dotnet/runtime",
+    "file": "license_b74f3c74153e9c82.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.Windows.AI.MachineLearning",
+    "version": "2.4.89",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsml",
+    "file": "license_9528eee44a6e5ba4.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_cfab10b19a3f8501.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.AI",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_8491b00f51a44fb6.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.Base",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_c90e4e306a257fba.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.DWrite",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://aka.ms/WindowsAppSDK",
+    "file": "license_a2d20fb6e188e886.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.Foundation",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://aka.ms/windowsappsdk",
+    "file": "license_2409e08ef5927a08.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.InteractiveExperiences",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://aka.ms/windowsappsdk",
+    "file": "license_8b15e7a16b4e57db.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.ML",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsml",
+    "file": "license_8a61fa9f064f8229.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.Runtime",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_7bc79343ea87ddeb.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.Search",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_d305e275ecb2fd31.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.Widgets",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_1d150e3cffd9b63f.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.WindowsAppSDK.WinUI",
+    "version": "2.6.4",
+    "license": "见许可全文",
+    "source": "https://github.com/microsoft/windowsappsdk",
+    "file": "license_eaeaa1fcbcde9a1a.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "QRCoder",
+    "version": "1.7.0",
+    "license": "MIT",
+    "source": "https://github.com/Shane32/QRCoder",
+    "file": "license_eba1aec09dca41ee.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "System.Drawing.Common",
+    "version": "6.0.0",
+    "license": "MIT",
+    "source": "https://github.com/dotnet/runtime",
+    "file": "license_5d471611bc41104a.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "System.Numerics.Tensors",
+    "version": "9.0.0",
+    "license": "MIT",
+    "source": "https://github.com/dotnet/runtime",
+    "file": "license_314587fde4d090e0.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "Microsoft.NETCore.App.Runtime.win-x64",
+    "version": "10.0.14",
+    "license": "MIT",
+    "source": "https://github.com/dotnet/dotnet",
+    "file": "license_fb4e90e509024960.txt",
+    "group": ".NET / Windows"
+  },
+  {
+    "name": "设备图片来源",
+    "version": "",
+    "license": "官方 CDN · 按需下载",
+    "source": "",
+    "file": "license_ec3fad7371c72a48.txt",
+    "group": "素材来源"
+  }
+]

@@ -1,0 +1,1 @@
+<UserControl x:Class="MiHome.WinUI.Controls.ConditionGate" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="View" HorizontalContentAlignment="Stretch" IsTabStop="False"><ContentPresenter Content="{Binding Child, ElementName=View}"/></UserControl>

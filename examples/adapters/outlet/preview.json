@@ -1,0 +1,201 @@
+{
+  "model": "cuco.plug.v3",
+  "specType": "urn:miot-spec-v2:device:outlet:0000A002:cuco-v3:2",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "Switch",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:cuco-v3:1",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:cuco-v3:1",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Switch",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:cuco-v3:1",
+        "propertyType": "urn:miot-spec-v2:property:fault:00000009:cuco-v3:1",
+        "name": "Device Fault",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "No Faults"
+          },
+          {
+            "value": 1,
+            "description": "Over Temperature"
+          },
+          {
+            "value": 2,
+            "description": "Overload"
+          }
+        ]
+      },
+      {
+        "siid": 11,
+        "piid": 2,
+        "service": "Power Consumption",
+        "serviceType": "urn:miot-spec-v2:service:power-consumption:0000780E:cuco-v3:1",
+        "propertyType": "urn:miot-spec-v2:property:electric-power:00000066:cuco-v3:1",
+        "name": "Electric Power",
+        "type": "float",
+        "unit": "watt",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          10000,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 13,
+        "piid": 1,
+        "service": "Indicator Light",
+        "serviceType": "urn:miot-spec-v2:service:indicator-light:00007803:cuco-v3:1",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:cuco-v3:1",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 2,
+        "service": "indicator-light",
+        "serviceType": "urn:cuco-spec:service:indicator-light:00007801:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:mode:00000002:cuco-v3:1",
+        "name": "mode",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 4,
+        "piid": 1,
+        "service": "charging-protection",
+        "serviceType": "urn:cuco-spec:service:charging-protection:00007802:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:on:00000001:cuco-v3:1",
+        "name": "on",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 5,
+        "piid": 1,
+        "service": "cycle",
+        "serviceType": "urn:cuco-spec:service:cycle:00007803:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:status:00000001:cuco-v3:1",
+        "name": "status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 8,
+        "piid": 1,
+        "service": "quick-countdown",
+        "serviceType": "urn:cuco-spec:service:quick-countdown:00007805:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:on:00000001:cuco-v3:1",
+        "name": "on",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 8,
+        "piid": 3,
+        "service": "quick-countdown",
+        "serviceType": "urn:cuco-spec:service:quick-countdown:00007805:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:left-time:00000003:cuco-v3:1",
+        "name": "left-time",
+        "type": "uint16",
+        "unit": "minutes",
+        "readable": true,
+        "writable": true,
+        "range": [
+          0,
+          1440,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 9,
+        "piid": 1,
+        "service": "max-power-limit",
+        "serviceType": "urn:cuco-spec:service:max-power-limit:00007806:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:on:00000001:cuco-v3:1",
+        "name": "on",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 10,
+        "piid": 1,
+        "service": "over-use-ele-alert",
+        "serviceType": "urn:cuco-spec:service:over-use-ele-alert:00007807:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:on:00000001:cuco-v3:1",
+        "name": "on",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 12,
+        "piid": 2,
+        "service": "on-off-count",
+        "serviceType": "urn:cuco-spec:service:on-off-count:00007804:cuco-v3:1",
+        "propertyType": "urn:cuco-spec:property:temperature:00000002:cuco-v3:1",
+        "name": "temperature",
+        "type": "uint8",
+        "unit": "celsius",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          150,
+          1
+        ],
+        "values": []
+      }
+    ]
+  }
+}

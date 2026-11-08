@@ -1,0 +1,72 @@
+{
+  "formatVersion": 1,
+  "id": "example.countdown",
+  "name": "延时关闭示例",
+  "version": "1.0.0",
+  "sdkVersion": "0.14.0",
+  "requires": [
+    "controls.time"
+  ],
+  "models": [
+    "yeelink.light.lamp27"
+  ],
+  "specType": "urn:miot-spec-v2:device:light:0000A001:yeelink-lamp27:1",
+  "category": "light",
+  "bindings": [
+    {
+      "id": "duration",
+      "siid": 3,
+      "service": "yeelight",
+      "property": "delay-time",
+      "type": "uint16",
+      "unit": "minutes",
+      "access": "readWrite",
+      "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+      "propertyType": "urn:yeelink-spec:property:delay-time:00000002:yeelink-lamp27:1"
+    },
+    {
+      "id": "remaining",
+      "siid": 3,
+      "service": "yeelight",
+      "property": "delay-off-countdown",
+      "type": "uint16",
+      "unit": "minutes",
+      "access": "read",
+      "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+      "propertyType": "urn:yeelink-spec:property:delay-off-countdown:00000003:yeelink-lamp27:1"
+    },
+    {
+      "id": "enabled",
+      "siid": 3,
+      "service": "yeelight",
+      "property": "delay-off-enable",
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite",
+      "serviceType": "urn:yeelink-spec:service:yeelight:00007801:yeelink-lamp27:1",
+      "propertyType": "urn:yeelink-spec:property:delay-off-enable:00000004:yeelink-lamp27:1"
+    }
+  ],
+  "views": {
+    "card": [],
+    "drawer": [
+      {
+        "kind": "duration",
+        "label": "延迟时间",
+        "binding": "duration"
+      },
+      {
+        "kind": "toggle",
+        "label": "延时关闭",
+        "binding": "enabled"
+      },
+      {
+        "kind": "countdown",
+        "label": "剩余时间",
+        "binding": "remaining",
+        "activeBinding": "enabled"
+      }
+    ],
+    "full": []
+  }
+}

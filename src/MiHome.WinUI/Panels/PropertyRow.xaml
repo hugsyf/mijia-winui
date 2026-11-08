@@ -1,0 +1,18 @@
+<UserControl x:Class="MiHome.WinUI.Panels.PropertyRow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="300"
+ xmlns:controls="using:MiHome.WinUI.Controls" CornerRadius="8" HorizontalContentAlignment="Stretch">
+
+ <Border x:Name="RowSurface" Style="{ThemeResource DeviceSurfaceStyle}" Padding="16">
+  <StackPanel Spacing="8">
+   <Grid x:Name="heading" ColumnSpacing="16"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+    <TextBlock x:Name="PropertyLabel" FontWeight="SemiBold" TextWrapping="Wrap"/>
+    <TextBlock x:Uid="Lb511e332c6ae" x:Name="current" Grid.Column="1"  TextWrapping="Wrap" FontSize="12" MaxWidth="180" VerticalAlignment="Center"/>
+    <ContentControl x:Name="ToggleHost" Grid.Column="1" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+   </Grid>
+   <StackPanel x:Name="editors" Spacing="8"/>
+   <StackPanel x:Name="EditorActions" Orientation="Horizontal" Spacing="8" Visibility="Collapsed"><Button x:Uid="L3808cf1e4dfa" x:Name="ApplyValue" /><Button x:Uid="Leac332137a53" x:Name="ResetValue"  Visibility="Collapsed" /></StackPanel>
+   <TextBlock x:Name="feedback" TextWrapping="Wrap" Visibility="Collapsed"/>
+  </StackPanel>
+ </Border>
+</UserControl>

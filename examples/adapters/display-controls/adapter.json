@@ -1,0 +1,135 @@
+{
+  "formatVersion": 1,
+  "id": "example.display-controls",
+  "name": "展示控件演示（虚构设备）",
+  "version": "1.0.0",
+  "sdkVersion": "0.16.0",
+  "requires": [
+    "controls.text",
+    "controls.indicator",
+    "layout.readings",
+    "labels.options"
+  ],
+  "models": [
+    "example.panel.demo"
+  ],
+  "specType": "urn:miot-spec-v2:device:custom:0000A000:example-panel:1",
+  "category": "appliance",
+  "bindings": [
+    {
+      "id": "title",
+      "siid": 2,
+      "service": "custom",
+      "property": "name",
+      "type": "string",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "active",
+      "siid": 2,
+      "service": "custom",
+      "property": "on",
+      "type": "bool",
+      "unit": "",
+      "access": "read"
+    },
+    {
+      "id": "mode",
+      "siid": 2,
+      "service": "custom",
+      "property": "mode",
+      "type": "uint8",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "temperature",
+      "siid": 2,
+      "service": "custom",
+      "property": "temperature",
+      "type": "float",
+      "unit": "celsius",
+      "access": "read"
+    },
+    {
+      "id": "humidity",
+      "siid": 2,
+      "service": "custom",
+      "property": "relative-humidity",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "read"
+    }
+  ],
+  "views": {
+    "card": [],
+    "drawer": [
+      {
+        "kind": "readings",
+        "label": "环境",
+        "children": [
+          {
+            "kind": "metric",
+            "label": "温度",
+            "binding": "temperature"
+          },
+          {
+            "kind": "metric",
+            "label": "湿度",
+            "binding": "humidity"
+          }
+        ]
+      },
+      {
+        "kind": "indicator",
+        "label": "运行状态",
+        "binding": "active",
+        "states": [
+          {
+            "value": true,
+            "label": "运行中",
+            "tone": "success"
+          },
+          {
+            "value": false,
+            "label": "待机",
+            "tone": "neutral"
+          }
+        ]
+      },
+      {
+        "kind": "choice",
+        "label": "模式",
+        "binding": "mode",
+        "options": [
+          {
+            "value": 10,
+            "label": "自动"
+          },
+          {
+            "value": 20,
+            "label": "安静"
+          },
+          {
+            "value": 40,
+            "label": "强力"
+          }
+        ]
+      },
+      {
+        "kind": "text",
+        "label": "显示文字",
+        "binding": "title"
+      }
+    ],
+    "full": [
+      {
+        "kind": "textInput",
+        "label": "修改显示文字",
+        "binding": "title",
+        "maxLength": 64
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "model": "example.actions.demo",
+  "specType": "urn:miot-spec-v2:device:custom:0000A000:example-actions:1",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "演示",
+        "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+        "propertyType": "urn:miot-spec-v2:property:amount:00000001:example-actions:1",
+        "name": "次数",
+        "type": "uint8",
+        "unit": "",
+        "readable": false,
+        "writable": false,
+        "range": [
+          1,
+          4,
+          1
+        ],
+        "values": [
+          {
+            "value": 1,
+            "description": "一次"
+          },
+          {
+            "value": 4,
+            "description": "四次"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "演示",
+        "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+        "propertyType": "urn:miot-spec-v2:property:silent:00000001:example-actions:1",
+        "name": "静默",
+        "type": "bool",
+        "unit": "",
+        "readable": false,
+        "writable": false,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "演示",
+        "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+        "propertyType": "urn:miot-spec-v2:property:result:00000001:example-actions:1",
+        "name": "返回值",
+        "type": "string",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": []
+      }
+    ],
+    "actions": [
+      {
+        "siid": 2,
+        "aiid": 1,
+        "name": "带参数演示",
+        "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+        "actionType": "urn:miot-spec-v2:action:run-demo:00002800:example-actions:1",
+        "inputs": [
+          {
+            "siid": 2,
+            "piid": 1,
+            "service": "演示",
+            "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+            "propertyType": "urn:miot-spec-v2:property:amount:00000001:example-actions:1",
+            "name": "次数",
+            "type": "uint8",
+            "unit": "",
+            "readable": false,
+            "writable": false,
+            "range": [
+              1,
+              4,
+              1
+            ],
+            "values": [
+              {
+                "value": 1,
+                "description": "一次"
+              },
+              {
+                "value": 4,
+                "description": "四次"
+              }
+            ]
+          },
+          {
+            "siid": 2,
+            "piid": 2,
+            "service": "演示",
+            "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+            "propertyType": "urn:miot-spec-v2:property:silent:00000001:example-actions:1",
+            "name": "静默",
+            "type": "bool",
+            "unit": "",
+            "readable": false,
+            "writable": false,
+            "range": [],
+            "values": []
+          }
+        ],
+        "outputs": [
+          {
+            "siid": 2,
+            "piid": 3,
+            "service": "演示",
+            "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+            "propertyType": "urn:miot-spec-v2:property:result:00000001:example-actions:1",
+            "name": "返回值",
+            "type": "string",
+            "unit": "",
+            "readable": true,
+            "writable": false,
+            "range": [],
+            "values": []
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "aiid": 2,
+        "name": "暂停演示",
+        "serviceType": "urn:miot-spec-v2:service:demo:00007800:example-actions:1",
+        "actionType": "urn:miot-spec-v2:action:pause:00002801:example-actions:1",
+        "inputs": [],
+        "outputs": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "formatVersion": 1,
+  "id": "example.outlet",
+  "name": "插座示例",
+  "version": "1.0.0",
+  "models": [
+    "cuco.plug.v3"
+  ],
+  "specType": "urn:miot-spec-v2:device:outlet:0000A002:cuco-v3:2",
+  "category": "outlet",
+  "bindings": [
+    {
+      "id": "power",
+      "service": "switch",
+      "property": "on",
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite",
+      "capability": "power"
+    },
+    {
+      "id": "watts",
+      "service": "power-consumption",
+      "property": "electric-power",
+      "type": "float",
+      "unit": "watt",
+      "access": "read",
+      "capability": "electricPower"
+    },
+    {
+      "id": "indicator",
+      "service": "indicator-light",
+      "property": "on",
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite"
+    }
+  ],
+  "views": {
+    "card": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power"
+      },
+      {
+        "kind": "metric",
+        "label": "当前功率",
+        "binding": "watts"
+      }
+    ],
+    "drawer": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power"
+      },
+      {
+        "kind": "metric",
+        "label": "当前功率",
+        "binding": "watts"
+      }
+    ],
+    "full": [
+      {
+        "kind": "toggle",
+        "label": "指示灯",
+        "binding": "indicator"
+      }
+    ]
+  }
+}

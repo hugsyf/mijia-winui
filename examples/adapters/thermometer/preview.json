@@ -1,0 +1,62 @@
+{
+  "model": "miaomiaoce.sensor_ht.t9",
+  "specType": "urn:miot-spec-v2:device:temperature-humidity-sensor:0000A00A:miaomiaoce-t9:1",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1003,
+        "service": "Battery",
+        "serviceType": "urn:miot-spec-v2:service:battery:00007805:miaomiaoce-t9:1",
+        "propertyType": "urn:miot-spec-v2:property:battery-level:00000014:miaomiaoce-t9:1",
+        "name": "Battery Level",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 1001,
+        "service": "Temperature Humidity Sensor",
+        "serviceType": "urn:miot-spec-v2:service:temperature-humidity-sensor:00007814:miaomiaoce-t9:1",
+        "propertyType": "urn:miot-spec-v2:property:temperature:00000020:miaomiaoce-t9:1",
+        "name": "Temperature",
+        "type": "float",
+        "unit": "celsius",
+        "readable": true,
+        "writable": false,
+        "range": [
+          -30,
+          100,
+          0.1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 1002,
+        "service": "Temperature Humidity Sensor",
+        "serviceType": "urn:miot-spec-v2:service:temperature-humidity-sensor:00007814:miaomiaoce-t9:1",
+        "propertyType": "urn:miot-spec-v2:property:relative-humidity:0000000C:miaomiaoce-t9:1",
+        "name": "Relative Humidity",
+        "type": "uint8",
+        "unit": "percentage",
+        "readable": true,
+        "writable": false,
+        "range": [
+          0,
+          100,
+          1
+        ],
+        "values": []
+      }
+    ]
+  }
+}

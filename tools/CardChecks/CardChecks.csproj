@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
+ <ItemGroup>
+  <Compile Include="../../src/MiHome.WinUI/Devices/AdapterControlValues.cs" Link="AdapterControlValues.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/AdapterBatchRules.cs" Link="AdapterBatchRules.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Panels/PropertyPresentation.cs" Link="PropertyPresentation.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/ExpandedCardPlan.cs" Link="ExpandedCardPlan.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/LiveCardSnapshot.cs" Link="LiveCardSnapshot.cs" />
+  <Compile Include="../../src/MiHome.Contracts/Models.cs" Link="Models.cs" />
+  <Compile Include="../../src/MiHome.WinUI/ViewModels/DeviceCardPresentation.cs" Link="DeviceCardPresentation.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DeviceExperience.cs" Link="DeviceExperience.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DeviceCapabilities.cs" Link="DeviceCapabilities.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DeviceModels.cs" Link="DeviceModels.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DeviceOrdering.cs" Link="DeviceOrdering.cs" />
+  <Compile Include="../../src/MiHome.WinUI/ViewModels/CollectionReconciler.cs" Link="CollectionReconciler.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/HomeLightingController.cs" Link="HomeLightingController.cs" />
+  <Compile Include="../../src/MiHome.WinUI/ViewModels/HomeOverview.cs" Link="HomeOverview.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/AdapterReadings.cs" Link="AdapterReadings.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DrawerLayout.cs" Link="DrawerLayout.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/DocumentParser.cs" Link="DocumentParser.cs" />
+  <None Include="../../backend/adapter-agent-guide.md" Link="adapter-agent-guide.md" CopyToOutputDirectory="PreserveNewest" />
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/ProductImageCache.cs" Link="ProductImageCache.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/AppPreferences.cs" Link="AppPreferences.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DeviceListing.cs" Link="DeviceListing.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/DeviceCardSizing.cs" Link="DeviceCardSizing.cs" />
+  <None Include="../fixtures/capability-device-specs.json" Link="capability-device-specs.json" CopyToOutputDirectory="PreserveNewest" />
+  <None Include="../fixtures/device-card-specs.json" Link="device-card-specs.json" CopyToOutputDirectory="PreserveNewest" />
+ </ItemGroup>
+  <ItemGroup><EmbeddedResource Include="../../backend/device_profiles.json" LogicalName="MiHome.DeviceProfiles.json" />
+    <EmbeddedResource Include="../../backend/device_templates.json" LogicalName="MiHome.DeviceTemplates.json" /></ItemGroup>
+ <ItemGroup>
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/UiText.cs" Link="UiText.cs"/>
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/UpdateService.cs" Link="UpdateService.cs"/>
+  <Compile Include="../../src/MiHome.WinUI/Devices/AdapterConditions.cs" Link="AdapterConditions.cs"/>
+  <Compile Include="../../src/MiHome.WinUI/Devices/AdapterLocalizationResolver.cs" Link="AdapterLocalizationResolver.cs"/>
+  <EmbeddedResource Include="../../src/MiHome.WinUI/Strings/zh-CN/Ui.json" LogicalName="MiHome.Ui.zh-CN.json"/>
+  <EmbeddedResource Include="../../src/MiHome.WinUI/Strings/en-US/Ui.json" LogicalName="MiHome.Ui.en-US.json"/>
+ </ItemGroup>
+</Project>

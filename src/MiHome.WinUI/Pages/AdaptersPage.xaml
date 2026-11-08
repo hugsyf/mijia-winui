@@ -1,0 +1,61 @@
+<UserControl HorizontalContentAlignment="Stretch" x:Class="MiHome.WinUI.Pages.AdaptersPage"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="760" d:DesignHeight="560"
+ xmlns:controls="using:MiHome.WinUI.Controls" >
+
+ <StackPanel Spacing="16">
+  <TextBlock x:Uid="Lcfaf41f48a9f"  Style="{ThemeResource SubtitleTextBlockStyle}"/>
+  <CommandBar Background="Transparent" DefaultLabelPosition="Right" HorizontalContentAlignment="Left">
+   <AppBarButton x:Uid="L7cdf6d5972fe" x:Name="Import" Icon="Add"  />
+   <AppBarButton x:Uid="Lcf825f2b7ef1" x:Name="Export" Icon="Upload"  />
+   <AppBarToggleButton x:Uid="Le0bb11678145" x:Name="Select" Icon="SelectAll"  />
+   <AppBarButton x:Uid="L4d7208c641a0" ><AppBarButton.Icon><FontIcon Glyph="&#xE8CB;"/></AppBarButton.Icon><AppBarButton.Flyout><MenuFlyout>
+    <RadioMenuFlyoutItem x:Uid="L0dbbeb3e49bf"  Tag="name" GroupName="AdapterSort" IsChecked="True" Click="OnSort"/>
+    <RadioMenuFlyoutItem x:Uid="Lecf3d8d2b6d3"  Tag="model" GroupName="AdapterSort" Click="OnSort"/>
+    <RadioMenuFlyoutItem x:Uid="L2036b2d6aa8c"  Tag="state" GroupName="AdapterSort" Click="OnSort"/>
+    <MenuFlyoutSeparator/><ToggleMenuFlyoutItem x:Uid="Lbd11994f7a0c" x:Name="Descending"  Click="OnSort"/>
+   </MenuFlyout></AppBarButton.Flyout></AppBarButton>
+   <AppBarButton x:Uid="Lbb94250a82d2" x:Name="Refresh" Icon="Refresh"   IsCompact="True"/>
+   <CommandBar.SecondaryCommands><AppBarButton x:Uid="L739274d277f5" x:Name="Guide" Icon="Help" /></CommandBar.SecondaryCommands>
+  </CommandBar>
+  <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+   <SelectorBar x:Name="Filter"><SelectorBarItem x:Uid="Lff36b7ec5283" /><SelectorBarItem x:Uid="L3407c48b4e34" /><SelectorBarItem x:Uid="Lbba2f6052eb4" /></SelectorBar>
+   <TextBlock x:Name="Count" Grid.Column="1" Style="{ThemeResource DeviceSecondaryTextStyle}" VerticalAlignment="Center"/>
+  </Grid>
+  <StackPanel x:Name="SelectionBar" Orientation="Horizontal" Spacing="12" Visibility="Collapsed">
+   <Button x:Uid="Lba4704411d92" x:Name="SelectAll" Style="{ThemeResource SubtleButtonStyle}" Width="32" Height="32" Padding="6"  ><FontIcon Glyph="&#xE8B3;" FontSize="16"/></Button>
+   <Button x:Uid="L5afd6169a769" x:Name="Done"  Click="OnDone"/>
+   <TextBlock x:Uid="L02c76a0c30d7"  VerticalAlignment="Center"/>
+   <ToggleSwitch x:Uid="Lccaa357c28cb" x:Name="SelectionEnabled" OnContent="" OffContent="" MinWidth="0" />
+   <Button x:Uid="La11d3df705a0" x:Name="RemoveSelected" Style="{ThemeResource SubtleButtonStyle}" Width="32" Height="32" Padding="6"  ><FontIcon Glyph="&#xE74D;" FontSize="16"/></Button>
+  </StackPanel>
+  <InfoBar x:Name="Result" IsOpen="False" IsClosable="True"/>
+  <ListView x:Uid="Ld57055da8c9a" x:Name="Packages" SelectionMode="None" IsItemClickEnabled="True" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" >
+   <ListView.ItemContainerStyle><Style TargetType="ListViewItem"><Setter Property="HorizontalContentAlignment" Value="Stretch"/><Setter Property="Padding" Value="8,10"/><Setter Property="CornerRadius" Value="6"/></Style></ListView.ItemContainerStyle>
+   <ListView.ItemTemplate><DataTemplate>
+    <Expander IsHitTestVisible="{Binding DetailsHitTestVisible}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Expanding="OnDetailsExpanding" Margin="0,0,0,8">
+     <Expander.Header>
+      <Grid ColumnSpacing="12" MinHeight="48"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+       <controls:ProductIconView Tile="{Binding Icon}" IconSize="36"/>
+       <StackPanel Grid.Column="1" Spacing="3" VerticalAlignment="Center"><TextBlock Text="{Binding Name}" Style="{ThemeResource BodyStrongTextBlockStyle}" TextTrimming="CharacterEllipsis"/><TextBlock Text="{Binding Models}" Style="{ThemeResource DeviceSecondaryTextStyle}" TextTrimming="CharacterEllipsis"/></StackPanel>
+       <StackPanel Grid.Column="2" Spacing="3" VerticalAlignment="Center" Margin="8,0"><TextBlock Text="{Binding Version}" HorizontalAlignment="Right"/><TextBlock Text="{Binding State}" Style="{ThemeResource DeviceSecondaryTextStyle}" HorizontalAlignment="Right"/></StackPanel>
+       <ToggleSwitch x:Uid="L5e64a3e3e6f8" Grid.Column="3" IsOn="{Binding Enabled, Mode=OneWay}" OnContent="" OffContent="" MinWidth="0" Width="44" Visibility="{Binding CommandsVisibility}" AutomationProperties.Name="{Binding EnableLabel}"  Toggled="OnEnabled"/>
+      </Grid>
+     </Expander.Header>
+     <StackPanel Spacing="16">
+      <Grid ColumnSpacing="24"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+       <StackPanel Spacing="4"><TextBlock x:Uid="Lc94598f64e45"  Style="{ThemeResource DeviceSecondaryTextStyle}"/><TextBlock Text="{Binding SdkVersion}"/></StackPanel>
+       <StackPanel Grid.Column="1" Spacing="4"><TextBlock x:Uid="Leca2f72e3bc0"  Style="{ThemeResource DeviceSecondaryTextStyle}"/><TextBlock Text="{Binding Version}"/></StackPanel>
+       <StackPanel Grid.Column="2" Spacing="4"><TextBlock x:Uid="Lcaaf0164d246"  Style="{ThemeResource DeviceSecondaryTextStyle}"/><TextBlock Text="{Binding Author}" TextWrapping="Wrap"/></StackPanel>
+      </Grid>
+      <ContentControl HorizontalContentAlignment="Stretch"/>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+       <Button x:Uid="L274c95fa3930" Style="{ThemeResource SubtleButtonStyle}" Visibility="{Binding RollbackVisibility}"   Click="OnRollback"><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE72B;" FontSize="16"/><TextBlock x:Uid="L618873d4672e" /></StackPanel></Button>
+       <Button x:Uid="L47c7d259714d" Style="{ThemeResource SubtleButtonStyle}"  AutomationProperties.Name="{Binding RemoveLabel}" Click="OnRemove"><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE74D;" FontSize="16"/><TextBlock x:Uid="L036ead5b89bf" /></StackPanel></Button>
+      </StackPanel>
+     </StackPanel>
+    </Expander>
+   </DataTemplate></ListView.ItemTemplate>
+  </ListView>
+ </StackPanel>
+</UserControl>

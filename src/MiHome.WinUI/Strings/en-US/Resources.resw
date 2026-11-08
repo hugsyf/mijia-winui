@@ -1,0 +1,1499 @@
+<root>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="NoReadme" xml:space="preserve">
+    <value>No README provided.</value>
+  </data>
+  <data name="Unspecified" xml:space="preserve">
+    <value>Not specified</value>
+  </data>
+  <data name="ConditionDisabled" xml:space="preserve">
+    <value>The current device state does not allow this operation.</value>
+  </data>
+  <data name="Stopped" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Playing</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="UpdateInvalid" xml:space="preserve">
+    <value>The update information or installer is invalid.</value>
+  </data>
+  <data name="UpdateLimited" xml:space="preserve">
+    <value>The update service is temporarily rate limited. Try again later.</value>
+  </data>
+  <data name="UpdateHashFailed" xml:space="preserve">
+    <value>Installer verification failed. Download it again.</value>
+  </data>
+  <data name="UpdateChecking" xml:space="preserve">
+    <value>Checking for updates…</value>
+  </data>
+  <data name="UpdateNoRelease" xml:space="preserve">
+    <value>No public release is available.</value>
+  </data>
+  <data name="UpdateCurrent" xml:space="preserve">
+    <value>You have the latest version.</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Version {0} is available</value>
+  </data>
+  <data name="CheckUpdates" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="DownloadPage" xml:space="preserve">
+    <value>Open download page</value>
+  </data>
+  <data name="DownloadInstall" xml:space="preserve">
+    <value>Download and install</value>
+  </data>
+  <data name="Later" xml:space="preserve">
+    <value>Later</value>
+  </data>
+  <data name="InstallUpdate" xml:space="preserve">
+    <value>Install update?</value>
+  </data>
+  <data name="InstallExit" xml:space="preserve">
+    <value>Exit and install</value>
+  </data>
+  <data name="InstallUpdateDescription" xml:space="preserve">
+    <value>The installer has been downloaded and verified. The application will exit so the installer can update it.</value>
+  </data>
+  <data name="UpdateCancelled" xml:space="preserve">
+    <value>Download cancelled.</value>
+  </data>
+  <data name="UpdateFailed" xml:space="preserve">
+    <value>The update check or download failed.</value>
+  </data>
+  <data name="RestartLanguage" xml:space="preserve">
+    <value>Reopen the application to apply this language.</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="SelectedCount" xml:space="preserve">
+    <value>Selected {0} / {1}</value>
+  </data>
+  <data name="AdapterCount" xml:space="preserve">
+    <value>{0} adapters</value>
+  </data>
+  <data name="NoAdapters" xml:space="preserve">
+    <value>No adapters installed</value>
+  </data>
+  <data name="OnCount" xml:space="preserve">
+    <value>{0} lights on</value>
+  </data>
+  <data name="UnknownCount" xml:space="preserve">
+    <value>{0} lights unknown</value>
+  </data>
+  <data name="AttentionCount" xml:space="preserve">
+    <value>{0} items need attention</value>
+  </data>
+  <data name="UpdatedAt" xml:space="preserve">
+    <value>Updated {0}</value>
+  </data>
+  <data name="HumidityValue" xml:space="preserve">
+    <value>Humidity {0}%</value>
+  </data>
+  <data name="HumidityMissing" xml:space="preserve">
+    <value>Humidity —</value>
+  </data>
+  <data name="LightCount" xml:space="preserve">
+    <value>{0} / {1} lights on</value>
+  </data>
+  <data name="LightUnknown" xml:space="preserve">
+    <value>{0} on · {1} unknown</value>
+  </data>
+  <data name="ConnectedCount" xml:space="preserve">
+    <value>{0} devices connected</value>
+  </data>
+  <data name="AllLightsOn" xml:space="preserve">
+    <value>Turn on all lights in {0}</value>
+  </data>
+  <data name="AllLightsOff" xml:space="preserve">
+    <value>Turn off all lights in {0}</value>
+  </data>
+  <data name="WholeHome" xml:space="preserve">
+    <value>this home</value>
+  </data>
+  <data name="PresenceDuration" xml:space="preserve">
+    <value>Device-reported duration: {0} min</value>
+  </data>
+  <data name="PowerOnDevice" xml:space="preserve">
+    <value>Turn on {0}</value>
+  </data>
+  <data name="PowerOffDevice" xml:space="preserve">
+    <value>Turn off {0}</value>
+  </data>
+  <data name="CloudReadAt" xml:space="preserve">
+    <value>Read at {0}</value>
+  </data>
+  <data name="NoTimestamp" xml:space="preserve">
+    <value>Device report time is unavailable.</value>
+  </data>
+  <data name="L171cf72ede26.AutomationProperties.Name" xml:space="preserve">
+    <value>米家 WinUI icon</value>
+  </data>
+  <data name="L3dbb017d5c17.Text" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="L90ce7bbcd9ec.Content" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="L07e577291437.Content" xml:space="preserve">
+    <value>Devices</value>
+  </data>
+  <data name="Lf3b2aeb762cb.Text" xml:space="preserve">
+    <value>Welcome home</value>
+  </data>
+  <data name="Ld75ecb6f6471.Text" xml:space="preserve">
+    <value>Connect your Mi Home devices</value>
+  </data>
+  <data name="L985a9b8aae44.AutomationProperties.Name" xml:space="preserve">
+    <value>Choose a home</value>
+  </data>
+  <data name="Le81c5e52e509.Content" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Le81c5e52e509.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Arrange and resize cards</value>
+  </data>
+  <data name="La75c4c856bd1.AutomationProperties.Name" xml:space="preserve">
+    <value>Refresh devices</value>
+  </data>
+  <data name="La75c4c856bd1.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="L03aec91d140d.Content" xml:space="preserve">
+    <value>Reconnect</value>
+  </data>
+  <data name="L2be3157cfecb.Content" xml:space="preserve">
+    <value>Lighting ×</value>
+  </data>
+  <data name="L781a9cc10c1b.AutomationProperties.Name" xml:space="preserve">
+    <value>Filter rooms</value>
+  </data>
+  <data name="Lf88a241cf46c.AutomationProperties.Name" xml:space="preserve">
+    <value>Search devices</value>
+  </data>
+  <data name="Lf88a241cf46c.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Search devices</value>
+  </data>
+  <data name="Ld8d4dbd61e05.PlaceholderText" xml:space="preserve">
+    <value>Search devices</value>
+  </data>
+  <data name="Ld8d4dbd61e05.AutomationProperties.Name" xml:space="preserve">
+    <value>Search devices</value>
+  </data>
+  <data name="L1c13381850ca.Text" xml:space="preserve">
+    <value>Connecting to Mi Home…</value>
+  </data>
+  <data name="L0f5079592f1a.Text" xml:space="preserve">
+    <value>Sign in to Mi Home</value>
+  </data>
+  <data name="L371637c01ef4.Text" xml:space="preserve">
+    <value>Scan with the Mi Home app</value>
+  </data>
+  <data name="Lc796fe66f8bf.AutomationProperties.Name" xml:space="preserve">
+    <value>Mi Home sign-in QR code</value>
+  </data>
+  <data name="L7be192903699.Content" xml:space="preserve">
+    <value>Sign in with QR code</value>
+  </data>
+  <data name="L92d41698396b.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="L863abdbc6302.Text" xml:space="preserve">
+    <value>No devices found</value>
+  </data>
+  <data name="L247811eaf701.AutomationProperties.Name" xml:space="preserve">
+    <value>More device options</value>
+  </data>
+  <data name="Lcfaf41f48a9f.Text" xml:space="preserve">
+    <value>Device adapters</value>
+  </data>
+  <data name="L7e1e5b915cf6.Text" xml:space="preserve">
+    <value>Export adapter context</value>
+  </data>
+  <data name="L6b502d9f183a.Text" xml:space="preserve">
+    <value>Refresh status</value>
+  </data>
+  <data name="L9537f0266c9e.Text" xml:space="preserve">
+    <value>Switch settings</value>
+  </data>
+  <data name="Ld09927c83bb3.Text" xml:space="preserve">
+    <value>Card settings</value>
+  </data>
+  <data name="L7cc1e8730280.Text" xml:space="preserve">
+    <value>Device information</value>
+  </data>
+  <data name="L6063b139a260.AutomationProperties.Name" xml:space="preserve">
+    <value>Expand to full page</value>
+  </data>
+  <data name="L6063b139a260.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Expand to full page</value>
+  </data>
+  <data name="L9233a699b51f.AutomationProperties.Name" xml:space="preserve">
+    <value>Close details</value>
+  </data>
+  <data name="L9233a699b51f.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Close (Esc)</value>
+  </data>
+  <data name="L2e249a6ce648.Header" xml:space="preserve">
+    <value>All device settings</value>
+  </data>
+  <data name="L9689cbb99254.Header" xml:space="preserve">
+    <value>Card settings</value>
+  </data>
+  <data name="Lae0c48d37834.Header" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="L5e7858b5ae96.Header" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Lb791e8180dbd.Text" xml:space="preserve">
+    <value>Applies on this computer</value>
+  </data>
+  <data name="La49bbb282af8.Header" xml:space="preserve">
+    <value>Device information</value>
+  </data>
+  <data name="L3a9cd34c20a5.Text" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="Lecf3d8d2b6d3.Text" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="L1ada9e908652.Text" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="L24cc93fcb952.Text" xml:space="preserve">
+    <value>Mi Home cloud</value>
+  </data>
+  <data name="L0365bf3bed38.Content" xml:space="preserve">
+    <value>Simulate</value>
+  </data>
+  <data name="Lc57863e01eac.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Ld1f8fd71ae29.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="L7c0f6cb38778.Text" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="L29933f619965.Text" xml:space="preserve">
+    <value>Missing readings</value>
+  </data>
+  <data name="La8043864fc25.Text" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="Lb5027b3df41e.Text" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="L0c85e9d2ce0a.Text" xml:space="preserve">
+    <value>Full page</value>
+  </data>
+  <data name="L89e404eeaa98.Text" xml:space="preserve">
+    <value>Expanded card</value>
+  </data>
+  <data name="L3808cf1e4dfa.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="L9d9c44596bf4.AutomationProperties.Name" xml:space="preserve">
+    <value>Switch brightness or color temperature</value>
+  </data>
+  <data name="L9d9c44596bf4.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Switch brightness / color temperature</value>
+  </data>
+  <data name="L2df190ebdca8.AutomationProperties.Name" xml:space="preserve">
+    <value>Copy code</value>
+  </data>
+  <data name="L2df190ebdca8.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Copy code</value>
+  </data>
+  <data name="L73ed7a8ada13.AutomationProperties.Name" xml:space="preserve">
+    <value>Choose color</value>
+  </data>
+  <data name="Ld5e97e906097.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="L2aa21dd75144.AutomationProperties.Name" xml:space="preserve">
+    <value>Back to device adapters</value>
+  </data>
+  <data name="L2aa21dd75144.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Back to device adapters</value>
+  </data>
+  <data name="L5080d05f7e83.Text" xml:space="preserve">
+    <value>Adapter developer guide</value>
+  </data>
+  <data name="L307f3f8c3ac8.AutomationProperties.Name" xml:space="preserve">
+    <value>Copy guide (Markdown)</value>
+  </data>
+  <data name="L307f3f8c3ac8.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Copy guide (Markdown)</value>
+  </data>
+  <data name="Lb4b3c41d48a9.Content" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="L287fbd284ad0.Text" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="L894512f05371.Text" xml:space="preserve">
+    <value>Choose primary sensor</value>
+  </data>
+  <data name="L7cf16a8bc661.Text" xml:space="preserve">
+    <value>Choose a sensor</value>
+  </data>
+  <data name="La4749c74bfa5.Text" xml:space="preserve">
+    <value>Doors and presence</value>
+  </data>
+  <data name="L299477aec1b6.Text" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="L6a2cfd62ea3d.Content" xml:space="preserve">
+    <value>Choose devices</value>
+  </data>
+  <data name="L5cc12ef3c66e.Content" xml:space="preserve">
+    <value>Choose favorites</value>
+  </data>
+  <data name="Lc03df689ff36.Text" xml:space="preserve">
+    <value>Lighting</value>
+  </data>
+  <data name="Lf237e9f0ed9c.Text" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="La3cace553a7f.Content" xml:space="preserve">
+    <value>Back to licenses</value>
+  </data>
+  <data name="L9629448fa5e7.PlaceholderText" xml:space="preserve">
+    <value>Search components</value>
+  </data>
+  <data name="L9629448fa5e7.AutomationProperties.Name" xml:space="preserve">
+    <value>Search components and licenses</value>
+  </data>
+  <data name="Lff6f0cc8c742.AutomationProperties.Name" xml:space="preserve">
+    <value>Components</value>
+  </data>
+  <data name="Lb0f9d0dacc7b.Text" xml:space="preserve">
+    <value>No components found</value>
+  </data>
+  <data name="L232a466ae3d7.Content" xml:space="preserve">
+    <value>Project website</value>
+  </data>
+  <data name="Le5748e4e4717.Content" xml:space="preserve">
+    <value>Copy license</value>
+  </data>
+  <data name="Le6090cd7ccdc.Text" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="L9c5fc26bfbaf.Text" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="L5fdad36dedfa.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="L5fdad36dedfa.Title" xml:space="preserve">
+    <value>Import adapters</value>
+  </data>
+  <data name="L5fdad36dedfa.PrimaryButtonText" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="L899edf631524.AutomationProperties.Name" xml:space="preserve">
+    <value>Choose adapters to install</value>
+  </data>
+  <data name="L99dd240b7167.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="L4b04045642fc.Header" xml:space="preserve">
+    <value>Apply to matching models</value>
+  </data>
+  <data name="Ldd5a7c7e3e40.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="L8f080c5b7e40.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="L8f080c5b7e40.PrimaryButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="L67426c879d33.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="L67426c879d33.Title" xml:space="preserve">
+    <value>Export adapter context</value>
+  </data>
+  <data name="L67426c879d33.PrimaryButtonText" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Lc119e99be77a.Content" xml:space="preserve">
+    <value>Include anonymized sample readings</value>
+  </data>
+  <data name="Lda16dad32753.Title" xml:space="preserve">
+    <value>Download update</value>
+  </data>
+  <data name="Lda16dad32753.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="L31a744a623f1.Text" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="Ledcdc8908919.Text" xml:space="preserve">
+    <value>Version information</value>
+  </data>
+  <data name="L310c7983458f.Header" xml:space="preserve">
+    <value>App updates</value>
+  </data>
+  <data name="Lf028e145f3c2.Content" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="L29bb312b69fc.Header" xml:space="preserve">
+    <value>Check for updates automatically</value>
+  </data>
+  <data name="Leaf2a3777a28.Header" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="L22b5c9daa2be.Header" xml:space="preserve">
+    <value>Release notes</value>
+  </data>
+  <data name="Ldf9392a6e220.Content" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Ldf9392a6e220.AutomationProperties.Name" xml:space="preserve">
+    <value>View release notes</value>
+  </data>
+  <data name="L6a268225be6a.Text" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="L4d93ab128c02.Header" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="Lc4e070486a9d.Content" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Lc4e070486a9d.AutomationProperties.Name" xml:space="preserve">
+    <value>Export diagnostics</value>
+  </data>
+  <data name="Lc4e070486a9d.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Version, system and startup records</value>
+  </data>
+  <data name="L3e6d391f940f.Header" xml:space="preserve">
+    <value>Privacy notice</value>
+  </data>
+  <data name="L46be5b4a8464.Content" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="L46be5b4a8464.AutomationProperties.Name" xml:space="preserve">
+    <value>View privacy notice</value>
+  </data>
+  <data name="L8916ad168e66.Header" xml:space="preserve">
+    <value>Third-party components</value>
+  </data>
+  <data name="Laf9071fea0aa.Content" xml:space="preserve">
+    <value>View licenses</value>
+  </data>
+  <data name="L952227103af3.Text" xml:space="preserve">
+    <value>Mi Home account</value>
+  </data>
+  <data name="L10825091c923.Text" xml:space="preserve">
+    <value>Signed in</value>
+  </data>
+  <data name="L839f12b76da5.Text" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="L6bbd1cc37e1e.Header" xml:space="preserve">
+    <value>Server region</value>
+  </data>
+  <data name="Lbdde22e7f908.Text" xml:space="preserve">
+    <value>Mainland China</value>
+  </data>
+  <data name="L9bedbb15b1da.Header" xml:space="preserve">
+    <value>Current home</value>
+  </data>
+  <data name="Lf6cc09a2441f.Content" xml:space="preserve">
+    <value>Sync homes</value>
+  </data>
+  <data name="Le46c61d088e2.Text" xml:space="preserve">
+    <value>Account actions</value>
+  </data>
+  <data name="L36d6283c441b.Header" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="Lb0c6f9cbd29a.Content" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="L7cdf6d5972fe.Label" xml:space="preserve">
+    <value>Import adapters</value>
+  </data>
+  <data name="L7cdf6d5972fe.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Lcf825f2b7ef1.Label" xml:space="preserve">
+    <value>Export unsupported devices</value>
+  </data>
+  <data name="Lcf825f2b7ef1.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Export default-panel devices in this home, grouped by model and specification</value>
+  </data>
+  <data name="Le0bb11678145.Label" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Le0bb11678145.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Select adapters</value>
+  </data>
+  <data name="L4d7208c641a0.Label" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="L0dbbeb3e49bf.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="L2036b2d6aa8c.Text" xml:space="preserve">
+    <value>Enabled state</value>
+  </data>
+  <data name="Lbd11994f7a0c.Text" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="Lbb94250a82d2.Label" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Lbb94250a82d2.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="L739274d277f5.Label" xml:space="preserve">
+    <value>Developer guide</value>
+  </data>
+  <data name="Lff36b7ec5283.Text" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="L3407c48b4e34.Text" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Lbba2f6052eb4.Text" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Lba4704411d92.AutomationProperties.Name" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="Lba4704411d92.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="L5afd6169a769.Content" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="L02c76a0c30d7.Text" xml:space="preserve">
+    <value>Enable selected</value>
+  </data>
+  <data name="Lccaa357c28cb.AutomationProperties.Name" xml:space="preserve">
+    <value>Enable selected adapters</value>
+  </data>
+  <data name="La11d3df705a0.AutomationProperties.Name" xml:space="preserve">
+    <value>Uninstall selected adapters</value>
+  </data>
+  <data name="La11d3df705a0.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Uninstall selected adapters</value>
+  </data>
+  <data name="Ld57055da8c9a.AutomationProperties.Name" xml:space="preserve">
+    <value>Installed device adapters</value>
+  </data>
+  <data name="L5e64a3e3e6f8.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enable adapter</value>
+  </data>
+  <data name="Lc94598f64e45.Text" xml:space="preserve">
+    <value>SDK version</value>
+  </data>
+  <data name="Leca2f72e3bc0.Text" xml:space="preserve">
+    <value>Adapter version</value>
+  </data>
+  <data name="Lcaaf0164d246.Text" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="L274c95fa3930.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Roll back previous version</value>
+  </data>
+  <data name="L274c95fa3930.AutomationProperties.Name" xml:space="preserve">
+    <value>Roll back previous version</value>
+  </data>
+  <data name="L618873d4672e.Text" xml:space="preserve">
+    <value>Roll back</value>
+  </data>
+  <data name="L47c7d259714d.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Uninstall adapter</value>
+  </data>
+  <data name="L036ead5b89bf.Text" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="L5dbf052eaab4.Text" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Lb914d4f137a0.Header" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="L267e7f1c18e3.Text" xml:space="preserve">
+    <value>Use system setting</value>
+  </data>
+  <data name="Ld422a1ebdcb2.Text" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="L6ae5338fa64e.Text" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Ldc6fc85fb123.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="L6bb125d5f23c.Content" xml:space="preserve">
+    <value>Use system setting</value>
+  </data>
+  <data name="L9cb8e8cc26c9.Content" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="Ld9a3af68023f.Text" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Lbce4ed01f302.Header" xml:space="preserve">
+    <value>Detail refresh interval</value>
+  </data>
+  <data name="Ld68b49229875.Text" xml:space="preserve">
+    <value>Appearance and behavior</value>
+  </data>
+  <data name="L5fafc29f345f.Text" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="L05ee5805802d.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="L5e809212d777.Text" xml:space="preserve">
+    <value>Open-source licenses</value>
+  </data>
+  <data name="L990cc190e36a.Header" xml:space="preserve">
+    <value>Advanced settings</value>
+  </data>
+  <data name="Ld8d2b3de0285.Text" xml:space="preserve">
+    <value>Controls are not available for this device.</value>
+  </data>
+  <data name="Lcc0c587857c1.Header" xml:space="preserve">
+    <value>More settings</value>
+  </data>
+  <data name="Lb511e332c6ae.Text" xml:space="preserve">
+    <value>Not read yet</value>
+  </data>
+  <data name="Leac332137a53.Content" xml:space="preserve">
+    <value>Cancel changes</value>
+  </data>
+  <data name="Leac332137a53.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Restore the last reading without sending a device command</value>
+  </data>
+  <data name="S8a99be840844" xml:space="preserve">
+    <value>Stopping…</value>
+  </data>
+  <data name="Sd9f0cd172d82" xml:space="preserve">
+    <value>Finishing the current item…</value>
+  </data>
+  <data name="S06bc14b60f35" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="Scdb70be0681a" xml:space="preserve">
+    <value>Export unsupported devices</value>
+  </data>
+  <data name="S66e5a1c5807e" xml:space="preserve">
+    <value>Import adapters</value>
+  </data>
+  <data name="S30ada4bf5edd" xml:space="preserve">
+    <value>Device adapters</value>
+  </data>
+  <data name="S63c73c4730f4" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="S5c55a67935af" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Sde6811e73d40" xml:space="preserve">
+    <value>Release notes</value>
+  </data>
+  <data name="S9d06d61ee41f" xml:space="preserve">
+    <value>Privacy notice</value>
+  </data>
+  <data name="S3fd47edce45b" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="S0bf618e12dda" xml:space="preserve">
+    <value>Connection lost. Reconnect to continue.</value>
+  </data>
+  <data name="S051836569928" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="S3ab8cc15939f" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="S41d27d68e150" xml:space="preserve">
+    <value>Application settings could not be saved.</value>
+  </data>
+  <data name="Sbda050585a00" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="S93e474c68ed5" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="S30a0132ed5d2" xml:space="preserve">
+    <value>Write-only property; readback is unavailable.</value>
+  </data>
+  <data name="S8992a8bd7eb2" xml:space="preserve">
+    <value>Export default-panel devices in this home, grouped by model and specification</value>
+  </data>
+  <data name="S1b255ec87517" xml:space="preserve">
+    <value>Restore the last reading without sending a device command</value>
+  </data>
+  <data name="Sa6feae70905b" xml:space="preserve">
+    <value>Copy guide (Markdown)</value>
+  </data>
+  <data name="S42168edefc6b" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="S6ffa4182fa54" xml:space="preserve">
+    <value>Scan with the Mi Home app</value>
+  </data>
+  <data name="S32ad039003dc" xml:space="preserve">
+    <value>No README provided.</value>
+  </data>
+  <data name="S0378946ed6d1" xml:space="preserve">
+    <value>Controls are not available for this device.</value>
+  </data>
+  <data name="S6291cbcdab3f" xml:space="preserve">
+    <value>Version, system and startup records</value>
+  </data>
+  <data name="S6ec237f592d0" xml:space="preserve">
+    <value>Installed device adapters</value>
+  </data>
+  <data name="Sc0a2e97c00b1" xml:space="preserve">
+    <value>Search components and licenses</value>
+  </data>
+  <data name="Sf5ee5b84f4bd" xml:space="preserve">
+    <value>Choose adapters to install</value>
+  </data>
+  <data name="S7c61bb8e7b76" xml:space="preserve">
+    <value>Close (Esc)</value>
+  </data>
+  <data name="Sb8b7560f738c" xml:space="preserve">
+    <value>Include anonymized sample readings</value>
+  </data>
+  <data name="S776fef2a50e9" xml:space="preserve">
+    <value>Application and version</value>
+  </data>
+  <data name="Saf06706db79e" xml:space="preserve">
+    <value>Connect your Mi Home devices</value>
+  </data>
+  <data name="S0813ada497a0" xml:space="preserve">
+    <value>Unknown; refresh to read</value>
+  </data>
+  <data name="S7aa57109eee1" xml:space="preserve">
+    <value>Switch brightness or color temperature</value>
+  </data>
+  <data name="S7c98da78b74e" xml:space="preserve">
+    <value>Switch brightness / color temperature</value>
+  </data>
+  <data name="Sd8cb633ab9a5" xml:space="preserve">
+    <value>Uninstall selected adapters</value>
+  </data>
+  <data name="S548cc76b755b" xml:space="preserve">
+    <value>Enable selected adapters</value>
+  </data>
+  <data name="S6fb00a77d1a9" xml:space="preserve">
+    <value>Arrange and resize cards</value>
+  </data>
+  <data name="S9ffe98a30fb7" xml:space="preserve">
+    <value>Connecting to Mi Home…</value>
+  </data>
+  <data name="S72e91c5b0e0d" xml:space="preserve">
+    <value>Apply to matching models</value>
+  </data>
+  <data name="Sa87789ead63a" xml:space="preserve">
+    <value>Mi Home sign-in QR code</value>
+  </data>
+  <data name="S6b593fef5694" xml:space="preserve">
+    <value>Offline or unknown</value>
+  </data>
+  <data name="S1030511860e4" xml:space="preserve">
+    <value>Power-off countdown</value>
+  </data>
+  <data name="S12d9430d30be" xml:space="preserve">
+    <value>Applies on this computer</value>
+  </data>
+  <data name="S71caf54ae62e" xml:space="preserve">
+    <value>All device settings</value>
+  </data>
+  <data name="S0eba22d6ad3e" xml:space="preserve">
+    <value>Roll back previous version</value>
+  </data>
+  <data name="Sdccc0cb87d8a" xml:space="preserve">
+    <value>Export diagnostics</value>
+  </data>
+  <data name="Sf8780b8a912f" xml:space="preserve">
+    <value>Export adapter context</value>
+  </data>
+  <data name="Sb40869d49948" xml:space="preserve">
+    <value>Switch settings</value>
+  </data>
+  <data name="S2729085701cf" xml:space="preserve">
+    <value>More device options</value>
+  </data>
+  <data name="Sbd50eff4af46" xml:space="preserve">
+    <value>View release notes</value>
+  </data>
+  <data name="S85a70e206e9e" xml:space="preserve">
+    <value>View privacy notice</value>
+  </data>
+  <data name="Scee892960fc7" xml:space="preserve">
+    <value>No components found</value>
+  </data>
+  <data name="S17f4ef49254e" xml:space="preserve">
+    <value>米家 WinUI icon</value>
+  </data>
+  <data name="S33444ce1ab88" xml:space="preserve">
+    <value>Detail refresh interval</value>
+  </data>
+  <data name="S15f52a0d3085" xml:space="preserve">
+    <value>Back to licenses</value>
+  </data>
+  <data name="S5b6f774264e3" xml:space="preserve">
+    <value>Back to device adapters</value>
+  </data>
+  <data name="S4ae43144f113" xml:space="preserve">
+    <value>Adapter developer guide</value>
+  </data>
+  <data name="Sa8f1d262979e" xml:space="preserve">
+    <value>Choose primary sensor</value>
+  </data>
+  <data name="S5537e48f965f" xml:space="preserve">
+    <value>Choose favorites</value>
+  </data>
+  <data name="S5fcfa8332fae" xml:space="preserve">
+    <value>SDK version</value>
+  </data>
+  <data name="Sc42a3dd9c2e4" xml:space="preserve">
+    <value>Check for updates automatically</value>
+  </data>
+  <data name="S69194bd7c9fd" xml:space="preserve">
+    <value>Every 10 seconds</value>
+  </data>
+  <data name="S7928ca287c7a" xml:space="preserve">
+    <value>Every 30 seconds</value>
+  </data>
+  <data name="S12532dbccf5f" xml:space="preserve">
+    <value>State unavailable</value>
+  </data>
+  <data name="S303a06eaded5" xml:space="preserve">
+    <value>Filter life</value>
+  </data>
+  <data name="S7e9a89cc74b0" xml:space="preserve">
+    <value>No home selected</value>
+  </data>
+  <data name="Sa42a5899b9fb" xml:space="preserve">
+    <value>Uninstall adapter</value>
+  </data>
+  <data name="Sc7c009fe7aa8" xml:space="preserve">
+    <value>Enable adapter</value>
+  </data>
+  <data name="S0371f8eadcaa" xml:space="preserve">
+    <value>Appearance and behavior</value>
+  </data>
+  <data name="S460a76736d27" xml:space="preserve">
+    <value>Expand to full page</value>
+  </data>
+  <data name="Sf040e5a301f7" xml:space="preserve">
+    <value>No devices found</value>
+  </data>
+  <data name="S788ef5156b41" xml:space="preserve">
+    <value>Third-party components</value>
+  </data>
+  <data name="S1ba1347c4503" xml:space="preserve">
+    <value>Adapter details</value>
+  </data>
+  <data name="S7c14dbda08bd" xml:space="preserve">
+    <value>Choose a sensor</value>
+  </data>
+  <data name="S76ef71ab2f00" xml:space="preserve">
+    <value>Select adapters</value>
+  </data>
+  <data name="Sd99d86926cc6" xml:space="preserve">
+    <value>Doors and presence</value>
+  </data>
+  <data name="Se9f1e4057101" xml:space="preserve">
+    <value>Adapter version</value>
+  </data>
+  <data name="S26ef00b7d061" xml:space="preserve">
+    <value>Submitting…</value>
+  </data>
+  <data name="S51536645bb38" xml:space="preserve">
+    <value>Mainland China</value>
+  </data>
+  <data name="S8745995bee00" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="S9071cfe7cd01" xml:space="preserve">
+    <value>Close details</value>
+  </data>
+  <data name="S802a407c7743" xml:space="preserve">
+    <value>Refresh status</value>
+  </data>
+  <data name="Sdc54091453cc" xml:space="preserve">
+    <value>Refresh devices</value>
+  </data>
+  <data name="S30d7549be8d2" xml:space="preserve">
+    <value>Card settings</value>
+  </data>
+  <data name="Sfada4dfc38e3" xml:space="preserve">
+    <value>Cancel changes</value>
+  </data>
+  <data name="S909884cfddc1" xml:space="preserve">
+    <value>Sync homes</value>
+  </data>
+  <data name="S26008950621f" xml:space="preserve">
+    <value>Enable selected</value>
+  </data>
+  <data name="Sd334c402ead1" xml:space="preserve">
+    <value>Enabled state</value>
+  </data>
+  <data name="S420c20dd9fcc" xml:space="preserve">
+    <value>Copy code</value>
+  </data>
+  <data name="S6b9d21a7a109" xml:space="preserve">
+    <value>Copy license</value>
+  </data>
+  <data name="Sc4cf69f358b6" xml:space="preserve">
+    <value>Not read yet</value>
+  </data>
+  <data name="S3a3389c6987d" xml:space="preserve">
+    <value>Expanded card</value>
+  </data>
+  <data name="Sef21d172859b" xml:space="preserve">
+    <value>Developer guide</value>
+  </data>
+  <data name="S038ad816c53f" xml:space="preserve">
+    <value>Open-source licenses</value>
+  </data>
+  <data name="Sedf7665eee4c" xml:space="preserve">
+    <value>Current home</value>
+  </data>
+  <data name="S378eaca774bb" xml:space="preserve">
+    <value>Sign in with QR code</value>
+  </data>
+  <data name="Sf2cd55057df5" xml:space="preserve">
+    <value>Search components</value>
+  </data>
+  <data name="Sc21e12d69e05" xml:space="preserve">
+    <value>Search devices</value>
+  </data>
+  <data name="S6e1f103f1c28" xml:space="preserve">
+    <value>View licenses</value>
+  </data>
+  <data name="S1307cf619a2e" xml:space="preserve">
+    <value>Simulate</value>
+  </data>
+  <data name="S6c816b52536c" xml:space="preserve">
+    <value>Welcome home</value>
+  </data>
+  <data name="Sedca0c36f8c1" xml:space="preserve">
+    <value>Lighting ×</value>
+  </data>
+  <data name="S2da3906a24ee" xml:space="preserve">
+    <value>Version information</value>
+  </data>
+  <data name="S8308c1df7e40" xml:space="preserve">
+    <value>Sign in to Mi Home</value>
+  </data>
+  <data name="S2b7729d7ac40" xml:space="preserve">
+    <value>Filter rooms</value>
+  </data>
+  <data name="S563f0148e543" xml:space="preserve">
+    <value>Mi Home cloud</value>
+  </data>
+  <data name="S7ce3a72007d6" xml:space="preserve">
+    <value>Mi Home account</value>
+  </data>
+  <data name="S9937e365aaf3" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="S66a64e3c9bf8" xml:space="preserve">
+    <value>Missing readings</value>
+  </data>
+  <data name="S6c07bb6fd4b6" xml:space="preserve">
+    <value>Device information</value>
+  </data>
+  <data name="S9167ee8b67db" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="Sdc9aed464cd8" xml:space="preserve">
+    <value>Account actions</value>
+  </data>
+  <data name="S217cfe7db1e3" xml:space="preserve">
+    <value>Use system setting</value>
+  </data>
+  <data name="S423f51a28678" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="S485a26050ce5" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="S68891ab35cab" xml:space="preserve">
+    <value>Reconnect</value>
+  </data>
+  <data name="Saaab0ef30c34" xml:space="preserve">
+    <value>Choose a home</value>
+  </data>
+  <data name="S46f9ac7b9a39" xml:space="preserve">
+    <value>Choose devices</value>
+  </data>
+  <data name="S369b82fa0700" xml:space="preserve">
+    <value>Choose color</value>
+  </data>
+  <data name="S553dc98d899f" xml:space="preserve">
+    <value>Partially completed</value>
+  </data>
+  <data name="S0cadb49096a3" xml:space="preserve">
+    <value>Project website</value>
+  </data>
+  <data name="S44455611b910" xml:space="preserve">
+    <value>Advanced settings</value>
+  </data>
+  <data name="S7f68ebad19ba" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="Sa78b542de282" xml:space="preserve">
+    <value>Download update</value>
+  </data>
+  <data name="S82b7cf40b5e6" xml:space="preserve">
+    <value>Current state</value>
+  </data>
+  <data name="S135d06c406b2" xml:space="preserve">
+    <value>Current humidity</value>
+  </data>
+  <data name="Sef4cb5a826ac" xml:space="preserve">
+    <value>Target humidity</value>
+  </data>
+  <data name="S87ed126f7bd1" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="S568c1e74fb06" xml:space="preserve">
+    <value>Remaining time</value>
+  </data>
+  <data name="S4fa3708cafb1" xml:space="preserve">
+    <value>Playback state</value>
+  </data>
+  <data name="Sf2394a885adc" xml:space="preserve">
+    <value>Filter remaining</value>
+  </data>
+  <data name="S08ce330f0975" xml:space="preserve">
+    <value>Wireless mode</value>
+  </data>
+  <data name="Sf36cac96220b" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="S9b331be8923c" xml:space="preserve">
+    <value>Relative humidity</value>
+  </data>
+  <data name="Sd8d84897679e" xml:space="preserve">
+    <value>Fan level</value>
+  </data>
+  <data name="Sfd20e18350d5" xml:space="preserve">
+    <value>Target temperature</value>
+  </data>
+  <data name="S6be6c8248ec6" xml:space="preserve">
+    <value>Current position</value>
+  </data>
+  <data name="S4a4f9c0beda1" xml:space="preserve">
+    <value>Target position</value>
+  </data>
+  <data name="S754cd3e2de17" xml:space="preserve">
+    <value>Screen brightness</value>
+  </data>
+  <data name="S4fb3ea271d03" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="Sfea4e98eb217" xml:space="preserve">
+    <value>Power recovery</value>
+  </data>
+  <data name="S86ffbbfc5084" xml:space="preserve">
+    <value>More settings</value>
+  </data>
+  <data name="S34f7336d3983" xml:space="preserve">
+    <value>All off</value>
+  </data>
+  <data name="S6dbaeff68e66" xml:space="preserve">
+    <value>All rooms</value>
+  </data>
+  <data name="S3051a776eaa5" xml:space="preserve">
+    <value>Validated</value>
+  </data>
+  <data name="S5c14e94e278d" xml:space="preserve">
+    <value>Default panel</value>
+  </data>
+  <data name="Sa8c3698b5b8c" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Sdfb802238b38" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="S0a01eee1cd37" xml:space="preserve">
+    <value>Signed in</value>
+  </data>
+  <data name="Sa7612226b2f7" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="S52a0cbef7917" xml:space="preserve">
+    <value>Every minute</value>
+  </data>
+  <data name="S46e152919d00" xml:space="preserve">
+    <value>Manual only</value>
+  </data>
+  <data name="Sea191e4d8486" xml:space="preserve">
+    <value>My home</value>
+  </data>
+  <data name="S8a4ef3e48e4e" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="S6744b4c6a9aa" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Sf006455e3baf" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="S663e1a1ed327" xml:space="preserve">
+    <value>Turning off</value>
+  </data>
+  <data name="Sf95ea7f4c063" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="S0035761a7414" xml:space="preserve">
+    <value>Energy use</value>
+  </data>
+  <data name="S55b734e846e0" xml:space="preserve">
+    <value>Temperature and humidity</value>
+  </data>
+  <data name="Sfdd8ff337f90" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="S231fe2204265" xml:space="preserve">
+    <value>Not run</value>
+  </data>
+  <data name="S788db1cfec2a" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="S7d4146ca0827" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="S3a5040b68abf" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="Saee887434131" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Sfb5640f8e12e" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="S2cd0f3be8738" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Sd44e9b3d3b31" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="S8771e3682df1" xml:space="preserve">
+    <value>Roll back</value>
+  </data>
+  <data name="S322408c53bed" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="S86a63f23a076" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="S50db7447b966" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Se8f88f51ccb0" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Sc0b3fbff51cc" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="S576d81bb0631" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="S76420433f22d" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="S4563c57b5143" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="Sd93373f81363" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Sa96c9a854190" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="S5440f7424f28" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Sec309ab207ef" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Sdb8db0530432" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="S296de0e31f8c" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Saa0819dfc4d8" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Sa6b75d068032" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="S098294eeccc2" xml:space="preserve">
+    <value>Lighting</value>
+  </data>
+  <data name="S99faf39f8dee" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="S0f5785fff504" xml:space="preserve">
+    <value>米家 WinUI</value>
+  </data>
+  <data name="S97b31b5d63f5" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="Se1506406a5bd" xml:space="preserve">
+    <value>Devices</value>
+  </data>
+  <data name="S311bb313fdec" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Sc11330b85234" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="S4b77c3546823" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="S13d61fea9f17" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="S070a8016fcc3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="S203c08e0d44a" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="S9f6fee1aba17" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="S904dd029c768" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="S3732e264dfa9" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="S82213712d6ae" xml:space="preserve">
+    <value>Humidity</value>
+  </data>
+  <data name="S8e2f643ad160" xml:space="preserve">
+    <value>Brightness</value>
+  </data>
+  <data name="S84ac609620e5" xml:space="preserve">
+    <value>Color temperature</value>
+  </data>
+  <data name="S960f5905aca2" xml:space="preserve">
+    <value>Constant humidity</value>
+  </data>
+  <data name="S01324e540d05" xml:space="preserve">
+    <value>Sleep</value>
+  </data>
+  <data name="Sc27aa1fce220" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Sb3f3fc9bd352" xml:space="preserve">
+    <value>Dry</value>
+  </data>
+  <data name="S8bf8b9780d34" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="S1c69b1aa723a" xml:space="preserve">
+    <value>Battery</value>
+  </data>
+  <data name="Sbe1b4f3c6c1c" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="S8da97ddda990" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Sbd957bc497aa" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="S3b6fefc50feb" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="S92d9be0a0e94" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="S3993e09bcbbe" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="S38f7c7e22faf" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="S5a0cc6c04776" xml:space="preserve">
+    <value>Fault</value>
+  </data>
+  <data name="S0f68010bc429" xml:space="preserve">
+    <value>Child lock</value>
+  </data>
+  <data name="Sa30f63625458" xml:space="preserve">
+    <value>Illuminance</value>
+  </data>
+  <data name="S3b579010a041" xml:space="preserve">
+    <value>Lighting</value>
+  </data>
+  <data name="S17cb97521322" xml:space="preserve">
+    <value>Outlet</value>
+  </data>
+  <data name="S3e41bc3fa911" xml:space="preserve">
+    <value>Fan</value>
+  </data>
+  <data name="S8a2fd55b0118" xml:space="preserve">
+    <value>Battery</value>
+  </data>
+  <data name="S04d4aba0ab5f" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Sf0c875bd7387" xml:space="preserve">
+    <value>Speaker</value>
+  </data>
+  <data name="S9dcdc2b289b9" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="S7d58b6422cac" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="Sb6a993c256ef" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="NoState" xml:space="preserve">
+    <value>State not read yet</value>
+  </data>
+  <data name="PinDevices" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="TurnedOn" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="TurnedOff" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="UnknownState" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="LightsOn" xml:space="preserve">
+    <value>Some lights are on</value>
+  </data>
+  <data name="AllOff" xml:space="preserve">
+    <value>All off</value>
+  </data>
+  <data name="ReadingTime" xml:space="preserve">
+    <value>Cloud reading at {0}</value>
+  </data>
+  <data name="EnablePackage" xml:space="preserve">
+    <value>Enable {0}</value>
+  </data>
+  <data name="RemovePackage" xml:space="preserve">
+    <value>Uninstall {0}</value>
+  </data>
+  <data name="HumidityLow" xml:space="preserve">
+    <value>Water empty</value>
+  </data>
+  <data name="DeviceFault" xml:space="preserve">
+    <value>Device fault; open details</value>
+  </data>
+  <data name="PoweredOn" xml:space="preserve">
+    <value>Powered on</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>Powered off</value>
+  </data>
+  <data name="LicenseTitle" xml:space="preserve">
+    <value>Components and licenses</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>My home</value>
+  </data>
+  <data name="DevicesTitle" xml:space="preserve">
+    <value>Devices</value>
+  </data>
+  <data name="DeviceCount" xml:space="preserve">
+    <value>{0} devices</value>
+  </data>
+  <data name="OfflineCount" xml:space="preserve">
+    <value>{0} offline or unknown</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in with QR code</value>
+  </data>
+  <data name="NewQr" xml:space="preserve">
+    <value>Get a new code</value>
+  </data>
+  <data name="GettingQr" xml:space="preserve">
+    <value>Getting a QR code…</value>
+  </data>
+  <data name="CompletedCount" xml:space="preserve">
+    <value>{0} completed</value>
+  </data>
+  <data name="FailedCount" xml:space="preserve">
+    <value>{0} failed</value>
+  </data>
+  <data name="SkippedCount" xml:space="preserve">
+    <value>{0} skipped or not run</value>
+  </data>
+  <data name="PackageOverlap" xml:space="preserve">
+    <value>Selected adapters cover the same model. Select fewer adapters or turn off Apply to matching models.</value>
+  </data>
+  <data name="InstallCount" xml:space="preserve">
+    <value>Install ({0})</value>
+  </data>
+  <data name="BatteryValue" xml:space="preserve">
+    <value>Battery {0}%</value>
+  </data>
+  <data name="FilterValue" xml:space="preserve">
+    <value>Filter remaining {0}%</value>
+  </data>
+  <data name="LanguageSystem.Text" xml:space="preserve">
+    <value>Use system setting</value>
+  </data>
+  <data name="LanguageChinese.Text" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="UpdateAvailableDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Download and install</value>
+  </data>
+  <data name="UpdateAvailableDialog.CloseButtonText" xml:space="preserve">
+    <value>Later</value>
+  </data>
+  <data name="InstallUpdateDialog.Title" xml:space="preserve">
+    <value>Install update?</value>
+  </data>
+  <data name="InstallUpdateDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Exit and install</value>
+  </data>
+  <data name="InstallUpdateDialog.CloseButtonText" xml:space="preserve">
+    <value>Later</value>
+  </data>
+  <data name="InstallUpdateBody.Text" xml:space="preserve">
+    <value>The installer has been downloaded and verified. The application will exit so the installer can update it.</value>
+  </data>
+</root>

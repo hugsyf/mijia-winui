@@ -1,0 +1,288 @@
+{
+  "xiaomi.switch.w2": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2,
+      3
+    ],
+    "wirelessMode": true,
+    "purposeIcons": true
+  },
+  "chuangmi.camera.81ac1": {
+    "category": "camera",
+    "properties": [
+      "camera-control.on"
+    ]
+  },
+  "cuco.plug.v3": {
+    "category": "outlet",
+    "properties": [
+      "power-consumption.electric-power",
+      "switch.fault",
+      "switch.on"
+    ]
+  },
+  "linp.sensor_ht.ks2bb": {
+    "category": "temperature-humidity-sensor",
+    "properties": [
+      "battery.battery-level",
+      "temperature-humidity-sensor.relative-humidity",
+      "temperature-humidity-sensor.temperature"
+    ]
+  },
+  "linp.sensor_occupy.es2": {
+    "category": "occupancy-sensor",
+    "properties": [
+      "battery.battery-level",
+      "occupancy-sensor.has-someone-duration",
+      "occupancy-sensor.illumination",
+      "occupancy-sensor.no-one-duration",
+      "occupancy-sensor.occupancy-status"
+    ]
+  },
+  "xiaomi.humidifier.600": {
+    "category": "humidifier",
+    "properties": [
+      "environment.relative-humidity",
+      "filter.filter-life-level",
+      "humidifier.fault",
+      "humidifier.mode",
+      "humidifier.on",
+      "humidifier.target-humidity"
+    ]
+  },
+  "soocare.toothbrush.1501": {
+    "category": "toothbrush",
+    "properties": [
+      "battery.battery-level",
+      "brush-head.brush-head-left-level"
+    ]
+  },
+  "miaomiaoce.sensor_ht.t9": {
+    "category": "temperature-humidity-sensor",
+    "properties": [
+      "battery.battery-level",
+      "temperature-humidity-sensor.relative-humidity",
+      "temperature-humidity-sensor.temperature"
+    ]
+  },
+  "xiaomi.fryer.maf16": {
+    "category": "air-fryer",
+    "properties": [
+      "air-fryer.fault",
+      "air-fryer.left-time",
+      "air-fryer.status"
+    ]
+  },
+  "xiaomi.router.rn07": {
+    "category": "router",
+    "properties": [
+      "router.connected-device-number",
+      "router.download-speed",
+      "router.upload-speed"
+    ]
+  },
+  "xiaomi.switch.w1": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2
+    ],
+    "wirelessMode": true,
+    "purposeIcons": true
+  },
+  "xiaomi.switch.w3": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2,
+      3,
+      4
+    ],
+    "wirelessMode": true,
+    "purposeIcons": true
+  },
+  "zimi.switch.dhkg01": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2
+    ],
+    "wirelessMode": true,
+    "purposeIcons": false
+  },
+  "zimi.switch.dhkg02": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2,
+      3
+    ],
+    "wirelessMode": true,
+    "purposeIcons": false
+  },
+  "zimi.switch.dhkg05": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2,
+      3,
+      4
+    ],
+    "wirelessMode": true,
+    "purposeIcons": false
+  },
+  "giot.switch.v6oodm": {
+    "category": "switch",
+    "properties": [
+      "switch.on",
+      "switch.mode",
+      "switch.fault"
+    ],
+    "channels": [
+      2
+    ],
+    "wirelessMode": false,
+    "purposeIcons": false
+  },
+  "yeelink.light.bslamp2": {
+    "category": "light",
+    "properties": [
+      "light.on",
+      "light.brightness",
+      "light.color-temperature"
+    ]
+  },
+  "yeelink.light.lamp22": {
+    "category": "light",
+    "properties": [
+      "light.on",
+      "light.brightness",
+      "light.color-temperature"
+    ]
+  },
+  "yeelink.light.lamp27": {
+    "category": "light",
+    "properties": [
+      "light.on",
+      "light.brightness",
+      "light.color-temperature"
+    ]
+  },
+  "leishi.light.wy0a09": {
+    "category": "light",
+    "properties": [
+      "light.on",
+      "light.brightness",
+      "light.color-temperature"
+    ]
+  },
+  "miaomiaoce.sensor_ht.t2": {
+    "category": "temperature-humidity-sensor",
+    "properties": [
+      "battery.battery-level",
+      "temperature-humidity-sensor.relative-humidity",
+      "temperature-humidity-sensor.temperature"
+    ]
+  },
+  "xiaomi.sensor_ht.new3pr": {
+    "category": "temperature-humidity-sensor",
+    "properties": [
+      "battery.battery-level",
+      "temperature-humidity-sensor.relative-humidity",
+      "temperature-humidity-sensor.temperature"
+    ]
+  },
+  "linp.sensor_occupy.es5b": {
+    "category": "occupancy-sensor",
+    "properties": [
+      "occupancy-sensor.occupancy-status",
+      "occupancy-sensor.illumination",
+      "battery.battery-level",
+      "single-use-battery.battery-level"
+    ]
+  },
+  "xiaomi.sensor_occupy.03": {
+    "category": "occupancy-sensor",
+    "properties": [
+      "occupancy-sensor.occupancy-status",
+      "occupancy-sensor.illumination",
+      "battery.battery-level",
+      "single-use-battery.battery-level"
+    ]
+  },
+  "isa.magnet.dw2hl": {
+    "category": "magnet-sensor",
+    "properties": [
+      "magnet-sensor.contact-state",
+      "battery.battery-level"
+    ]
+  },
+  "linp.magnet.m1": {
+    "category": "magnet-sensor",
+    "properties": [
+      "magnet-sensor.status",
+      "battery.battery-level"
+    ]
+  },
+  "lumi.curtain.hmcn02": {
+    "category": "curtain",
+    "properties": [
+      "curtain.current-position",
+      "curtain.status",
+      "battery.battery-level"
+    ]
+  },
+  "yunmi.kettle.v19": {
+    "category": "kettle",
+    "properties": [
+      "kettle.temperature",
+      "kettle.status"
+    ]
+  },
+  "xiaomi.wifispeaker.l15a": {
+    "category": "speaker",
+    "properties": [
+      "play-control.playing-state"
+    ]
+  },
+  "xiaomi.wifispeaker.oh2p": {
+    "category": "speaker",
+    "properties": [
+      "play-control.playing-state"
+    ]
+  },
+  "xiaomi.router.rd03": {
+    "category": "router",
+    "properties": [
+      "router.connected-device-number",
+      "router.download-speed",
+      "router.upload-speed"
+    ]
+  }
+}

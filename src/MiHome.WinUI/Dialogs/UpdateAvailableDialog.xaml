@@ -1,0 +1,9 @@
+<ContentDialog x:Class="MiHome.WinUI.Dialogs.UpdateAvailableDialog"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ x:Uid="UpdateAvailableDialog" DefaultButton="Primary" HorizontalContentAlignment="Stretch">
+ <ScrollViewer x:Name="NotesScroll" Padding="0,0,20,0" HorizontalScrollMode="Disabled"
+  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
+  <ContentControl x:Name="Notes" HorizontalContentAlignment="Stretch"/>
+ </ScrollViewer>
+</ContentDialog>
