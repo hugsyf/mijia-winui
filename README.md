@@ -2,6 +2,8 @@
 
 使用 WinUI 3 构建的米家设备 Windows 桌面客户端，基于 [mijia-api](https://github.com/Do1e/mijia-api) 连接米家服务。
 
+![米家 WinUI 设备页面](docs/preview.png)
+
 ## 功能
 
 - 查看家庭环境、照明、门窗感应和网络状态。
@@ -39,8 +41,21 @@
 
 构建与贡献说明见 [CONTRIBUTING](CONTRIBUTING.md)，更多开发资料见[文档目录](docs/README.md)。
 
-## 许可
+## 致谢
+
+- [Do1e/mijia-api](https://github.com/Do1e/mijia-api)：米家服务接口。
+- [WinUI](https://github.com/microsoft/microsoft-ui-xaml)：Windows 原生界面框架。
+- [MIOT-Spec](https://miot-spec.org)：设备规格与多语言资料。
+
+## 开源许可
 
 项目代码采用 [GPL-3.0-or-later](LICENSE)。第三方组件许可见[第三方声明](THIRD-PARTY-NOTICES.md)，也可在应用的“开源许可”中阅读。
 
-米家相关名称及标识的权利归小米所有；WinUI 相关名称及标识的权利归 Microsoft 所有。
+修改或再分发时，请遵守 GPL 的源码提供、许可和版权声明要求。
+
+## 免责声明
+
+- 米家相关名称及标识的权利归小米所有；WinUI 相关名称及标识的权利归 Microsoft 所有。
+- 本项目与小米或 Microsoft 无隶属关系。
+- 本项目仅供学习交流使用，不得用于商业用途，如有侵权请联系删除。
+- 使用时请遵守相关法律和米家服务条款，用户使用本项目所产生的任何后果，需自行承担风险，开发者不对使用本项目产生的任何直接或间接损失负责。
