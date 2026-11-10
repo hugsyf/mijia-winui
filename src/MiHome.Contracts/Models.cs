@@ -12,6 +12,7 @@ public record DeviceIdentity(string Id, string Name, string Model, string SpecTy
     public string CardCategory { get; init; } = "";
     public string CardIcon { get; init; } = "";
     public string RoomId { get; init; } = "";
+    public bool SupportsEnergyHistory { get; init; }
     public string Summary => $"{Room} · {(Online ? "在线" : "离线或状态未知")} · {Model}";
     public override string ToString() => Name;
 }
@@ -40,6 +41,12 @@ public record ActionSchema(int Siid, int Aiid, string Name, string ServiceType, 
 public record AdapterAction(string Id, ActionSchema Action);
 public record ActionRequest(string DeviceId, string AdapterId, string ActionId, List<object?> Arguments, string RequestId, bool Confirmed);
 public record ActionResult(string Status, string Message, List<JsonElement> Outputs);
+public record SpeakerActionRequest(string DeviceId, string HomeId, string Command, string RequestId, string? Text = null, bool Quiet = false);
+
+public interface ISpeakerActionService
+{
+    Task<ActionResult> SendSpeakerActionAsync(SpeakerActionRequest request);
+}
 public interface IDeviceActionService
 {
     bool IsSimulation => false;

@@ -9,7 +9,7 @@ public sealed partial class AdapterImportDialog : ContentDialog
     internal TextBlock WarningLabel => Warning;
     internal event Action<AdapterImportRow, ContentControl>? PreviewRequested;
     public AdapterImportDialog() => InitializeComponent();
-    internal void SetMaximumHeight(double height) => Scroller.MaxHeight = height;
+    internal void SetMaximumHeight(double height) => Files.MaxHeight = Math.Clamp(height - 72, 80, 360);
     private void OnContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
     {
         if (!args.InRecycleQueue && args.Item is AdapterImportRow row) args.ItemContainer.IsEnabled = row.CanInstall;

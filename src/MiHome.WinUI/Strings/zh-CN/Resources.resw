@@ -218,6 +218,105 @@
   <data name="L247811eaf701.AutomationProperties.Name" xml:space="preserve">
     <value>更多设备选项</value>
   </data>
+  <data name="SpeakerTextButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>文字指令</value>
+  </data>
+  <data name="SpeakerTextButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>文字指令</value>
+  </data>
+  <data name="SpeakerDirective.Text" xml:space="preserve">
+    <value>执行指令</value>
+  </data>
+  <data name="SpeakerSpeak.Text" xml:space="preserve">
+    <value>朗读文本</value>
+  </data>
+  <data name="SpeakerTextInput.PlaceholderText" xml:space="preserve">
+    <value>输入文字</value>
+  </data>
+  <data name="SpeakerTextInput.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>文字内容</value>
+  </data>
+  <data name="SpeakerQuiet.Content" xml:space="preserve">
+    <value>静默</value>
+  </data>
+  <data name="SpeakerSendLabel.Text" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="SpeakerSend.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="SpeakerPrevious.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>上一首</value>
+  </data>
+  <data name="SpeakerPrevious.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>上一首</value>
+  </data>
+  <data name="SpeakerNext.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>下一首</value>
+  </data>
+  <data name="SpeakerNext.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>下一首</value>
+  </data>
+  <data name="SpeakerVolume.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>音量</value>
+  </data>
+  <data name="SpeakerPlay" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="SpeakerPause" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="SpeakerMute" xml:space="preserve">
+    <value>静音</value>
+  </data>
+  <data name="SpeakerUnmute" xml:space="preserve">
+    <value>取消静音</value>
+  </data>
+  <data name="SpeakerOffline" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="SpeakerPlaybackUnknown" xml:space="preserve">
+    <value>播放状态未知</value>
+  </data>
+  <data name="SpeakerRejected" xml:space="preserve">
+    <value>音箱未接受操作。</value>
+  </data>
+  <data name="SpeakerAccepted" xml:space="preserve">
+    <value>已提交给音箱。</value>
+  </data>
+  <data name="SpeakerUnknown" xml:space="preserve">
+    <value>操作结果待确认。</value>
+  </data>
+  <data name="TraySpeakerPicker.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>选择音箱</value>
+  </data>
+  <data name="SpeakerLoading" xml:space="preserve">
+    <value>正在读取音箱…</value>
+  </data>
+  <data name="SpeakerUnavailable" xml:space="preserve">
+    <value>音箱控制暂不可用。</value>
+  </data>
+  <data name="DeviceConsumablesMenu.Text" xml:space="preserve">
+    <value>耗材</value>
+  </data>
+  <data name="DeviceEnergyMenu.Text" xml:space="preserve">
+    <value>用电历史</value>
+  </data>
+  <data name="DeviceEnergyTitle" xml:space="preserve">
+    <value>月度用电</value>
+  </data>
+  <data name="DeviceConsumablesEmpty" xml:space="preserve">
+    <value>暂无耗材数据。</value>
+  </data>
+  <data name="DeviceEnergyEmpty" xml:space="preserve">
+    <value>暂无用电记录。</value>
+  </data>
+  <data name="DeviceReadingsFailed" xml:space="preserve">
+    <value>暂时无法读取，请稍后重试。</value>
+  </data>
+  <data name="DeviceEnergyValue" xml:space="preserve">
+    <value>{0:0.###} kWh</value>
+  </data>
   <data name="Lcfaf41f48a9f.Text" xml:space="preserve">
     <value>设备适配</value>
   </data>
@@ -1630,5 +1729,425 @@
   </data>
   <data name="TrayNoHome" xml:space="preserve">
     <value>家庭尚未加载，请打开主窗口重试。</value>
+  </data>
+  <data name="AutoNav.Content" xml:space="preserve">
+    <value>自动化</value>
+  </data>
+  <data name="AutoTitle" xml:space="preserve">
+    <value>自动化</value>
+  </data>
+  <data name="AutoScenesTab.Text" xml:space="preserve">
+    <value>米家场景</value>
+  </data>
+  <data name="AutoRulesTab.Text" xml:space="preserve">
+    <value>PC 规则</value>
+  </data>
+  <data name="AutoHome.AutomationProperties.Name" xml:space="preserve">
+    <value>场景所属家庭</value>
+  </data>
+  <data name="AutoRefresh.AutomationProperties.Name" xml:space="preserve">
+    <value>刷新场景</value>
+  </data>
+  <data name="AutoRefresh.ToolTipService.ToolTip" xml:space="preserve">
+    <value>刷新场景</value>
+  </data>
+  <data name="AutoNoScenes.Text" xml:space="preserve">
+    <value>此家庭暂无手动场景。</value>
+  </data>
+  <data name="AutoRunScene.Content" xml:space="preserve">
+    <value>运行场景</value>
+  </data>
+  <data name="AutoTrayPause.Text" xml:space="preserve">
+    <value>暂停自动化</value>
+  </data>
+  <data name="AutoNewRule.Content" xml:space="preserve">
+    <value>新建规则</value>
+  </data>
+  <data name="AutoDeleteRule.Content" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="AutoNoRules.Text" xml:space="preserve">
+    <value>暂无 PC 规则。</value>
+  </data>
+  <data name="AutoName.Header" xml:space="preserve">
+    <value>规则名称</value>
+  </data>
+  <data name="AutoRuleHome.Header" xml:space="preserve">
+    <value>家庭</value>
+  </data>
+  <data name="AutoEnable.Header" xml:space="preserve">
+    <value>启用规则</value>
+  </data>
+  <data name="AutoWhen.Text" xml:space="preserve">
+    <value>触发器</value>
+  </data>
+  <data name="AutoTrigger.Header" xml:space="preserve">
+    <value>事件</value>
+  </data>
+  <data name="AutoBrowse.Content" xml:space="preserve">
+    <value>选择程序</value>
+  </data>
+  <data name="AutoHotkey.Header" xml:space="preserve">
+    <value>Ctrl + Alt +</value>
+  </data>
+  <data name="AutoIf.Text" xml:space="preserve">
+    <value>条件</value>
+  </data>
+  <data name="AutoLimitTime.Content" xml:space="preserve">
+    <value>仅在指定时间段运行</value>
+  </data>
+  <data name="AutoFrom.Header" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="AutoUntil.Header" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="AutoThen.Text" xml:space="preserve">
+    <value>执行步骤</value>
+  </data>
+  <data name="AutoMoveUp.AutomationProperties.Name" xml:space="preserve">
+    <value>上移步骤</value>
+  </data>
+  <data name="AutoMoveUp.ToolTipService.ToolTip" xml:space="preserve">
+    <value>上移步骤</value>
+  </data>
+  <data name="AutoMoveDown.AutomationProperties.Name" xml:space="preserve">
+    <value>下移步骤</value>
+  </data>
+  <data name="AutoMoveDown.ToolTipService.ToolTip" xml:space="preserve">
+    <value>下移步骤</value>
+  </data>
+  <data name="AutoRemoveStep.AutomationProperties.Name" xml:space="preserve">
+    <value>移除步骤</value>
+  </data>
+  <data name="AutoRemoveStep.ToolTipService.ToolTip" xml:space="preserve">
+    <value>移除步骤</value>
+  </data>
+  <data name="AutoAddStepHeader.Header" xml:space="preserve">
+    <value>添加步骤</value>
+  </data>
+  <data name="AutoStepType.Header" xml:space="preserve">
+    <value>动作类型</value>
+  </data>
+  <data name="AutoDevice.Header" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="AutoProperty.Header" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="AutoValue.Header" xml:space="preserve">
+    <value>目标值</value>
+  </data>
+  <data name="AutoNumber.Header" xml:space="preserve">
+    <value>目标值</value>
+  </data>
+  <data name="AutoColor.Content" xml:space="preserve">
+    <value>选择颜色</value>
+  </data>
+  <data name="AutoScene.Header" xml:space="preserve">
+    <value>场景</value>
+  </data>
+  <data name="AutoSeconds.Header" xml:space="preserve">
+    <value>等待秒数</value>
+  </data>
+  <data name="AutoAddStep.Content" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="AutoSave.Content" xml:space="preserve">
+    <value>保存规则</value>
+  </data>
+  <data name="AutoPreview.Content" xml:space="preserve">
+    <value>预演</value>
+  </data>
+  <data name="AutoCancelEdit.Content" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="AutoHistory.Header" xml:space="preserve">
+    <value>运行记录</value>
+  </data>
+  <data name="AutoForegroundExit" xml:space="preserve">
+    <value>程序离开前台</value>
+  </data>
+  <data name="AutoProcessStart" xml:space="preserve">
+    <value>程序启动</value>
+  </data>
+  <data name="AutoProcessExit" xml:space="preserve">
+    <value>程序退出</value>
+  </data>
+  <data name="AutoIdle" xml:space="preserve">
+    <value>电脑空闲</value>
+  </data>
+  <data name="AutoActive" xml:space="preserve">
+    <value>恢复操作</value>
+  </data>
+  <data name="AutoSchedule" xml:space="preserve">
+    <value>定时</value>
+  </data>
+  <data name="AutoWake" xml:space="preserve">
+    <value>电脑唤醒</value>
+  </data>
+  <data name="AutoAcPower" xml:space="preserve">
+    <value>接入交流电源</value>
+  </data>
+  <data name="AutoBatteryLow" xml:space="preserve">
+    <value>电池电量下降</value>
+  </data>
+  <data name="AutoDisplayOff" xml:space="preserve">
+    <value>屏幕关闭</value>
+  </data>
+  <data name="AutoUsbAttach" xml:space="preserve">
+    <value>USB 设备接入</value>
+  </data>
+  <data name="AutoAudioOutput" xml:space="preserve">
+    <value>默认音频输出切换</value>
+  </data>
+  <data name="AutoNetworkOnline" xml:space="preserve">
+    <value>网络恢复</value>
+  </data>
+  <data name="AutoScheduleTime.Header" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="AutoScheduleDays.Text" xml:space="preserve">
+    <value>重复日期</value>
+  </data>
+  <data name="AutoBatteryThreshold" xml:space="preserve">
+    <value>电量阈值</value>
+  </data>
+  <data name="AutoIdleThreshold" xml:space="preserve">
+    <value>空闲时长</value>
+  </data>
+  <data name="AutoThresholdPercent" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="AutoThresholdMinutes" xml:space="preserve">
+    <value>{0} 分钟</value>
+  </data>
+  <data name="AutoTriggerDetail" xml:space="preserve">
+    <value>{0}（{1}）</value>
+  </data>
+  <data name="AutoScheduleDetail" xml:space="preserve">
+    <value>{0} {1}</value>
+  </data>
+  <data name="AutoEveryDay" xml:space="preserve">
+    <value>每天</value>
+  </data>
+  <data name="AutoUsbDevice.Header" xml:space="preserve">
+    <value>USB 设备</value>
+  </data>
+  <data name="AutoUsbDevice.PlaceholderText" xml:space="preserve">
+    <value>选择已连接的设备</value>
+  </data>
+  <data name="AutoUsbUnavailable" xml:space="preserve">
+    <value>无法读取 USB 设备。</value>
+  </data>
+  <data name="AutoMonday.Content" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="AutoMonday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期一</value>
+  </data>
+  <data name="AutoTuesday.Content" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="AutoTuesday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期二</value>
+  </data>
+  <data name="AutoWednesday.Content" xml:space="preserve">
+    <value>三</value>
+  </data>
+  <data name="AutoWednesday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期三</value>
+  </data>
+  <data name="AutoThursday.Content" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="AutoThursday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期四</value>
+  </data>
+  <data name="AutoFriday.Content" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="AutoFriday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期五</value>
+  </data>
+  <data name="AutoSaturday.Content" xml:space="preserve">
+    <value>六</value>
+  </data>
+  <data name="AutoSaturday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期六</value>
+  </data>
+  <data name="AutoSunday.Content" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="AutoSunday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>星期日</value>
+  </data>
+  <data name="AutoForeground" xml:space="preserve">
+    <value>程序进入前台</value>
+  </data>
+  <data name="AutoLock" xml:space="preserve">
+    <value>锁屏</value>
+  </data>
+  <data name="AutoUnlock" xml:space="preserve">
+    <value>解锁</value>
+  </data>
+  <data name="AutoShortcut" xml:space="preserve">
+    <value>全局快捷键</value>
+  </data>
+  <data name="AutoWriteType" xml:space="preserve">
+    <value>设置设备属性</value>
+  </data>
+  <data name="AutoWaitType" xml:space="preserve">
+    <value>等待</value>
+  </data>
+  <data name="AutoSceneType" xml:space="preserve">
+    <value>运行米家场景</value>
+  </data>
+  <data name="AutoOn" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="AutoOff" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="AutoWaitLabel" xml:space="preserve">
+    <value>等待 {0} 秒</value>
+  </data>
+  <data name="AutoSceneLabel" xml:space="preserve">
+    <value>运行场景 · {0}</value>
+  </data>
+  <data name="AutoStepNumber" xml:space="preserve">
+    <value>第 {0} 步</value>
+  </data>
+  <data name="AutoStorage" xml:space="preserve">
+    <value>无法读取或保存自动化设置。</value>
+  </data>
+  <data name="AutoInvalid" xml:space="preserve">
+    <value>请检查规则名称、触发器、时间段和步骤。</value>
+  </data>
+  <data name="AutoInvalidStep" xml:space="preserve">
+    <value>请选择有效的动作和目标值。</value>
+  </data>
+  <data name="AutoLoadScenesFailed" xml:space="preserve">
+    <value>无法加载手动场景。</value>
+  </data>
+  <data name="AutoLoadDevicesFailed" xml:space="preserve">
+    <value>无法加载设备或属性。</value>
+  </data>
+  <data name="AutoConfirmScene" xml:space="preserve">
+    <value>运行“{0}”？此场景可能控制多台设备。</value>
+  </data>
+  <data name="AutoConfirmSceneRule" xml:space="preserve">
+    <value>启用后，触发器可以自动运行此规则中的米家场景。</value>
+  </data>
+  <data name="AutoTimeMatches" xml:space="preserve">
+    <value>当前时间满足条件。</value>
+  </data>
+  <data name="AutoTimeNotMatched" xml:space="preserve">
+    <value>当前时间不满足条件。</value>
+  </data>
+  <data name="AutoClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="AutoConfirm" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="AutoCompleted" xml:space="preserve">
+    <value>流程完成</value>
+  </data>
+  <data name="AutoAccepted" xml:space="preserve">
+    <value>云端已接受</value>
+  </data>
+  <data name="AutoConfirmed" xml:space="preserve">
+    <value>设备状态已确认</value>
+  </data>
+  <data name="AutoFailed" xml:space="preserve">
+    <value>步骤失败</value>
+  </data>
+  <data name="AutoUnknown" xml:space="preserve">
+    <value>结果待确认，请检查设备状态。</value>
+  </data>
+  <data name="AutoRepair" xml:space="preserve">
+    <value>设备离线、已移除或规格已变更</value>
+  </data>
+  <data name="AutoLoginRequired" xml:space="preserve">
+    <value>米家登录已失效</value>
+  </data>
+  <data name="AutoCancelled" xml:space="preserve">
+    <value>已取消后续步骤</value>
+  </data>
+  <data name="AutoManualConflict" xml:space="preserve">
+    <value>因手动操作停止</value>
+  </data>
+  <data name="AutoSkipped" xml:space="preserve">
+    <value>已有操作在运行，已跳过</value>
+  </data>
+  <data name="AutoTriggersUnavailable" xml:space="preserve">
+    <value>Windows 触发器</value>
+  </data>
+  <data name="AutoTriggerIssue" xml:space="preserve">
+    <value>触发器不可用：{0}</value>
+  </data>
+  <data name="AutoNewRuleIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>新建规则</value>
+  </data>
+  <data name="AutoNewRuleLabel.Text" xml:space="preserve">
+    <value>新建规则</value>
+  </data>
+  <data name="AutoPauseLabel.Text" xml:space="preserve">
+    <value>暂停自动化</value>
+  </data>
+  <data name="AutoPauseSwitch.AutomationProperties.Name" xml:space="preserve">
+    <value>暂停自动化</value>
+  </data>
+  <data name="AutoEnableLabel.Text" xml:space="preserve">
+    <value>启用规则</value>
+  </data>
+  <data name="AutoEnableSwitch.AutomationProperties.Name" xml:space="preserve">
+    <value>启用规则</value>
+  </data>
+  <data name="AutoHistoryEmpty.Text" xml:space="preserve">
+    <value>暂无运行记录。</value>
+  </data>
+  <data name="AutoEditorBack.AutomationProperties.Name" xml:space="preserve">
+    <value>返回规则</value>
+  </data>
+  <data name="AutoEditorBack.ToolTipService.ToolTip" xml:space="preserve">
+    <value>返回规则</value>
+  </data>
+  <data name="AutoDeleteIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>删除规则</value>
+  </data>
+  <data name="AutoDeleteIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除规则</value>
+  </data>
+  <data name="AutoSliderValue.AutomationProperties.Name" xml:space="preserve">
+    <value>目标值</value>
+  </data>
+  <data name="AutoEditorEditTitle" xml:space="preserve">
+    <value>编辑规则</value>
+  </data>
+  <data name="AutoHomeUnavailable" xml:space="preserve">
+    <value>家庭不可用</value>
+  </data>
+  <data name="AdapterSelectAll.Content" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="AdapterClearSelection" xml:space="preserve">
+    <value>取消全选</value>
+  </data>
+  <data name="AdapterNoFilteredPackages" xml:space="preserve">
+    <value>此筛选下没有适配包。</value>
+  </data>
+  <data name="AdapterNoCompatiblePackages" xml:space="preserve">
+    <value>没有适用于此设备的已启用适配包。</value>
+  </data>
+  <data name="AdapterChoosePanel" xml:space="preserve">
+    <value>选择设备面板</value>
+  </data>
+  <data name="AdapterStopRemaining" xml:space="preserve">
+    <value>停止后续操作</value>
+  </data>
+  <data name="AdapterRemoveConfirmation" xml:space="preserve">
+    <value>卸载 {0} 个适配包？</value>
   </data>
 </root>

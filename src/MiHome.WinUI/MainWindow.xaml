@@ -25,6 +25,7 @@
    <NavigationView.MenuItems>
     <NavigationViewItem x:Uid="L90ce7bbcd9ec"  Tag="overview" Icon="Home" />
     <NavigationViewItem x:Uid="L07e577291437"  Tag="devices" Icon="AllApps" />
+    <NavigationViewItem x:Uid="AutoNav" Tag="automation"><NavigationViewItem.Icon><FontIcon Glyph="&#xE945;"/></NavigationViewItem.Icon></NavigationViewItem>
    </NavigationView.MenuItems>
    <Border x:Name="ContentShell" Background="{ThemeResource LayerFillColorDefaultBrush}" CornerRadius="8,0,0,0" BorderThickness="1,1,0,0" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
     <Grid x:Name="ContentArea" SizeChanged="OnContentSizeChanged">
@@ -80,6 +81,7 @@
        </Grid>
       </Grid>
       <pages:SettingsPage x:Name="SettingsView" Visibility="Collapsed" />
+      <pages:AutomationPage x:Name="AutomationView" Visibility="Collapsed" />
       <ContentControl x:Name="LicensesPage" Visibility="Collapsed" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
      </Grid>
         <Border x:Name="DrawerScrim" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Collapsed" Background="#44000000" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="OnDrawerScrimTapped"/>
@@ -94,7 +96,17 @@
           <StackPanel Grid.Column="1" Spacing="4"><TextBlock x:Name="DetailTitle" FontSize="16" FontWeight="SemiBold" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis"/><TextBlock x:Name="DetailStatus" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap"/></StackPanel>
           <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4" VerticalAlignment="Top">
            <Button x:Uid="L247811eaf701"  Padding="8"><FontIcon Glyph="&#xE712;" FontSize="14"/>
-            <Button.Flyout><MenuFlyout><MenuFlyoutItem x:Uid="Lcfaf41f48a9f"  Click="OnSelectAdapter"/><MenuFlyoutItem x:Uid="L7e1e5b915cf6"  Click="OnExportAdapterContext"/><MenuFlyoutItem x:Uid="L6b502d9f183a"  Icon="Refresh" Click="OnRefreshDetail"/><MenuFlyoutItem x:Uid="L9537f0266c9e" x:Name="ParentSwitchSettings"  Visibility="Collapsed" Click="OnParentSwitchSettings"/><MenuFlyoutItem x:Uid="Ld09927c83bb3"  Click="OnShowCardSettings"/><MenuFlyoutItem x:Uid="L7cc1e8730280"  Click="OnShowDeviceInformation"/></MenuFlyout></Button.Flyout>
+            <Button.Flyout><MenuFlyout>
+             <MenuFlyoutItem x:Uid="Lcfaf41f48a9f" Click="OnSelectAdapter"/>
+             <MenuFlyoutItem x:Uid="L7e1e5b915cf6" Click="OnExportAdapterContext"/>
+             <MenuFlyoutItem x:Uid="L6b502d9f183a" Icon="Refresh" Click="OnRefreshDetail"/>
+             <MenuFlyoutItem x:Uid="L9537f0266c9e" x:Name="ParentSwitchSettings" Visibility="Collapsed" Click="OnParentSwitchSettings"/>
+             <MenuFlyoutItem x:Uid="Ld09927c83bb3" Click="OnShowCardSettings"/>
+             <MenuFlyoutItem x:Uid="L7cc1e8730280" Click="OnShowDeviceInformation"/>
+             <MenuFlyoutSeparator x:Name="DeviceReadingsSeparator" Visibility="Collapsed"/>
+             <MenuFlyoutItem x:Uid="DeviceConsumablesMenu" x:Name="DeviceConsumablesItem" Visibility="Collapsed" Icon="Filter" Click="OnDeviceConsumables"/>
+             <MenuFlyoutItem x:Uid="DeviceEnergyMenu" x:Name="DeviceEnergyItem" Visibility="Collapsed" Icon="Calendar" Click="OnDeviceEnergyHistory"/>
+            </MenuFlyout></Button.Flyout>
            </Button>
            <Button x:Uid="L6063b139a260" x:Name="ExpandDetailButton"   Click="OnExpandDetail" Padding="8"><FontIcon Glyph="&#xE740;" FontSize="14"/></Button>
            <Button x:Uid="L9233a699b51f" x:Name="CloseDetailButton" Click="OnDetailBack" Padding="8"  ><FontIcon Glyph="&#xE711;" FontSize="14"/></Button>

@@ -16,6 +16,7 @@ internal sealed class DesktopSession : IDisposable
     public Home? Home { get; private set; }
     public List<Home> Homes { get; private set; } = [];
     public List<string> Pins { get; private set; } = [];
+    public string? TraySpeakerId { get; private set; }
     public event Action? Changed;
     public event Action? AuthenticationLost;
     public event Action<DeviceTile>? OpenDeviceRequested;
@@ -29,6 +30,8 @@ internal sealed class DesktopSession : IDisposable
     public void Notify() => Changed?.Invoke();
     public void OpenDevice(DeviceTile tile) => OpenDeviceRequested?.Invoke(tile);
     public void SelectHome(string id) => HomeRequested?.Invoke(id);
+    public void SetHomes(List<Home> homes) => Homes = homes;
+    public void ReportAuthenticationLost() => AuthenticationLost?.Invoke();
     public void Publish(DeviceCardState state)
     {
         if (!Authenticated || !Available.Any(t => t.Device.Id == state.DeviceId)) return;
@@ -48,17 +51,18 @@ internal sealed class DesktopSession : IDisposable
         Homes = homes;
         if (Home?.Id == home.Id) { Home = home; return; }
         var generation = ++contextVersion;
-        Home = home; Pins = []; Notify();
+        Home = home; Pins = []; TraySpeakerId = null; Notify();
         var result = await Backend.CallAsync("GetTrayPreferences", new { homeId = home.Id });
         if (generation != contextVersion) return;
         Pins = result.GetProperty("pins").Deserialize<List<string>>() ?? [];
+        TraySpeakerId = result.TryGetProperty("speakerId", out var speaker) ? speaker.GetString() : null;
         Notify();
     }
     public void Clear()
     {
         contextVersion++;
         operationVersion++; Busy = false;
-        Authenticated = false; Home = null; Homes = []; Pins = [];
+        Authenticated = false; Home = null; Homes = []; Pins = []; TraySpeakerId = null;
         Browser.SetDevices([]); Notify();
     }
     public async Task SavePinsAsync(IEnumerable<string> ids)
@@ -71,6 +75,13 @@ internal sealed class DesktopSession : IDisposable
             throw new InvalidOperationException(UiText.Get("TrayPinLimit"));
         await Backend.CallAsync("SetTrayPreferences", new { homeId = home.Id, pins });
         if (generation == contextVersion && revision == pinRevision) { Pins = pins; Notify(); }
+    }
+    public async Task SaveTraySpeakerAsync(string id)
+    {
+        if (Home is not { } home || !Authenticated) return;
+        var generation = contextVersion;
+        await Backend.CallAsync("SetTraySpeaker", new { homeId = home.Id, speakerId = id });
+        if (generation == contextVersion) { TraySpeakerId = id; Notify(); }
     }
     public async Task RefreshAsync()
     {
@@ -107,7 +118,7 @@ internal sealed class DesktopSession : IDisposable
         finally { if (operation == operationVersion) Busy = false; Notify(); }
     }
     public void Dispose() => Backend.Dispose();
-    private sealed class ScopedService(DesktopSession owner, string deviceId, int generation, DeviceAdapter? adapter) : IDeviceService, IDeviceActionService
+    private sealed class ScopedService(DesktopSession owner, string deviceId, int generation, DeviceAdapter? adapter) : IDeviceService, IDeviceActionService, ISpeakerActionService
     {
         private void Check(string id, bool write = false)
         {
@@ -129,5 +140,7 @@ internal sealed class DesktopSession : IDisposable
         { Check(key.DeviceId, true); await Execute(async () => { await owner.Backend.WriteAsync(key, value); return true; }); }
         public Task<ActionResult> InvokeActionAsync(ActionRequest request)
         { Check(request.DeviceId, true); return Execute(() => owner.Backend.InvokeActionAsync(request)); }
+        public Task<ActionResult> SendSpeakerActionAsync(SpeakerActionRequest request)
+        { Check(request.DeviceId, true); return Execute(() => owner.Backend.SendSpeakerActionAsync(request)); }
     }
 }

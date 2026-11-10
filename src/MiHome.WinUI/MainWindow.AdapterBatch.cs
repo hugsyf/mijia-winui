@@ -21,7 +21,7 @@ public sealed partial class MainWindow
     private async Task<List<AdapterWorkResult>> RunAdapterItemsAsync<T>(string title,IReadOnlyList<T> items,Func<T,string> name,Func<T,Task<string?>> action)
     {
         var stop=false;var finished=false;
-        var dialog=new Dialogs.AdapterProgressDialog {XamlRoot=Root.XamlRoot,Title=title,CloseButtonText="停止后续操作"};
+        var dialog=new Dialogs.AdapterProgressDialog {XamlRoot=Root.XamlRoot,RequestedTheme=Root.ActualTheme,Title=title,CloseButtonText=UiText.Get("AdapterStopRemaining")};
         var label=dialog.StatusLabel;var progress=dialog.ProgressIndicator;progress.Maximum=Math.Max(1,items.Count);
         dialog.CloseButtonClick+=(_,e)=>{e.Cancel=true;stop=true;dialog.CloseButtonText=MiHome.WinUI.Infrastructure.UiText.Get("S8a99be840844");label.Text=MiHome.WinUI.Infrastructure.UiText.Get("Sd9f0cd172d82");};
         dialog.Closing+=(_,e)=>{if(!finished){e.Cancel=true;stop=true;dialog.CloseButtonText=MiHome.WinUI.Infrastructure.UiText.Get("S8a99be840844");}};
@@ -60,7 +60,7 @@ public sealed partial class MainWindow
     }
     private async Task RemoveAdaptersAsync(List<AdapterPackage> selected)
     {
-        var confirmation = new Dialogs.MessageDialog { XamlRoot=Root.XamlRoot, Title=$"卸载 {selected.Count} 个适配包？", PrimaryButtonText=MiHome.WinUI.Infrastructure.UiText.Get("S06bc14b60f35") };
+        var confirmation = new Dialogs.MessageDialog { XamlRoot=Root.XamlRoot, RequestedTheme=Root.ActualTheme, Title=UiText.Format("AdapterRemoveConfirmation",selected.Count), PrimaryButtonText=UiText.Get("S06bc14b60f35") };
         confirmation.SetBody(DocumentPresenter.Plain(string.Join("\n",selected.Select(p=>p.Name))+"\n\n相关设备将恢复默认面板。"),300);
         if(await confirmation.ShowAsync()!=ContentDialogResult.Primary)return;
         var results=await RunAdapterItemsAsync("卸载适配包",selected,p=>p.Name,async p=>{await AdapterCallAsync("RemoveAdapter",new{id=p.Id});return "已卸载";});
@@ -124,7 +124,7 @@ public sealed partial class MainWindow
         if(inspected.Count==0){ShowAdapterResults("导入已取消",checks);return;}
         var duplicateIds=AdapterBatchRules.DuplicateIds(inspected.Where(f=>f.Inspection is not null).Select(f=>f.Definition!.Id));
         inspected=inspected.Select(f=>f.Definition is {} d&&duplicateIds.Contains(d.Id)?f with{Error="适配包标识重复，请每次只选择一个版本。"}:f).ToList();
-        var dialog = new Dialogs.AdapterImportDialog { XamlRoot=Root.XamlRoot };
+        var dialog = new Dialogs.AdapterImportDialog { XamlRoot=Root.XamlRoot, RequestedTheme=Root.ActualTheme };
         dialog.SetMaximumHeight(Math.Max(120,Math.Min(500,Root.XamlRoot.Size.Height-220)));
         var list=dialog.FileList;var apply=dialog.ApplyToggle;var warning=dialog.WarningLabel;
         var rows=inspected.Select(file=>

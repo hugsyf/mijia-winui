@@ -54,6 +54,7 @@ python tools/adapter_tool.py validate artifacts/my-adapter.mihome-adapter
 
 应用支持普通卡片、展开卡片、抽屉和整页布局。
 SDK 支持属性读写和标量 MIOT Actions。
+参照 `backend/adapter-agent-guide.md` 中的「小爱音箱」示例声明播放状态、音量、静音和文字动作。
 SDK 不提供脚本执行、视频、历史数据或本机定时任务。
 
 SDK 0.20.0 增加 `conditions.enabled` 和 `labels.localized`。

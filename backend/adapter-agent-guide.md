@@ -463,6 +463,68 @@ play, pause, stop, previous, next, resume-cook, stop-alarm
 宿主会检查当前适配包、设备状态、模式和相关故障。
 这些检查不能替代设备自身的保护机制。
 
+### 小爱音箱
+
+兼容音箱使用默认面板时，宿主提供播放控制和托盘音箱区。
+通过 `views` 定义适配包的面板。
+
+- 用 `status` 显示 `play-control.playing-state`。
+- 用 `slider` 调节 `speaker.volume`。使用规格的范围和步长。
+- 用 `toggle` 切换布尔属性 `speaker.mute`。
+- 用 `action` 调用 `play-control` 的 `play`、`pause`、`previous` 和 `next`。
+- 用 `action` 调用 `intelligent-speaker.play-text`。输入为字符串 `text-content`。
+- 用 `action` 调用 `intelligent-speaker.execute-text-directive`。按规格顺序提供 `text-content` 和布尔值 `silent-execution`。
+
+先导出目标音箱的规格。
+只声明规格中可唯一匹配的属性和动作。
+音箱的 `siid` 和动作输入可能不同。
+将文字动作放在 `drawer` 或 `full`。
+省略 `arguments`，让用户输入文字并确认发送。
+`textInput` 用于可读写属性。它不能提供动作的输入。
+`views.cardExpanded` 可以放置音量滑条和无输入的播放动作。
+
+以下示例适用于小米 AI 音箱（第二代）的指定规格。
+
+```json
+{
+  "formatVersion": 1,
+  "id": "example.ai-speaker",
+  "name": "小米 AI 音箱示例",
+  "version": "1.0.0",
+  "models": ["xiaomi.wifispeaker.l15a"],
+  "specType": "urn:miot-spec-v2:device:speaker:0000A015:xiaomi-l15a:2",
+  "category": "speaker",
+  "requires": ["actions.v1", "layout.cardExpanded"],
+  "bindings": [
+    {"id":"state","service":"play-control","property":"playing-state","siid":3,"type":"uint8","unit":"none","access":"read"},
+    {"id":"volume","service":"speaker","property":"volume","siid":2,"type":"uint8","unit":"percentage","access":"readWrite"},
+    {"id":"mute","service":"speaker","property":"mute","siid":2,"type":"bool","access":"readWrite"}
+  ],
+  "actions": [
+    {"id":"play","service":"play-control","action":"play","siid":3},
+    {"id":"pause","service":"play-control","action":"pause","siid":3},
+    {"id":"speak","service":"intelligent-speaker","action":"play-text","siid":7},
+    {"id":"directive","service":"intelligent-speaker","action":"execute-text-directive","siid":7}
+  ],
+  "views": {
+    "card": [{"kind":"status","label":"播放状态","binding":"state"}],
+    "cardExpanded": [
+      {"kind":"slider","label":"音量","binding":"volume"},
+      {"kind":"action","label":"暂停","action":"pause"}
+    ],
+    "drawer": [
+      {"kind":"slider","label":"音量","binding":"volume"},
+      {"kind":"toggle","label":"静音","binding":"mute"},
+      {"kind":"action","label":"播放","action":"play"},
+      {"kind":"action","label":"暂停","action":"pause"},
+      {"kind":"action","label":"朗读文本","action":"speak"},
+      {"kind":"action","label":"执行文字指令","action":"directive"}
+    ],
+    "full": []
+  }
+}
+```
+
 ## 验证和交付
 
 1. 创建预览文件：

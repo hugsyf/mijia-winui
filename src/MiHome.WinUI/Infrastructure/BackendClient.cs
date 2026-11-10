@@ -6,7 +6,7 @@ using System.Text.Json;
 using MiHome.WinUI.Core;
 namespace MiHome.WinUI.Infrastructure;
 
-public sealed class BackendClient : IDeviceService, IDeviceActionService, IDisposable
+public sealed class BackendClient : IDeviceService, IDeviceActionService, ISpeakerActionService, IDisposable
 {
     public static readonly JsonSerializerOptions Json = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, PropertyNameCaseInsensitive = true };
     private readonly ConcurrentDictionary<long, TaskCompletionSource<JsonElement>> pending = new();
@@ -16,6 +16,7 @@ public sealed class BackendClient : IDeviceService, IDeviceActionService, IDispo
     private long nextId;
     public event Action<JsonElement>? EventReceived;
     public event Action? Disconnected;
+    internal event Action<string>? ManualDeviceWrite;
     public bool Running => process is { HasExited: false };
 
     public async Task StartAsync()
@@ -72,7 +73,7 @@ public sealed class BackendClient : IDeviceService, IDeviceActionService, IDispo
         if (hello.GetProperty("protocol").GetInt32() != 1) throw new Exception("通信版本不兼容，请重新安装。");
     }
 
-    public async Task<JsonElement> CallAsync(string method, object? parameters = null)
+    public async Task<JsonElement> CallAsync(string method, object? parameters = null, CancellationToken beforeSend = default)
     {
         var owned = process;
         if (owned is null || owned.HasExited) throw new Exception("尚未连接米家，请重新连接。");
@@ -81,9 +82,10 @@ public sealed class BackendClient : IDeviceService, IDeviceActionService, IDispo
         pending[id] = completion;
         try
         {
-            await inputLock.WaitAsync();
+            await inputLock.WaitAsync(beforeSend);
             try
             {
+                beforeSend.ThrowIfCancellationRequested();
                 await owned.StandardInput.WriteLineAsync(JsonSerializer.Serialize(new { version = 1, id, method, @params = parameters }, Json));
                 await owned.StandardInput.FlushAsync();
             }
@@ -92,15 +94,28 @@ public sealed class BackendClient : IDeviceService, IDeviceActionService, IDispo
         }
         catch (TimeoutException)
         {
-            if (method == "RunAction") throw new BridgeException("actionUnknown", "动作结果待确认，请检查设备状态，不要重复提交。");
+            if (method is "RunAction" or "RunScene" or "RunSpeakerAction") throw new BridgeException("actionUnknown", "动作结果待确认，请检查设备状态，不要重复提交。");
             throw new Exception(method == "WriteProperty" ? "操作超时，结果待确认。请刷新状态，不要重复提交。" : "请求超时，请稍后刷新。");
         }
         finally { pending.TryRemove(id, out _); }
     }
     public async Task<DeviceSchema> GetSchemaAsync(string deviceId) => (await CallAsync("GetDeviceSchema", new { deviceId })).Deserialize<DeviceSchema>(Json)!;
     public Task<JsonElement> ReadAsync(string deviceId) => CallAsync("ReadProperties", new { deviceId });
-    public async Task WriteAsync(PropertyKey key, object? value) => await CallAsync("WriteProperty", new { deviceId = key.DeviceId, siid = key.Siid, piid = key.Piid, value });
-    public async Task<ActionResult> InvokeActionAsync(ActionRequest request) => (await CallAsync("RunAction", request)).Deserialize<ActionResult>(Json)!;
+    public async Task WriteAsync(PropertyKey key, object? value)
+    {
+        ManualDeviceWrite?.Invoke(key.DeviceId);
+        await CallAsync("WriteProperty", new { deviceId = key.DeviceId, siid = key.Siid, piid = key.Piid, value });
+    }
+    public async Task<ActionResult> InvokeActionAsync(ActionRequest request)
+    {
+        ManualDeviceWrite?.Invoke(request.DeviceId);
+        return (await CallAsync("RunAction", request)).Deserialize<ActionResult>(Json)!;
+    }
+    public async Task<ActionResult> SendSpeakerActionAsync(SpeakerActionRequest request)
+    {
+        ManualDeviceWrite?.Invoke(request.DeviceId);
+        return (await CallAsync("RunSpeakerAction", request)).Deserialize<ActionResult>(Json)!;
+    }
     public void Dispose()
     {
         var owned = process;

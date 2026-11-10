@@ -70,7 +70,8 @@ public sealed partial class MainWindow : Window
         panels.Register(generic);
         panels.Register(new DeviceExperienceProvider());
         backend.EventReceived += message => DispatcherQueue.TryEnqueue(() => HandleEvent(message));
-        backend.Disconnected += () => DispatcherQueue.TryEnqueue(() => { if (!closing) { browser.SetCardStates([]); ApplyFilter(); Restart.Visibility = Visibility.Visible; ShowMessage(MiHome.WinUI.Infrastructure.UiText.Get("S0bf618e12dda")); } });
+        backend.Disconnected += () => DispatcherQueue.TryEnqueue(() => { if (!closing) { App.Automation.Cancel(); browser.SetCardStates([]); ApplyFilter(); Restart.Visibility = Visibility.Visible; ShowMessage(MiHome.WinUI.Infrastructure.UiText.Get("S0bf618e12dda")); } });
+        AutomationView.Configure(PickAutomationProgramAsync);
         timer.Tick += async (_, _) => { if (active && !busy && detailOpen && (DevicesView.Visibility == Visibility.Visible || OverviewView.Visibility == Visibility.Visible)) await RefreshDetailAsync(); };
         Activated += (_, e) =>
         {
@@ -137,6 +138,7 @@ public sealed partial class MainWindow : Window
     }
     private void SetInputsEnabled(bool enabled)
     {
+        (specializedPanel as SpeakerPanel)?.UpdateControls();
         EditModeButton.IsEnabled = enabled;
         adaptersPage.IsHitTestVisible=enabled;
         Rooms.IsEnabled = enabled;
@@ -167,6 +169,8 @@ public sealed partial class MainWindow : Window
     {
         var selectedHome = (Homes.SelectedItem as Home)?.Id;
         var homes = (await backend.CallAsync("ListHomes")).Deserialize<List<Home>>(BackendClient.Json) ?? [];
+        App.Session.SetHomes(homes);
+        App.Automation.Bind((await backend.CallAsync("GetAutomationAccount")).GetProperty("account").GetString());
         Homes.ItemsSource = homes;
         Homes.SelectedItem = homes.FirstOrDefault(h => h.Id == selectedHome) ?? homes.FirstOrDefault();
         if (homes.Count > 0) await LoadDevicesAsync();
@@ -225,7 +229,9 @@ public sealed partial class MainWindow : Window
     private void ShowCurrentView()
     {
         if (!ready) return;
-        var overview = Navigation.SelectedItem is NavigationViewItem item && item.Tag?.ToString() == "overview";
+        var page = (Navigation.SelectedItem as NavigationViewItem)?.Tag?.ToString();
+        var overview = page == "overview";
+        var automation = page == "automation";
         var showWorkspace = authenticated && !sessionChecking;
         Navigation.IsPaneVisible = showWorkspace;
         Navigation.IsSettingsVisible = showWorkspace;
@@ -241,14 +247,17 @@ public sealed partial class MainWindow : Window
         LicensesPage.Visibility = settingsSelected && showWorkspace && licensesOpen ? Visibility.Visible : Visibility.Collapsed;
         LoginView.Visibility = !authenticated && !sessionChecking ? Visibility.Visible : Visibility.Collapsed;
         OverviewView.Visibility = !settingsSelected && showWorkspace && overview ? Visibility.Visible : Visibility.Collapsed;
-        DevicesView.Visibility = !settingsSelected && showWorkspace && !overview ? Visibility.Visible : Visibility.Collapsed;
-        HeaderActions.Visibility = showWorkspace && !settingsSelected && !detailFull ? Visibility.Visible : Visibility.Collapsed;
+        DevicesView.Visibility = !settingsSelected && showWorkspace && !overview && !automation ? Visibility.Visible : Visibility.Collapsed;
+        var showAutomation = !settingsSelected && showWorkspace && automation;
+        AutomationView.Visibility = showAutomation ? Visibility.Visible : Visibility.Collapsed;
+        if (showAutomation) AutomationView.Open();
+        HeaderActions.Visibility = showWorkspace && !settingsSelected && !detailFull && !automation ? Visibility.Visible : Visibility.Collapsed;
         EditModeButton.Visibility=overview?Visibility.Collapsed:Visibility.Visible;
-        Filters.Visibility = showWorkspace && !settingsSelected && !overview && !detailFull ? Visibility.Visible : Visibility.Collapsed;
-        PageTitle.Text = UiText.Get(settingsSelected?licensesOpen?"LicenseTitle":"SettingsTitle":overview?"HomeTitle":"DevicesTitle");
+        Filters.Visibility = showWorkspace && !settingsSelected && !overview && !detailFull && !automation ? Visibility.Visible : Visibility.Collapsed;
+        PageTitle.Text = UiText.Get(settingsSelected ? licensesOpen ? "LicenseTitle" : "SettingsTitle" : automation ? "AutoTitle" : overview ? "HomeTitle" : "DevicesTitle");
         var offline = browser.Devices.Count(d => !d.Online);
         HeaderLayout.MaxWidth = overview && !settingsSelected ? 1320 : double.PositiveInfinity;
-        PageDescription.Text = settingsSelected ? "" : overview ? homeView?.Headline ?? "" : UiText.Format("DeviceCount",browser.Devices.Count)+(offline>0?" · "+UiText.Format("OfflineCount",offline):"");
+        PageDescription.Text = settingsSelected || automation ? "" : overview ? homeView?.Headline ?? "" : UiText.Format("DeviceCount",browser.Devices.Count)+(offline>0?" · "+UiText.Format("OfflineCount",offline):"");
         PageDescription.Visibility = string.IsNullOrEmpty(PageDescription.Text) ? Visibility.Collapsed : Visibility.Visible;
         UpdateLoginPresentation();
         DispatcherQueue.TryEnqueue(UpdateResponsiveLayout);
@@ -365,6 +374,8 @@ public sealed partial class MainWindow : Window
         if (!stayOnHome && Navigation.SelectedItem != Navigation.MenuItems[1]) Navigation.SelectedItem = Navigation.MenuItems[1];
         selectedDevice = selected;
         ParentSwitchSettings.Visibility = DeviceListing.Parent(selected, browser.AllDevices) is null ? Visibility.Collapsed : Visibility.Visible;
+        DeviceReadingsSeparator.Visibility = DeviceConsumablesItem.Visibility = diagnosticService is null ? Visibility.Visible : Visibility.Collapsed;
+        DeviceEnergyItem.Visibility = diagnosticService is null && selected.SupportsEnergyHistory ? Visibility.Visible : Visibility.Collapsed;
         settingCardAppearance = true;
         CardSizeChoice.ItemsSource = DeviceExperience.Sizes(selected);
         CardSizeChoice.SelectedItem = ((CardAppearanceOption[])CardSizeChoice.ItemsSource).FirstOrDefault(s => s.Id == selected.CardSize)
@@ -384,7 +395,10 @@ public sealed partial class MainWindow : Window
         DeviceInformation.IsExpanded = false;
         DeviceInformation.Visibility = Visibility.Collapsed;
         var context = new PanelContext(selected, schema, diagnosticService ?? backend);
-        var panel = selected.Adapter is not null ? (FrameworkElement)new AdapterPanel(selected,schema,diagnosticService??backend) : panels.Create(context, generic);
+        var panel = selected.Adapter is not null ? (FrameworkElement)new AdapterPanel(selected,schema,context.Service)
+            : SpeakerPanel.Supports(context) ? new SpeakerPanel(context, browser.HomeTiles.FirstOrDefault(tile => tile.Device.Id == selected.Id)?.State,
+                () => detailOpen && !closing && !busy && generation == viewGeneration)
+            : panels.Create(context, generic);
         if(selected.AdapterIssue is {} issue)ShowMessage(issue);
         if (panel is AdapterPanel)
         {
@@ -425,6 +439,11 @@ public sealed partial class MainWindow : Window
             GenericExpander.IsExpanded = false;
         }
         if(panel is AdapterPanel adapterPanel) adapterPanel.CardStateRead+=OnDetailCardStateRead;
+        if (panel is SpeakerPanel speakerPanel)
+        {
+            speakerPanel.StateRead += OnDetailCardStateRead;
+            speakerPanel.AuthenticationLost += () => { if (generation == viewGeneration) OnSharedAuthenticationLost(); };
+        }
         if (genericPanel is not null && DeviceCardPresentation.CanReadCard(selected))
             genericPanel.CardStateRead += OnDetailCardStateRead;
         specializedPanel = panel is GenericPanel ? null : panel as IRefreshablePanel;
@@ -561,6 +580,7 @@ public sealed partial class MainWindow : Window
         detailOpen = false;
         detailFull = false;
         selectedDevice = null;
+        (specializedPanel as SpeakerPanel)?.ClearDraft();
         HideDrawerAnimated();
         DeviceList.Visibility = Visibility.Visible;
         ApplyFilter();
@@ -569,6 +589,7 @@ public sealed partial class MainWindow : Window
     private void OnBack(object sender, RoutedEventArgs e) => Back();
     private void ResetSession()
     {
+        App.Automation.Bind(null);
         App.Session.Clear();
         authenticated = false;
         settingsSelected = false;

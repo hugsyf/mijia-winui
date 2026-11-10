@@ -6,6 +6,7 @@
    <MenuFlyout x:Key="TrayMenu">
     <MenuFlyoutItem x:Uid="TrayMenuOpen" Click="OnOpen"><MenuFlyoutItem.Icon><FontIcon Glyph="&#xE80F;"/></MenuFlyoutItem.Icon></MenuFlyoutItem>
     <MenuFlyoutItem x:Uid="TrayMenuSettings" Click="OnSettings"><MenuFlyoutItem.Icon><FontIcon Glyph="&#xE713;"/></MenuFlyoutItem.Icon></MenuFlyoutItem>
+    <ToggleMenuFlyoutItem x:Uid="AutoTrayPause" Click="OnPauseAutomation"/>
     <MenuFlyoutSeparator/>
     <MenuFlyoutItem x:Uid="TrayMenuExit" Click="OnExit"><MenuFlyoutItem.Icon><FontIcon Glyph="&#xE8BB;"/></MenuFlyoutItem.Icon></MenuFlyoutItem>
    </MenuFlyout>

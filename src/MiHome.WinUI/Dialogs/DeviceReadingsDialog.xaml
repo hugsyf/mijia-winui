@@ -1,0 +1,25 @@
+<ContentDialog x:Class="MiHome.WinUI.Dialogs.DeviceReadingsDialog" x:Uid="Ldd5a7c7e3e40"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Style="{StaticResource DefaultContentDialogStyle}" DefaultButton="Close" HorizontalContentAlignment="Stretch">
+ <StackPanel Spacing="12">
+  <TextBlock x:Name="DeviceName" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap"/>
+  <TextBlock x:Name="Status" TextWrapping="Wrap" Visibility="Collapsed"/>
+  <ScrollViewer x:Name="ReadingsScroll" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+   VerticalScrollBarVisibility="Auto" ZoomMode="Disabled" Padding="0,0,12,0">
+   <ItemsControl x:Name="Readings">
+    <ItemsControl.ItemTemplate>
+     <DataTemplate>
+      <Border BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,1,0,0" Padding="0,10">
+       <Grid ColumnSpacing="12">
+        <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+        <TextBlock Text="{Binding Label}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="1" Text="{Binding Value}" Style="{ThemeResource BodyStrongTextBlockStyle}"
+         MaxWidth="120" TextWrapping="Wrap" TextAlignment="Right" VerticalAlignment="Center"/>
+       </Grid>
+      </Border>
+     </DataTemplate>
+    </ItemsControl.ItemTemplate>
+   </ItemsControl>
+  </ScrollViewer>
+ </StackPanel>
+</ContentDialog>

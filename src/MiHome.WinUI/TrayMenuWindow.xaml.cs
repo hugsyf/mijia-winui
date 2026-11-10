@@ -29,7 +29,20 @@ public sealed partial class TrayMenuWindow : Window
         AppWindow.Show(); Activate();
         if (Anchor.XamlRoot is not null) ShowFlyout();
     }
-    private void ShowFlyout() { if (!pending) return; pending = false; Menu.ShowAt(Anchor); }
+    private void ShowFlyout()
+    {
+        if (!pending) return;
+        pending = false;
+        var pause = Menu.Items.OfType<ToggleMenuFlyoutItem>().Single();
+        pause.IsChecked = App.Automation.Paused;
+        pause.IsEnabled = App.Automation.Account is not null && !App.Automation.StorageInvalid;
+        Menu.ShowAt(Anchor);
+    }
+    private void OnPauseAutomation(object sender, RoutedEventArgs args)
+    {
+        try { App.Automation.SetPaused(((ToggleMenuFlyoutItem)sender).IsChecked); }
+        catch { App.ShowMainWindow(); }
+    }
     private void OnOpen(object sender, RoutedEventArgs args) { Menu.Hide(); App.ShowMainWindow(); }
     private void OnSettings(object sender, RoutedEventArgs args) { Menu.Hide(); App.ShowDesktopSettings(); }
     private void OnExit(object sender, RoutedEventArgs args) { Menu.Hide(); App.ExitDesktop(); }

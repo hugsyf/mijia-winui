@@ -30,6 +30,7 @@
     <EmbeddedResource Include="../../backend/device_templates.json" LogicalName="MiHome.DeviceTemplates.json" /></ItemGroup>
  <ItemGroup>
   <Compile Include="../../src/MiHome.WinUI/Infrastructure/UiText.cs" Link="UiText.cs"/>
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/AutomationRule.cs" Link="AutomationRule.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Infrastructure/UpdateService.cs" Link="UpdateService.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Devices/AdapterConditions.cs" Link="AdapterConditions.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Devices/AdapterLocalizationResolver.cs" Link="AdapterLocalizationResolver.cs"/>

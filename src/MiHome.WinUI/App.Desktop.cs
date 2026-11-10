@@ -7,10 +7,13 @@ namespace MiHome.WinUI;
 public partial class App
 {
     internal static DesktopSession Session { get; } = new();
+    internal static AutomationEngine Automation { get; } = new(Session, SettingsDirectory);
+    internal static string AutomationTriggerIssue => ((App)Current).automationTriggers?.Unavailable ?? UiText.Get("AutoTriggersUnavailable");
     private SingleInstanceGate? singleInstance;
     private TrayIconService? tray;
     private QuickControlsWindow? quickControls;
     private TrayMenuWindow? trayMenu;
+    private AutomationTriggers? automationTriggers;
     private bool exiting, mainClosed, pendingActivation;
     internal static bool IsDesktopExiting => ((App)Current).exiting;
     internal static string SettingsDirectory => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MiHomeWinUI");
@@ -32,6 +35,8 @@ public partial class App
         try
         {
             tray = new TrayIconService();
+            automationTriggers = new AutomationTriggers(tray, Automation, main.DispatcherQueue);
+            Session.Backend.ManualDeviceWrite += Automation.ManualWrite;
             tray.Click += () => main.DispatcherQueue.TryEnqueue(() => OpenQuickPanel());
             tray.DoubleClick += () => main.DispatcherQueue.TryEnqueue(ShowMainWindow);
             tray.Unavailable += () => main.DispatcherQueue.TryEnqueue(() => { ShowMainWindow(); main.ShowDesktopMessage(UiText.Get("TrayUnavailable")); });
@@ -79,6 +84,9 @@ public partial class App
         var app = (App)Current;
         if (app.exiting) return;
         app.exiting = true;
+        Automation.Bind(null);
+        app.automationTriggers?.Dispose();
+        Session.Backend.ManualDeviceWrite -= Automation.ManualWrite;
         app.tray?.Dispose(); app.tray = null;
         Session.Dispose();
         app.quickControls?.Close(); app.trayMenu?.Close();

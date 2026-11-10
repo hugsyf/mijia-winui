@@ -291,6 +291,138 @@
     "zh-CN": "更多设备选项",
     "en-US": "More device options"
   },
+  "SpeakerTextButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "文字指令",
+    "en-US": "Text commands"
+  },
+  "SpeakerTextButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip": {
+    "zh-CN": "文字指令",
+    "en-US": "Text commands"
+  },
+  "SpeakerDirective.Text": {
+    "zh-CN": "执行指令",
+    "en-US": "Command"
+  },
+  "SpeakerSpeak.Text": {
+    "zh-CN": "朗读文本",
+    "en-US": "Read aloud"
+  },
+  "SpeakerTextInput.PlaceholderText": {
+    "zh-CN": "输入文字",
+    "en-US": "Enter text"
+  },
+  "SpeakerTextInput.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "文字内容",
+    "en-US": "Text"
+  },
+  "SpeakerQuiet.Content": {
+    "zh-CN": "静默",
+    "en-US": "Silent"
+  },
+  "SpeakerSendLabel.Text": {
+    "zh-CN": "发送",
+    "en-US": "Send"
+  },
+  "SpeakerSend.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "发送",
+    "en-US": "Send"
+  },
+  "SpeakerPrevious.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "上一首",
+    "en-US": "Previous track"
+  },
+  "SpeakerPrevious.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip": {
+    "zh-CN": "上一首",
+    "en-US": "Previous track"
+  },
+  "SpeakerNext.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "下一首",
+    "en-US": "Next track"
+  },
+  "SpeakerNext.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip": {
+    "zh-CN": "下一首",
+    "en-US": "Next track"
+  },
+  "SpeakerVolume.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "音量",
+    "en-US": "Volume"
+  },
+  "SpeakerPlay": {
+    "zh-CN": "播放",
+    "en-US": "Play"
+  },
+  "SpeakerPause": {
+    "zh-CN": "暂停",
+    "en-US": "Pause"
+  },
+  "SpeakerMute": {
+    "zh-CN": "静音",
+    "en-US": "Mute"
+  },
+  "SpeakerUnmute": {
+    "zh-CN": "取消静音",
+    "en-US": "Unmute"
+  },
+  "SpeakerOffline": {
+    "zh-CN": "离线",
+    "en-US": "Offline"
+  },
+  "SpeakerPlaybackUnknown": {
+    "zh-CN": "播放状态未知",
+    "en-US": "Playback status unavailable"
+  },
+  "SpeakerRejected": {
+    "zh-CN": "音箱未接受操作。",
+    "en-US": "The speaker rejected the command."
+  },
+  "SpeakerAccepted": {
+    "zh-CN": "已提交给音箱。",
+    "en-US": "Sent to the speaker."
+  },
+  "SpeakerUnknown": {
+    "zh-CN": "操作结果待确认。",
+    "en-US": "The result is unconfirmed."
+  },
+  "TraySpeakerPicker.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "选择音箱",
+    "en-US": "Choose a speaker"
+  },
+  "SpeakerLoading": {
+    "zh-CN": "正在读取音箱…",
+    "en-US": "Loading speaker…"
+  },
+  "SpeakerUnavailable": {
+    "zh-CN": "音箱控制暂不可用。",
+    "en-US": "Speaker controls are unavailable."
+  },
+  "DeviceConsumablesMenu.Text": {
+    "zh-CN": "耗材",
+    "en-US": "Consumables"
+  },
+  "DeviceEnergyMenu.Text": {
+    "zh-CN": "用电历史",
+    "en-US": "Energy history"
+  },
+  "DeviceEnergyTitle": {
+    "zh-CN": "月度用电",
+    "en-US": "Monthly energy use"
+  },
+  "DeviceConsumablesEmpty": {
+    "zh-CN": "暂无耗材数据。",
+    "en-US": "No consumable data."
+  },
+  "DeviceEnergyEmpty": {
+    "zh-CN": "暂无用电记录。",
+    "en-US": "No energy records."
+  },
+  "DeviceReadingsFailed": {
+    "zh-CN": "暂时无法读取，请稍后重试。",
+    "en-US": "Could not load data. Try again later."
+  },
+  "DeviceEnergyValue": {
+    "zh-CN": "{0:0.###} kWh",
+    "en-US": "{0:0.###} kWh"
+  },
   "Lcfaf41f48a9f.Text": {
     "zh-CN": "设备适配",
     "en-US": "Device adapters"
@@ -2174,5 +2306,565 @@
   "TrayNoHome": {
     "zh-CN": "家庭尚未加载，请打开主窗口重试。",
     "en-US": "Homes have not loaded. Open the main window to try again."
+  },
+  "AutoNav.Content": {
+    "zh-CN": "自动化",
+    "en-US": "Automation"
+  },
+  "AutoTitle": {
+    "zh-CN": "自动化",
+    "en-US": "Automation"
+  },
+  "AutoScenesTab.Text": {
+    "zh-CN": "米家场景",
+    "en-US": "Mi Home scenes"
+  },
+  "AutoRulesTab.Text": {
+    "zh-CN": "PC 规则",
+    "en-US": "PC rules"
+  },
+  "AutoHome.AutomationProperties.Name": {
+    "zh-CN": "场景所属家庭",
+    "en-US": "Scene home"
+  },
+  "AutoRefresh.AutomationProperties.Name": {
+    "zh-CN": "刷新场景",
+    "en-US": "Refresh scenes"
+  },
+  "AutoRefresh.ToolTipService.ToolTip": {
+    "zh-CN": "刷新场景",
+    "en-US": "Refresh scenes"
+  },
+  "AutoNoScenes.Text": {
+    "zh-CN": "此家庭暂无手动场景。",
+    "en-US": "This home has no manual scenes."
+  },
+  "AutoRunScene.Content": {
+    "zh-CN": "运行场景",
+    "en-US": "Run scene"
+  },
+  "AutoTrayPause.Text": {
+    "zh-CN": "暂停自动化",
+    "en-US": "Pause automation"
+  },
+  "AutoNewRule.Content": {
+    "zh-CN": "新建规则",
+    "en-US": "New rule"
+  },
+  "AutoDeleteRule.Content": {
+    "zh-CN": "删除",
+    "en-US": "Delete"
+  },
+  "AutoNoRules.Text": {
+    "zh-CN": "暂无 PC 规则。",
+    "en-US": "No PC rules yet."
+  },
+  "AutoName.Header": {
+    "zh-CN": "规则名称",
+    "en-US": "Rule name"
+  },
+  "AutoRuleHome.Header": {
+    "zh-CN": "家庭",
+    "en-US": "Home"
+  },
+  "AutoEnable.Header": {
+    "zh-CN": "启用规则",
+    "en-US": "Enable rule"
+  },
+  "AutoWhen.Text": {
+    "zh-CN": "触发器",
+    "en-US": "When"
+  },
+  "AutoTrigger.Header": {
+    "zh-CN": "事件",
+    "en-US": "Trigger"
+  },
+  "AutoBrowse.Content": {
+    "zh-CN": "选择程序",
+    "en-US": "Choose program"
+  },
+  "AutoHotkey.Header": {
+    "zh-CN": "Ctrl + Alt +",
+    "en-US": "Ctrl + Alt +"
+  },
+  "AutoIf.Text": {
+    "zh-CN": "条件",
+    "en-US": "If"
+  },
+  "AutoLimitTime.Content": {
+    "zh-CN": "仅在指定时间段运行",
+    "en-US": "Limit to a time window"
+  },
+  "AutoFrom.Header": {
+    "zh-CN": "开始时间",
+    "en-US": "Start time"
+  },
+  "AutoUntil.Header": {
+    "zh-CN": "结束时间",
+    "en-US": "End time"
+  },
+  "AutoThen.Text": {
+    "zh-CN": "执行步骤",
+    "en-US": "Then"
+  },
+  "AutoMoveUp.AutomationProperties.Name": {
+    "zh-CN": "上移步骤",
+    "en-US": "Move step up"
+  },
+  "AutoMoveUp.ToolTipService.ToolTip": {
+    "zh-CN": "上移步骤",
+    "en-US": "Move step up"
+  },
+  "AutoMoveDown.AutomationProperties.Name": {
+    "zh-CN": "下移步骤",
+    "en-US": "Move step down"
+  },
+  "AutoMoveDown.ToolTipService.ToolTip": {
+    "zh-CN": "下移步骤",
+    "en-US": "Move step down"
+  },
+  "AutoRemoveStep.AutomationProperties.Name": {
+    "zh-CN": "移除步骤",
+    "en-US": "Remove step"
+  },
+  "AutoRemoveStep.ToolTipService.ToolTip": {
+    "zh-CN": "移除步骤",
+    "en-US": "Remove step"
+  },
+  "AutoAddStepHeader.Header": {
+    "zh-CN": "添加步骤",
+    "en-US": "Add a step"
+  },
+  "AutoStepType.Header": {
+    "zh-CN": "动作类型",
+    "en-US": "Action type"
+  },
+  "AutoDevice.Header": {
+    "zh-CN": "设备",
+    "en-US": "Device"
+  },
+  "AutoProperty.Header": {
+    "zh-CN": "属性",
+    "en-US": "Property"
+  },
+  "AutoValue.Header": {
+    "zh-CN": "目标值",
+    "en-US": "Target value"
+  },
+  "AutoNumber.Header": {
+    "zh-CN": "目标值",
+    "en-US": "Target value"
+  },
+  "AutoColor.Content": {
+    "zh-CN": "选择颜色",
+    "en-US": "Choose color"
+  },
+  "AutoScene.Header": {
+    "zh-CN": "场景",
+    "en-US": "Scene"
+  },
+  "AutoSeconds.Header": {
+    "zh-CN": "等待秒数",
+    "en-US": "Wait in seconds"
+  },
+  "AutoAddStep.Content": {
+    "zh-CN": "添加",
+    "en-US": "Add"
+  },
+  "AutoSave.Content": {
+    "zh-CN": "保存规则",
+    "en-US": "Save rule"
+  },
+  "AutoPreview.Content": {
+    "zh-CN": "预演",
+    "en-US": "Preview"
+  },
+  "AutoCancelEdit.Content": {
+    "zh-CN": "取消",
+    "en-US": "Cancel"
+  },
+  "AutoHistory.Header": {
+    "zh-CN": "运行记录",
+    "en-US": "Run history"
+  },
+  "AutoForegroundExit": {
+    "zh-CN": "程序离开前台",
+    "en-US": "App leaves foreground"
+  },
+  "AutoProcessStart": {
+    "zh-CN": "程序启动",
+    "en-US": "App starts"
+  },
+  "AutoProcessExit": {
+    "zh-CN": "程序退出",
+    "en-US": "App exits"
+  },
+  "AutoIdle": {
+    "zh-CN": "电脑空闲",
+    "en-US": "PC becomes idle"
+  },
+  "AutoActive": {
+    "zh-CN": "恢复操作",
+    "en-US": "Input resumes"
+  },
+  "AutoSchedule": {
+    "zh-CN": "定时",
+    "en-US": "Scheduled time"
+  },
+  "AutoWake": {
+    "zh-CN": "电脑唤醒",
+    "en-US": "PC wakes"
+  },
+  "AutoAcPower": {
+    "zh-CN": "接入交流电源",
+    "en-US": "AC power connected"
+  },
+  "AutoBatteryLow": {
+    "zh-CN": "电池电量下降",
+    "en-US": "Battery level drops"
+  },
+  "AutoDisplayOff": {
+    "zh-CN": "屏幕关闭",
+    "en-US": "Display turns off"
+  },
+  "AutoUsbAttach": {
+    "zh-CN": "USB 设备接入",
+    "en-US": "USB device connected"
+  },
+  "AutoAudioOutput": {
+    "zh-CN": "默认音频输出切换",
+    "en-US": "Default audio output changes"
+  },
+  "AutoNetworkOnline": {
+    "zh-CN": "网络恢复",
+    "en-US": "Internet connection returns"
+  },
+  "AutoScheduleTime.Header": {
+    "zh-CN": "时间",
+    "en-US": "Time"
+  },
+  "AutoScheduleDays.Text": {
+    "zh-CN": "重复日期",
+    "en-US": "Repeat on"
+  },
+  "AutoBatteryThreshold": {
+    "zh-CN": "电量阈值",
+    "en-US": "Battery level"
+  },
+  "AutoIdleThreshold": {
+    "zh-CN": "空闲时长",
+    "en-US": "Idle time"
+  },
+  "AutoThresholdPercent": {
+    "zh-CN": "{0}%",
+    "en-US": "{0}%"
+  },
+  "AutoThresholdMinutes": {
+    "zh-CN": "{0} 分钟",
+    "en-US": "{0} min"
+  },
+  "AutoTriggerDetail": {
+    "zh-CN": "{0}（{1}）",
+    "en-US": "{0} ({1})"
+  },
+  "AutoScheduleDetail": {
+    "zh-CN": "{0} {1}",
+    "en-US": "{1} at {0}"
+  },
+  "AutoEveryDay": {
+    "zh-CN": "每天",
+    "en-US": "Every day"
+  },
+  "AutoUsbDevice.Header": {
+    "zh-CN": "USB 设备",
+    "en-US": "USB device"
+  },
+  "AutoUsbDevice.PlaceholderText": {
+    "zh-CN": "选择已连接的设备",
+    "en-US": "Select a connected device"
+  },
+  "AutoUsbUnavailable": {
+    "zh-CN": "无法读取 USB 设备。",
+    "en-US": "Could not read USB devices."
+  },
+  "AutoMonday.Content": {
+    "zh-CN": "一",
+    "en-US": "Mon"
+  },
+  "AutoMonday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期一",
+    "en-US": "Monday"
+  },
+  "AutoTuesday.Content": {
+    "zh-CN": "二",
+    "en-US": "Tue"
+  },
+  "AutoTuesday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期二",
+    "en-US": "Tuesday"
+  },
+  "AutoWednesday.Content": {
+    "zh-CN": "三",
+    "en-US": "Wed"
+  },
+  "AutoWednesday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期三",
+    "en-US": "Wednesday"
+  },
+  "AutoThursday.Content": {
+    "zh-CN": "四",
+    "en-US": "Thu"
+  },
+  "AutoThursday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期四",
+    "en-US": "Thursday"
+  },
+  "AutoFriday.Content": {
+    "zh-CN": "五",
+    "en-US": "Fri"
+  },
+  "AutoFriday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期五",
+    "en-US": "Friday"
+  },
+  "AutoSaturday.Content": {
+    "zh-CN": "六",
+    "en-US": "Sat"
+  },
+  "AutoSaturday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期六",
+    "en-US": "Saturday"
+  },
+  "AutoSunday.Content": {
+    "zh-CN": "日",
+    "en-US": "Sun"
+  },
+  "AutoSunday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "星期日",
+    "en-US": "Sunday"
+  },
+  "AutoForeground": {
+    "zh-CN": "程序进入前台",
+    "en-US": "Program enters foreground"
+  },
+  "AutoLock": {
+    "zh-CN": "锁屏",
+    "en-US": "Session locks"
+  },
+  "AutoUnlock": {
+    "zh-CN": "解锁",
+    "en-US": "Session unlocks"
+  },
+  "AutoShortcut": {
+    "zh-CN": "全局快捷键",
+    "en-US": "Global shortcut"
+  },
+  "AutoWriteType": {
+    "zh-CN": "设置设备属性",
+    "en-US": "Set device property"
+  },
+  "AutoWaitType": {
+    "zh-CN": "等待",
+    "en-US": "Wait"
+  },
+  "AutoSceneType": {
+    "zh-CN": "运行米家场景",
+    "en-US": "Run Mi Home scene"
+  },
+  "AutoOn": {
+    "zh-CN": "开启",
+    "en-US": "On"
+  },
+  "AutoOff": {
+    "zh-CN": "关闭",
+    "en-US": "Off"
+  },
+  "AutoWaitLabel": {
+    "zh-CN": "等待 {0} 秒",
+    "en-US": "Wait {0} s"
+  },
+  "AutoSceneLabel": {
+    "zh-CN": "运行场景 · {0}",
+    "en-US": "Run scene · {0}"
+  },
+  "AutoStepNumber": {
+    "zh-CN": "第 {0} 步",
+    "en-US": "Step {0}"
+  },
+  "AutoStorage": {
+    "zh-CN": "无法读取或保存自动化设置。",
+    "en-US": "Could not load or save automation settings."
+  },
+  "AutoInvalid": {
+    "zh-CN": "请检查规则名称、触发器、时间段和步骤。",
+    "en-US": "Check the rule name, trigger, time window, and steps."
+  },
+  "AutoInvalidStep": {
+    "zh-CN": "请选择有效的动作和目标值。",
+    "en-US": "Choose a valid action and target value."
+  },
+  "AutoLoadScenesFailed": {
+    "zh-CN": "无法加载手动场景。",
+    "en-US": "Could not load manual scenes."
+  },
+  "AutoLoadDevicesFailed": {
+    "zh-CN": "无法加载设备或属性。",
+    "en-US": "Could not load devices or properties."
+  },
+  "AutoConfirmScene": {
+    "zh-CN": "运行“{0}”？此场景可能控制多台设备。",
+    "en-US": "Run “{0}”? This scene can control multiple devices."
+  },
+  "AutoConfirmSceneRule": {
+    "zh-CN": "启用后，触发器可以自动运行此规则中的米家场景。",
+    "en-US": "When enabled, the trigger can run the Mi Home scenes in this rule."
+  },
+  "AutoTimeMatches": {
+    "zh-CN": "当前时间满足条件。",
+    "en-US": "The current time matches the rule."
+  },
+  "AutoTimeNotMatched": {
+    "zh-CN": "当前时间不满足条件。",
+    "en-US": "The current time is outside the rule’s time window."
+  },
+  "AutoClose": {
+    "zh-CN": "关闭",
+    "en-US": "Close"
+  },
+  "AutoConfirm": {
+    "zh-CN": "确认",
+    "en-US": "Confirm"
+  },
+  "AutoCompleted": {
+    "zh-CN": "流程完成",
+    "en-US": "Sequence complete"
+  },
+  "AutoAccepted": {
+    "zh-CN": "云端已接受",
+    "en-US": "Accepted by Mi Home"
+  },
+  "AutoConfirmed": {
+    "zh-CN": "设备状态已确认",
+    "en-US": "Device state confirmed"
+  },
+  "AutoFailed": {
+    "zh-CN": "步骤失败",
+    "en-US": "Step failed"
+  },
+  "AutoUnknown": {
+    "zh-CN": "结果待确认，请检查设备状态。",
+    "en-US": "Result unknown. Check the device state."
+  },
+  "AutoRepair": {
+    "zh-CN": "设备离线、已移除或规格已变更",
+    "en-US": "Device offline, removed, or specification changed"
+  },
+  "AutoLoginRequired": {
+    "zh-CN": "米家登录已失效",
+    "en-US": "Mi Home sign-in expired"
+  },
+  "AutoCancelled": {
+    "zh-CN": "已取消后续步骤",
+    "en-US": "Remaining steps canceled"
+  },
+  "AutoManualConflict": {
+    "zh-CN": "因手动操作停止",
+    "en-US": "Stopped for manual control"
+  },
+  "AutoSkipped": {
+    "zh-CN": "已有操作在运行，已跳过",
+    "en-US": "Skipped while another operation was running"
+  },
+  "AutoTriggersUnavailable": {
+    "zh-CN": "Windows 触发器",
+    "en-US": "Windows triggers"
+  },
+  "AutoTriggerIssue": {
+    "zh-CN": "触发器不可用：{0}",
+    "en-US": "Unavailable triggers: {0}"
+  },
+  "AutoNewRuleIcon.AutomationProperties.Name": {
+    "zh-CN": "新建规则",
+    "en-US": "New rule"
+  },
+  "AutoNewRuleLabel.Text": {
+    "zh-CN": "新建规则",
+    "en-US": "New rule"
+  },
+  "AutoPauseLabel.Text": {
+    "zh-CN": "暂停自动化",
+    "en-US": "Pause automation"
+  },
+  "AutoPauseSwitch.AutomationProperties.Name": {
+    "zh-CN": "暂停自动化",
+    "en-US": "Pause automation"
+  },
+  "AutoEnableLabel.Text": {
+    "zh-CN": "启用规则",
+    "en-US": "Enable rule"
+  },
+  "AutoEnableSwitch.AutomationProperties.Name": {
+    "zh-CN": "启用规则",
+    "en-US": "Enable rule"
+  },
+  "AutoHistoryEmpty.Text": {
+    "zh-CN": "暂无运行记录。",
+    "en-US": "No run history yet."
+  },
+  "AutoEditorBack.AutomationProperties.Name": {
+    "zh-CN": "返回规则",
+    "en-US": "Back to rules"
+  },
+  "AutoEditorBack.ToolTipService.ToolTip": {
+    "zh-CN": "返回规则",
+    "en-US": "Back to rules"
+  },
+  "AutoDeleteIcon.AutomationProperties.Name": {
+    "zh-CN": "删除规则",
+    "en-US": "Delete rule"
+  },
+  "AutoDeleteIcon.ToolTipService.ToolTip": {
+    "zh-CN": "删除规则",
+    "en-US": "Delete rule"
+  },
+  "AutoSliderValue.AutomationProperties.Name": {
+    "zh-CN": "目标值",
+    "en-US": "Target value"
+  },
+  "AutoEditorEditTitle": {
+    "zh-CN": "编辑规则",
+    "en-US": "Edit rule"
+  },
+  "AutoHomeUnavailable": {
+    "zh-CN": "家庭不可用",
+    "en-US": "Home unavailable"
+  },
+  "AdapterSelectAll.Content": {
+    "zh-CN": "全选",
+    "en-US": "Select all"
+  },
+  "AdapterClearSelection": {
+    "zh-CN": "取消全选",
+    "en-US": "Clear selection"
+  },
+  "AdapterNoFilteredPackages": {
+    "zh-CN": "此筛选下没有适配包。",
+    "en-US": "No adapters match this filter."
+  },
+  "AdapterNoCompatiblePackages": {
+    "zh-CN": "没有适用于此设备的已启用适配包。",
+    "en-US": "No enabled adapter matches this device."
+  },
+  "AdapterChoosePanel": {
+    "zh-CN": "选择设备面板",
+    "en-US": "Choose a device panel"
+  },
+  "AdapterStopRemaining": {
+    "zh-CN": "停止后续操作",
+    "en-US": "Stop remaining operations"
+  },
+  "AdapterRemoveConfirmation": {
+    "zh-CN": "卸载 {0} 个适配包？",
+    "en-US": "Uninstall {0} adapters?"
   }
 }

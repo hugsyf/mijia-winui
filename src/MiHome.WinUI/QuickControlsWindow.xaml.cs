@@ -41,7 +41,7 @@ public sealed partial class QuickControlsWindow : Window
         if (AppWindow.Presenter is OverlappedPresenter presenter)
         { presenter.SetBorderAndTitleBar(false, false); presenter.IsResizable = false; presenter.IsMaximizable = false; presenter.IsMinimizable = false; presenter.IsAlwaysOnTop = true; }
         Devices.ItemsSource = tiles;
-        Devices.SizeChanged += (_, _) => { if (Devices.ItemsPanelRoot is ItemsWrapGrid grid) grid.ItemWidth = Math.Max(80, (Devices.ActualWidth - 8) / 3); };
+        Devices.SizeChanged += (_, _) => { if (Devices.ItemsPanelRoot is ItemsWrapGrid grid) grid.ItemWidth = Math.Max(80, Math.Floor(Devices.ActualWidth / 3)); };
         session.Changed += OnSessionChanged;
         Surface.Loaded += async (_, _) => { if (pendingChoose) { pendingChoose = false; await SafeAsync(ChooseAsync); } };
         Activated += (_, args) =>
@@ -50,7 +50,7 @@ public sealed partial class QuickControlsWindow : Window
                 DispatcherQueue.TryEnqueue(CheckForeground);
         };
         Closed += (_, _) => { closed = true; StopForegroundWatch(); timer.Stop(); session.Changed -= OnSessionChanged; };
-        timer.Tick += async (_, _) => { if (IsOpen && selected is null && Edit.IsChecked != true && !modal) await SafeAsync(session.RefreshAsync); };
+        timer.Tick += async (_, _) => { if (IsOpen && selected is null && Edit.IsChecked != true && !modal) await SafeAsync(RefreshQuickAsync); };
     }
     internal void ShowPanel((RectInt32 Anchor, RectInt32 WorkArea, double Scale) location, bool chooseDevices)
     {
@@ -69,12 +69,13 @@ public sealed partial class QuickControlsWindow : Window
         {
             if (Surface.XamlRoot is null) pendingChoose = true; else _ = SafeAsync(ChooseAsync);
         }
-        else _ = SafeAsync(session.RefreshAsync);
+        else _ = SafeAsync(RefreshQuickAsync);
     }
     internal async void Dismiss()
     {
         if (!IsOpen || closed) return;
         IsOpen = false; StopForegroundWatch(); timer.Stop(); chooser?.Hide();
+        speakerPanel?.ClearDraft();
         var version = ++motionVersion;
         ((Storyboard)Surface.Resources["OpenMotion"]).Stop();
         if (uiSettings.AnimationsEnabled)
@@ -129,6 +130,7 @@ public sealed partial class QuickControlsWindow : Window
             EmptyAction.IsEnabled = !busy;
             Devices.Visibility = selected is null ? Visibility.Visible : Visibility.Collapsed;
             Details.Visibility = selected is null ? Visibility.Collapsed : Visibility.Visible;
+            UpdateTraySpeaker(editing, busy);
             if (selected is { } selection)
             {
                 var next = session.Available.FirstOrDefault(t => t.Device.Id == selection.Device.Id);
@@ -146,7 +148,10 @@ public sealed partial class QuickControlsWindow : Window
         var scale = Math.Max(0.5, placement.Scale);
         var work = placement.WorkArea;
         var width = Math.Min((int)(360 * scale), work.Width - 16);
-        var height = Math.Min((int)((selected is null ? Math.Max(300, 154 + ((tiles.Count + 2) / 3) * 84) : 480) * scale), work.Height - 24);
+        var speakerHeight = SpeakerSection.Visibility == Visibility.Visible ? Math.Max(55, SpeakerSection.ActualHeight) : 0;
+        var noticeHeight = Feedback.IsOpen ? Feedback.ActualHeight + Feedback.Margin.Bottom : 0;
+        var tileHeight = tiles.Count == 0 ? 120 : ((tiles.Count + 2) / 3) * 84;
+        var height = Math.Min((int)Math.Ceiling(((selected is null ? 130 + tileHeight + speakerHeight : 480) + noticeHeight) * scale), work.Height - 24);
         if (height == lastHeight) return;
         lastHeight = height;
         var x = Math.Clamp(placement.Anchor.X + placement.Anchor.Width - width, work.X + 8, Math.Max(work.X + 8, work.X + work.Width - width - 8));
@@ -193,10 +198,11 @@ public sealed partial class QuickControlsWindow : Window
     {
         if (!rendering && Families.SelectedItem is Home home && home.Id != session.Home?.Id) session.SelectHome(home.Id);
     }
-    private async void OnRefresh(object sender, RoutedEventArgs args) => await SafeAsync(session.RefreshAsync);
+    private async void OnRefresh(object sender, RoutedEventArgs args) => await SafeAsync(RefreshQuickAsync);
     private void OnEdit(object sender, RoutedEventArgs args)
     {
         UpdateView();
+        if (IsOpen) Position();
         for (var i = 0; i < Devices.Items.Count; i++)
                 if (Devices.ContainerFromIndex(i) is GridViewItem { ContentTemplateRoot: QuickDeviceTile tile }) tile.SetEditing(Edit.IsChecked == true);
     }

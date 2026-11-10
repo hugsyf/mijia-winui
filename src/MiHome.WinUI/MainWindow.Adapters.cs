@@ -14,10 +14,9 @@ public sealed partial class MainWindow
     private SelectorBar adapterFilter => adaptersPage.FilterBar;
     private AppBarToggleButton adapterSelect => adaptersPage.SelectionToggle;
     private TextBlock adapterCount => adaptersPage.CountLabel;
-    private StackPanel adapterSelectionBar => adaptersPage.SelectionToolbar;
     private ToggleSwitch adapterSelectionEnabled => adaptersPage.EnableSelection;
     private Button adapterRemoveSelected => adaptersPage.RemoveSelectedButton;
-    private Button adapterSelectAll => adaptersPage.SelectAllButton;
+    private CheckBox adapterSelectAll => adaptersPage.SelectAllButton;
     private InfoBar adapterResult => adaptersPage.ResultBar;
     private readonly System.Collections.ObjectModel.ObservableCollection<Pages.AdapterPackageRow> adapterRows=[];
     private List<AdapterPackage> adapterCatalog = [];
@@ -47,10 +46,15 @@ public sealed partial class MainWindow
         adapterFilter.SelectedItem = adapterFilter.Items[0];
         adapterFilter.SelectionChanged += (_, _) => RenderAdapterCatalog();
         adapterPackages.ItemsSource=adapterRows;
-        adapterPackages.SelectionChanged += (_, _) => UpdateAdapterSelection();
+        adaptersPage.PackageSelectionChanged += UpdateAdapterSelection;
 
         adapterSelectionEnabled.Toggled += async (_, _) => { if (!renderingAdapters) await RunAsync(() => ChangeSelectedAdaptersAsync(false, adapterSelectionEnabled.IsOn)); };
-        adapterSelectAll.Click += (_, _) => { if (adapterPackages.SelectedItems.Count == adapterPackages.Items.Count) adapterPackages.SelectedItems.Clear(); else adapterPackages.SelectAll(); };
+        adapterSelectAll.Click += (_, _) =>
+        {
+            var select = adapterRows.Any(row => !row.IsSelected);
+            foreach (var row in adapterRows) row.IsSelected = select;
+            UpdateAdapterSelection();
+        };
         adapterRemoveSelected.Click += async (_, _) => await RunAsync(() => ChangeSelectedAdaptersAsync(true));
         settingsPages["adapters"] = adaptersPage;
     }
@@ -70,30 +74,31 @@ public sealed partial class MainWindow
         try
         {
             var choosing=adapterSelect.IsChecked==true;
-            adapterPackages.SelectionMode=choosing?ListViewSelectionMode.Multiple:ListViewSelectionMode.None;adapterPackages.IsItemClickEnabled=false;
-            adapterSelectionBar.Visibility=choosing?Visibility.Visible:Visibility.Collapsed;
             var filter = adapterFilter.SelectedItem is null ? 0 : adapterFilter.Items.IndexOf(adapterFilter.SelectedItem);
             var rows = Devices.AdapterBatchRules.Sort(adapterCatalog.Where(p => filter == 0 || p.Enabled == (filter == 1)), adapterSort, adapterSortDescending)
-                .Select(package => adapterRows.FirstOrDefault(row=>ReferenceEquals(row.Package,package)&&row.Choosing==choosing)??new Pages.AdapterPackageRow(package,choosing)).ToList();
+                .Select(package => adapterRows.FirstOrDefault(row=>ReferenceEquals(row.Package,package)&&row.Choosing==choosing)
+                    ??new Pages.AdapterPackageRow(package,choosing) { IsSelected = choosing && selected.Contains(package.Id) }).ToList();
             ViewModels.CollectionReconciler.Apply(adapterRows,rows,row=>row.Package.Id);
+            adaptersPage.SetSelectionMode(choosing, rows.Count, filter != 0);
             adaptersPage.SetCounts(adapterCatalog);
-            if (choosing) foreach (var row in rows.Where(row => selected.Contains(row.Package.Id)&&!adapterPackages.SelectedItems.Contains(row))) adapterPackages.SelectedItems.Add(row);
         }
         finally{renderingAdapters=false;UpdateAdapterSelection();}
     }
-    private List<AdapterPackage> SelectedAdapters()=>adapterPackages.SelectedItems.OfType<Pages.AdapterPackageRow>().Select(row=>row.Package).ToList();
+    private List<AdapterPackage> SelectedAdapters()=>adapterRows.Where(row=>row.Choosing&&row.IsSelected).Select(row=>row.Package).ToList();
     private void UpdateAdapterSelection()
     {
         if(renderingAdapters)return;renderingAdapters=true;
         try
         {
-            var selected=SelectedAdapters();var choosing=adapterSelect.IsChecked==true;
-            adapterCount.Text=choosing?UiText.Format("SelectedCount",selected.Count,adapterPackages.Items.Count):adapterPackages.Items.Count==0?UiText.Get("NoAdapters"):UiText.Format("AdapterCount",adapterPackages.Items.Count);
+            var selected=SelectedAdapters();
+            var total=adapterPackages.Items.Count;
+            adapterCount.Text=UiText.Format("SelectedCount",selected.Count,total);
             adapterSelectionEnabled.IsEnabled=adapterRemoveSelected.IsEnabled=selected.Count>0;
             adapterSelectionEnabled.IsOn=selected.Any(p=>p.Enabled);
-            adapterSelectAll.IsEnabled=adapterPackages.Items.Count>0;
+            adapterSelectAll.IsEnabled=total>0;
+            adapterSelectAll.IsChecked=selected.Count==0?false:selected.Count==total?true:null;
             ToolTipService.SetToolTip(adapterSelectionEnabled,selected.Any(p=>p.Enabled)&&selected.Any(p=>!p.Enabled)?"部分已启用；关闭以停用全部所选":"启用所选适配包");
-            ToolTipService.SetToolTip(adapterSelectAll,selected.Count==adapterPackages.Items.Count?"取消全选":"全选");
+            ToolTipService.SetToolTip(adapterSelectAll,UiText.Get(total>0&&selected.Count==total?"AdapterClearSelection":"AdapterSelectAll.Content"));
         }
         finally{renderingAdapters=false;}
     }
@@ -107,10 +112,25 @@ public sealed partial class MainWindow
         await RunAsync(async()=>
         {
             var packages=(await AdapterCallAsync("ListAdapters")).Deserialize<List<AdapterPackage>>(BackendClient.Json)??[];
-            var choices=new[]{new AdapterPackage("$builtin","默认面板","",[],true,false)}.Concat(packages.Where(p=>p.Enabled&&p.Models.Contains(device.Model))).ToList();
-            var dialog=new Dialogs.ChoiceDialog {XamlRoot=Root.XamlRoot,Title=MiHome.WinUI.Infrastructure.UiText.Get("S30ada4bf5edd"),PrimaryButtonText=MiHome.WinUI.Infrastructure.UiText.Get("S63c73c4730f4")};
+            var compatible = packages.Where(p => p.Enabled && p.Models.Contains(device.Model)).ToList();
+            if (compatible.Count == 0)
+            {
+                await ShowInformationAsync(UiText.Get("S30ada4bf5edd"), UiText.Get("AdapterNoCompatiblePackages"));
+                return;
+            }
+            var choices = new[] { new AdapterPackage("$builtin", UiText.Get("S5c14e94e278d"), "", [], true, false) }.Concat(compatible);
+            var dialog = new Dialogs.ChoiceDialog
+            {
+                XamlRoot = Root.XamlRoot, RequestedTheme = Root.ActualTheme,
+                Title = UiText.Get("AdapterChoosePanel"), PrimaryButtonText = UiText.Get("S63c73c4730f4"),
+                DefaultButton = ContentDialogButton.Primary, IsPrimaryButtonEnabled = false
+            };
+            dialog.SetContext(device.Name);
             var rows=choices.Select(package=>new Dialogs.ChoiceItem(package,package.Name)).ToList();
             dialog.ChoiceList.ItemsSource=rows;dialog.ChoiceList.SelectedItem=rows.FirstOrDefault(row=>((AdapterPackage)row.Value).Id==device.Adapter?.Id)??rows[0];
+            var current = dialog.ChoiceList.SelectedItem;
+            dialog.ChoiceList.SelectionChanged += (_, _) =>
+                dialog.IsPrimaryButtonEnabled = dialog.ChoiceList.SelectedItem is Dialogs.ChoiceItem row && !Equals(row, current);
             if(await dialog.ShowAsync()!=ContentDialogResult.Primary||dialog.ChoiceList.SelectedItem is not Dialogs.ChoiceItem selected)return;
             await AdapterCallAsync("SetDeviceAdapter",new{deviceId=device.Id,id=((AdapterPackage)selected.Value).Id});
             await LoadDevicesAsync();
@@ -122,7 +142,7 @@ public sealed partial class MainWindow
         if(selectedDevice is not {} device||busy)return;
         await RunAsync(async()=>
         {
-            var dialog=new Dialogs.ExportContextDialog {XamlRoot=Root.XamlRoot};
+            var dialog=new Dialogs.ExportContextDialog {XamlRoot=Root.XamlRoot,RequestedTheme=Root.ActualTheme};
             if(await dialog.ShowAsync()!=ContentDialogResult.Primary)return;
             var result=await AdapterCallAsync("ExportAdapterContext",new{deviceId=device.Id,includeReadings=dialog.IncludeSamples});
             var picker=new Windows.Storage.Pickers.FileSavePicker {SuggestedFileName=device.Model+"-spec"};picker.FileTypeChoices.Add("JSON",new[]{".json"});

@@ -20,10 +20,12 @@ from mijiaAPI.errors import LoginError
 from mijiaAPI.logger import logger as upstream_logger
 from secure_store import load, save
 from device_data import normalize_device, split_device, filter_properties
+from device_insights import consumable_groups, consumable_readings, energy_profile, energy_readings
 from device_order import checked_order
 from adapters import AdapterStore, inspect as inspect_adapter, write_guard, condition_guard
 from spec_language import SpecLanguage, localize
 from action_support import normalize as normalize_actions, ActionExecutor, ActionUnknown, arguments as action_arguments
+from speaker_actions import is_speaker, run_speaker_action
 from card_profiles import card_properties, template_for, apply_appearance, CATEGORIES, PROFILES, CARD_SIZES, PURPOSE_SWITCHES
 
 PROTOCOL = 1
@@ -52,6 +54,7 @@ devices = {}
 schemas = {}
 account_dir = None
 home_rooms = {}
+cancelled_runs = {}
 adapter_store = AdapterStore(ROOT / "adapters")
 spec_language = SpecLanguage(ROOT / "spec-language")
 action_executor = ActionExecutor()
@@ -80,6 +83,12 @@ class Api(mijiaAPI):
         if self.auth_data:
             self._init_session()
 
+    def _get_consumable_items(self, home_id):
+        # The pinned library reads only the first status group from this response.
+        result = self._request("/v2/home/standard_consumable_items", {
+            "home_id": int(home_id), "owner_id": self._get_home_owner(home_id), "filter_ignore": True})
+        return self._add_home_id(consumable_groups(result), home_id)
+
     def _save_auth_data(self):
         with state_lock:
             if self.login_generation is not None and self.login_generation != generation:
@@ -97,6 +106,37 @@ except Exception as exc:
 def require_auth():
     if not api.auth_data:
         raise LoginError(-1, "需要登录")
+
+
+def account_key():
+    require_auth()
+    uid = api.auth_data.get("userId")
+    if not uid:
+        raise LoginError(-1, "需要登录")
+    return hashlib.sha256(str(uid).encode()).hexdigest()[:20]
+
+
+def check_automation(params, device=None):
+    scope = params.get("automation")
+    if scope is None:
+        return
+    with state_lock:
+        cancelled = scope["runId"] in cancelled_runs
+    if cancelled or time.time() >= scope["expiresAt"]:
+        raise ValueError("自动化已取消或请求已过期。")
+    if scope["account"] != account_key():
+        raise ValueError("自动化账号已变更。")
+    if "homeId" in params and params["homeId"] != scope["homeId"]:
+        raise ValueError("此场景不属于规则家庭。")
+    if device is not None and (device["homeId"] != scope["homeId"] or device["specType"] != scope["specType"] or not device["online"]):
+        raise ValueError("设备离线或规格已变更。")
+
+
+def list_scenes(home_id):
+    if home_id not in home_rooms:
+        raise ValueError("此家庭不可用，请刷新家庭列表。")
+    return [{"id": str(scene["scene_id"]), "name": str(scene["name"]), "homeId": home_id}
+            for scene in api.get_scenes_list(home_id) if scene.get("scene_id") and scene.get("name")]
 
 
 def cache_dir():
@@ -212,6 +252,12 @@ def decorate_adapters(items):
     return items
 
 
+def present_devices(items):
+    for device in items:
+        device["supportsEnergyHistory"] = energy_profile(device) is not None
+    return decorate_adapters(items)
+
+
 def adapter_dispatch(method, params):
     if method=="ListAdapters": return adapter_store.catalog()
     if method=="InspectAdapter":
@@ -279,28 +325,41 @@ def card_preferences():
         return {}
 
 
-def tray_preferences(params, save=False):
+def tray_preferences(params, method):
     home = params["homeId"]
     if not isinstance(home, str) or not home or len(home) > 512:
         raise ValueError("家庭标识不正确。")
     path = cache_dir() / ("tray-" + hashlib.sha256(home.encode()).hexdigest() + ".json")
-    if save:
+    try:
+        saved = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        saved = {}
+    if not isinstance(saved, dict):
+        saved = {}
+    pins = saved.get("pins")
+    if not isinstance(pins, list) or len(pins) > 12 or any(not isinstance(ident, str) for ident in pins):
+        pins = []
+    preferences = {"pins": list(dict.fromkeys(pins))}
+    speaker = saved.get("speakerId")
+    if isinstance(speaker, str) and 0 < len(speaker) <= 512:
+        preferences["speakerId"] = speaker
+    if method == "SetTrayPreferences":
         pins = params.get("pins")
         if (not isinstance(pins, list) or len(pins) > 12 or
                 any(not isinstance(ident, str) for ident in pins) or len(set(pins)) != len(pins)):
             raise ValueError("最多选择 12 台设备，且不能重复。")
         if any(ident not in devices or devices[ident]["homeId"] != home for ident in pins):
             raise ValueError("设备不属于当前家庭。")
-        atomic_json(path, {"pins": pins})
-        return {"pins": pins}
-    try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-        pins = value["pins"]
-        if not isinstance(pins, list) or len(pins) > 12 or any(not isinstance(ident, str) for ident in pins):
-            raise ValueError("托盘设置不正确。")
-        return {"pins": list(dict.fromkeys(pins))}
-    except (OSError, ValueError, KeyError, TypeError):
-        return {"pins": []}
+        preferences["pins"] = pins
+    if method == "SetTraySpeaker":
+        speaker = params.get("speakerId")
+        device = devices.get(speaker) if isinstance(speaker, str) and 0 < len(speaker) <= 512 else None
+        if not device or device["homeId"] != home or not is_speaker(device):
+            raise ValueError("音箱不属于当前家庭或已移除。")
+        preferences["speakerId"] = speaker
+    if method != "GetTrayPreferences":
+        atomic_json(path, preferences)
+    return preferences
 
 
 def read_card_states(device_ids):
@@ -419,9 +478,20 @@ def run_declared_action(params):
 
 
 def dispatch(method, params):
-    if method in ("GetTrayPreferences", "SetTrayPreferences"):
+    global generation, api, account_dir
+    if method in ("GetTrayPreferences", "SetTrayPreferences", "SetTraySpeaker"):
         require_auth()
-        return tray_preferences(params, method == "SetTrayPreferences")
+        return tray_preferences(params, method)
+    if method == "RunSpeakerAction":
+        require_auth()
+        device = devices.get(params.get("deviceId"))
+        if (not device or not device["online"] or not is_speaker(device) or
+                params.get("homeId") != device["homeId"] or device["homeId"] not in home_rooms):
+            raise ValueError("音箱离线、已移除或不属于当前家庭。")
+        spec = schema(device["id"])
+        if adapter_store.chosen(device, adapter_choices()):
+            raise ValueError("当前设备使用适配包，请从适配面板操作。")
+        return run_speaker_action(api, action_executor, device, spec, params)
     if method == "RunAction":
         require_auth()
         return run_declared_action(params)
@@ -430,7 +500,6 @@ def dispatch(method, params):
         return adapter_dispatch(method,params)
     if method in ("GetHomePreferences","SetHomePreferences"):
         return home_preferences(params,method=="SetHomePreferences")
-    global generation, api, account_dir
     if method == "Hello":
         return {"protocol": PROTOCOL, "backend": "0.21.0"}
     if method == "GetSessionStatus":
@@ -468,6 +537,20 @@ def dispatch(method, params):
             account_dir = None
         return {}
     require_auth()
+    if method == "GetAutomationAccount":
+        return {"account": account_key()}
+    if method == "ListScenes":
+        return list_scenes(params["homeId"])
+    if method == "RunScene":
+        home_id, scene_id = params["homeId"], params["sceneId"]
+        if not any(scene["id"] == scene_id for scene in list_scenes(home_id)):
+            raise ValueError("场景已移除或不属于此家庭。")
+        check_automation(params)
+        try:
+            result = api.run_scene(scene_id, home_id)
+        except (requests.RequestException, KeyError, ValueError) as exc:
+            raise ActionUnknown("场景结果待确认，请检查设备状态。") from exc
+        return {"accepted": result is not False}
     if method == "ListHomes":
         homes = api.get_homes_list()
         home_rooms.update({str(h["id"]): h.get("roomlist", []) for h in homes})
@@ -483,7 +566,7 @@ def dispatch(method, params):
                 preferences = card_preferences()
                 result = [apply_appearance(d, preferences) for d in result]
                 devices.update({d["id"]: d for d in result})
-                return decorate_adapters(result)
+                return present_devices(result)
             except (ValueError, OSError):
                 return []
         if home_id not in home_rooms:
@@ -495,7 +578,16 @@ def dispatch(method, params):
         result = [apply_appearance(d, preferences) for d in result]
         devices.update({d["id"]: d for d in result})
         atomic_json(file, result)
-        return decorate_adapters(result)
+        return present_devices(result)
+    if method in ("GetDeviceConsumables", "GetDeviceEnergyHistory"):
+        require_auth()
+        device = devices.get(params.get("deviceId"))
+        home_id = params.get("homeId")
+        if not device or home_id != device["homeId"] or home_id not in home_rooms:
+            raise ValueError("此设备不在当前家庭中，请刷新设备列表。")
+        if method == "GetDeviceConsumables":
+            return consumable_readings(api.get_consumable_items(home_id), device["id"])
+        return energy_readings(api, device)
     if method == "ReadCardStates":
         return read_card_states(params.get("deviceIds", []))
     if method in ("GetCardOrder", "SetCardOrder"):
@@ -556,6 +648,7 @@ def dispatch(method, params):
             values.extend(api.get_devices_prop(keys[start:start + 20]))
         return values
     if method == "WriteProperty":
+        check_automation(params, devices.get(params["deviceId"]))
         prop = checked_property(params, True)
         validate(prop, params["value"])
         device=devices[params["deviceId"]]
@@ -567,6 +660,7 @@ def dispatch(method, params):
             current=next(v["value"] for v in readings if v.get("code")==0 and v.get("siid")==prop["siid"] and v.get("piid")==prop["piid"])
             validate(prop,current)
         target, _ = split_device(params["deviceId"])
+        check_automation(params, device)
         result = api.set_devices_prop({"did": target, "siid": prop["siid"],
                                        "piid": prop["piid"], "value": params["value"]})
         if result.get("code") not in (0, 1):
@@ -612,7 +706,19 @@ if __name__ == "__main__":
             sequence += 1
             priority = 0 if message.get("method") in ("Shutdown", "Logout", "CancelLogin", "WriteProperty") else 1
             # Cancellation must not wait behind a blocking cloud request.
-            if message.get("method") == "CancelLogin":
+            if message.get("method") == "CancelAutomationRun" and message.get("version") == PROTOCOL:
+                run_id = message["params"]["runId"]
+                if not isinstance(run_id, str) or len(run_id) != 32:
+                    emit({"id": message["id"], "error": {"code": "invalid", "message": "无效的自动化运行标识。"}})
+                    continue
+                with state_lock:
+                    now = time.time()
+                    for key, expiry in list(cancelled_runs.items()):
+                        if expiry <= now:
+                            del cancelled_runs[key]
+                    cancelled_runs[run_id] = now + 120
+                emit({"id": message["id"], "result": {}})
+            elif message.get("method") == "CancelLogin":
                 with state_lock:
                     generation += 1
                 emit({"id": message["id"], "result": {}})

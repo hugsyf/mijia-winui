@@ -218,6 +218,105 @@
   <data name="L247811eaf701.AutomationProperties.Name" xml:space="preserve">
     <value>More device options</value>
   </data>
+  <data name="SpeakerTextButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Text commands</value>
+  </data>
+  <data name="SpeakerTextButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Text commands</value>
+  </data>
+  <data name="SpeakerDirective.Text" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="SpeakerSpeak.Text" xml:space="preserve">
+    <value>Read aloud</value>
+  </data>
+  <data name="SpeakerTextInput.PlaceholderText" xml:space="preserve">
+    <value>Enter text</value>
+  </data>
+  <data name="SpeakerTextInput.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="SpeakerQuiet.Content" xml:space="preserve">
+    <value>Silent</value>
+  </data>
+  <data name="SpeakerSendLabel.Text" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SpeakerSend.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SpeakerPrevious.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Previous track</value>
+  </data>
+  <data name="SpeakerPrevious.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Previous track</value>
+  </data>
+  <data name="SpeakerNext.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Next track</value>
+  </data>
+  <data name="SpeakerNext.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Next track</value>
+  </data>
+  <data name="SpeakerVolume.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="SpeakerPlay" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="SpeakerPause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="SpeakerMute" xml:space="preserve">
+    <value>Mute</value>
+  </data>
+  <data name="SpeakerUnmute" xml:space="preserve">
+    <value>Unmute</value>
+  </data>
+  <data name="SpeakerOffline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="SpeakerPlaybackUnknown" xml:space="preserve">
+    <value>Playback status unavailable</value>
+  </data>
+  <data name="SpeakerRejected" xml:space="preserve">
+    <value>The speaker rejected the command.</value>
+  </data>
+  <data name="SpeakerAccepted" xml:space="preserve">
+    <value>Sent to the speaker.</value>
+  </data>
+  <data name="SpeakerUnknown" xml:space="preserve">
+    <value>The result is unconfirmed.</value>
+  </data>
+  <data name="TraySpeakerPicker.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Choose a speaker</value>
+  </data>
+  <data name="SpeakerLoading" xml:space="preserve">
+    <value>Loading speaker…</value>
+  </data>
+  <data name="SpeakerUnavailable" xml:space="preserve">
+    <value>Speaker controls are unavailable.</value>
+  </data>
+  <data name="DeviceConsumablesMenu.Text" xml:space="preserve">
+    <value>Consumables</value>
+  </data>
+  <data name="DeviceEnergyMenu.Text" xml:space="preserve">
+    <value>Energy history</value>
+  </data>
+  <data name="DeviceEnergyTitle" xml:space="preserve">
+    <value>Monthly energy use</value>
+  </data>
+  <data name="DeviceConsumablesEmpty" xml:space="preserve">
+    <value>No consumable data.</value>
+  </data>
+  <data name="DeviceEnergyEmpty" xml:space="preserve">
+    <value>No energy records.</value>
+  </data>
+  <data name="DeviceReadingsFailed" xml:space="preserve">
+    <value>Could not load data. Try again later.</value>
+  </data>
+  <data name="DeviceEnergyValue" xml:space="preserve">
+    <value>{0:0.###} kWh</value>
+  </data>
   <data name="Lcfaf41f48a9f.Text" xml:space="preserve">
     <value>Device adapters</value>
   </data>
@@ -1630,5 +1729,425 @@
   </data>
   <data name="TrayNoHome" xml:space="preserve">
     <value>Homes have not loaded. Open the main window to try again.</value>
+  </data>
+  <data name="AutoNav.Content" xml:space="preserve">
+    <value>Automation</value>
+  </data>
+  <data name="AutoTitle" xml:space="preserve">
+    <value>Automation</value>
+  </data>
+  <data name="AutoScenesTab.Text" xml:space="preserve">
+    <value>Mi Home scenes</value>
+  </data>
+  <data name="AutoRulesTab.Text" xml:space="preserve">
+    <value>PC rules</value>
+  </data>
+  <data name="AutoHome.AutomationProperties.Name" xml:space="preserve">
+    <value>Scene home</value>
+  </data>
+  <data name="AutoRefresh.AutomationProperties.Name" xml:space="preserve">
+    <value>Refresh scenes</value>
+  </data>
+  <data name="AutoRefresh.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Refresh scenes</value>
+  </data>
+  <data name="AutoNoScenes.Text" xml:space="preserve">
+    <value>This home has no manual scenes.</value>
+  </data>
+  <data name="AutoRunScene.Content" xml:space="preserve">
+    <value>Run scene</value>
+  </data>
+  <data name="AutoTrayPause.Text" xml:space="preserve">
+    <value>Pause automation</value>
+  </data>
+  <data name="AutoNewRule.Content" xml:space="preserve">
+    <value>New rule</value>
+  </data>
+  <data name="AutoDeleteRule.Content" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="AutoNoRules.Text" xml:space="preserve">
+    <value>No PC rules yet.</value>
+  </data>
+  <data name="AutoName.Header" xml:space="preserve">
+    <value>Rule name</value>
+  </data>
+  <data name="AutoRuleHome.Header" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="AutoEnable.Header" xml:space="preserve">
+    <value>Enable rule</value>
+  </data>
+  <data name="AutoWhen.Text" xml:space="preserve">
+    <value>When</value>
+  </data>
+  <data name="AutoTrigger.Header" xml:space="preserve">
+    <value>Trigger</value>
+  </data>
+  <data name="AutoBrowse.Content" xml:space="preserve">
+    <value>Choose program</value>
+  </data>
+  <data name="AutoHotkey.Header" xml:space="preserve">
+    <value>Ctrl + Alt +</value>
+  </data>
+  <data name="AutoIf.Text" xml:space="preserve">
+    <value>If</value>
+  </data>
+  <data name="AutoLimitTime.Content" xml:space="preserve">
+    <value>Limit to a time window</value>
+  </data>
+  <data name="AutoFrom.Header" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="AutoUntil.Header" xml:space="preserve">
+    <value>End time</value>
+  </data>
+  <data name="AutoThen.Text" xml:space="preserve">
+    <value>Then</value>
+  </data>
+  <data name="AutoMoveUp.AutomationProperties.Name" xml:space="preserve">
+    <value>Move step up</value>
+  </data>
+  <data name="AutoMoveUp.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Move step up</value>
+  </data>
+  <data name="AutoMoveDown.AutomationProperties.Name" xml:space="preserve">
+    <value>Move step down</value>
+  </data>
+  <data name="AutoMoveDown.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Move step down</value>
+  </data>
+  <data name="AutoRemoveStep.AutomationProperties.Name" xml:space="preserve">
+    <value>Remove step</value>
+  </data>
+  <data name="AutoRemoveStep.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove step</value>
+  </data>
+  <data name="AutoAddStepHeader.Header" xml:space="preserve">
+    <value>Add a step</value>
+  </data>
+  <data name="AutoStepType.Header" xml:space="preserve">
+    <value>Action type</value>
+  </data>
+  <data name="AutoDevice.Header" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="AutoProperty.Header" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="AutoValue.Header" xml:space="preserve">
+    <value>Target value</value>
+  </data>
+  <data name="AutoNumber.Header" xml:space="preserve">
+    <value>Target value</value>
+  </data>
+  <data name="AutoColor.Content" xml:space="preserve">
+    <value>Choose color</value>
+  </data>
+  <data name="AutoScene.Header" xml:space="preserve">
+    <value>Scene</value>
+  </data>
+  <data name="AutoSeconds.Header" xml:space="preserve">
+    <value>Wait in seconds</value>
+  </data>
+  <data name="AutoAddStep.Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AutoSave.Content" xml:space="preserve">
+    <value>Save rule</value>
+  </data>
+  <data name="AutoPreview.Content" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="AutoCancelEdit.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AutoHistory.Header" xml:space="preserve">
+    <value>Run history</value>
+  </data>
+  <data name="AutoForegroundExit" xml:space="preserve">
+    <value>App leaves foreground</value>
+  </data>
+  <data name="AutoProcessStart" xml:space="preserve">
+    <value>App starts</value>
+  </data>
+  <data name="AutoProcessExit" xml:space="preserve">
+    <value>App exits</value>
+  </data>
+  <data name="AutoIdle" xml:space="preserve">
+    <value>PC becomes idle</value>
+  </data>
+  <data name="AutoActive" xml:space="preserve">
+    <value>Input resumes</value>
+  </data>
+  <data name="AutoSchedule" xml:space="preserve">
+    <value>Scheduled time</value>
+  </data>
+  <data name="AutoWake" xml:space="preserve">
+    <value>PC wakes</value>
+  </data>
+  <data name="AutoAcPower" xml:space="preserve">
+    <value>AC power connected</value>
+  </data>
+  <data name="AutoBatteryLow" xml:space="preserve">
+    <value>Battery level drops</value>
+  </data>
+  <data name="AutoDisplayOff" xml:space="preserve">
+    <value>Display turns off</value>
+  </data>
+  <data name="AutoUsbAttach" xml:space="preserve">
+    <value>USB device connected</value>
+  </data>
+  <data name="AutoAudioOutput" xml:space="preserve">
+    <value>Default audio output changes</value>
+  </data>
+  <data name="AutoNetworkOnline" xml:space="preserve">
+    <value>Internet connection returns</value>
+  </data>
+  <data name="AutoScheduleTime.Header" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="AutoScheduleDays.Text" xml:space="preserve">
+    <value>Repeat on</value>
+  </data>
+  <data name="AutoBatteryThreshold" xml:space="preserve">
+    <value>Battery level</value>
+  </data>
+  <data name="AutoIdleThreshold" xml:space="preserve">
+    <value>Idle time</value>
+  </data>
+  <data name="AutoThresholdPercent" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="AutoThresholdMinutes" xml:space="preserve">
+    <value>{0} min</value>
+  </data>
+  <data name="AutoTriggerDetail" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="AutoScheduleDetail" xml:space="preserve">
+    <value>{1} at {0}</value>
+  </data>
+  <data name="AutoEveryDay" xml:space="preserve">
+    <value>Every day</value>
+  </data>
+  <data name="AutoUsbDevice.Header" xml:space="preserve">
+    <value>USB device</value>
+  </data>
+  <data name="AutoUsbDevice.PlaceholderText" xml:space="preserve">
+    <value>Select a connected device</value>
+  </data>
+  <data name="AutoUsbUnavailable" xml:space="preserve">
+    <value>Could not read USB devices.</value>
+  </data>
+  <data name="AutoMonday.Content" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="AutoMonday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="AutoTuesday.Content" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="AutoTuesday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="AutoWednesday.Content" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="AutoWednesday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="AutoThursday.Content" xml:space="preserve">
+    <value>Thu</value>
+  </data>
+  <data name="AutoThursday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="AutoFriday.Content" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+  <data name="AutoFriday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="AutoSaturday.Content" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="AutoSaturday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="AutoSunday.Content" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+  <data name="AutoSunday.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="AutoForeground" xml:space="preserve">
+    <value>Program enters foreground</value>
+  </data>
+  <data name="AutoLock" xml:space="preserve">
+    <value>Session locks</value>
+  </data>
+  <data name="AutoUnlock" xml:space="preserve">
+    <value>Session unlocks</value>
+  </data>
+  <data name="AutoShortcut" xml:space="preserve">
+    <value>Global shortcut</value>
+  </data>
+  <data name="AutoWriteType" xml:space="preserve">
+    <value>Set device property</value>
+  </data>
+  <data name="AutoWaitType" xml:space="preserve">
+    <value>Wait</value>
+  </data>
+  <data name="AutoSceneType" xml:space="preserve">
+    <value>Run Mi Home scene</value>
+  </data>
+  <data name="AutoOn" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="AutoOff" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="AutoWaitLabel" xml:space="preserve">
+    <value>Wait {0} s</value>
+  </data>
+  <data name="AutoSceneLabel" xml:space="preserve">
+    <value>Run scene · {0}</value>
+  </data>
+  <data name="AutoStepNumber" xml:space="preserve">
+    <value>Step {0}</value>
+  </data>
+  <data name="AutoStorage" xml:space="preserve">
+    <value>Could not load or save automation settings.</value>
+  </data>
+  <data name="AutoInvalid" xml:space="preserve">
+    <value>Check the rule name, trigger, time window, and steps.</value>
+  </data>
+  <data name="AutoInvalidStep" xml:space="preserve">
+    <value>Choose a valid action and target value.</value>
+  </data>
+  <data name="AutoLoadScenesFailed" xml:space="preserve">
+    <value>Could not load manual scenes.</value>
+  </data>
+  <data name="AutoLoadDevicesFailed" xml:space="preserve">
+    <value>Could not load devices or properties.</value>
+  </data>
+  <data name="AutoConfirmScene" xml:space="preserve">
+    <value>Run “{0}”? This scene can control multiple devices.</value>
+  </data>
+  <data name="AutoConfirmSceneRule" xml:space="preserve">
+    <value>When enabled, the trigger can run the Mi Home scenes in this rule.</value>
+  </data>
+  <data name="AutoTimeMatches" xml:space="preserve">
+    <value>The current time matches the rule.</value>
+  </data>
+  <data name="AutoTimeNotMatched" xml:space="preserve">
+    <value>The current time is outside the rule’s time window.</value>
+  </data>
+  <data name="AutoClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="AutoConfirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="AutoCompleted" xml:space="preserve">
+    <value>Sequence complete</value>
+  </data>
+  <data name="AutoAccepted" xml:space="preserve">
+    <value>Accepted by Mi Home</value>
+  </data>
+  <data name="AutoConfirmed" xml:space="preserve">
+    <value>Device state confirmed</value>
+  </data>
+  <data name="AutoFailed" xml:space="preserve">
+    <value>Step failed</value>
+  </data>
+  <data name="AutoUnknown" xml:space="preserve">
+    <value>Result unknown. Check the device state.</value>
+  </data>
+  <data name="AutoRepair" xml:space="preserve">
+    <value>Device offline, removed, or specification changed</value>
+  </data>
+  <data name="AutoLoginRequired" xml:space="preserve">
+    <value>Mi Home sign-in expired</value>
+  </data>
+  <data name="AutoCancelled" xml:space="preserve">
+    <value>Remaining steps canceled</value>
+  </data>
+  <data name="AutoManualConflict" xml:space="preserve">
+    <value>Stopped for manual control</value>
+  </data>
+  <data name="AutoSkipped" xml:space="preserve">
+    <value>Skipped while another operation was running</value>
+  </data>
+  <data name="AutoTriggersUnavailable" xml:space="preserve">
+    <value>Windows triggers</value>
+  </data>
+  <data name="AutoTriggerIssue" xml:space="preserve">
+    <value>Unavailable triggers: {0}</value>
+  </data>
+  <data name="AutoNewRuleIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>New rule</value>
+  </data>
+  <data name="AutoNewRuleLabel.Text" xml:space="preserve">
+    <value>New rule</value>
+  </data>
+  <data name="AutoPauseLabel.Text" xml:space="preserve">
+    <value>Pause automation</value>
+  </data>
+  <data name="AutoPauseSwitch.AutomationProperties.Name" xml:space="preserve">
+    <value>Pause automation</value>
+  </data>
+  <data name="AutoEnableLabel.Text" xml:space="preserve">
+    <value>Enable rule</value>
+  </data>
+  <data name="AutoEnableSwitch.AutomationProperties.Name" xml:space="preserve">
+    <value>Enable rule</value>
+  </data>
+  <data name="AutoHistoryEmpty.Text" xml:space="preserve">
+    <value>No run history yet.</value>
+  </data>
+  <data name="AutoEditorBack.AutomationProperties.Name" xml:space="preserve">
+    <value>Back to rules</value>
+  </data>
+  <data name="AutoEditorBack.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Back to rules</value>
+  </data>
+  <data name="AutoDeleteIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>Delete rule</value>
+  </data>
+  <data name="AutoDeleteIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete rule</value>
+  </data>
+  <data name="AutoSliderValue.AutomationProperties.Name" xml:space="preserve">
+    <value>Target value</value>
+  </data>
+  <data name="AutoEditorEditTitle" xml:space="preserve">
+    <value>Edit rule</value>
+  </data>
+  <data name="AutoHomeUnavailable" xml:space="preserve">
+    <value>Home unavailable</value>
+  </data>
+  <data name="AdapterSelectAll.Content" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="AdapterClearSelection" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="AdapterNoFilteredPackages" xml:space="preserve">
+    <value>No adapters match this filter.</value>
+  </data>
+  <data name="AdapterNoCompatiblePackages" xml:space="preserve">
+    <value>No enabled adapter matches this device.</value>
+  </data>
+  <data name="AdapterChoosePanel" xml:space="preserve">
+    <value>Choose a device panel</value>
+  </data>
+  <data name="AdapterStopRemaining" xml:space="preserve">
+    <value>Stop remaining operations</value>
+  </data>
+  <data name="AdapterRemoveConfirmation" xml:space="preserve">
+    <value>Uninstall {0} adapters?</value>
   </data>
 </root>

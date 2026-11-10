@@ -76,7 +76,9 @@ internal static class DeviceExperience
         [new("", "自动"), new("compact", "紧凑"), new("standard", "标准"), new("expanded", "展开")];
 }
 
-// Shared by a device page and the card commands. Never retries a write automatically.
+internal enum DeviceWriteResult { Confirmed, Rejected, Unknown }
+
+// Shared by device pages, cards and automation. Never retries a write automatically.
 internal sealed class DeviceControlSession(DeviceIdentity device, DeviceSchema schema, IDeviceService service)
 {
     public IDeviceService Service => service;
@@ -118,9 +120,9 @@ internal sealed class DeviceControlSession(DeviceIdentity device, DeviceSchema s
         catch { Invalidate(); Feedback = "状态暂时无法更新，请刷新后重试。"; }
         finally { Busy = false; gate.Release(); Changed?.Invoke(); }
     }
-    public async Task WriteAsync(PropertySchema property, object? desired)
+    public async Task<DeviceWriteResult> WriteAsync(PropertySchema property, object? desired)
     {
-        if (!await gate.WaitAsync(0)) return;
+        if (!await gate.WaitAsync(0)) return DeviceWriteResult.Rejected;
         Busy = true; Feedback = "正在确认设备状态…"; Changed?.Invoke();
         var sent = false;
         try
@@ -128,10 +130,10 @@ internal sealed class DeviceControlSession(DeviceIdentity device, DeviceSchema s
             // Re-check channel mode and current values immediately before a user-requested write.
             await ReadCoreAsync();
             if (!DeviceExperience.CanWrite(device, State, property, desired))
-            { Feedback = "当前状态不允许此操作，请检查无线模式或刷新状态。"; return; }
+            { Feedback = "当前状态不允许此操作，请检查无线模式或刷新状态。"; return DeviceWriteResult.Rejected; }
             var expected = JsonSerializer.SerializeToElement(desired);
             if (DeviceCardPresentation.TryValue(State, property, out var current) && JsonElement.DeepEquals(expected, current))
-            { Feedback = null; return; }
+            { Feedback = null; return DeviceWriteResult.Confirmed; }
             Feedback = "正在应用…"; Changed?.Invoke();
             sent = true;
             pendingWrite = (property, expected);
@@ -140,13 +142,16 @@ internal sealed class DeviceControlSession(DeviceIdentity device, DeviceSchema s
             await ReadCoreAsync();
             Feedback = DeviceCardPresentation.TryValue(State, property, out current) && JsonElement.DeepEquals(expected, current)
                 ? null : "请求已接受，结果待确认。请刷新状态，不要重复提交。";
+            return Feedback is null ? DeviceWriteResult.Confirmed : DeviceWriteResult.Unknown;
         }
         catch (BridgeException e) when (e.Code is "auth" or "invalid")
-        { pendingWrite = null; Feedback = e.Message; if (e.Code == "auth") { Invalidate(); throw; } }
+        { pendingWrite = null; Feedback = e.Message; if (e.Code == "auth") { Invalidate(); throw; } return DeviceWriteResult.Rejected; }
+        catch (OperationCanceledException) { throw; }
         catch
         {
             Invalidate();
             Feedback = sent ? "操作结果待确认。请刷新状态，不要重复提交。" : "无法读取设备状态，本次未发送操作。";
+            return sent ? DeviceWriteResult.Unknown : DeviceWriteResult.Rejected;
         }
         finally { Busy = false; gate.Release(); Changed?.Invoke(); }
     }

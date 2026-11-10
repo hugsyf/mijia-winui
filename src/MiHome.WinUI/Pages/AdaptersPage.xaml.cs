@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MiHome.WinUI.Core;
 using MiHome.WinUI.ViewModels;
 using MiHome.WinUI.Infrastructure;
@@ -15,16 +16,23 @@ public sealed partial class AdaptersPage : UserControl
     internal SelectorBar FilterBar => Filter;
     internal ListView PackageList => Packages;
     internal TextBlock CountLabel => Count;
-    internal StackPanel SelectionToolbar => SelectionBar;
     internal ToggleSwitch EnableSelection => SelectionEnabled;
-    internal Button SelectAllButton => SelectAll;
+    internal CheckBox SelectAllButton => SelectAll;
     internal Button RemoveSelectedButton => RemoveSelected;
     internal InfoBar ResultBar => Result;
     internal event Action<string, bool>? SortRequested;
     internal event Action<AdapterPackage, string, bool>? PackageCommand;
+    internal event Action? PackageSelectionChanged;
     private string sort = "name";
     public AdaptersPage() => InitializeComponent();
     private void OnDone(object sender,RoutedEventArgs args)=>Select.IsChecked=false;
+    internal void SetSelectionMode(bool choosing, int count, bool filtered)
+    {
+        CatalogToolbar.Visibility = choosing ? Visibility.Collapsed : Visibility.Visible;
+        SelectionBar.Visibility = choosing ? Visibility.Visible : Visibility.Collapsed;
+        Empty.Visibility = count == 0 ? Visibility.Visible : Visibility.Collapsed;
+        Empty.Text = UiText.Get(filtered ? "AdapterNoFilteredPackages" : "NoAdapters");
+    }
     internal void SetCounts(IReadOnlyList<AdapterPackage> packages)
     {
         Filter.Items[0].Text=UiText.Get("All")+" "+packages.Count;
@@ -46,17 +54,25 @@ public sealed partial class AdaptersPage : UserControl
         if (sender is ToggleSwitch { DataContext: AdapterPackageRow row } toggle && toggle.IsLoaded && toggle.IsOn != row.Enabled)
             PackageCommand?.Invoke(row.Package, "enable", toggle.IsOn);
     }
+    private void OnPackageSelection(object sender, RoutedEventArgs args)
+    {
+        if (sender is not CheckBox { DataContext: AdapterPackageRow { Choosing: true } row } checkbox) return;
+        row.IsSelected = checkbox.IsChecked == true;
+        PackageSelectionChanged?.Invoke();
+    }
     private void Send(object sender, string command)
     { if (((FrameworkElement)sender).DataContext is AdapterPackageRow row) PackageCommand?.Invoke(row.Package, command, false); }
     private void OnInfo(object sender, RoutedEventArgs args) => Send(sender, "info");
     private void OnRollback(object sender, RoutedEventArgs args) => Send(sender, "rollback");
     private void OnRemove(object sender, RoutedEventArgs args) => Send(sender, "remove");
 }
-public sealed class AdapterPackageRow
+public sealed class AdapterPackageRow : ObservableObject
 {
+    private bool isSelected;
+    public bool IsSelected { get => isSelected; set => SetProperty(ref isSelected, value); }
     public AdapterPackage Package { get; }
     public bool Choosing {get;}
-    public bool DetailsHitTestVisible=>!Choosing;
+    public Visibility SelectionVisibility => Choosing ? Visibility.Visible : Visibility.Collapsed;
     public string Name=>Package.Name;
     public string Models=>string.Join("、",Package.Models);
     public string Version=>"v"+Package.Version;

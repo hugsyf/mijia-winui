@@ -11,6 +11,7 @@ if(args.Contains("--documents")){DocumentChecks.Run();return;}
 if(args.Contains("--images-settings")){await ImageCacheChecks.RunAsync();return;}
 if(args.Contains("--lighting")){await LightingChecks.RunAsync();return;}
 if(args.Contains("--home-adapters")){HomeAdapterChecks.Run();return;}
+if (args.Contains("--automation")) { await AutomationChecks.RunAsync(); return; }
 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 var fixtures = JsonDocument.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "device-card-specs.json"))).RootElement;
 void Require(bool condition, string message) { if (!condition) throw new Exception(message); }

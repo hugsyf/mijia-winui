@@ -14,6 +14,8 @@ internal sealed class TrayIconService : IDisposable
     private readonly uint taskbarCreated = RegisterWindowMessage("TaskbarCreated");
     private nint window, icon;
     public bool Ready { get; private set; }
+    internal nint Handle => window;
+    internal event Action<uint, nuint, nint>? WindowMessage;
     public event Action? Click;
     public event Action? ContextMenu;
     public event Action? DoubleClick;
@@ -41,6 +43,7 @@ internal sealed class TrayIconService : IDisposable
     {
         try
         {
+            if (message is 0x0312 or 0x02B1 or 0x0218) WindowMessage?.Invoke(message, wParam, lParam);
             if (message == 0x11) return 1; // WM_QUERYENDSESSION: never block sign-out or an installer shutdown.
             if (message == 0x16 && wParam != 0) { ShutdownRequested?.Invoke(); return 0; }
             if (message == taskbarCreated) { AddIcon(); if (!Ready) Unavailable?.Invoke(); }
