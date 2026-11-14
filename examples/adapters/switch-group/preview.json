@@ -1,0 +1,219 @@
+{
+  "model": "xiaomi.switch.w2",
+  "specType": "urn:miot-spec-v2:device:switch:0000A003:xiaomi-w2:2:0000C809",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "Left Switch Service",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-w2:1:0000C809",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "Left Switch Service",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:xiaomi-w2:1:0000C809",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Wired And Wireless"
+          },
+          {
+            "value": 1,
+            "description": "Wireless"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "Left Switch Service",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:fault:00000009:xiaomi-w2:1:0000C809",
+        "name": "Device Fault",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": false,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "No Faults"
+          },
+          {
+            "value": 1,
+            "description": "Over Temperature"
+          },
+          {
+            "value": 2,
+            "description": "Overload"
+          },
+          {
+            "value": 3,
+            "description": "UnderVol"
+          }
+        ]
+      },
+      {
+        "siid": 2,
+        "piid": 7,
+        "service": "Left Switch Service",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:temperature:00000020:xiaomi-w2:1",
+        "name": "Temperature",
+        "type": "int32",
+        "unit": "celsius",
+        "readable": true,
+        "writable": false,
+        "range": [
+          -30,
+          100,
+          1
+        ],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 1,
+        "service": "Right Switch Service",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-w2:1:0000C809",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 3,
+        "piid": 2,
+        "service": "Right Switch Service",
+        "serviceType": "urn:miot-spec-v2:service:switch:0000780C:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:xiaomi-w2:1:0000C809",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Wired And Wireless"
+          },
+          {
+            "value": 1,
+            "description": "Wireless"
+          }
+        ]
+      },
+      {
+        "siid": 4,
+        "piid": 1,
+        "service": "Left Switch Sensor",
+        "serviceType": "urn:miot-spec-v2:service:switch-sensor:00007828:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:xiaomi-w2:1",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Quick Single Click"
+          },
+          {
+            "value": 1,
+            "description": "Multiple Click"
+          }
+        ]
+      },
+      {
+        "siid": 5,
+        "piid": 1,
+        "service": "Right Switch Sensor",
+        "serviceType": "urn:miot-spec-v2:service:switch-sensor:00007828:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000008:xiaomi-w2:1",
+        "name": "Mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 0,
+            "description": "Quick Single Click"
+          },
+          {
+            "value": 1,
+            "description": "Multiple Click"
+          }
+        ]
+      },
+      {
+        "siid": 7,
+        "piid": 1,
+        "service": "All Switch",
+        "serviceType": "urn:miot-spec-v2:service:indicator-light:00007803:xiaomi-w2:1:0000C809",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-w2:1:0000C809",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 9,
+        "piid": 1,
+        "service": "Left Switch",
+        "serviceType": "urn:miot-spec-v2:service:indicator-light:00007803:xiaomi-w2:2",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-w2:2",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      },
+      {
+        "siid": 10,
+        "piid": 1,
+        "service": "Right Switch",
+        "serviceType": "urn:miot-spec-v2:service:indicator-light:00007803:xiaomi-w2:2",
+        "propertyType": "urn:miot-spec-v2:property:on:00000006:xiaomi-w2:2",
+        "name": "Switch Status",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": []
+      }
+    ]
+  }
+}

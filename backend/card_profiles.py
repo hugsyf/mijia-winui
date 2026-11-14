@@ -62,7 +62,7 @@ def card_properties(model, properties, spec_type=""):
     if model not in PROFILES:
         return template_properties(spec_type, properties)
     allowed = PROFILES.get(model, set()) | {
-        ("quick-countdown","left-time"),("quick-countdown","on"),("light","brightness"),("light","color-temperature"),
+        ("quick-countdown","left-time"),("quick-countdown","on"),("light","brightness"),("light","color-temperature"),("light","color"),
         ("humidifier","target-humidity"),("humidifier","mode"),("speaker","volume"),
         ("fan","fan-level"),("fan","horizontal-swing"),("air-purifier","fan-level"),("air-purifier","mode"),
         ("curtain","target-position"),("curtain","current-position"),("curtain","motor-control")}

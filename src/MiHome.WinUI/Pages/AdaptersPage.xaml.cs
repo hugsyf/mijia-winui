@@ -9,7 +9,6 @@ namespace MiHome.WinUI.Pages;
 public sealed partial class AdaptersPage : UserControl
 {
     internal AppBarButton ImportButton => Import;
-    internal AppBarButton ExportButton => Export;
     internal AppBarButton RefreshButton => Refresh;
     internal AppBarButton GuideButton => Guide;
     internal AppBarToggleButton SelectionToggle => Select;
@@ -21,6 +20,7 @@ public sealed partial class AdaptersPage : UserControl
     internal Button RemoveSelectedButton => RemoveSelected;
     internal InfoBar ResultBar => Result;
     internal event Action<string, bool>? SortRequested;
+    internal event Action<bool>? ExportRequested;
     internal event Action<AdapterPackage, string, bool>? PackageCommand;
     internal event Action? PackageSelectionChanged;
     private string sort = "name";
@@ -49,6 +49,8 @@ public sealed partial class AdaptersPage : UserControl
         if (sender is RadioMenuFlyoutItem { Tag: string key }) sort = key;
         SortRequested?.Invoke(sort, Descending.IsChecked);
     }
+    private void OnExportScope(object sender, RoutedEventArgs args) =>
+        ExportRequested?.Invoke(((FrameworkElement)sender).Tag as string == "unadapted");
     private void OnEnabled(object sender, RoutedEventArgs args)
     {
         if (sender is ToggleSwitch { DataContext: AdapterPackageRow row } toggle && toggle.IsLoaded && toggle.IsOn != row.Enabled)

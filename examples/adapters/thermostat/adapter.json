@@ -1,0 +1,112 @@
+{
+  "formatVersion": 1,
+  "id": "example.thermostat",
+  "name": "温控组合示例（虚构设备）",
+  "models": [
+    "example.thermostat.demo"
+  ],
+  "category": "appliance",
+  "requires": [
+    "conditions.enabled",
+    "controls.cardComposites",
+    "layout.cardExpanded"
+  ],
+  "bindings": [
+    {
+      "id": "power",
+      "service": "air-conditioner",
+      "property": "on",
+      "siid": 2,
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "target",
+      "service": "air-conditioner",
+      "property": "target-temperature",
+      "siid": 2,
+      "type": "float",
+      "unit": "celsius",
+      "access": "readWrite"
+    },
+    {
+      "id": "current",
+      "service": "environment",
+      "property": "temperature",
+      "siid": 3,
+      "type": "float",
+      "unit": "celsius",
+      "access": "read"
+    },
+    {
+      "id": "mode",
+      "service": "air-conditioner",
+      "property": "mode",
+      "siid": 2,
+      "type": "uint8",
+      "unit": "",
+      "access": "readWrite"
+    }
+  ],
+  "views": {
+    "card": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power"
+      }
+    ],
+    "drawer": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power"
+      }
+    ],
+    "full": [],
+    "cardExpanded": [
+      {
+        "kind": "thermostat",
+        "label": "温度",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        },
+        "children": [
+          {
+            "kind": "metric",
+            "label": "当前温度",
+            "binding": "current"
+          },
+          {
+            "kind": "slider",
+            "label": "目标温度",
+            "binding": "target"
+          },
+          {
+            "kind": "choice",
+            "label": "模式",
+            "binding": "mode",
+            "options": [
+              {
+                "value": 1,
+                "label": "自动"
+              },
+              {
+                "value": 2,
+                "label": "制热"
+              },
+              {
+                "value": 3,
+                "label": "制冷"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sdkVersion": "0.22.0",
+  "version": "1.0.0"
+}

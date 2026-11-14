@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "MiHome Adapter SDK 0.20.0",
+  "title": "MiHome Adapter SDK 0.22.0",
   "description": "Editor assistance. Run adapter_tool.py validate for semantic, device-Spec and package validation.",
   "type": "object",
   "additionalProperties": false,
@@ -55,7 +55,8 @@
           "layout.cardExpanded",
           "layout.readings",
           "conditions.enabled",
-          "labels.localized"
+          "labels.localized",
+          "controls.cardComposites"
         ]
       }
     },
@@ -170,7 +171,11 @@
                       "level",
                       "duration",
                       "countdown",
-                      "action"
+                      "action",
+                      "colorPresets",
+                      "thermostat",
+                      "media",
+                      "switchGroup"
                     ]
                   }
                 }
@@ -374,7 +379,11 @@
             "status",
             "text",
             "textInput",
-            "toggle"
+            "toggle",
+            "colorPresets",
+            "thermostat",
+            "media",
+            "switchGroup"
           ]
         },
         "label": {
@@ -511,7 +520,10 @@
               "kind": {
                 "enum": [
                   "group",
-                  "readings"
+                  "readings",
+                  "thermostat",
+                  "media",
+                  "switchGroup"
                 ]
               }
             }
@@ -609,7 +621,8 @@
                 "enum": [
                   "choice",
                   "select",
-                  "status"
+                  "status",
+                  "colorPresets"
                 ]
               }
             }

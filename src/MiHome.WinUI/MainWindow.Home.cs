@@ -20,6 +20,7 @@ public sealed partial class MainWindow
         homeView.LightingCommandRequested+=async(room,on)=>await SetHomeLightingAsync(room,on);
         homeView.DeviceRequested+=async tile=>await RunAsync(()=>OpenDeviceAsync(tile.Device,true));
         homeView.PinsRequested+=async()=>await ChooseHomePinsAsync();
+        homeView.SecurityRequested+=async item=>await OpenHomeSecurityAsync(item);
         homeView.SourceRequested+=async room=>await ChooseHomeSourceAsync(room);
         homeView.LightingRequested+=room=>
         {
@@ -95,6 +96,29 @@ public sealed partial class MainWindow
         if(await dialog.ShowAsync()!=ContentDialogResult.Primary||dialog.ChoiceList.SelectedItem is not Dialogs.ChoiceItem selected)return;
         var sources=new Dictionary<string,string>(homePreferences.Sources){[room.RoomId]=((DeviceTile)selected.Value).Device.Id};
         await SaveHomePreferencesAsync(homePreferences with{Sources=sources});
+    }
+    private async Task OpenHomeSecurityAsync(HomeSecurity security)
+    {
+        if (busy) return;
+        if (security.Members.Count == 1)
+        {
+            await RunAsync(() => OpenDeviceAsync(security.Tile.Device,true));
+            return;
+        }
+        var homeId = App.Session.Home?.Id;
+        var dialog = new Dialogs.ChoiceDialog
+        {
+            XamlRoot=Root.XamlRoot,RequestedTheme=Root.ActualTheme,Title=security.Name,
+            PrimaryButtonText=UiText.Get("HomeOpenSensor"),DefaultButton=ContentDialogButton.Primary
+        };
+        var choices = security.Members.Select(tile => new Dialogs.ChoiceItem(tile, tile.Name + " · " +
+            UiText.Get(HomeOverview.Occupancy(tile) is true ? "HomeOccupied" : HomeOverview.Occupancy(tile) is false ? "HomeVacant" : "UnknownState"))).ToList();
+        dialog.ChoiceList.ItemsSource=choices;
+        dialog.ChoiceList.SelectedItem=choices.FirstOrDefault(choice=>((DeviceTile)choice.Value).Device.Id==security.Tile.Device.Id)??choices[0];
+        if(await dialog.ShowAsync()!=ContentDialogResult.Primary || App.Session.Home?.Id!=homeId ||
+            dialog.ChoiceList.SelectedItem is not Dialogs.ChoiceItem {Value:DeviceTile selected})return;
+        var current=browser.HomeTiles.FirstOrDefault(tile=>tile.Device.Id==selected.Device.Id);
+        if(current is not null)await RunAsync(()=>OpenDeviceAsync(current.Device,true));
     }
     private void OnClearLightingFilter(object sender,RoutedEventArgs args){homeLightingFilter=false;ApplyFilter();}
 }

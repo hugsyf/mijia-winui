@@ -453,7 +453,16 @@
     <value>选择传感器</value>
   </data>
   <data name="La4749c74bfa5.Text" xml:space="preserve">
-    <value>门窗与感应</value>
+    <value>安防</value>
+  </data>
+  <data name="HomeOccupied" xml:space="preserve">
+    <value>有人</value>
+  </data>
+  <data name="HomeVacant" xml:space="preserve">
+    <value>无人</value>
+  </data>
+  <data name="HomeOpenSensor" xml:space="preserve">
+    <value>打开</value>
   </data>
   <data name="L299477aec1b6.Text" xml:space="preserve">
     <value>常用</value>
@@ -513,7 +522,7 @@
     <value>预览</value>
   </data>
   <data name="L4b04045642fc.Header" xml:space="preserve">
-    <value>用于匹配的型号</value>
+    <value>优先使用这些适配包</value>
   </data>
   <data name="Ldd5a7c7e3e40.CloseButtonText" xml:space="preserve">
     <value>取消</value>
@@ -636,10 +645,22 @@
     <value>导入</value>
   </data>
   <data name="Lcf825f2b7ef1.Label" xml:space="preserve">
-    <value>导出未适配资料</value>
+    <value>导出适配资料</value>
   </data>
   <data name="Lcf825f2b7ef1.ToolTipService.ToolTip" xml:space="preserve">
-    <value>导出当前家庭使用默认面板的设备资料，按型号与规格去重</value>
+    <value>导出适配资料</value>
+  </data>
+  <data name="AdapterExportAll.Text" xml:space="preserve">
+    <value>全部设备</value>
+  </data>
+  <data name="AdapterExportUnadapted.Text" xml:space="preserve">
+    <value>仅未适配设备</value>
+  </data>
+  <data name="AdapterNoUnadaptedDevices" xml:space="preserve">
+    <value>当前家庭没有使用默认面板的设备。</value>
+  </data>
+  <data name="AdapterNoExportDevices" xml:space="preserve">
+    <value>当前家庭没有可导出的设备。</value>
   </data>
   <data name="Le0bb11678145.Label" xml:space="preserve">
     <value>选择</value>
@@ -798,7 +819,7 @@
     <value>卸载</value>
   </data>
   <data name="Scdb70be0681a" xml:space="preserve">
-    <value>导出未适配资料</value>
+    <value>导出适配资料</value>
   </data>
   <data name="S66e5a1c5807e" xml:space="preserve">
     <value>导入适配包</value>
@@ -2051,6 +2072,12 @@
   <data name="AutoConfirm" xml:space="preserve">
     <value>确认</value>
   </data>
+  <data name="AutoTriggered" xml:space="preserve">
+    <value>已触发</value>
+  </data>
+  <data name="AutoConnectionRequired" xml:space="preserve">
+    <value>米家连接不可用，已跳过</value>
+  </data>
   <data name="AutoCompleted" xml:space="preserve">
     <value>流程完成</value>
   </data>
@@ -2149,5 +2176,32 @@
   </data>
   <data name="AdapterRemoveConfirmation" xml:space="preserve">
     <value>卸载 {0} 个适配包？</value>
+  </data>
+  <data name="CardChooseColor.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>选择颜色</value>
+  </data>
+  <data name="CardChooseColor.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>选择颜色</value>
+  </data>
+  <data name="CardActionUnknown" xml:space="preserve">
+    <value>操作结果待确认，请刷新设备状态。</value>
+  </data>
+  <data name="CardPresetGreen" xml:space="preserve">
+    <value>绿色</value>
+  </data>
+  <data name="CardPresetPurple" xml:space="preserve">
+    <value>紫色</value>
+  </data>
+  <data name="CardPresetBlue" xml:space="preserve">
+    <value>蓝色</value>
+  </data>
+  <data name="CardPresetWarm" xml:space="preserve">
+    <value>暖黄</value>
+  </data>
+  <data name="CardPresetWhite" xml:space="preserve">
+    <value>白色</value>
+  </data>
+  <data name="CardPresetRed" xml:space="preserve">
+    <value>红色</value>
   </data>
 </root>

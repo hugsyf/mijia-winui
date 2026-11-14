@@ -35,7 +35,7 @@ internal static class PropertyPresentation
     };
     public static string Unit(string unit) => unit switch
     {
-        "none" => "", "percentage" => "%", "celsius" => "°C", "kelvin" => "K",
+        "none" => "", "percentage" => "%", "celsius" => "°C", "fahrenheit" => "°F", "kelvin" => "K",
         "watt" => "W", "volt" => "V", "ampere" => "A", "kWh" => "kWh", "seconds"=>Infrastructure.UiText.Get("S9dcdc2b289b9"), "minutes"=>Infrastructure.UiText.Get("Sbd957bc497aa"), "hours"=>Infrastructure.UiText.Get("S3b6fefc50feb"), _ => unit
     };
     public static string EnumLabel(PropertySchema property,EnumValue option) =>

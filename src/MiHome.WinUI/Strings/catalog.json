@@ -604,8 +604,20 @@
     "en-US": "Choose a sensor"
   },
   "La4749c74bfa5.Text": {
-    "zh-CN": "门窗与感应",
-    "en-US": "Doors and presence"
+    "zh-CN": "安防",
+    "en-US": "Security"
+  },
+  "HomeOccupied": {
+    "zh-CN": "有人",
+    "en-US": "Occupied"
+  },
+  "HomeVacant": {
+    "zh-CN": "无人",
+    "en-US": "Unoccupied"
+  },
+  "HomeOpenSensor": {
+    "zh-CN": "打开",
+    "en-US": "Open"
   },
   "L299477aec1b6.Text": {
     "zh-CN": "常用",
@@ -684,8 +696,8 @@
     "en-US": "Preview"
   },
   "L4b04045642fc.Header": {
-    "zh-CN": "用于匹配的型号",
-    "en-US": "Apply to matching models"
+    "zh-CN": "优先使用这些适配包",
+    "en-US": "Prefer these adapters"
   },
   "Ldd5a7c7e3e40.CloseButtonText": {
     "zh-CN": "取消",
@@ -848,12 +860,28 @@
     "en-US": "Import"
   },
   "Lcf825f2b7ef1.Label": {
-    "zh-CN": "导出未适配资料",
-    "en-US": "Export unsupported devices"
+    "zh-CN": "导出适配资料",
+    "en-US": "Export adapter data"
   },
   "Lcf825f2b7ef1.ToolTipService.ToolTip": {
-    "zh-CN": "导出当前家庭使用默认面板的设备资料，按型号与规格去重",
-    "en-US": "Export default-panel devices in this home, grouped by model and specification"
+    "zh-CN": "导出适配资料",
+    "en-US": "Export adapter data"
+  },
+  "AdapterExportAll.Text": {
+    "zh-CN": "全部设备",
+    "en-US": "All devices"
+  },
+  "AdapterExportUnadapted.Text": {
+    "zh-CN": "仅未适配设备",
+    "en-US": "Unadapted devices only"
+  },
+  "AdapterNoUnadaptedDevices": {
+    "zh-CN": "当前家庭没有使用默认面板的设备。",
+    "en-US": "No devices in this home use the default panel."
+  },
+  "AdapterNoExportDevices": {
+    "zh-CN": "当前家庭没有可导出的设备。",
+    "en-US": "No devices in this home are available to export."
   },
   "Le0bb11678145.Label": {
     "zh-CN": "选择",
@@ -1064,8 +1092,8 @@
     "en-US": "Uninstall"
   },
   "Scdb70be0681a": {
-    "zh-CN": "导出未适配资料",
-    "en-US": "Export unsupported devices"
+    "zh-CN": "导出适配资料",
+    "en-US": "Export adapter data"
   },
   "S66e5a1c5807e": {
     "zh-CN": "导入适配包",
@@ -2735,6 +2763,14 @@
     "zh-CN": "确认",
     "en-US": "Confirm"
   },
+  "AutoTriggered": {
+    "zh-CN": "已触发",
+    "en-US": "Triggered"
+  },
+  "AutoConnectionRequired": {
+    "zh-CN": "米家连接不可用，已跳过",
+    "en-US": "Skipped while Mi Home was disconnected"
+  },
   "AutoCompleted": {
     "zh-CN": "流程完成",
     "en-US": "Sequence complete"
@@ -2866,5 +2902,41 @@
   "AdapterRemoveConfirmation": {
     "zh-CN": "卸载 {0} 个适配包？",
     "en-US": "Uninstall {0} adapters?"
+  },
+  "CardChooseColor.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name": {
+    "zh-CN": "选择颜色",
+    "en-US": "Choose color"
+  },
+  "CardChooseColor.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip": {
+    "zh-CN": "选择颜色",
+    "en-US": "Choose color"
+  },
+  "CardActionUnknown": {
+    "zh-CN": "操作结果待确认，请刷新设备状态。",
+    "en-US": "The result is unknown. Refresh the device status."
+  },
+  "CardPresetGreen": {
+    "zh-CN": "绿色",
+    "en-US": "Green"
+  },
+  "CardPresetPurple": {
+    "zh-CN": "紫色",
+    "en-US": "Purple"
+  },
+  "CardPresetBlue": {
+    "zh-CN": "蓝色",
+    "en-US": "Blue"
+  },
+  "CardPresetWarm": {
+    "zh-CN": "暖黄",
+    "en-US": "Warm yellow"
+  },
+  "CardPresetWhite": {
+    "zh-CN": "白色",
+    "en-US": "White"
+  },
+  "CardPresetRed": {
+    "zh-CN": "红色",
+    "en-US": "Red"
   }
 }

@@ -52,6 +52,8 @@ internal sealed class DesktopSession : IDisposable
         if (Home?.Id == home.Id) { Home = home; return; }
         var generation = ++contextVersion;
         Home = home; Pins = []; TraySpeakerId = null; Notify();
+        await Backend.CallAsync("SetSelectedHome", new { homeId = home.Id });
+        if (generation != contextVersion) return;
         var result = await Backend.CallAsync("GetTrayPreferences", new { homeId = home.Id });
         if (generation != contextVersion) return;
         Pins = result.GetProperty("pins").Deserialize<List<string>>() ?? [];

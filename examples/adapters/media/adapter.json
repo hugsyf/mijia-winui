@@ -1,0 +1,146 @@
+{
+  "formatVersion": 1,
+  "id": "example.media",
+  "name": "小爱音箱媒体条示例",
+  "models": [
+    "xiaomi.wifispeaker.l15a"
+  ],
+  "category": "speaker",
+  "requires": [
+    "actions.v1",
+    "labels.options",
+    "controls.cardComposites",
+    "layout.cardExpanded"
+  ],
+  "bindings": [
+    {
+      "id": "volume",
+      "service": "speaker",
+      "property": "volume",
+      "siid": 2,
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "readWrite"
+    },
+    {
+      "id": "state",
+      "service": "play-control",
+      "property": "playing-state",
+      "siid": 3,
+      "type": "uint8",
+      "unit": "none",
+      "access": "read"
+    }
+  ],
+  "actions": [
+    {
+      "id": "previous",
+      "service": "play-control",
+      "action": "previous",
+      "siid": 3
+    },
+    {
+      "id": "play",
+      "service": "play-control",
+      "action": "play",
+      "siid": 3
+    },
+    {
+      "id": "pause",
+      "service": "play-control",
+      "action": "pause",
+      "siid": 3
+    },
+    {
+      "id": "next",
+      "service": "play-control",
+      "action": "next",
+      "siid": 3
+    }
+  ],
+  "views": {
+    "card": [
+      {
+        "kind": "status",
+        "label": "播放状态",
+        "binding": "state",
+        "options": [
+          {
+            "value": 0,
+            "label": "已停止"
+          },
+          {
+            "value": 1,
+            "label": "播放中"
+          },
+          {
+            "value": 2,
+            "label": "已暂停"
+          }
+        ]
+      }
+    ],
+    "drawer": [
+      {
+        "kind": "slider",
+        "label": "音量",
+        "binding": "volume"
+      }
+    ],
+    "full": [],
+    "cardExpanded": [
+      {
+        "kind": "media",
+        "label": "播放",
+        "children": [
+          {
+            "kind": "status",
+            "label": "播放状态",
+            "binding": "state",
+            "options": [
+              {
+                "value": 0,
+                "label": "已停止"
+              },
+              {
+                "value": 1,
+                "label": "播放中"
+              },
+              {
+                "value": 2,
+                "label": "已暂停"
+              }
+            ]
+          },
+          {
+            "kind": "slider",
+            "label": "音量",
+            "binding": "volume"
+          },
+          {
+            "kind": "action",
+            "label": "上一首",
+            "action": "previous"
+          },
+          {
+            "kind": "action",
+            "label": "播放",
+            "action": "play"
+          },
+          {
+            "kind": "action",
+            "label": "暂停",
+            "action": "pause"
+          },
+          {
+            "kind": "action",
+            "label": "下一首",
+            "action": "next"
+          }
+        ]
+      }
+    ]
+  },
+  "sdkVersion": "0.22.0",
+  "version": "1.0.0"
+}

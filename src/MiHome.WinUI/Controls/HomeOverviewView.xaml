@@ -36,7 +36,7 @@
      <ItemsControl x:Name="SensorItems">
       <ItemsControl.ItemsPanel><ItemsPanelTemplate><controls:AdaptiveTilesPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
       <ItemsControl.ItemTemplate><DataTemplate>
-       <Button Style="{ThemeResource HomeCardButtonStyle}" MinHeight="88" Click="OnDeviceClick" ToolTipService.ToolTip="{Binding Hint}">
+       <Button Style="{ThemeResource HomeCardButtonStyle}" MinHeight="88" Click="OnSecurityClick" ToolTipService.ToolTip="{Binding Hint}">
         <Grid ColumnSpacing="12"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition/></Grid.ColumnDefinitions>
          <controls:ProductIconView Tile="{Binding Tile}" IconSize="32"/>
          <StackPanel Grid.Column="1" Spacing="6" VerticalAlignment="Center"><TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="13" TextTrimming="CharacterEllipsis" MaxLines="2" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/><TextBlock Text="{Binding Summary}" TextWrapping="Wrap" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" MaxLines="2"/></StackPanel>
@@ -48,8 +48,8 @@
     <StackPanel Spacing="12">
      <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock x:Uid="L299477aec1b6"  FontSize="18" FontWeight="SemiBold"/><HyperlinkButton x:Uid="L6a2cfd62ea3d" Grid.Column="1"  Padding="0" MinHeight="24" Click="OnPinsClick"/></Grid>
      <Button x:Uid="L5cc12ef3c66e" x:Name="EmptyPins"  HorizontalAlignment="Left" Click="OnPinsClick"/>
-     <controls:DeviceGridView x:Name="Favorites" IsItemClickEnabled="True" SelectionMode="None" Margin="-6" ItemClick="OnFavoriteClick" SizeChanged="OnFavoritesSizeChanged" Loaded="OnFavoritesLoaded" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-      <controls:DeviceGridView.ItemsPanel><ItemsPanelTemplate><VariableSizedWrapGrid Orientation="Horizontal" ItemWidth="260" ItemHeight="88"/></ItemsPanelTemplate></controls:DeviceGridView.ItemsPanel>
+     <controls:DeviceGridView x:Name="Favorites" IsItemClickEnabled="True" SelectionMode="None" Margin="-6" Padding="0" ItemClick="OnFavoriteClick" SizeChanged="OnFavoritesSizeChanged" Loaded="OnFavoritesLoaded" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+      <controls:DeviceGridView.ItemsPanel><ItemsPanelTemplate><ItemsWrapGrid Orientation="Horizontal" ItemWidth="260" ItemHeight="88"/></ItemsPanelTemplate></controls:DeviceGridView.ItemsPanel>
      </controls:DeviceGridView>
     </StackPanel>
    </StackPanel>

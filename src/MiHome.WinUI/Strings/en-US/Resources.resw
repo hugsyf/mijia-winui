@@ -453,7 +453,16 @@
     <value>Choose a sensor</value>
   </data>
   <data name="La4749c74bfa5.Text" xml:space="preserve">
-    <value>Doors and presence</value>
+    <value>Security</value>
+  </data>
+  <data name="HomeOccupied" xml:space="preserve">
+    <value>Occupied</value>
+  </data>
+  <data name="HomeVacant" xml:space="preserve">
+    <value>Unoccupied</value>
+  </data>
+  <data name="HomeOpenSensor" xml:space="preserve">
+    <value>Open</value>
   </data>
   <data name="L299477aec1b6.Text" xml:space="preserve">
     <value>Favorites</value>
@@ -513,7 +522,7 @@
     <value>Preview</value>
   </data>
   <data name="L4b04045642fc.Header" xml:space="preserve">
-    <value>Apply to matching models</value>
+    <value>Prefer these adapters</value>
   </data>
   <data name="Ldd5a7c7e3e40.CloseButtonText" xml:space="preserve">
     <value>Cancel</value>
@@ -636,10 +645,22 @@
     <value>Import</value>
   </data>
   <data name="Lcf825f2b7ef1.Label" xml:space="preserve">
-    <value>Export unsupported devices</value>
+    <value>Export adapter data</value>
   </data>
   <data name="Lcf825f2b7ef1.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Export default-panel devices in this home, grouped by model and specification</value>
+    <value>Export adapter data</value>
+  </data>
+  <data name="AdapterExportAll.Text" xml:space="preserve">
+    <value>All devices</value>
+  </data>
+  <data name="AdapterExportUnadapted.Text" xml:space="preserve">
+    <value>Unadapted devices only</value>
+  </data>
+  <data name="AdapterNoUnadaptedDevices" xml:space="preserve">
+    <value>No devices in this home use the default panel.</value>
+  </data>
+  <data name="AdapterNoExportDevices" xml:space="preserve">
+    <value>No devices in this home are available to export.</value>
   </data>
   <data name="Le0bb11678145.Label" xml:space="preserve">
     <value>Select</value>
@@ -798,7 +819,7 @@
     <value>Uninstall</value>
   </data>
   <data name="Scdb70be0681a" xml:space="preserve">
-    <value>Export unsupported devices</value>
+    <value>Export adapter data</value>
   </data>
   <data name="S66e5a1c5807e" xml:space="preserve">
     <value>Import adapters</value>
@@ -2051,6 +2072,12 @@
   <data name="AutoConfirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="AutoTriggered" xml:space="preserve">
+    <value>Triggered</value>
+  </data>
+  <data name="AutoConnectionRequired" xml:space="preserve">
+    <value>Skipped while Mi Home was disconnected</value>
+  </data>
   <data name="AutoCompleted" xml:space="preserve">
     <value>Sequence complete</value>
   </data>
@@ -2149,5 +2176,32 @@
   </data>
   <data name="AdapterRemoveConfirmation" xml:space="preserve">
     <value>Uninstall {0} adapters?</value>
+  </data>
+  <data name="CardChooseColor.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Choose color</value>
+  </data>
+  <data name="CardChooseColor.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Choose color</value>
+  </data>
+  <data name="CardActionUnknown" xml:space="preserve">
+    <value>The result is unknown. Refresh the device status.</value>
+  </data>
+  <data name="CardPresetGreen" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="CardPresetPurple" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="CardPresetBlue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="CardPresetWarm" xml:space="preserve">
+    <value>Warm yellow</value>
+  </data>
+  <data name="CardPresetWhite" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="CardPresetRed" xml:space="preserve">
+    <value>Red</value>
   </data>
 </root>

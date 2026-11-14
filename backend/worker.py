@@ -317,6 +317,22 @@ def home_preferences(params, save=False):
     return value
 
 
+def selected_home(params, save=False):
+    path = cache_dir() / "selected-home.json"
+    if save:
+        home_id = params.get("homeId")
+        if not isinstance(home_id, str) or home_id not in home_rooms:
+            raise ValueError("此家庭不可用，请刷新家庭列表。")
+        atomic_json(path, {"homeId": home_id})
+        return {"homeId": home_id}
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+        home_id = value.get("homeId") if isinstance(value, dict) else None
+        return {"homeId": home_id if isinstance(home_id, str) and home_id in home_rooms else None}
+    except (OSError, ValueError):
+        return {"homeId": None}
+
+
 def card_preferences():
     try:
         result = json.loads((cache_dir() / "card-appearance.json").read_text(encoding="utf-8"))
@@ -374,6 +390,10 @@ def read_card_states(device_ids):
             props = card_properties(device["model"], schema(ident)["properties"], device.get("specType", ""))
             if device.get("adapter"):
                 props = list({(p["siid"],p["piid"]):p for p in [b["property"] for b in device["adapter"]["bindings"]]+[p for p in schema(ident)["properties"] if p["readable"] and p["propertyType"].split(":")[3] in ("mode","fault")]}.values())
+            actions=[a["action"] for a in (device.get("adapter") or {}).get("actions",[])]
+            if not device.get("adapter") and is_speaker(device):
+                transport=tuple(f"urn:miot-spec-v2:action:{name}:" for name in ("previous","play","pause","next"))
+                actions=[a for a in schema(ident).get("actions",[]) if not a["inputs"] and a["serviceType"].startswith("urn:miot-spec-v2:service:play-control:") and a["actionType"].startswith(transport)]
         except LoginError:
             raise
         except Exception:
@@ -383,7 +403,7 @@ def read_card_states(device_ids):
         if not props and not (device.get("adapter") or {}).get("actions"):
             continue
         target, _ = split_device(ident)
-        state = {"deviceId": ident, "schema": {"properties": props,"actions":[a["action"] for a in (device.get("adapter") or {}).get("actions",[])]}, "values": [],
+        state = {"deviceId": ident, "schema": {"properties": props,"actions":actions}, "values": [],
                  "readAt": None, "error": None}
         result.append(state)
         for p in props:
@@ -489,7 +509,7 @@ def dispatch(method, params):
                 params.get("homeId") != device["homeId"] or device["homeId"] not in home_rooms):
             raise ValueError("音箱离线、已移除或不属于当前家庭。")
         spec = schema(device["id"])
-        if adapter_store.chosen(device, adapter_choices()):
+        if adapter_store.definition(device, adapter_choices(), spec) is not None:
             raise ValueError("当前设备使用适配包，请从适配面板操作。")
         return run_speaker_action(api, action_executor, device, spec, params)
     if method == "RunAction":
@@ -539,6 +559,8 @@ def dispatch(method, params):
     require_auth()
     if method == "GetAutomationAccount":
         return {"account": account_key()}
+    if method in ("GetSelectedHome", "SetSelectedHome"):
+        return selected_home(params, method == "SetSelectedHome")
     if method == "ListScenes":
         return list_scenes(params["homeId"])
     if method == "RunScene":

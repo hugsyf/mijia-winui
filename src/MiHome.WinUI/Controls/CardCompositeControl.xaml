@@ -1,0 +1,70 @@
+<UserControl x:Class="MiHome.WinUI.Controls.CardCompositeControl"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="using:MiHome.WinUI.Controls"
+ HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom">
+ <Grid>
+  <StackPanel x:Name="Colors" Spacing="6" Visibility="Collapsed">
+   <TextBlock x:Name="ColorLabel" Style="{ThemeResource DeviceSecondaryTextStyle}"/>
+   <Grid ColumnSpacing="6"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+    <ItemsControl x:Name="Palette"><ItemsControl.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="4"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+     <ItemsControl.ItemTemplate><DataTemplate>
+      <ToggleButton Width="32" Height="32" MinWidth="32" MinHeight="32" Padding="4" CornerRadius="16"
+       IsChecked="{Binding Checked,Mode=OneWay}" IsEnabled="{Binding Enabled}" Click="OnPreset" ToolTipService.ToolTip="{Binding Label}" AutomationProperties.Name="{Binding Label}">
+       <Ellipse Width="20" Height="20" Fill="{Binding Brush}" Stroke="{ThemeResource ControlStrokeColorDefaultBrush}" StrokeThickness="1"/>
+      </ToggleButton>
+     </DataTemplate></ItemsControl.ItemTemplate>
+    </ItemsControl>
+    <Button x:Uid="CardChooseColor" x:Name="ChooseColor" Grid.Column="1" Width="32" Height="32" MinWidth="32" Padding="0">
+     <Grid><Ellipse x:Name="CurrentColor" Width="18" Height="18" Stroke="{ThemeResource ControlStrokeColorDefaultBrush}" StrokeThickness="1"/>
+      <FontIcon Glyph="&#xE70D;" FontSize="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-4,-3"/>
+     </Grid>
+     <Button.Flyout><Flyout x:Name="ColorFlyout" Opening="OnColorOpening" Closed="OnColorClosed">
+      <StackPanel Spacing="12">
+       <ColorPicker x:Name="Picker" IsAlphaEnabled="False" IsAlphaSliderVisible="False" IsAlphaTextInputVisible="False"
+        IsColorChannelTextInputVisible="False" IsHexInputVisible="False" MaxWidth="300" ColorChanged="OnPickerChanged"/>
+       <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+        <Button x:Uid="L92d41698396b" Click="OnCancelColor"/>
+        <Button x:Uid="L3808cf1e4dfa" x:Name="ApplyColor" Click="OnApplyColor" Style="{StaticResource AccentButtonStyle}"/>
+       </StackPanel>
+      </StackPanel>
+     </Flyout></Button.Flyout>
+    </Button>
+   </Grid>
+  </StackPanel>
+  <Grid x:Name="Thermostat" RowSpacing="2" Visibility="Collapsed">
+   <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+   <Grid ColumnSpacing="12"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition/></Grid.ColumnDefinitions>
+    <TextBlock x:Name="CurrentTemperature" FontSize="22" FontWeight="SemiBold" VerticalAlignment="Center"/>
+    <ContentControl x:Name="ModeHost" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalAlignment="Center"/>
+   </Grid>
+   <ContentControl x:Name="TargetHost" Grid.Row="1" HorizontalContentAlignment="Stretch"/>
+  </Grid>
+  <StackPanel x:Name="Media" Spacing="2" Visibility="Collapsed">
+   <Grid ColumnSpacing="8"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+    <TextBlock x:Name="PlaybackState" Style="{ThemeResource DeviceSecondaryTextStyle}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+    <ItemsControl x:Name="Transport" Grid.Column="1">
+     <ItemsControl.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="2"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+     <ItemsControl.ItemTemplate><DataTemplate>
+      <Button Width="32" Height="32" MinWidth="32" MinHeight="32" Padding="0" Style="{StaticResource SubtleButtonStyle}"
+       Visibility="{Binding Visibility}" IsEnabled="{Binding Enabled}" Click="OnTransport" ToolTipService.ToolTip="{Binding Label}" AutomationProperties.Name="{Binding Label}">
+       <FontIcon Glyph="{Binding Glyph}" FontSize="16"/>
+      </Button>
+     </DataTemplate></ItemsControl.ItemTemplate>
+    </ItemsControl>
+   </Grid>
+   <ContentControl x:Name="VolumeHost" HorizontalContentAlignment="Stretch"/>
+  </StackPanel>
+  <ItemsControl x:Name="Switches" Visibility="Collapsed">
+   <ItemsControl.ItemsPanel><ItemsPanelTemplate><controls:AdaptiveTilesPanel MinimumItemWidth="1" MaximumColumns="4" Spacing="8"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+   <ItemsControl.ItemTemplate><DataTemplate>
+    <StackPanel Spacing="6" Visibility="{Binding Visibility}">
+     <ToggleButton IsChecked="{Binding Checked,Mode=OneWay}" IsEnabled="{Binding Enabled}" HorizontalAlignment="Stretch" Height="36" Padding="0"
+      Click="OnSwitch" ToolTipService.ToolTip="{Binding Label}" AutomationProperties.Name="{Binding Label}" AutomationProperties.ItemStatus="{Binding Status}">
+      <FontIcon Glyph="&#xE7E8;" FontSize="16"/>
+     </ToggleButton>
+     <TextBlock Text="{Binding Label}" Style="{ThemeResource CaptionTextBlockStyle}" TextTrimming="CharacterEllipsis" TextAlignment="Center"/>
+    </StackPanel>
+   </DataTemplate></ItemsControl.ItemTemplate>
+  </ItemsControl>
+ </Grid>
+</UserControl>

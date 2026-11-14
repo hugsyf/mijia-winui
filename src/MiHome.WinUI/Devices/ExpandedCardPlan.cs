@@ -10,7 +10,8 @@ internal static class ExpandedCardPlan
         if(device.Adapter is {CardExpandedDeclared:true,CardExpanded.Count:0})return [];
         if (device.Adapter is { CardExpanded.Count: > 0 } adapter)
         {
-            var declared=adapter.CardExpanded.Select(w=>AdapterLocalizationResolver.Widget(adapter,w)).Select(w=> w.Kind=="action"
+            var declared=adapter.CardExpanded.Select(w=>AdapterLocalizationResolver.Widget(adapter,w)).Select(w=>CardCompositePlan.IsComposite(w.Kind)
+                ? new ExpandedCardItem(w,w.Binding is null?null:CardCompositePlan.Property(device,schema,w)) : w.Kind=="action"
                 ? new ExpandedCardItem(w,null,adapter.Actions.Single(a=>a.Id==w.Action))
                 : new ExpandedCardItem(w,AdapterControlValues.WithLabels(adapter.Bindings.Single(b=>b.Id==w.Binding).Property,w.Options))).ToList();
             if(declared.Count==2 && declared.All(i=>i.Widget.When is null && i.Property is not null) && declared.Select(i=>i.Widget.Kind).ToHashSet().SetEquals(["brightness","colorTemperature"]) && declared[0].Property!.Siid==declared[1].Property!.Siid)
@@ -26,6 +27,24 @@ internal static class ExpandedCardPlan
             return found.Count==1 ? found[0] : null;
         }
         ExpandedCardItem Item(string kind,string label,PropertySchema p)=>new(new(kind,label,null,null,null),p);
+        if(device.Adapter is null)
+        {
+            var channels=DeviceExperience.PowerProperties(device,schema);
+            if(channels.Count is >=2 and <=4)
+                return [new(new("switchGroup","开关",null,channels.Select(p=>CardCompositePlan.Child("toggle",DeviceModels.ChannelLabel(device,p.Siid),p)).ToList(),null),null)];
+            var mediaActions=schema.Actions.Where(CardCompositePlan.IsMediaAction).ToList();
+            if(Find("speaker","volume",true) is {} mediaVolume && Numeric(mediaVolume) && mediaVolume.Unit=="percentage" && mediaActions.Count>0)
+            {
+                var children=new List<AdapterWidget>{CardCompositePlan.Child("slider","音量",mediaVolume)};
+                if(Find("play-control","playing-state") is {} playing)children.Add(CardCompositePlan.Child("status","播放状态",playing));
+                foreach(var command in new[]{"previous","play","pause","next"})
+                {
+                    var actions=mediaActions.Where(a=>DeviceCardPresentation.Semantic(a.ActionType)==command).ToList();
+                    if(actions.Count==1)children.Add(new("action",Infrastructure.UiText.Get(command switch{"previous"=>"SpeakerPrevious.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name","next"=>"SpeakerNext.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name","pause"=>"SpeakerPause",_=>"SpeakerPlay"}),null,null,null){Action=CardCompositePlan.ActionId(actions[0])});
+                }
+                if(children.Any(c=>c.Kind=="action"))return [new(new("media","播放",null,children,null),null)];
+            }
+        }
         var brightness=Find("light","brightness",true);
         var temperature=Find("light","color-temperature",true);
         if (brightness?.Unit=="percentage" || temperature?.Unit=="kelvin")
@@ -33,7 +52,13 @@ internal static class ExpandedCardPlan
             var alternatives=new List<PropertySchema>();
             if(brightness?.Unit=="percentage" && Numeric(brightness)) alternatives.Add(brightness);
             if(temperature?.Unit=="kelvin" && Numeric(temperature)) alternatives.Add(temperature);
-            if(alternatives.Count>0) return [new(new(alternatives[0]==brightness?"brightness":"colorTemperature",alternatives[0]==brightness?"亮度":"色温",null,null,null),alternatives[0],Alternatives:alternatives)];
+            if(alternatives.Count>0)
+            {
+                var controls=new List<ExpandedCardItem>{new(new(alternatives[0]==brightness?"brightness":"colorTemperature",alternatives[0]==brightness?"亮度":"色温",null,null,null),alternatives[0],Alternatives:alternatives)};
+                if(device.Adapter is null && Find("light","color",true) is {Unit:"rgb"} rgb && Numeric(rgb) && (rgb.Type.StartsWith("int")||rgb.Type.StartsWith("uint")) && rgb.Range[0]>=0 && rgb.Range[1]<=16777215)
+                    controls.Add(new(CardCompositePlan.Child("colorPresets","颜色",rgb),rgb));
+                return controls;
+            }
         }
         var result=new List<ExpandedCardItem>();
         var target=Find("humidifier","target-humidity",true);

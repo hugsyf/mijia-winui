@@ -1,7 +1,7 @@
 # 适配包 SDK
 
-SDK 版本：0.20.0。
-对应应用版本：0.20.0。
+SDK 版本：0.22.0。
+宿主需要支持适配包在 `requires` 中声明的能力。
 格式版本：`formatVersion: 1`。
 
 本文面向 Agent 和适配作者。
@@ -54,9 +54,14 @@ python tools/adapter_tool.py validate artifacts/my-adapter.mihome-adapter
 
 应用支持普通卡片、展开卡片、抽屉和整页布局。
 SDK 支持属性读写和标量 MIOT Actions。
+应用会自动使用已启用且兼容的适配包，并保留用户手动选择的面板。
 参照 `backend/adapter-agent-guide.md` 中的「小爱音箱」示例声明播放状态、音量、静音和文字动作。
 SDK 不提供脚本执行、视频、历史数据或本机定时任务。
 
 SDK 0.20.0 增加 `conditions.enabled` 和 `labels.localized`。
 灯光示例提供条件禁用及中英文标签。
 旧包的格式版本保持为 1。
+
+SDK 0.22.0 增加 `controls.cardComposites`。
+展开卡片支持色彩预设、温控组合、媒体控制条和多路开关组。
+示例见 `color-presets`、`thermostat`、`media` 和 `switch-group`。

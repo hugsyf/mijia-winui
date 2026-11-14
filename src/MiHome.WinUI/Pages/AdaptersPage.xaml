@@ -48,7 +48,12 @@
    <AppBarButton x:Uid="L7cdf6d5972fe" x:Name="Import" Icon="Add" DynamicOverflowOrder="4" CornerRadius="4"
     Background="{ThemeResource AccentFillColorDefaultBrush}" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
    <CommandBar.SecondaryCommands>
-    <AppBarButton x:Uid="Lcf825f2b7ef1" x:Name="Export" Icon="Upload"/>
+    <AppBarButton x:Uid="Lcf825f2b7ef1" Icon="Upload">
+     <AppBarButton.Flyout><MenuFlyout>
+      <MenuFlyoutItem x:Uid="AdapterExportAll" Tag="all" Click="OnExportScope"/>
+      <MenuFlyoutItem x:Uid="AdapterExportUnadapted" Tag="unadapted" Click="OnExportScope"/>
+     </MenuFlyout></AppBarButton.Flyout>
+    </AppBarButton>
     <AppBarButton x:Uid="L739274d277f5" x:Name="Guide" Icon="Help"/>
    </CommandBar.SecondaryCommands>
   </CommandBar>

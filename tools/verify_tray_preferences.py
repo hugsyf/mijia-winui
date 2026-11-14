@@ -8,6 +8,7 @@ import sys
 import tempfile
 from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
@@ -38,6 +39,27 @@ class TrayPreferencesChecks(unittest.TestCase):
         worker.account_dir = None
         worker.devices = {"lamp": {"homeId": "home-a"}, "fan": {"homeId": "home-a"},
                           "other": {"homeId": "home-b"}}
+        worker.home_rooms = {"home-a": [], "home-b": []}
+
+    def test_selected_home_survives_reload_and_is_account_scoped(self):
+        worker.dispatch("SetSelectedHome", {"homeId": "home-b"})
+        worker.account_dir = None
+        self.assertEqual(worker.dispatch("GetSelectedHome", {}), {"homeId": "home-b"})
+        worker.api.auth_data = {"userId": "another-home-test-account"}
+        self.assertEqual(worker.dispatch("GetSelectedHome", {}), {"homeId": None})
+
+    def test_selected_home_is_empty_when_removed_or_cache_is_invalid(self):
+        worker.dispatch("SetSelectedHome", {"homeId": "home-b"})
+        worker.home_rooms.pop("home-b")
+        self.assertEqual(worker.dispatch("GetSelectedHome", {}), {"homeId": None})
+        for content in ("not json", "[]", '{"homeId": {}}'):
+            (worker.cache_dir() / "selected-home.json").write_text(content, encoding="utf-8")
+            self.assertEqual(worker.dispatch("GetSelectedHome", {}), {"homeId": None})
+
+    def test_selected_home_rejects_unknown_or_invalid_values(self):
+        for home in ("missing", None, {}, 1):
+            with self.subTest(home=home), self.assertRaises(ValueError):
+                worker.dispatch("SetSelectedHome", {"homeId": home})
 
     def save(self, pins, home="home-a"):
         return worker.dispatch("SetTrayPreferences", {"homeId": home, "pins": pins})
@@ -118,6 +140,25 @@ class TrayPreferencesChecks(unittest.TestCase):
         worker.dispatch("RunSpeakerAction", params | {"command": "pause", "text": None, "quiet": False, "requestId": "3" * 32})
         self.assertEqual(calls[1:], [{"did": "speaker", "siid": 7, "aiid": 3, "in": ["播放音乐"]},
                                      {"did": "speaker", "siid": 3, "aiid": 3, "in": []}])
+
+    def test_native_card_schema_exposes_rgb_and_only_transport_actions(self):
+        speaker=json.loads((ROOT / "examples/adapters/media/preview.json").read_text(encoding="utf-8"))
+        lamp=json.loads((ROOT / "examples/adapters/color-presets/preview.json").read_text(encoding="utf-8"))
+        worker.devices={ident:{"id":ident,"model":data["model"],"specType":data["specType"],"online":True} for ident,data in (("speaker",speaker),("lamp",lamp))}
+        fixtures={"speaker":speaker["schema"],"lamp":lamp["schema"]}
+        worker.api.get_devices_prop=lambda keys:[dict(key,code=0,value=0) for key in keys]
+        with patch.object(worker,"schema",side_effect=lambda ident:fixtures[ident]):
+            states={state["deviceId"]:state for state in worker.read_card_states(["speaker","lamp"])}
+        actions=states["speaker"]["schema"]["actions"]
+        self.assertEqual({action["actionType"].split(":")[3] for action in actions},{"previous","play","pause","next"})
+        self.assertTrue(all(not action["inputs"] for action in actions))
+        self.assertTrue(any(prop["propertyType"].split(":")[3]=="volume" for prop in states["speaker"]["schema"]["properties"]))
+        self.assertTrue(any(prop["propertyType"].split(":")[3]=="color" for prop in states["lamp"]["schema"]["properties"]))
+        fixtures["speaker"]=dict(fixtures["speaker"],actions=[{}])
+        with patch.object(worker,"schema",side_effect=lambda ident:fixtures[ident]):
+            states={state["deviceId"]:state for state in worker.read_card_states(["speaker","lamp"])}
+        self.assertIsNotNone(states["speaker"]["error"])
+        self.assertIsNone(states["lamp"]["error"])
 
 
 if __name__ == "__main__":

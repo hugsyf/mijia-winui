@@ -66,18 +66,22 @@ public sealed partial class MainWindow
         var results=await RunAdapterItemsAsync("卸载适配包",selected,p=>p.Name,async p=>{await AdapterCallAsync("RemoveAdapter",new{id=p.Id});return "已卸载";});
         await ReloadAdaptersAsync();ShowAdapterResults("卸载适配包",results);
     }
-    private async Task ExportDefaultAdaptersAsync()
+    private async Task ExportAdaptersAsync(bool onlyUnadapted)
     {
-        var candidates=AdapterBatchRules.ExportCandidates(browser.AllDevices);
-        if(candidates.Count==0){await ShowInformationAsync(MiHome.WinUI.Infrastructure.UiText.Get("Scdb70be0681a"),"当前家庭没有使用默认面板的设备。");return;}
+        var title=UiText.Get("Scdb70be0681a");
+        var candidates=AdapterBatchRules.ExportCandidates(browser.AllDevices,onlyUnadapted);
+        if(candidates.Count==0){await ShowInformationAsync(title,UiText.Get(onlyUnadapted?"AdapterNoUnadaptedDevices":"AdapterNoExportDevices"));return;}
         using var buffer=new MemoryStream();var exported=0;
         List<AdapterWorkResult> results;
         using(var archive=new ZipArchive(buffer,ZipArchiveMode.Create,true))
         {
-            results=await RunAdapterItemsAsync("导出未适配资料",candidates,d=>d.Model,async device=>
+            results=await RunAdapterItemsAsync(title,candidates,d=>d.Model,async device=>
             {
-                var schema=await (diagnosticService??backend).GetSchemaAsync(device.Id);
-                if(!AdapterBatchRules.UsesDefaultPanel(device,schema))return null;
+                if(onlyUnadapted)
+                {
+                    var schema=await (diagnosticService??backend).GetSchemaAsync(device.Id);
+                    if(!AdapterBatchRules.UsesDefaultPanel(device,schema))return null;
+                }
                 if(string.IsNullOrWhiteSpace(device.SpecType))throw new InvalidOperationException("设备未提供公开规格。");
                 var context=await AdapterCallAsync("ExportAdapterContext",new{deviceId=device.Id,includeReadings=false});
                 var json=JsonSerializer.Serialize(context,new JsonSerializerOptions {WriteIndented=true});
@@ -101,7 +105,7 @@ public sealed partial class MainWindow
             if(file is null){ShowAdapterResults("导出已取消",results.Select(r=>r.Success?r with{Success=false,Skipped=true,Detail="未保存"}:r).ToList());return;}
             using var output=await file.OpenStreamForWriteAsync();output.SetLength(0);buffer.Position=0;await buffer.CopyToAsync(output);
         }
-        ShowAdapterResults("导出未适配资料",results);
+        ShowAdapterResults(title,results);
     }
     private async Task ImportAdapterAsync()
     {

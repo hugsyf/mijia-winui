@@ -10,12 +10,12 @@ internal sealed partial class AutomationTriggers : IDisposable
     private readonly TrayIconService host;
     private readonly AutomationEngine engine;
     private readonly DispatcherQueue dispatcher;
-    private readonly DispatcherQueueTimer debounce;
     private readonly ForegroundCallback callback;
     private readonly HashSet<uint> hotkeys = [];
     private readonly bool sessionNotifications;
     private nint hook;
-    private string foreground = "";
+    private readonly ForegroundProgramState foreground = new();
+    private bool watchForeground;
     private string? observedAccount;
     private bool suspended;
     private bool disposed;
@@ -27,12 +27,8 @@ internal sealed partial class AutomationTriggers : IDisposable
         this.engine = engine;
         this.dispatcher = dispatcher;
         callback = OnForeground;
-        debounce = dispatcher.CreateTimer();
-        debounce.Interval = TimeSpan.FromMilliseconds(600);
-        debounce.IsRepeating = false;
-        debounce.Tick += (_, _) => ApplyForeground();
         sampleTimer = dispatcher.CreateTimer();
-        sampleTimer.Interval = TimeSpan.FromSeconds(1);
+        sampleTimer.Interval = TimeSpan.FromMilliseconds(250);
         sampleTimer.Tick += (_, _) => SamplePcState();
         host.WindowMessage += OnWindowMessage;
         sessionNotifications = WTSRegisterSessionNotification(host.Handle, 0);
@@ -49,8 +45,7 @@ internal sealed partial class AutomationTriggers : IDisposable
             ResetPcSampling();
             lastScheduleDate.Clear();
             recovery.Clear();
-            debounce.Stop();
-            if (hook != 0) foreground = ForegroundPath();
+            foreground.Reset(ForegroundPath());
         }
         var enabled = engine.Rules.Where(rule => rule.Enabled && !engine.Paused).ToList();
         var keys = enabled.Where(rule => rule.Trigger == "hotkey").Select(rule => AutomationRule.Hotkey(rule.Argument)).ToHashSet();
@@ -67,14 +62,12 @@ internal sealed partial class AutomationTriggers : IDisposable
         }
         if (enabled.Any(rule => rule.Trigger is "foreground" or "foreground-exit"))
         {
+            if (!watchForeground) foreground.Reset(ForegroundPath());
+            watchForeground = true;
             if (hook == 0)
             {
-                foreground = ForegroundPath();
                 hook = SetWinEventHook(ForegroundEvent, ForegroundEvent, 0, callback, 0, 0, 0);
             }
-            if (hook == 0)
-                failures.AddRange(enabled.Where(rule => rule.Trigger is "foreground" or "foreground-exit")
-                    .Select(rule => UiText.Get(AutomationRule.TriggerLabel(rule.Trigger))).Distinct());
         }
         else StopForeground();
         if (!sessionNotifications && enabled.Any(rule => rule.Trigger is "lock" or "unlock"))
@@ -88,20 +81,16 @@ internal sealed partial class AutomationTriggers : IDisposable
         dispatcher.TryEnqueue(() =>
         {
             if (disposed || suspended || hook != eventHook) return;
-            debounce.Stop();
-            debounce.Start();
+            ApplyForeground();
         });
 
     private void ApplyForeground()
     {
-        var previous = foreground;
-        var path = ForegroundPath();
-        if (string.Equals(path, foreground, StringComparison.OrdinalIgnoreCase)) return;
-        foreground = path;
+        if (foreground.Observe(ForegroundPath(), Environment.TickCount64) is not { } change) return;
         _ = engine.TriggerAsync(rule => rule.Trigger switch
         {
-            "foreground" => string.Equals(rule.Argument, path, StringComparison.OrdinalIgnoreCase),
-            "foreground-exit" => string.Equals(rule.Argument, previous, StringComparison.OrdinalIgnoreCase),
+            "foreground" => string.Equals(rule.Argument, change.Current, StringComparison.OrdinalIgnoreCase),
+            "foreground-exit" => string.Equals(rule.Argument, change.Previous, StringComparison.OrdinalIgnoreCase),
             _ => false
         });
     }
@@ -134,7 +123,6 @@ internal sealed partial class AutomationTriggers : IDisposable
             if (message == 0x0218 && value == 4)
             {
                 suspended = true;
-                debounce.Stop();
                 ResetPcSampling();
                 recovery.Clear();
                 UpdateSampleTimer();
@@ -143,7 +131,7 @@ internal sealed partial class AutomationTriggers : IDisposable
             if (message == 0x0218 && value == 18 && suspended)
             {
                 suspended = false;
-                if (hook != 0) foreground = ForegroundPath();
+                foreground.Reset(ForegroundPath());
                 ResetPcSampling();
                 QueueRecovery("wake");
                 UpdateSampleTimer();
@@ -153,7 +141,8 @@ internal sealed partial class AutomationTriggers : IDisposable
 
     private void StopForeground()
     {
-        debounce.Stop();
+        watchForeground = false;
+        foreground.Reset("");
         if (hook != 0) UnhookWinEvent(hook);
         hook = 0;
     }

@@ -11,6 +11,10 @@ internal static class AdapterBatchChecks
         var candidates=AdapterBatchRules.ExportCandidates([device with{Id="parent.s2"},device,device with{Id="second"},device with{Id="custom",Adapter=active},device with{Id="new-spec",SpecType="another"}]);
         Check(candidates.Count==2&&candidates[0].Id=="parent","Deduplicate by model/spec and prefer complete parent schema");
         Check(AdapterBatchRules.ExportCandidates([device with{Adapter=active}]).Count==0,"Skip active custom adapters");
+        var all=AdapterBatchRules.ExportCandidates([device with{Id="parent.s2"},device,device with{Id="custom",Adapter=active},device with{Id="new-model",Model="example.sensor.new",Adapter=active}],false);
+        Check(all.Count==2&&!all.Single(d=>d.Model==device.Model).Id.Contains(".s",StringComparison.Ordinal)&&all.Any(d=>d.Model=="example.sensor.new"),"All-device export includes adapted models, deduplicates models/specs and prefers the complete parent");
+        Check(AdapterBatchRules.ExportCandidates([device with{Adapter=active}],false).Single().Adapter==active,"All-device export retains active adapters");
+        Check(AdapterBatchRules.ExportCandidates([],false).Count==0,"An empty home has no export candidates");
         using var fixtures=JsonDocument.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory,"device-card-specs.json")));
         var schema=fixtures.RootElement.GetProperty("xiaomi.switch.w2").Deserialize<DeviceSchema>(new JsonSerializerOptions{PropertyNameCaseInsensitive=true})!;
         Check(!AdapterBatchRules.UsesDefaultPanel(device,schema),"An existing built-in panel is not an unadapted device");

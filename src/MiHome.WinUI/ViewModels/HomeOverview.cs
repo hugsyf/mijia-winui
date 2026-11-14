@@ -6,12 +6,13 @@ internal sealed record HomeEnvironment(string RoomId,string Room,DeviceTile? Sou
 internal sealed record HomeLighting(string RoomId,string Room,int On,int Off,int Unknown);
 internal sealed record HomeAttention(DeviceTile Tile,string Message);
 internal sealed record HomeNetwork(DeviceTile Tile,string Summary);
-internal sealed record HomeOverview(List<HomeEnvironment> Environment,List<HomeLighting> Lighting,List<DeviceTile> Sensors,List<HomeAttention> Attention,List<DeviceTile> Pins,List<HomeNetwork> Network)
+internal sealed record HomeSecurity(string Name,DeviceTile Tile,List<DeviceTile> Members,bool IsOccupancy,bool? Occupied);
+internal sealed record HomeOverview(List<HomeEnvironment> Environment,List<HomeLighting> Lighting,List<HomeSecurity> Security,List<HomeAttention> Attention,List<DeviceTile> Pins,List<HomeNetwork> Network)
 {
     public static HomeOverview Build(List<DeviceTile> tiles,HomePreferences preferences)
     {
         double? Number(DeviceTile t,string capability,string service,string property)=>AdapterReadings.Capability(t.Device,t.State,capability)??DeviceCardPresentation.Number(t.State,service,property);
-        var environment=new List<HomeEnvironment>();var lighting=new List<HomeLighting>();var sensors=new List<DeviceTile>();var attention=new List<HomeAttention>();var network=new List<HomeNetwork>();
+        var environment=new List<HomeEnvironment>();var lighting=new List<HomeLighting>();var security=new List<HomeSecurity>();var attention=new List<HomeAttention>();var network=new List<HomeNetwork>();
         foreach(var room in tiles.GroupBy(t=>t.Device.RoomId))
         {
             var candidates=room.Where(t=>DeviceCardPresentation.Category(t.Device,t.State)=="temperature-humidity-sensor").ToList();
@@ -43,7 +44,7 @@ internal sealed record HomeOverview(List<HomeEnvironment> Environment,List<HomeL
         foreach(var tile in tiles)
         {
             var category=DeviceCardPresentation.Category(tile.Device,tile.State);
-            if(category is "magnet-sensor" or "occupancy-sensor")sensors.Add(tile);
+            if(category == "magnet-sensor")security.Add(new(tile.Name,tile,[tile],false,null));
             if(!tile.Device.Online||tile.State is null)continue;
             var fault=tile.State.Schema.Properties.Where(p=>DeviceCardPresentation.Semantic(p.PropertyType)=="fault")
                 .Any(p=>DeviceCardPresentation.TryValue(tile.State,p,out var v)&&v.ValueKind==System.Text.Json.JsonValueKind.Number&&v.TryGetDouble(out var n)&&n!=0);
@@ -61,7 +62,23 @@ internal sealed record HomeOverview(List<HomeEnvironment> Environment,List<HomeL
                 if(summary.Length>0)network.Add(new(tile,summary));
             }
         }
+        var occupancy = tiles.Where(tile => DeviceCardPresentation.Category(tile.Device,tile.State) == "occupancy-sensor");
+        foreach (var room in occupancy.GroupBy(tile => (tile.Device.HomeId,tile.Device.RoomId,Unassigned:tile.Device.RoomId.Length == 0 ? tile.Device.Id : "")))
+        {
+            var members = room.ToList();
+            var readings = members.Select(tile => (Tile:tile,Occupied:Occupancy(tile))).ToList();
+            bool? occupied = readings.Any(item => item.Occupied is true) ? true : readings.All(item => item.Occupied is false) ? false : null;
+            var representative = readings.FirstOrDefault(item => item.Occupied == occupied).Tile ?? members[0];
+            security.Add(new(room.Key.RoomId.Length == 0 ? representative.Name : representative.Room,representative,members,true,occupied));
+        }
         var byId=tiles.ToDictionary(t=>t.Device.Id);
-        return new(environment,lighting,sensors,attention,preferences.Pins.Where(byId.ContainsKey).Select(id=>byId[id]).ToList(),network);
+        return new(environment,lighting,security,attention,preferences.Pins.Where(byId.ContainsKey).Select(id=>byId[id]).ToList(),network);
     }
+
+    internal static bool? Occupancy(DeviceTile tile) => !tile.Device.Online ? null : DeviceCardPresentation.Presence(tile.State) switch
+    {
+        "有人" => true,
+        "无人" => false,
+        _ => null
+    };
 }

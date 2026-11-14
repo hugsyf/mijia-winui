@@ -36,6 +36,24 @@ internal static class AutomationChecks
         existing.Remove(nameof(AutomationRule.TargetLabel));
         Require(existing.Deserialize<AutomationRule>() is { } loaded && loaded.IsValid(), "Saved rules without a USB label still load");
 
+        var foreground = new ForegroundProgramState();
+        foreground.Reset(@"C:\Windows\explorer.exe");
+        Require(foreground.Observe(@"C:\Games\game.exe", 0) is null &&
+            foreground.Observe(@"C:\Games\game.exe", 200) is null && foreground.Observe(@"C:\Games\game.exe", 400) is null &&
+            foreground.Observe(@"c:\games\GAME.exe", 600) is { Current: @"c:\games\GAME.exe" },
+            "Repeated foreground events from one program cannot postpone its trigger indefinitely");
+        Require(foreground.Observe(@"C:\Games\game.exe", 1200) is null,
+            "A stable foreground program triggers once");
+        Require(foreground.Observe(@"C:\Windows\explorer.exe", 1300) is null &&
+            foreground.Observe(@"C:\Games\game.exe", 1600) is null &&
+            foreground.Observe(@"C:\Games\game.exe", 2200) is null,
+            "A brief app switch cannot trigger a foreground exit");
+        Require(foreground.Observe("", 2300) is null && foreground.Observe(@"C:\Games\game.exe", 3000) is null,
+            "A temporarily missing foreground window cannot trigger an exit");
+        foreground.Observe(@"C:\Windows\explorer.exe", 3100);
+        Require(foreground.Observe(@"C:\Windows\explorer.exe", 3700) is { Previous: @"c:\games\GAME.exe", Current: @"C:\Windows\explorer.exe" },
+            "Foreground exit and entry carry the previous and current programs");
+
         var property = new PropertySchema(2, 1, "Switch", "Power", "bool", "", true, true, [], [])
         {
             ServiceType = "urn:miot-spec-v2:service:switch:0000780C",
@@ -49,7 +67,7 @@ internal static class AutomationChecks
         Require(await control.WriteAsync(property, true) == DeviceWriteResult.Unknown && service.Writes == 1, "Unconfirmed writes report unknown and are not retried");
         service.On = true;
         Require(await control.WriteAsync(property, true) == DeviceWriteResult.Confirmed && service.Writes == 1, "Readback verifies an already-applied target");
-        Console.WriteLine("PASS: 15 automation checks (schedule, trigger validation, time window and device write outcomes)");
+        Console.WriteLine("PASS: 20 automation checks (foreground stability, schedule, rule validation and device write outcomes)");
     }
 
     private static void Require(bool condition, string description)

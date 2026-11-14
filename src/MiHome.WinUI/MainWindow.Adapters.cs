@@ -27,7 +27,7 @@ public sealed partial class MainWindow
     private void InitializeAdapters()
     {
         adaptersPage.ImportButton.Click += async (_, _) => await RunAsync(ImportAdapterAsync);
-        adaptersPage.ExportButton.Click += async (_, _) => await RunAsync(ExportDefaultAdaptersAsync);
+        adaptersPage.ExportRequested += async onlyUnadapted => await RunAsync(() => ExportAdaptersAsync(onlyUnadapted));
         adaptersPage.RefreshButton.Click += async (_, _) => await RunAsync(RefreshAdapterCatalogAsync);
         adaptersPage.GuideButton.Click += (_, _) => OpenAdapterGuide();
         adaptersPage.SortRequested += (key, descending) => { adapterSort = key; adapterSortDescending = descending; RenderAdapterCatalog(); };

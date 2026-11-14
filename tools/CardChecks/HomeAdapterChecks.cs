@@ -51,6 +51,24 @@ internal static class HomeAdapterChecks
         var textProperty=power with{Type="string",Values=[],Range=[]};
         var textState=new DeviceCardState("",new([textProperty]),JsonSerializer.SerializeToElement(new[]{new{siid=2,piid=1,code=0,value="待机"}}),null,null);
         Check(AdapterReadings.Format(textState,textProperty)=="待机","String status is supported");
+        var sensor=Device("linp.sensor_occupy.es2","presence1","living");
+        var vacant=State(sensor.Model,(2,1078,0));
+        var occupied=State(sensor.Model,(2,1078,1));
+        HomeSecurity Room(params DeviceTile[] members)=>HomeOverview.Build(members.ToList(),new([],[])).Security.Single();
+        var room=Room(new(sensor,vacant),new(sensor with{Id="presence2"},occupied));
+        Check(room is{IsOccupancy:true,Occupied:true} && room.Members.Count==2 && room.Tile.Device.Id=="presence2","One occupied sensor makes the room occupied");
+        Check(Room(new(sensor,vacant),new(sensor with{Id="presence2"},vacant)).Occupied is false,"A room is vacant when all sensors report vacant");
+        Check(Room(new(sensor,vacant),new(sensor with{Id="presence2"},State(sensor.Model))).Occupied is null,"Missing readings do not imply a vacant room");
+        Check(Room(new(sensor,vacant),new(sensor with{Id="presence2",Online=false},occupied)).Occupied is null,"Offline cached occupancy does not imply a current room state");
+        Check(Room(new(sensor,occupied),new(sensor with{Id="presence2",Online=false},vacant)).Occupied is true,"Confirmed occupancy takes priority over unavailable sensors");
+        Check(Room(new DeviceTile(sensor with{Online=false},occupied)).Occupied is null,"An offline room remains unknown");
+        overview=HomeOverview.Build([new(sensor,vacant),new(sensor with{Id="presence2",RoomId="bedroom",Room="bedroom"},occupied)],new([],[]));
+        Check(overview.Security.Count==2 && overview.Security.Select(item=>item.Name).ToHashSet().SetEquals(["living","bedroom"]),"Occupancy is grouped by room");
+        overview=HomeOverview.Build([new(sensor with{RoomId=""},vacant),new(sensor with{Id="presence2",RoomId=""},occupied)],new([],[]));
+        Check(overview.Security.Count==2,"Unassigned occupancy sensors remain separate");
+        foreach(var (bytes,expected) in new (double,string)[]{(0,"0 B/s"),(999,"999 B/s"),(30_000,"30 KB/s"),(1_000_000,"1 MB/s"),(6_343_037,"6.343 MB/s"),(1_000_000_000,"1 GB/s")})
+            Check(DeviceCardPresentation.RouterSpeed(State("xiaomi.router.rd03",(2,1,bytes)),"download-speed")==expected,"Router speed selects the appropriate decimal unit: "+expected);
+        Check(DeviceCardPresentation.RouterSpeed(State("xiaomi.router.rd03",(2,2,-1)),"upload-speed") is null,"Invalid router rates remain unknown");
         Console.WriteLine($"Passed {checks} targeted home and adapter checks.");
     }
 }

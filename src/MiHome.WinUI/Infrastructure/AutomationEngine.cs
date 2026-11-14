@@ -160,13 +160,21 @@ internal sealed class AutomationEngine(DesktopSession session, string directory)
 
     public async Task TriggerAsync(Func<AutomationRule, bool> matchesEvent)
     {
-        if (Paused || Account is null || !session.Authenticated || !session.Backend.Running) return;
+        if (Paused || Account is null) return;
         var now = TimeOnly.FromDateTime(DateTime.Now);
-        var matches = Rules.Where(rule => rule.Enabled && matchesEvent(rule) && rule.MatchesTime(now)).ToList();
+        var detected = Rules.Where(rule => rule.Enabled && matchesEvent(rule)).ToList();
+        foreach (var rule in detected.Where(rule => !rule.MatchesTime(now))) Record(rule.Name, "AutoTimeNotMatched", 0);
+        var matches = detected.Where(rule => rule.MatchesTime(now)).ToList();
         if (matches.Count == 0) return;
+        if (!session.Authenticated || !session.Backend.Running)
+        {
+            foreach (var rule in matches) Record(rule.Name, "AutoConnectionRequired", 0);
+            return;
+        }
         var first = matches[0];
         foreach (var rule in matches.Skip(1)) Record(rule.Name, "AutoSkipped", 0);
         if (Running || manualSceneRunning || session.MainBusy || session.Busy) { Record(first.Name, "AutoSkipped", 0); return; }
+        Record(first.Name, "AutoTriggered", 0);
         await RunAsync(first);
     }
 

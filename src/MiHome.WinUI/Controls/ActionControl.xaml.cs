@@ -10,6 +10,7 @@ internal interface IEmbeddedActionPreview { bool EmbeddedPreview { get; } }
 public sealed partial class ActionControl : UserControl
 {
     private static readonly Dictionary<string, SemaphoreSlim> gates = [];
+    internal static SemaphoreSlim DeviceGate(string id){if(!gates.TryGetValue(id,out var gate))gates[id]=gate=new(1);return gate;}
     private bool busy, unknown, available;
     private Func<bool> guard=()=>true;
     public void SetGuard(Func<bool> value)=>guard=value;
@@ -28,7 +29,7 @@ public sealed partial class ActionControl : UserControl
         button.Click += async (_, _) =>
         {
             if (!guard() || !available || busy || unknown || service is not IDeviceActionService actions || device.Adapter is null) return;
-            if (!gates.TryGetValue(device.Id,out var gate)) gates[device.Id] = gate = new(1);
+            var gate=DeviceGate(device.Id);
             if (!await gate.WaitAsync(0)) { Message("此设备正在执行另一项操作。"); return; }
             busy = true; SetAvailable(available); BusyChanged?.Invoke(true);
             feedback.Visibility=Visibility.Collapsed;

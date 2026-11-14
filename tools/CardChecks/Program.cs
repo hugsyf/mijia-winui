@@ -181,7 +181,7 @@ Require(!DrawerLayout.Inline(600,"inline",false) && DrawerLayout.Width(360,false
 Require(!DrawerLayout.Inline(1100,"auto",false) && !DrawerLayout.Inline(1000,"auto",false), "Details remain overlay at all widths");
 Require(!DrawerLayout.Inline(1200,"overlay",false) && !DrawerLayout.Inline(1200,"inline",true) && DrawerLayout.Width(1200,true)==1200, "Overlay and expanded details");
 var speedState=State("xiaomi.router.rd03",(2,1,6343037),(2,2,0),(2,3,12));
-Require(DeviceCardPresentation.RouterSpeed(speedState,"download-speed")=="6.343 MB/s" && DeviceCardPresentation.RouterSpeed(speedState,"upload-speed")=="0 MB/s", "Router speeds use decimal bytes per second with valid zero");
+Require(DeviceCardPresentation.RouterSpeed(speedState,"download-speed")=="6.343 MB/s" && DeviceCardPresentation.RouterSpeed(speedState,"upload-speed")=="0 B/s", "Router speeds use decimal bytes per second with valid zero");
 Require(DeviceCardPresentation.RouterSpeed(State("xiaomi.router.rd03",(2,1,-1)),"download-speed") is null, "Reject invalid negative speed");
 var preferenceDirectory=Path.Combine(Path.GetTempPath(),"mihome-preferences-"+Guid.NewGuid().ToString("N"));
 try

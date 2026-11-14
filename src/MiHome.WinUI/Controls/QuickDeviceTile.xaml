@@ -6,12 +6,12 @@
   <Grid.RowDefinitions><RowDefinition Height="48"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
   <Grid>
    <Grid.ColumnDefinitions><ColumnDefinition Width="3*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-   <ToggleButton x:Name="MainButton" CornerRadius="4,0,0,4" Padding="0" MinWidth="0"
+   <ToggleButton x:Name="MainButton" CornerRadius="4,0,0,4" BorderThickness="1,1,0,1" BackgroundSizing="OuterBorderEdge" Padding="0" MinWidth="0"
     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="OnMainClick">
     <controls:ProductIconView x:Name="DeviceIcon" IconSize="24"/>
    </ToggleButton>
    <ToggleButton x:Uid="TrayDetails" x:Name="DetailsButton" Grid.Column="1" Click="OnDetailsClick"
-    MinWidth="0" Padding="0" CornerRadius="0,4,4,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    MinWidth="0" Padding="0" CornerRadius="0,4,4,0" BackgroundSizing="OuterBorderEdge" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <FontIcon Glyph="&#xE76C;" FontSize="12"/>
    </ToggleButton>
   </Grid>

@@ -1,7 +1,7 @@
 # 设备适配包开发指南
 
-适用应用版本：0.20.0。
-适配 SDK 版本：0.20.0。
+宿主需要支持适配包在 `requires` 中声明的能力。
+适配 SDK 版本：0.22.0。
 格式版本：`formatVersion: 1`。
 
 本文面向编写适配包的 Agent 和开发者。
@@ -66,9 +66,20 @@
 4. 读取 `schema` 和原始 `miotSpec`。
 
 单设备导出可以附带 `readings` 样本。
+批量导出可以选择全部设备或仅未适配设备。
+同型号和规格只导出一份资料。
 批量导出不附带读数。
 样本不代表当前设备状态。
 不得推测缺失值、权限、单位或枚举。
+
+## 应用适配包
+
+应用会自动使用已启用且兼容的适配包。
+匹配时检查设备型号、Spec、绑定和控制权限。
+导入时可以将适配包设为同型号的首选。
+用户为设备手动选择的面板优先。
+用户选择默认面板后，安装或更新适配包不会覆盖此选择。
+没有可用适配包时，设备使用默认面板。
 
 ## 创建包
 
@@ -335,6 +346,7 @@ false 显示“未启用”。
 - `controls.numeric`：`number`、`level`、`gauge`。
 - `controls.text`：`text`、`textInput`。
 - `controls.indicator`：`indicator`。
+- `controls.cardComposites`：色彩预设、温控、媒体和多路开关组合。
 - `layout.readings`：`readings`。
 - `labels.options`：枚举显示标签。
 - `layout.cardExpanded`：展开卡片布局。
@@ -371,7 +383,8 @@ false 显示“未启用”。
 
 ```text
 metric, status, toggle, slider, brightness, colorTemperature,
-choice, select, level, duration, countdown, action
+choice, select, level, duration, countdown, action,
+colorPresets, thermostat, media, switchGroup
 ```
 
 不允许表单、分组、长文本或内部滚动条。
@@ -385,6 +398,56 @@ choice, select, level, duration, countdown, action
 此行为仍受适配包绑定权限限制。
 显式设置 `cardExpanded: []` 可关闭此行为。
 没有匹配能力时，宿主保留原卡片布局。
+
+### 组合控件
+
+在 `requires` 中添加 `controls.cardComposites` 和 `layout.cardExpanded`。
+以下控件只能放在 `views.cardExpanded` 顶层。
+子项继续引用本包的绑定和动作。
+`when`、`enabledWhen` 和标签翻译继续生效。
+父项的条件同时约束全部子项。
+读数缺失、设备离线或处于编辑模式时，不允许写入。
+
+| kind | 内容 | 布局限制 |
+| --- | --- | --- |
+| `colorPresets` | RGB 色块和原生调色浮层 | 可以与另一项普通控件并列 |
+| `thermostat` | 当前温度、目标温度滑条、可选模式 | 独占展开区域 |
+| `media` | 播放动作、音量滑条、可选播放状态 | 独占展开区域 |
+| `switchGroup` | 2 至 4 路独立电源开关 | 独占展开区域 |
+
+`colorPresets` 使用 `binding` 绑定可写的 RGB24 整数颜色属性。
+该属性必须属于灯光服务，单位必须是 `rgb`。
+可用 `options` 声明 1 至 6 个颜色，格式为 `{"value":16777215,"label":"白色"}`。
+每个值必须符合实际范围和步长。
+省略 `options` 时，宿主提供符合范围的默认色块。
+窄卡片只显示能容纳的色块。调色浮层仍可选择其他有效颜色。
+调色浮层在用户点击应用后提交。
+示例见 `examples/adapters/color-presets`。
+
+`thermostat.children` 必须包含一个 `metric` 和一个 `slider`，可以再包含一个 `choice`。
+`metric` 绑定实际当前温度，`slider` 绑定可写的 `target-temperature`。
+两个温度必须使用相同的 `celsius` 或 `fahrenheit` 单位。
+`choice` 绑定目标温度所在服务的实际 `mode` 枚举。
+模式标签可以使用 `options` 翻译，不得改变枚举值。
+示例见 `examples/adapters/thermostat`。
+
+`media.children` 必须包含一个音量 `slider` 和 1 至 4 个 `action`。
+还可以包含一个绑定 `playing-state` 的 `status`。
+音量单位必须是 `percentage`。
+动作仅支持标准 `play-control` 服务的 `previous`、`play`、`pause` 和 `next`。
+动作不能包含输入参数。
+这些播放按钮点击后直接提交，不显示确认对话框。
+宿主仍会检查动作声明、条件和设备状态。
+结果未知时，宿主禁止重复提交，直到重新打开卡片。
+标准播放状态可将播放和暂停合并为一个按钮。
+动作有自己的 `when` 条件时，宿主按该条件显示。
+示例见 `examples/adapters/media`。
+
+`switchGroup.children` 只能包含 2 至 4 个 `toggle`。
+每项绑定不同的可读写布尔 `on` 属性。
+每路独立读取和提交，不会联动其他路。
+无线模式和故障检查继续生效。
+示例见 `examples/adapters/switch-group`。
 
 ## 声明 MIOT Actions
 

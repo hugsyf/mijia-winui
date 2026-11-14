@@ -5,6 +5,7 @@
   <Compile Include="../../src/MiHome.WinUI/Devices/AdapterBatchRules.cs" Link="AdapterBatchRules.cs" />
   <Compile Include="../../src/MiHome.WinUI/Panels/PropertyPresentation.cs" Link="PropertyPresentation.cs" />
   <Compile Include="../../src/MiHome.WinUI/Devices/ExpandedCardPlan.cs" Link="ExpandedCardPlan.cs" />
+  <Compile Include="../../src/MiHome.WinUI/Devices/CardCompositePlan.cs" Link="CardCompositePlan.cs" />
   <Compile Include="../../src/MiHome.WinUI/Devices/LiveCardSnapshot.cs" Link="LiveCardSnapshot.cs" />
   <Compile Include="../../src/MiHome.Contracts/Models.cs" Link="Models.cs" />
   <Compile Include="../../src/MiHome.WinUI/ViewModels/DeviceCardPresentation.cs" Link="DeviceCardPresentation.cs" />
@@ -31,6 +32,7 @@
  <ItemGroup>
   <Compile Include="../../src/MiHome.WinUI/Infrastructure/UiText.cs" Link="UiText.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Infrastructure/AutomationRule.cs" Link="AutomationRule.cs"/>
+  <Compile Include="../../src/MiHome.WinUI/Infrastructure/ForegroundProgramState.cs" Link="ForegroundProgramState.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Infrastructure/UpdateService.cs" Link="UpdateService.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Devices/AdapterConditions.cs" Link="AdapterConditions.cs"/>
   <Compile Include="../../src/MiHome.WinUI/Devices/AdapterLocalizationResolver.cs" Link="AdapterLocalizationResolver.cs"/>

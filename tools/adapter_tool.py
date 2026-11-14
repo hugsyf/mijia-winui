@@ -9,7 +9,7 @@ import zipfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend"))
 from adapters import inspect, safe_path, decode
 
-SDK_VERSION = "0.20.0"
+SDK_VERSION = "0.22.0"
 
 
 def pack(source, output):

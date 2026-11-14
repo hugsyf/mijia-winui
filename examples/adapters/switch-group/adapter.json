@@ -1,0 +1,104 @@
+{
+  "formatVersion": 1,
+  "id": "example.switch-group",
+  "name": "多路开关示例",
+  "models": [
+    "xiaomi.switch.w2"
+  ],
+  "category": "switch",
+  "requires": [
+    "conditions.enabled",
+    "controls.cardComposites",
+    "layout.cardExpanded"
+  ],
+  "bindings": [
+    {
+      "id": "channel1",
+      "service": "switch",
+      "property": "on",
+      "siid": 2,
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "mode1",
+      "service": "switch",
+      "property": "mode",
+      "siid": 2,
+      "type": "uint8",
+      "unit": "",
+      "access": "read"
+    },
+    {
+      "id": "channel2",
+      "service": "switch",
+      "property": "on",
+      "siid": 3,
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "mode2",
+      "service": "switch",
+      "property": "mode",
+      "siid": 3,
+      "type": "uint8",
+      "unit": "",
+      "access": "read"
+    }
+  ],
+  "views": {
+    "card": [],
+    "drawer": [
+      {
+        "kind": "toggle",
+        "label": "第 1 路",
+        "binding": "channel1",
+        "enabledWhen": {
+          "binding": "mode1",
+          "equals": 0
+        }
+      },
+      {
+        "kind": "toggle",
+        "label": "第 2 路",
+        "binding": "channel2",
+        "enabledWhen": {
+          "binding": "mode2",
+          "equals": 0
+        }
+      }
+    ],
+    "full": [],
+    "cardExpanded": [
+      {
+        "kind": "switchGroup",
+        "label": "开关",
+        "children": [
+          {
+            "kind": "toggle",
+            "label": "第 1 路",
+            "binding": "channel1",
+            "enabledWhen": {
+              "binding": "mode1",
+              "equals": 0
+            }
+          },
+          {
+            "kind": "toggle",
+            "label": "第 2 路",
+            "binding": "channel2",
+            "enabledWhen": {
+              "binding": "mode2",
+              "equals": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "sdkVersion": "0.22.0",
+  "version": "1.0.0"
+}

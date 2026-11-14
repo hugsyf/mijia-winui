@@ -15,8 +15,9 @@ import action_support
 
 KINDS = {"metric", "status", "toggle", "slider", "select", "progress", "group",
          "choice", "brightness", "colorTemperature", "color", "duration", "countdown", "number", "level", "gauge",
-         "text", "textInput", "indicator", "readings", "action"}
-FEATURES = {"controls.lighting", "controls.choice", "controls.time", "controls.numeric", "controls.text", "controls.indicator", "layout.readings", "labels.options", "actions.v1", "layout.cardExpanded", "conditions.enabled", "labels.localized"}
+         "text", "textInput", "indicator", "readings", "action", "colorPresets", "thermostat", "media", "switchGroup"}
+COMPOSITES = {"thermostat", "media", "switchGroup"}
+FEATURES = {"controls.lighting", "controls.choice", "controls.time", "controls.numeric", "controls.text", "controls.indicator", "layout.readings", "labels.options", "actions.v1", "layout.cardExpanded", "conditions.enabled", "labels.localized", "controls.cardComposites"}
 CATEGORIES = {"light", "switch", "outlet", "humidifier", "temperature-humidity-sensor", "occupancy-sensor", "router", "appliance", "fan", "air-purifier", "curtain", "speaker"}
 CAPABILITIES = {
     "temperature": ({"temperature-humidity-sensor", "environment"}, "temperature", "celsius"),
@@ -150,7 +151,7 @@ def validate(document):
     fields(document["views"], {"card", "drawer", "full", "cardExpanded"}, {"card", "drawer", "full"})
     widget_count=[0]
     def widgets(items, card=False, depth=0, expanded=False):
-        if not isinstance(items, list) or len(items) > (2 if card or expanded else 12) or depth > 2:
+        if not isinstance(items, list) or len(items) > (2 if card or expanded and depth==0 else 12) or depth > 2:
             raise ValueError("布局过大。")
         for w in items:
             widget_count[0]+=1
@@ -160,8 +161,11 @@ def validate(document):
             if "labelKey" in w and (not isinstance(w["labelKey"],str) or w["labelKey"] not in keys): raise ValueError("控件资源键不存在。")
             if w["kind"] not in KINDS or card and w["kind"] not in ("metric", "status", "toggle"):
                 raise ValueError("不支持此布局控件。")
-            if expanded and w["kind"] not in ("metric","status","toggle","slider","brightness","colorTemperature","choice","select","level","duration","countdown","action"):
+            if expanded and w["kind"] not in ("metric","status","toggle","slider","brightness","colorTemperature","choice","select","level","duration","countdown","action","colorPresets",*COMPOSITES):
                 raise ValueError("展开卡片不支持此控件。")
+            if w["kind"] in COMPOSITES | {"colorPresets"}:
+                if not expanded or depth or "controls.cardComposites" not in document.get("requires",[]): raise ValueError("组合控件需要声明 controls.cardComposites，并放在展开卡片顶层。")
+                if w["kind"] in COMPOSITES and len(items)!=1: raise ValueError("此组合控件需要独占展开卡片。")
             if w["kind"] == "action":
                 if w.get("action") not in action_ids or "binding" in w or "children" in w: raise ValueError("动作控件引用不正确。")
                 if "arguments" in w and (not isinstance(w["arguments"],list) or len(w["arguments"])>16 or any(isinstance(v,(list,dict)) or v is None for v in w["arguments"])): raise ValueError("预设动作参数不正确。")
@@ -172,7 +176,7 @@ def validate(document):
                 raise ValueError("倒计时启用状态绑定不正确。")
             if "maxLength" in w and (w["kind"] != "textInput" or type(w["maxLength"]) is not int or not 1 <= w["maxLength"] <= 256):
                 raise ValueError("文本输入长度不正确。")
-            for key, kinds in (("options", ("choice", "select", "status")), ("states", ("indicator",))):
+            for key, kinds in (("options", ("choice", "select", "status", "colorPresets")), ("states", ("indicator",))):
                 if key not in w: continue
                 if w["kind"] not in kinds or not isinstance(w[key], list) or not 1 <= len(w[key]) <= 50:
                     raise ValueError("标签映射不正确。")
@@ -187,11 +191,21 @@ def validate(document):
                     seen_values.append(value)
                     if key == "states" and option["tone"] not in ("neutral", "success", "warning", "critical"):
                         raise ValueError("状态颜色不正确。")
-            if w["kind"] in ("group", "readings"):
+            if w["kind"] in ("group", "readings", *COMPOSITES):
                 if "binding" in w: raise ValueError("分组不能绑定属性。")
                 if w["kind"] == "readings" and (not isinstance(w.get("children"), list) or not 1 <= len(w["children"]) <= 6 or any(not isinstance(c, dict) or c.get("kind") not in ("metric", "status", "gauge", "text", "indicator") for c in w["children"])):
                     raise ValueError("读数组合仅支持 1 至 6 个只读控件。")
-                widgets(w.get("children"), depth=depth + 1)
+                if w["kind"] in COMPOSITES:
+                    children=w.get("children")
+                    allowed={"thermostat":{"metric","slider","choice"},"media":{"status","slider","action"},"switchGroup":{"toggle"}}[w["kind"]]
+                    if not isinstance(children,list) or not 2<=len(children)<=6 or any(not isinstance(child,dict) or child.get("kind") not in allowed for child in children): raise ValueError("组合控件的子项不正确。")
+                    kinds=[child["kind"] for child in children]
+                    if w["kind"]=="thermostat" and (kinds.count("metric")!=1 or kinds.count("slider")!=1 or kinds.count("choice")>1): raise ValueError("温控组合需要当前温度、目标温度和可选模式。")
+                    if w["kind"]=="media" and (kinds.count("slider")!=1 or not 1<=kinds.count("action")<=4 or kinds.count("status")>1): raise ValueError("媒体组合需要音量和播放动作。")
+                    if w["kind"]=="switchGroup" and not 2<=len(children)<=4: raise ValueError("开关组支持 2 至 4 路。")
+                    refs=[child.get("binding",child.get("action")) for child in children]
+                    if len(set(refs))!=len(refs): raise ValueError("组合控件不能重复引用绑定或动作。")
+                widgets(w.get("children"), depth=depth + 1,expanded=expanded)
             elif w["kind"] != "action":
                 if w.get("binding") not in seen or "children" in w:
                     raise ValueError("控件绑定不存在。")
@@ -234,14 +248,36 @@ def resolve(document, device, schema, icon=""):
         for w in items:
             for name in ("when","enabledWhen"):
                 if name in w: action_support.scalar(by_id[w[name]["binding"]]["property"],w[name]["equals"])
-            if w["kind"] in ("group", "readings"): check(w["children"]); continue
+            if w["kind"] in ("group", "readings", *COMPOSITES):
+                children=w["children"]
+                props=[by_id[c["binding"]]["property"] for c in children if "binding" in c]
+                if w["kind"]=="thermostat":
+                    current=by_id[next(c["binding"] for c in children if c["kind"]=="metric")]["property"]
+                    target=by_id[next(c["binding"] for c in children if c["kind"]=="slider")]["property"]
+                    if semantic(current.get("propertyType"))!="temperature" or semantic(target.get("propertyType"))!="target-temperature" or target.get("unit") not in ("celsius","fahrenheit") or current.get("unit")!=target.get("unit") or current["type"] in ("bool","string") or current["values"]: raise ValueError("温控组合需要同单位的实际当前温度和目标温度。")
+                    for child in children:
+                        if child["kind"]=="choice":
+                            mode=by_id[child["binding"]]["property"]
+                            if semantic(mode.get("propertyType"))!="mode" or mode["siid"]!=target["siid"]: raise ValueError("温控模式必须属于目标温度的服务。")
+                if w["kind"]=="switchGroup" and any(p["type"]!="bool" or semantic(p.get("propertyType"))!="on" for p in props): raise ValueError("开关组只能绑定实际电源属性。")
+                if w["kind"]=="switchGroup" and len({(p["siid"],p["piid"]) for p in props})!=len(props): raise ValueError("开关组不能重复绑定同一路电源。")
+                if w["kind"]=="media":
+                    for child in children:
+                        if child["kind"]=="action":
+                            action=actions_by_id[child["action"]]
+                            if action["inputs"] or not action["actionType"].startswith("urn:miot-spec-v2:action:") or semantic(action["actionType"]) not in {"previous","play","pause","next"} or not action["serviceType"].startswith("urn:miot-spec-v2:service:play-control:"): raise ValueError("媒体组合只支持无输入的标准播放动作。")
+                        else:
+                            prop=by_id[child["binding"]]["property"]
+                            if child["kind"]=="slider" and (semantic(prop.get("propertyType"))!="volume" or prop.get("unit")!="percentage"): raise ValueError("媒体滑条需要实际百分比音量。")
+                            if child["kind"]=="status" and semantic(prop.get("propertyType"))!="playing-state": raise ValueError("媒体状态需要实际播放状态。")
+                check(children,expanded=True); continue
             if w["kind"] == "action":
                 action = actions_by_id[w["action"]]
                 if "arguments" in w: action_support.arguments(action,w["arguments"])
                 if expanded and (action["inputs"] or not action["actionType"].startswith("urn:miot-spec-v2:action:") or semantic(action["actionType"]) not in action_support.CARD_ACTIONS): raise ValueError("此动作应保留在详情页。")
                 continue
             p = by_id[w["binding"]]["property"]
-            if w["kind"] in ("toggle", "slider", "select", "choice", "brightness", "colorTemperature", "color", "duration", "number", "level", "textInput") and not by_id[w["binding"]]["allowWrite"]:
+            if w["kind"] in ("toggle", "slider", "select", "choice", "brightness", "colorTemperature", "color", "colorPresets", "duration", "number", "level", "textInput") and not by_id[w["binding"]]["allowWrite"]:
                 raise ValueError("控制项缺少写入声明。")
             if w["kind"] in ("text", "textInput") and p["type"] != "string":
                 raise ValueError("文本控件需要字符串属性。")
@@ -250,24 +286,28 @@ def resolve(document, device, schema, icon=""):
             if w["kind"] == "indicator" and p["type"] != "bool" and not p["values"]:
                 raise ValueError("状态指示需要布尔值或实际枚举。")
             for key in ("options", "states"):
+                if w["kind"]=="colorPresets": continue
                 actual_values = [True, False] if key == "states" and p["type"] == "bool" else [v["value"] for v in p["values"]]
                 if any(not any(type(item["value"]) is type(v) and item["value"] == v for v in actual_values) for item in w.get(key, [])):
                     raise ValueError("标签映射包含设备没有的实际值。")
             if w["kind"] == "toggle" and p["type"] != "bool": raise ValueError("开关需要布尔值。")
             if w["kind"] in ("select", "choice") and not p["values"]: raise ValueError("选择项缺少实际枚举。")
-            if w["kind"] in ("slider", "progress", "brightness", "colorTemperature", "color", "duration", "countdown", "number", "level", "gauge") and (p["type"] in ("bool", "string") or p["values"] or len(p["range"]) < 2 or not all(type(n) in (int, float) and math.isfinite(n) for n in p["range"]) or p["range"][0] >= p["range"][1] or len(p["range"]) > 2 and p["range"][2] <= 0):
+            if w["kind"] in ("slider", "progress", "brightness", "colorTemperature", "color", "colorPresets", "duration", "countdown", "number", "level", "gauge") and (p["type"] in ("bool", "string") or p["values"] or len(p["range"]) < 2 or not all(type(n) in (int, float) and math.isfinite(n) for n in p["range"]) or p["range"][0] >= p["range"][1] or len(p["range"]) > 2 and p["range"][2] <= 0):
                 raise ValueError("数值控件缺少有效范围。")
             kind = w["kind"]
             if kind == "level":
                 limits = p["range"]
                 if not p["type"].startswith(("int", "uint")) or any(n != round(n) for n in limits) or len(limits) < 3 or not 1 <= (limits[1] - limits[0]) / limits[2] <= 7 or not math.isclose((limits[1] - limits[0]) / limits[2], round((limits[1] - limits[0]) / limits[2]), abs_tol=1e-6):
                     raise ValueError("档位控件需要 2 至 8 个等距实际档位。")
-            if kind in ("brightness", "colorTemperature", "color"):
-                expected = {"brightness": ("brightness", "percentage"), "colorTemperature": ("color-temperature", "kelvin"), "color": ("color", "rgb")}[kind]
+            if kind in ("brightness", "colorTemperature", "color", "colorPresets"):
+                expected = {"brightness": ("brightness", "percentage"), "colorTemperature": ("color-temperature", "kelvin"), "color": ("color", "rgb"), "colorPresets":("color","rgb")}[kind]
                 if semantic(p.get("serviceType")) != "light" or (semantic(p.get("propertyType")), p.get("unit", "")) != expected:
                     raise ValueError("灯光控件与实际语义或单位不匹配。")
-                if kind == "color" and (not p["type"].startswith(("int", "uint")) or p["range"][0] < 0 or p["range"][1] > 16777215):
+                if kind in ("color","colorPresets") and (not p["type"].startswith(("int", "uint")) or p["range"][0] < 0 or p["range"][1] > 16777215):
                     raise ValueError("颜色控件仅支持 RGB24 整数。")
+                if kind=="colorPresets":
+                    if len(w.get("options",[]))>6: raise ValueError("颜色预设最多 6 项。")
+                    for option in w.get("options",[]): action_support.scalar(p,option["value"])
             if kind in ("duration", "countdown") and (p.get("unit") not in ("seconds", "minutes", "hours") or p["range"][0] < 0):
                 raise ValueError("时长控件需要有效的秒、分钟或小时单位。")
             if kind == "countdown" and "countdown" not in semantic(p.get("propertyType")) and semantic(p.get("propertyType")) not in ("left-time", "remaining-time"):
@@ -396,17 +436,28 @@ class AdapterStore:
             if not current.exists(): os.replace(temp, current)
             raise
 
+    def candidates(self, device, choices):
+        selected = choices.get("devices", {}).get(device["id"])
+        if selected is not None:
+            return [selected] if selected and selected != "$builtin" and self.state().get(selected, True) and self.package(selected).is_dir() else []
+        preferred = choices.get("models", {}).get(device["model"])
+        matching = [package["id"] for package in self.catalog() if package["enabled"] and device["model"] in package["models"]]
+        return sorted(matching, key=lambda ident: (ident != preferred, ident))
+
     def chosen(self, device, choices):
-        ident = choices.get("devices", {}).get(device["id"], choices.get("models", {}).get(device["model"], ""))
-        return ident if ident and ident != "$builtin" and self.state().get(ident, True) and self.package(ident).is_dir() else ""
+        return next(iter(self.candidates(device, choices)), "")
 
     def definition(self, device, choices, schema):
-        ident = self.chosen(device, choices)
-        if not ident: return None
-        folder = self.package(ident)
-        document = validate(decode((folder / "adapter.json").read_bytes()))
-        icon = str(folder / safe_path(document["icon"])) if document.get("icon") else ""
-        return resolve(document, device, schema, icon)
+        explicit = device["id"] in choices.get("devices", {})
+        for ident in self.candidates(device, choices):
+            try:
+                folder = self.package(ident)
+                document = validate(decode((folder / "adapter.json").read_bytes()))
+                icon = str(folder / safe_path(document["icon"])) if document.get("icon") else ""
+                return resolve(document, device, schema, icon)
+            except (OSError, ValueError, KeyError, TypeError):
+                if explicit: raise
+        return None
 
 
 def condition_guard(definition, readings, binding_ids=(), action_id=None):
@@ -420,8 +471,8 @@ def condition_guard(definition, readings, binding_ids=(), action_id=None):
     def paths(widgets, conditions=()):
         for widget in widgets:
             rules=conditions+tuple(widget[key] for key in ("enabledWhen","when") if key in widget)
-            if widget["kind"] in ("group","readings"): yield from paths(widget["children"],rules)
-            elif (action_id is not None and widget.get("action")==action_id) or widget.get("binding") in binding_ids and widget["kind"] in ("toggle","slider","select","choice","brightness","colorTemperature","color","duration","number","level","textInput"):
+            if widget["kind"] in ("group","readings",*COMPOSITES): yield from paths(widget["children"],rules)
+            elif (action_id is not None and widget.get("action")==action_id) or widget.get("binding") in binding_ids and widget["kind"] in ("toggle","slider","select","choice","brightness","colorTemperature","color","colorPresets","duration","number","level","textInput"):
                 yield all(matches(rule) for rule in rules)
     options=[allowed for view in ("card","drawer","full","cardExpanded") for allowed in paths(definition.get(view,[]))]
     if options and not any(options): raise ValueError("当前设备状态不允许此操作。")

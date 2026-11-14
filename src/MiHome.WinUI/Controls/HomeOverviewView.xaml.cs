@@ -11,6 +11,7 @@ public sealed partial class HomeOverviewView : UserControl
     internal event Action<DeviceTile>? DeviceRequested;
     internal event Action<HomeEnvironment>? SourceRequested;
     internal event Action<HomeLighting>? LightingRequested;
+    internal event Action<HomeSecurity>? SecurityRequested;
     internal event Action? PinsRequested;
     public string Headline { get; private set; } = "";
     private HomeOverview? model;
@@ -28,8 +29,8 @@ public sealed partial class HomeOverviewView : UserControl
         var sources = next.Environment.Select(room => room.Source?.State?.ReadAt).Where(time => time.HasValue).ToList();
         Updated.Text = sources.Count > 0 ? Infrastructure.UiText.Format("UpdatedAt",sources.Max()!.Value.ToLocalTime().ToString("HH:mm")) : "";
         EnvironmentItems.ItemsSource = next.Environment.Select(room => new HomeEnvironmentRow(room)).ToList();
-        SensorSection.Visibility = Visible(next.Sensors.Count > 0);
-        SensorItems.ItemsSource = next.Sensors.Select(tile => new HomeDeviceRow(tile)).ToList();
+        SensorSection.Visibility = Visible(next.Security.Count > 0);
+        SensorItems.ItemsSource = next.Security.Select(item => new HomeSecurityRow(item)).ToList();
         EmptyPins.Visibility = Visible(next.Pins.Count == 0);
         Favorites.Visibility = Visible(next.Pins.Count > 0);
         Favorites.ItemsSource = next.Pins.Select(tile => tile with { PresentationSize = "compact", IsEditing = false }).ToList();
@@ -42,6 +43,7 @@ public sealed partial class HomeOverviewView : UserControl
         NetworkSection.Visibility = Visible(next.Network.Count > 0);
         NetworkItems.ItemsSource = next.Network.Select(item => new HomeDeviceRow(item.Tile)).ToList();
         ResizeColumns();
+        ResizeFavorites();
     }
     private static Visibility Visible(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
     private void ResizeColumns()
@@ -57,6 +59,7 @@ public sealed partial class HomeOverviewView : UserControl
     private void OnPinsClick(object sender, RoutedEventArgs args) => PinsRequested?.Invoke();
     private void OnAttentionClick(object sender, RoutedEventArgs args) { if (((FrameworkElement)sender).DataContext is HomeAttentionRow row) DeviceRequested?.Invoke(row.Tile); }
     private void OnDeviceClick(object sender, RoutedEventArgs args) { if (((FrameworkElement)sender).DataContext is HomeDeviceRow row) DeviceRequested?.Invoke(row.Tile); }
+    private void OnSecurityClick(object sender, RoutedEventArgs args) { if (((FrameworkElement)sender).DataContext is HomeSecurityRow row) SecurityRequested?.Invoke(row.Model); }
     private void OnEnvironmentClick(object sender, RoutedEventArgs args)
     {
         if (((FrameworkElement)sender).DataContext is not HomeEnvironmentRow row) return;
@@ -69,8 +72,13 @@ public sealed partial class HomeOverviewView : UserControl
     private void OnFavoriteClick(object sender, ItemClickEventArgs args) { if (!Favorites.ConsumeControlInteraction()) DeviceRequested?.Invoke((DeviceTile)args.ClickedItem); }
     private void ResizeFavorites()
     {
-        if (Favorites.ItemsPanelRoot is VariableSizedWrapGrid panel && Favorites.ActualWidth > 0)
-        { var columns = Math.Clamp((int)(Favorites.ActualWidth / 240), 1, 3); panel.MaximumRowsOrColumns = columns; panel.ItemWidth = Favorites.ActualWidth / columns; }
+        if (Favorites.ItemsPanelRoot is ItemsWrapGrid panel && Favorites.ActualWidth > 0)
+        {
+            var available = Math.Max(1, Favorites.ActualWidth - Favorites.Padding.Left - Favorites.Padding.Right);
+            var columns = Math.Clamp((int)(available / 240), 1, 3);
+            panel.MaximumRowsOrColumns = columns;
+            panel.ItemWidth = Math.Max(1, Math.Floor(available / columns));
+        }
     }
     private void OnFavoritesSizeChanged(object sender, SizeChangedEventArgs args) => ResizeFavorites();
     private void OnFavoritesLoaded(object sender, RoutedEventArgs args) => ResizeFavorites();
@@ -102,6 +110,17 @@ public sealed class HomeDeviceRow(DeviceTile tile)
     public string Hint => tile.Name + " · " + tile.Room + " · " + tile.StateHint;
     public string Connected => (AdapterReadings.Capability(tile.Device, tile.State, "connected") ?? DeviceCardPresentation.Number(tile.State, "router", "connected-device-number")) is { } n ? Infrastructure.UiText.Format("ConnectedCount",n.ToString("0")) : "";
     public string Speed => string.Join("   ", new[] {DeviceCardPresentation.RouterSpeed(tile.State, "download-speed") is { } down ? "↓ " + down : "", DeviceCardPresentation.RouterSpeed(tile.State, "upload-speed") is { } up ? "↑ " + up : ""}.Where(s => s.Length > 0));
+}
+public sealed class HomeSecurityRow
+{
+    internal HomeSecurity Model { get; }
+    public DeviceTile Tile => Model.Tile;
+    public string Name => Model.Name;
+    public string Summary => Model.IsOccupancy
+        ? Infrastructure.UiText.Get(Model.Occupied is true ? "HomeOccupied" : Model.Occupied is false ? "HomeVacant" : "UnknownState")
+        : new HomeDeviceRow(Tile).Summary;
+    public string Hint => string.Join("\n", Model.Members.Select(tile => tile.Name + " · " + tile.Room + " · " + tile.StateHint));
+    internal HomeSecurityRow(HomeSecurity model) => Model = model;
 }
 public sealed class HomeLightingRow
 {

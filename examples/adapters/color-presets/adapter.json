@@ -1,0 +1,178 @@
+{
+  "formatVersion": 1,
+  "id": "example.color-presets",
+  "name": "色彩预设示例",
+  "version": "1.0.0",
+  "sdkVersion": "0.22.0",
+  "requires": [
+    "layout.cardExpanded",
+    "controls.lighting",
+    "controls.choice",
+    "conditions.enabled",
+    "labels.localized",
+    "controls.cardComposites"
+  ],
+  "models": [
+    "yeelink.light.bslamp2"
+  ],
+  "specType": "urn:miot-spec-v2:device:light:0000A001:yeelink-bslamp2:2",
+  "category": "light",
+  "bindings": [
+    {
+      "id": "power",
+      "siid": 2,
+      "service": "light",
+      "property": "on",
+      "type": "bool",
+      "unit": "",
+      "access": "readWrite"
+    },
+    {
+      "id": "brightness",
+      "siid": 2,
+      "service": "light",
+      "property": "brightness",
+      "type": "uint8",
+      "unit": "percentage",
+      "access": "readWrite"
+    },
+    {
+      "id": "temperature",
+      "siid": 2,
+      "service": "light",
+      "property": "color-temperature",
+      "type": "uint32",
+      "unit": "kelvin",
+      "access": "readWrite"
+    },
+    {
+      "id": "color",
+      "siid": 2,
+      "service": "light",
+      "property": "color",
+      "type": "uint32",
+      "unit": "rgb",
+      "access": "readWrite"
+    },
+    {
+      "id": "mode",
+      "siid": 2,
+      "service": "light",
+      "property": "mode",
+      "type": "uint8",
+      "unit": "",
+      "access": "readWrite"
+    }
+  ],
+  "views": {
+    "card": [],
+    "drawer": [
+      {
+        "kind": "toggle",
+        "label": "电源",
+        "binding": "power",
+        "labelKey": "power"
+      },
+      {
+        "kind": "choice",
+        "label": "模式",
+        "binding": "mode",
+        "labelKey": "mode",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        }
+      },
+      {
+        "kind": "brightness",
+        "label": "亮度",
+        "binding": "brightness",
+        "labelKey": "brightness",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        }
+      },
+      {
+        "kind": "colorTemperature",
+        "label": "色温",
+        "binding": "temperature",
+        "labelKey": "temperature",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        }
+      },
+      {
+        "kind": "color",
+        "label": "颜色",
+        "binding": "color",
+        "labelKey": "color",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        }
+      }
+    ],
+    "full": [],
+    "cardExpanded": [
+      {
+        "kind": "brightness",
+        "label": "亮度",
+        "binding": "brightness",
+        "labelKey": "brightness",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        }
+      },
+      {
+        "kind": "colorPresets",
+        "label": "颜色",
+        "labelKey": "color",
+        "binding": "color",
+        "enabledWhen": {
+          "binding": "power",
+          "equals": true
+        },
+        "options": [
+          {
+            "value": 16777215,
+            "label": "白色"
+          },
+          {
+            "value": 16757575,
+            "label": "暖黄"
+          },
+          {
+            "value": 4754943,
+            "label": "蓝色"
+          },
+          {
+            "value": 6534544,
+            "label": "绿色"
+          }
+        ]
+      }
+    ]
+  },
+  "localization": {
+    "defaultLocale": "zh-CN",
+    "resources": {
+      "zh-CN": {
+        "power": "电源",
+        "mode": "模式",
+        "brightness": "亮度",
+        "temperature": "色温",
+        "color": "颜色"
+      },
+      "en-US": {
+        "power": "Power",
+        "mode": "Mode",
+        "brightness": "Brightness",
+        "temperature": "Color temperature",
+        "color": "Color"
+      }
+    }
+  }
+}

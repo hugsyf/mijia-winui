@@ -16,6 +16,7 @@ internal sealed partial class AutomationTriggers
     private double? idleMinutes;
     private DateTime lastMinute;
     private long lastTick;
+    private long nextProcessSample;
     private int samplingRevision;
     private bool readingProcesses;
 
@@ -27,8 +28,8 @@ internal sealed partial class AutomationTriggers
         if (!paths.SequenceEqual(processTargets, StringComparer.OrdinalIgnoreCase))
         {
             processTargets = paths;
-            runningPrograms = null;
             samplingRevision++;
+            SeedRunningPrograms();
         }
         var existingIds = engine.Rules.Select(rule => rule.Id).ToHashSet();
         foreach (var id in lastScheduleDate.Keys.Where(id => !existingIds.Contains(id)).ToArray()) lastScheduleDate.Remove(id);
@@ -38,7 +39,7 @@ internal sealed partial class AutomationTriggers
 
     private void UpdateSampleTimer()
     {
-        var needed = !suspended && (sampledRules.Length != 0 || processTargets.Length != 0 || recovery.Count != 0);
+        var needed = !suspended && (watchForeground || sampledRules.Length != 0 || processTargets.Length != 0 || recovery.Count != 0);
         if (needed && !sampleTimer.IsRunning) sampleTimer.Start();
         if (!needed && sampleTimer.IsRunning) sampleTimer.Stop();
     }
@@ -53,15 +54,16 @@ internal sealed partial class AutomationTriggers
     private void ResetPcSampling()
     {
         ResetTimeSampling();
-        runningPrograms = null;
         samplingRevision++;
+        SeedRunningPrograms();
     }
 
     private void SamplePcState()
     {
         if (suspended || disposed) return;
+        if (watchForeground) ApplyForeground();
         if (sampledRules.Length != 0) SampleTimeAndInput();
-        if (processTargets.Length != 0 && !readingProcesses) _ = SampleProcessesAsync();
+        if (processTargets.Length != 0 && !readingProcesses && Environment.TickCount64 >= nextProcessSample) _ = SampleProcessesAsync();
         if (recovery.Count != 0) _ = DispatchRecoveryAsync();
     }
 
@@ -97,6 +99,7 @@ internal sealed partial class AutomationTriggers
     private async Task SampleProcessesAsync()
     {
         readingProcesses = true;
+        nextProcessSample = Environment.TickCount64 + 500;
         var revision = samplingRevision;
         var paths = processTargets;
         try
@@ -115,6 +118,13 @@ internal sealed partial class AutomationTriggers
         }
         catch (Win32Exception) { /* Preserve the previous sample if process enumeration fails. */ }
         finally { readingProcesses = false; }
+    }
+
+    private void SeedRunningPrograms()
+    {
+        nextProcessSample = 0;
+        try { runningPrograms = processTargets.Length == 0 ? null : FindRunningPrograms(processTargets, sessionId); }
+        catch (Win32Exception) { runningPrograms = null; }
     }
 
     private static HashSet<string> FindRunningPrograms(string[] paths, int session)

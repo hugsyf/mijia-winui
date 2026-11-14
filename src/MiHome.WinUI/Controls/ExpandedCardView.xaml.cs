@@ -38,7 +38,11 @@ public sealed partial class ExpandedCardView : UserControl
         foreach(var item in items)
         {
             FrameworkElement control;
-            if(item.Action is {} action)
+            if(CardCompositePlan.IsComposite(item.Widget.Kind))
+                control=new CardCompositeControl(item.Widget,tile,service,
+                    (property,value)=>AdapterConditions.Matches(this.tile.Device.Adapter,this.tile.State,item.Widget.EnabledWhen)?Write(property,value):Task.FromResult<string?>(Infrastructure.UiText.Get("ConditionDisabled")),
+                    message=>Feedback?.Invoke(message),busy=>{actionBusy=busy;UpdateControls();},session.RefreshAsync);
+            else if(item.Action is {} action)
             {
                 var button=new ActionControl(tile.Device,action,item.Widget,service,compact:true);
                 button.SetGuard(()=>AdapterConditions.Matches(tile.Device.Adapter,tile.State,item.Widget.EnabledWhen));
@@ -106,6 +110,7 @@ public sealed partial class ExpandedCardView : UserControl
             ((Control)control).IsEnabled=enabled;
             if(control is CardPropertyControl property)property.Update(tile,busy||!enabled);
             if(control is ActionControl action)action.SetAvailable(tile.Device.Online&&!tile.IsEditing&&!busy&&enabled);
+            if(control is CardCompositeControl composite)composite.Update(tile,busy||!enabled);
         }
         content.ColumnSpacing=column>1?16:0;
     }

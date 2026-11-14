@@ -169,10 +169,11 @@ public sealed partial class MainWindow : Window
     {
         var selectedHome = (Homes.SelectedItem as Home)?.Id;
         var homes = (await backend.CallAsync("ListHomes")).Deserialize<List<Home>>(BackendClient.Json) ?? [];
+        var savedHome = (await backend.CallAsync("GetSelectedHome")).GetProperty("homeId").GetString();
         App.Session.SetHomes(homes);
         App.Automation.Bind((await backend.CallAsync("GetAutomationAccount")).GetProperty("account").GetString());
         Homes.ItemsSource = homes;
-        Homes.SelectedItem = homes.FirstOrDefault(h => h.Id == selectedHome) ?? homes.FirstOrDefault();
+        Homes.SelectedItem = homes.FirstOrDefault(h => h.Id == selectedHome) ?? homes.FirstOrDefault(h => h.Id == savedHome) ?? homes.FirstOrDefault();
         if (homes.Count > 0) await LoadDevicesAsync();
         else { browser.SetDevices([]); ApplyFilter(); ShowMessage("此账号没有可用家庭。请在手机米家中确认账号和地区。"); }
     }

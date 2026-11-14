@@ -139,8 +139,18 @@ internal static class DeviceCardPresentation
         var schema = state?.Schema.Properties.FirstOrDefault(p => p.Readable && !p.Writable && Semantic(p.ServiceType) == "router" &&
             Semantic(p.PropertyType) == property && (p.Type is "float" or "double" || p.Type.StartsWith("uint") || p.Type.StartsWith("int")));
         // The public 0..100 range contradicts observed byte/s readings. This exception is read-only and rate-specific.
-        return schema is not null && TryValue(state, schema with { Range = [] }, out var value) && value.ValueKind == JsonValueKind.Number && value.GetDouble() is var bytes && bytes >= 0
-            ? (bytes / 1_000_000d).ToString("0.###", CultureInfo.CurrentCulture) + " MB/s" : null;
+        if (schema is null || !TryValue(state, schema with { Range = [] }, out var value) || value.ValueKind != JsonValueKind.Number)
+            return null;
+        var bytes = value.GetDouble();
+        if (bytes < 0) return null;
+        var (divisor, unit) = bytes switch
+        {
+            >= 1_000_000_000 => (1_000_000_000d, "GB/s"),
+            >= 1_000_000 => (1_000_000d, "MB/s"),
+            >= 1_000 => (1_000d, "KB/s"),
+            _ => (1d, "B/s")
+        };
+        return (bytes / divisor).ToString("0.###", CultureInfo.CurrentCulture) + " " + unit;
     }
     public static string Summary(DeviceIdentity device, DeviceCardState? state)
     {

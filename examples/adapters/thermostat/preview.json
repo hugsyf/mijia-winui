@@ -1,0 +1,86 @@
+{
+  "model": "example.thermostat.demo",
+  "specType": "urn:miot-spec-v2:device:air-conditioner:0000A004:example:1",
+  "schema": {
+    "properties": [
+      {
+        "siid": 2,
+        "piid": 1,
+        "service": "air-conditioner",
+        "name": "on",
+        "type": "bool",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [],
+        "serviceType": "urn:miot-spec-v2:service:air-conditioner:00007800",
+        "propertyType": "urn:miot-spec-v2:property:on:00000001"
+      },
+      {
+        "siid": 2,
+        "piid": 2,
+        "service": "air-conditioner",
+        "name": "target-temperature",
+        "type": "float",
+        "unit": "celsius",
+        "readable": true,
+        "writable": true,
+        "range": [
+          16,
+          30,
+          0.5
+        ],
+        "values": [],
+        "serviceType": "urn:miot-spec-v2:service:air-conditioner:00007800",
+        "propertyType": "urn:miot-spec-v2:property:target-temperature:00000001"
+      },
+      {
+        "siid": 3,
+        "piid": 1,
+        "service": "environment",
+        "name": "temperature",
+        "type": "float",
+        "unit": "celsius",
+        "readable": true,
+        "writable": false,
+        "range": [
+          -20,
+          80,
+          0.1
+        ],
+        "values": [],
+        "serviceType": "urn:miot-spec-v2:service:environment:00007800",
+        "propertyType": "urn:miot-spec-v2:property:temperature:00000001"
+      },
+      {
+        "siid": 2,
+        "piid": 3,
+        "service": "air-conditioner",
+        "name": "mode",
+        "type": "uint8",
+        "unit": "",
+        "readable": true,
+        "writable": true,
+        "range": [],
+        "values": [
+          {
+            "value": 1,
+            "description": "Auto"
+          },
+          {
+            "value": 2,
+            "description": "Heat"
+          },
+          {
+            "value": 3,
+            "description": "Cool"
+          }
+        ],
+        "serviceType": "urn:miot-spec-v2:service:air-conditioner:00007800",
+        "propertyType": "urn:miot-spec-v2:property:mode:00000001"
+      }
+    ],
+    "actions": []
+  }
+}

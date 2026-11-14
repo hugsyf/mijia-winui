@@ -11,10 +11,16 @@ public sealed partial class EnumChoiceControl : UserControl
     private JsonElement? currentValue;
     public event Action<JsonElement>? ValueChosen;
     public EnumChoiceControl() => InitializeComponent();
-    public EnumChoiceControl(List<EnumValue> values, string presentation = "auto") : this()
+    public EnumChoiceControl(List<EnumValue> values, string presentation = "auto", bool compact = false) : this()
     {
         this.values = values;
-        foreach (var value in values) bar.Items.Add(new SelectorBarItem { Text = value.DisplayLabel });
+        foreach (var value in values)
+        {
+            var item=new SelectorBarItem { Text=value.DisplayLabel };
+            if(compact)item.MinHeight=28;
+            bar.Items.Add(item);
+        }
+        if(compact){bar.MinHeight=28;menu.MinHeight=28;menu.Padding=new Thickness(6,2,6,2);}
         menu.ItemsSource = values.Select(v => v.DisplayLabel).ToList();
         bar.SelectionChanged += (_, _) => Choose(bar.SelectedItem is {} item ? bar.Items.IndexOf(item) : -1);
         menu.SelectionChanged += (_, _) => Choose(menu.SelectedIndex);
@@ -34,7 +40,7 @@ public sealed partial class EnumChoiceControl : UserControl
                     var item = bar.Items[index];
                     item.Width = Math.Max(0, ActualWidth - 2) / values.Count;
                     var inset = Math.Max(12, (item.Width - widths[index]) / 2);
-                    item.Padding = new Thickness(inset, 8, inset, 8);
+                    item.Padding = new Thickness(inset, compact?4:8, inset, compact?4:8);
                     item.HorizontalAlignment = HorizontalAlignment.Stretch;
                     item.HorizontalContentAlignment = HorizontalAlignment.Center;
                 }
